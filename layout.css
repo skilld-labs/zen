@@ -1,0 +1,87 @@
+/*****************************************************
+*  Layout STYLES 
+*
+*  Define CSS classes to implement the Holy Grail Layout
+*  to create a table-free, 3-column, 2-column, or single column 
+*  layout depending on whether blocks are enabled in the left 
+*  or right columns
+*  more info: 
+*  http://www.alistapart.com/articles/holygrail/
+*
+******************************************************/
+
+#main {
+  padding: 10px 10px;    /* main padding */  /* horizontal padding considers border width */
+}
+
+#container.withleft #main {
+  margin-left: 199px;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  margin-left: 200px;
+}
+
+#container.withright #main {
+  margin-right: 199px;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  margin-right: 200px;
+}
+
+html>body #container.withleft #main {
+  margin-left: 200px;
+}
+
+html>body #container.withright #main {
+  margin-right: 200px;
+}
+
+#sidebar-left {
+  float:left;
+  width:180px;
+  padding: 0 10px 0;   /* left-side padding */
+}
+#sidebar-right {
+  float:right;
+  width:180px;
+  padding:0 0 0 10px;    /* right-side padding */ /* horizontal padding considers border width */
+}
+
+#footer {
+  clear: both;
+}
+
+* html body {
+  overflow: hidden;
+}
+
+* html #footer-wrapper {
+  width: 100%;
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+}
+
+/*
+** Markup free clearing
+** Details: http://www.positioniseverything.net/easyclearing.html
+*/
+.clear-block:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clear-block {
+  display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+* html .clear-block {
+  height: 1%;
+}
+.clear-block {
+  display: block;
+}
+/* End hide from IE-mac */
