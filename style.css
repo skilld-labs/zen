@@ -1,6 +1,13 @@
 @CHARSET "UTF-8";
 
 /*****************************************************
+*   Zen CSS
+*
+*   $Id$
+*
+******************************************************/
+
+/*****************************************************
 *   IMPORT EXTERNAL STYLE SHEETS 
 *   We have separated out these styles because they are
 *   common to the zen template system.
