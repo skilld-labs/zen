@@ -3,7 +3,7 @@
 /**
   Define custom regions for placing blocks.
 */
-function delicious_zen_regions() {
+function zen_regions() {
   return array(
        'left' => t('left sidebar'),
        'right' => t('right sidebar'),

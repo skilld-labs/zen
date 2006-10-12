@@ -17,29 +17,31 @@
 *
 ******************************************************/
 body {
-  /*font-size: 13px;*/  /* <--- This declaration is breaking layout in Safari... very weird... */
+  font-size: 13px;
   font-family: arial,helvetica,clean,sans-serif;
-  *font-size: small;
-  *font: x-small;
+  * font-size: small;
+  * font: x-small;
   font: 76% Verdana, Arial, Helvetica, sans-serif;
 }
 
-* HTML body { font-size: 60%;}
+* HTML body {
+  font-size: 60%;
+}
 
-table tr.odd{
+table tr.odd {
   background: #ddd;
 }
 
 tr, td {
-  padding:.25em;
+  padding: .25em;
 }
 
 td.icon {
-  text-align:center;
+  text-align: center;
 }
 code, pre {
-  font:115% monospace;
-  *font-size:100%;
+  font: 115% monospace;
+  * font-size: 100%;
 }
 
 body * {
@@ -112,7 +114,7 @@ h1, h1 a, h1 a:hover {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: #6191C5;
-  font-size: 28px;
+  font-size: 200%;
   margin:0;
   margin-bottom:0px;
   line-height:normal;
