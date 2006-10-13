@@ -111,7 +111,7 @@ function _phptemplate_variables($hook, $vars = array()) {
     case 'page':
       // if we're on the homepage we want to show a special graphic
       if ($vars['is_front']) {
-        $vars['home_bannder'] = 'some_image.jpg';
+        $vars['home_banner'] = 'some_image.jpg';
       }
       
       break;
