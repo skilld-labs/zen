@@ -6,7 +6,6 @@
   <?php print $head ?>
   <?php print $styles ?>
   <?php print $scripts ?>
-  <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyle Content in IE */ ?> </script>
   </head>
 
 <body id="<?php if ($is_front) { print 'home'; } else { print 'second'; } ?>">
