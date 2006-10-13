@@ -82,6 +82,7 @@
         <?php print $help ?>
         <?php print $messages ?>
         <?php print $content ?>
+        <?php print $feed_icons ?>
         <?php if ($content_bottom): ?><div id="content-bottom"><?php print $content_bottom ?></div><?php endif; ?>
       </div>
     </div>
