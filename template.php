@@ -100,6 +100,7 @@ function zen_regions() {
 /**
  * Note this is just an example so it is commented out
  *
+ *
  
 function _phptemplate_variables($hook, $vars = array()) {
   
@@ -108,9 +109,9 @@ function _phptemplate_variables($hook, $vars = array()) {
   
   switch ($hook) {
     case 'page':
-      // if we're on the homepage we want to load a different template file
+      // if we're on the homepage we want to show a special graphic
       if ($vars['is_front']) {
-        $vars['template_file'] = 'page-index.tpl.php';
+        $vars['home_bannder'] = 'some_image.jpg';
       }
       
       break;
@@ -122,6 +123,14 @@ function _phptemplate_variables($hook, $vars = array()) {
       // set a new $is_admin variable
       // this is determined by looking at the currently logged in user and seeing if they are in the role 'admin'
       $vars['is_admin'] = in_array('admin', $user->roles);
+      break;
+      
+    case 'comment':
+      // we load the node object that the current comment is attached to
+      $node_author = node_load($vars['comment']->nid);
+      // if the author of this comment is equal to the author of the node, we set a variable
+      // then in our theme we can theme this comment differently to stand out
+      $vars['author_comment'] = $vars['comment']->uid == $node_author->uid ? TRUE : FALSE;
       break;
   }
   
