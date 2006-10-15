@@ -189,23 +189,23 @@ ol, ul, dl {
 }
 
 /* Header styles */
-#logo, 
-#site-name {
-  /*display:inline;*/
-}
-
+ 
 #logo-title {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin: 10px 20px 0 20px;
   position: relative;
 }
 
 #logo{
-  margin-right: 10px;
+  vertical-align: baseline;
+}
+
+#name-and-slogan {
+  display: inline;
 }
 
 #site-name {
   margin: 0;
+  display: inline;
 }
 
 #site-name a, #site-name a:hover {
@@ -223,14 +223,12 @@ ol, ul, dl {
   font-size: 85%;
 }
 
-#name-and-slogan {
-  display: inline;
+#search {
   position: absolute;
-  bottom: 0;
-}
-
-#name-and-slogan div {
-  
+  padding:0;
+  top: 5px;
+  right: 0;
+  z-index: 10;
 }
 
 #mission {
@@ -241,14 +239,6 @@ ol, ul, dl {
   margin-bottom:20px;
   font-size: 85%;
   border: solid 1px #B5C9D8;
-}
-
-#search {
-  float:right;
-  position:relative;
-  padding:0;
-  top:5px;
-  margin-right:20px;
 }
 
 .breadcrumb {
