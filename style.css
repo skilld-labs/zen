@@ -195,13 +195,11 @@ ol, ul, dl {
 }
 
 #logo{
-  position:relative;
-  top:.6em;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 #logo-title {
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 #site-name a, #site-name a:hover {

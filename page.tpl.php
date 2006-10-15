@@ -20,6 +20,8 @@
           </a>
         <?php endif; ?>
         
+        <div id="name-and-slogan">
+        
         <?php if ($site_name): ?>
           <h1 id='site-name'>
             <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>">
@@ -28,11 +30,13 @@
           </h1>
         <?php endif; ?>
         
-        <?php if ($site_slogan): ?> 
+        <?php if ($site_slogan): ?>
           <div id='site-slogan'>
             <?php print $site_slogan; ?>
           </div>
         <?php endif; ?>
+        
+        </div>
         
       </div>
      
