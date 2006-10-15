@@ -279,6 +279,10 @@ div.menu {
   text-decoration:none;
 }
 
+#primary a.active {
+  background-position: 0% -84px;
+}
+
 #secondary{
   padding-left:20px;
   background: #6DA6E2; /*#347FD2;*/
@@ -306,6 +310,11 @@ div.menu {
 
 #secondary a:hover {
   background:#2763A5;
+}
+
+#secondary a.active {
+  font-weight:bold;
+  background:#5C98D4;
 }
 
 /* Link styles */
