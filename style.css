@@ -23,17 +23,26 @@
 *  Standardize font sizes and line-height across browsers 
 *
 ******************************************************/
+
+body {font:13px arial,helvetica,clean,sans-serif;*font-size:small;*font:x-
+small;}
+table {font-size:inherit;font:100%;}
+select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
+pre, code {font:115% monospace;*font-size:100%;}
+/* body * {line-height:1.22em;} */
+
+/* ************************** */
+
+/*
 body {
-  font-size: 13px;
-  font-family: arial,helvetica,clean,sans-serif;
-  * font-size: small;
-  * font: x-small;
   font: 76% Verdana, Arial, Helvetica, sans-serif;
 }
+
 
 * HTML body {
   font-size: 60%;
 }
+*/
 
 table tr.odd {
   background: #ddd;
@@ -45,14 +54,6 @@ tr, td {
 
 td.icon {
   text-align: center;
-}
-code, pre {
-  font: 115% monospace;
-  * font-size: 100%;
-}
-
-body * {
-  /*line-height: 1.22em;*/  /* <--- This is causing elements to not inherit line-heights... frustrating... */
 }
 
 
@@ -102,6 +103,10 @@ body {
   color: #333;
 }
 
+div.content, div.links {
+  font-size: 92%;
+}
+
 a, a:link, a:visited {
   /*color: #6191C5;  too light? */
   color: #2763A5;
@@ -117,7 +122,7 @@ a:active, a.active {
   color: #89A3E4; 
 }
 		
-h1, h1 a, h1 a:hover {
+h1.title, h1.title a, h1.title a:hover {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: #6191C5;
@@ -126,19 +131,23 @@ h1, h1 a, h1 a:hover {
   margin-bottom:0px;
   line-height:normal;
 }
-h1.title {
-  margin-bottom:0px;
+
+h1, h1 a, h1 a:hover {
+  font-size: 140%;
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  margin:.5em 0 .5em 0;
 }
 
 h2, h2 a, h2 a:hover, .block h3, .block h3 a {
-  font-size: 16px;
+  font-size: 122%;
   color: #444;
   font-family: Arial, Helvetica, sans-serif;
   margin:.5em 0 .5em 0;
 }
 
 h3 { 
-  font-size: 14px;
+  font-size: 107%;
   font-weight: bold; 
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -167,7 +176,7 @@ blockquote {
 }
 
 code {
-  font-size: 1em;
+  font-size: 100%;
   font-family: Profont, 'lucida console', 'Courier New', Monaco, monospace;
 }
 
@@ -192,13 +201,13 @@ ol, ul, dl {
 }
 
 #logo-title {
-  margin-left:20px;
+  margin-left: 0px;
 }
 
 #site-name a, #site-name a:hover {
   font-weight:normal;
   color: #6DA6E2;
-  font-size:32px;
+  font-size: 176%;
   margin:0;
   padding:0;
   z-index:5;
@@ -207,8 +216,7 @@ ol, ul, dl {
 #site-slogan {
   color: #aaa;
   margin-top:4px;
-  font-size:.8em;
-  margin-left:40px;
+  font-size: 85%;
 }
 
 #mission {
@@ -217,7 +225,7 @@ ol, ul, dl {
   padding: 2em;
   background: #D7E3F0 url(images/background.png);
   margin-bottom:20px;
-  font-size:.9em;
+  font-size: 85%;
   border: solid 1px #B5C9D8;
 }
 
@@ -232,7 +240,7 @@ ol, ul, dl {
 .breadcrumb {
   margin:0;
   padding:0;
-  font-size: .9em;
+  font-size: 85%;
   margin-left:20px;
 }
 
@@ -242,7 +250,7 @@ div.menu {
 }
 
 #primary {
-  font-size: .9em;
+  font-size: 85%;
   line-height:normal;
   padding:0px 0px 1px 20px;
   border-bottom:4px solid #2763A5;
@@ -303,7 +311,7 @@ div.menu {
   float:left;
   display:block;
   color: #fff;
-  font-size:.9em;
+  font-size: 85%;
   text-decoration:none;
   padding:0px 5px 0px 5px;
 }
@@ -363,7 +371,7 @@ input, textarea, textfield {
   color: #000;
   font-family: arial;
   padding:1px;
-  font-size: 1em;
+  font-size: 100%;
 }
 
 fieldset {
@@ -438,7 +446,7 @@ div.error {
   color:#FFFFFF;
   text-align: center;
   margin:0;
-  font-size: .9em;
+  font-size: 85%;
   padding: 1em;
 }
   
@@ -476,7 +484,7 @@ div.error {
   margin-bottom:0;
   padding:5px 5px 5px 30px;
   font-family: verdana;
-  font-size:1.2em;
+  font-size: 122%;
   color:#fff;
   border-width: 0px 2px 2px 2px;
 }
@@ -489,7 +497,7 @@ div.error {
 }
 
 .comment  h3.title, .comment  h3.title a{
-  font-size:1.25em;
+  font-size: 122%;
   color: #2266AB;
   font-weight:normal;
   font-family: "Trebuchet MS", Arial, Verdana, Sans-serif;
@@ -565,7 +573,7 @@ div.node div.content .book-navigation .page-links{
 
 .node h2.title a {
   color: #555;
-  font-size:20px;
+  font-size: 129%;
   font-weight:normal;
   font-family:verdana;
   line-height:1.4em;
@@ -577,7 +585,7 @@ div.node div.content .book-navigation .page-links{
 }
 
 .submitted, .taxonomy { 
-  font-size:.9em;
+  font-size: 85%;
   color: #999; 
 }
 
