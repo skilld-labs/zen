@@ -11,6 +11,10 @@
     <span class="submitted"><?php print t('Posted ') . format_date($node->created, 'custom', "F jS, Y") . t(' by ') . theme('username', $node); ?></span> 
   <?php endif; ?>
   
+  <?php if (count(taxonomy_node_get_terms($node->nid))): ?>
+    <div class="taxonomy"><?php print t('tags: ') . $terms; ?></div>
+  <?php endif; ?> 
+  
   <div class="content">
     <?php print $content; ?>
   </div>
@@ -20,8 +24,5 @@
       <?php print $links; ?>
     </div>
   <?php endif; ?>
-  
-  <?php if (count(taxonomy_node_get_terms($node->nid))): ?>
-    <div class="taxonomy"><?php print t('tags: ') . $terms; ?></div>
-  <?php endif; ?>     
+      
 </div>
