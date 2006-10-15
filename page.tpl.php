@@ -20,7 +20,7 @@
           </a>
         <?php endif; ?>
         
-        <div id="name-and-slogan"><span>
+        <div id="name-and-slogan">
         
         <?php if ($site_name): ?>
           <h1 id='site-name'>
@@ -36,7 +36,7 @@
           </div>
         <?php endif; ?>
         
-        </span></div>
+        </div>
         
       </div>
      

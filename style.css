@@ -214,7 +214,6 @@ ol, ul, dl {
   font-size: 176%;
   margin: 0;
   padding: 0;
-  z-index: 5;
 }
 
 #site-slogan {
@@ -228,7 +227,6 @@ ol, ul, dl {
   padding:0;
   top: 5px;
   right: 0;
-  z-index: 10;
 }
 
 #mission {
