@@ -191,30 +191,46 @@ ol, ul, dl {
 /* Header styles */
 #logo, 
 #site-name {
-  display:inline;
+  /*display:inline;*/
+}
+
+#logo-title {
+  margin-left: 20px;
+  margin-top: 10px;
+  position: relative;
 }
 
 #logo{
   margin-right: 10px;
 }
 
-#logo-title {
-  margin-left: 20px;
+#site-name {
+  margin: 0;
 }
 
 #site-name a, #site-name a:hover {
-  font-weight:normal;
+  font-weight: normal;
   color: #6DA6E2;
   font-size: 176%;
-  margin:0;
-  padding:0;
-  z-index:5;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
 }
 
 #site-slogan {
   color: #aaa;
-  margin-top:4px;
+  margin: 0;
   font-size: 85%;
+}
+
+#name-and-slogan {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+}
+
+#name-and-slogan div {
+  
 }
 
 #mission {
