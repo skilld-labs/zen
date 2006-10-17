@@ -342,7 +342,7 @@ ul.links li {
 
 .taxonomy ul.links li {
   border:none;
-  padding:.1em;
+  padding:0 .1em 0 .2em;
 }
 
 .taxonomy ul.links li:after {
