@@ -610,3 +610,22 @@ div.node div.content .book-navigation .page-links{
 .block .item-list ul {
   padding-left:0;
 }
+
+.pager {
+  text-align:center;
+  margin-top: 30px;
+}
+
+.pager  a, .pager-current{
+  padding:3px 8px 3px 8px;
+  margin:0 2px 0 2px;
+  color: #2763A5;
+  font-weight:bold;
+  border: solid 1px #eee;
+}
+
+.pager-current {
+  color: #fff;
+  background-color: #2763A5;  
+}
+
