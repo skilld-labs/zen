@@ -24,25 +24,22 @@
 *
 ******************************************************/
 
-body {font:13px arial,helvetica,clean,sans-serif;*font-size:small;*font:x-
-small;}
-table {font-size:inherit;font:100%;}
-select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
-pre, code {font:115% monospace;*font-size:100%;}
-/* body * {line-height:1.22em;} */
-
-/* ************************** */
-
-/*
 body {
-  font: 76% Verdana, Arial, Helvetica, sans-serif;
+  font:13px arial,helvetica,clean,sans-serif;
+  *font-size:small;
+  *font:x-small;
 }
-
-
-* HTML body {
-  font-size: 60%;
+table {
+  font-size:inherit;
+  font:100%;
 }
-*/
+select, input, textarea {
+  font:99% arial,helvetica,clean,sans-serif;
+}
+pre, code {
+  font:115% monospace;
+  *font-size:100%;
+}
 
 table tr.odd {
   background: #ddd;
@@ -209,6 +206,7 @@ ol, ul, dl {
 }
 
 #site-name a, #site-name a:hover {
+  font-family: "Trebuchet MS", Arial, Verdana, Sans-serif;
   font-weight: normal;
   color: #6DA6E2;
   font-size: 176%;
@@ -220,12 +218,13 @@ ol, ul, dl {
   color: #aaa;
   margin: 0;
   font-size: 85%;
+  margin-left:20px;
 }
 
 #search {
   position: absolute;
   padding:0;
-  top: 5px;
+  top: 0;
   right: 0;
 }
 
@@ -324,7 +323,6 @@ div.menu {
 
 #secondary a.active {
   font-weight:bold;
-  background:#5C98D4;
 }
 
 /* Link styles */
@@ -336,6 +334,10 @@ ul.links li {
   border-left: 1px solid #9cf;
 }
 
+.taxonomy {
+  margin-left:20px;
+  display:inline;
+}
 .taxonomy ul.links li {
   border:none;
 }
@@ -359,12 +361,6 @@ ul.links li.first {
 }
 .links a {
   padding:0 .1em 0 .1em;
-}
-
-.node div.links {
-  padding-top:1px;
-  padding-bottom:4px;
-  border-bottom:dashed #eee 1px;
 }
 
 /* Form styles */	
