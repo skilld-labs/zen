@@ -335,26 +335,26 @@ ul.links li {
 }
 
 .taxonomy {
-  padding:2px;
-  border-top: dashed #eee 1px;
-  text-align:right;
+  margin:0;
+  padding:0;
+  display:inline;
 }
 
 .taxonomy ul.links li {
   border:none;
+  padding:.1em;
 }
 
-.taxonomy .links a {
-  text-decoration:none;
-  border-bottom: dotted 1px #9cf;
+.taxonomy ul.links li:after {
+  content: ",";
 }
 
-.taxonomy .links a:hover {
-  border-bottom: solid 1px #9cf;
+.taxonomy ul.links li.last:after {
+  content: "";
 }
 
 ul.links li.first {
-  padding-left:0px;
+  padding-left:0;
   border: none;
 }
 
