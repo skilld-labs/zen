@@ -11,7 +11,7 @@
     <span class="submitted"><?php print t('Posted ') . format_date($node->created, 'custom', "F jS, Y") . t(' by ') . theme('username', $node); ?></span> 
   <?php endif; ?>
   
-  <?php if (count(taxonomy_node_get_terms($node->nid))): ?>
+  <?php if ($terms): ?>
     <div class="taxonomy"><?php print t('tags: ') . $terms; ?></div>
   <?php endif; ?> 
   
