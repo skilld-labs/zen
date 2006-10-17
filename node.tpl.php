@@ -12,7 +12,7 @@
   <?php endif; ?>
   
   <?php if ($terms): ?>
-    <div class="taxonomy"><?php print t('tags: ') . $terms; ?></div>
+    <div class="taxonomy"><?php $terms ?></div>
   <?php endif; ?> 
   
   <div class="content">
