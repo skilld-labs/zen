@@ -335,9 +335,11 @@ ul.links li {
 }
 
 .taxonomy {
-  margin-left:20px;
-  display:inline;
+  padding:2px;
+  border-top: dashed #eee 1px;
+  text-align:right;
 }
+
 .taxonomy ul.links li {
   border:none;
 }
