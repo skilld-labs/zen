@@ -11,10 +11,8 @@
     <span class="submitted"><?php print t('Posted ') . format_date($node->created, 'custom', "F jS, Y") . t(' by ') . theme('username', $node); ?></span> 
   <?php endif; ?>
 
-  <?php if (module_exists('taxonomy')): ?>
-    <?php if (count(taxonomy_node_get_terms($node->nid))): ?>
-      <div class="taxonomy"><?php print t(' in ') . $terms ?></div>
-    <?php endif; ?>  
+  <?php if (count($taxonomy)): ?>
+    <div class="taxonomy"><?php print t(' in ') . $terms ?></div>
   <?php endif; ?>
   
   <div class="content">
