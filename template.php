@@ -1,6 +1,12 @@
 <?php
+// $Id$
 
 /**
+ * @file
+ * File which contains theme overrides for the Zen theme.
+ */
+
+/*
  * ABOUT
  *
  *  The template.php file is one of the most useful files when creating or modifying Drupal themes.
@@ -11,20 +17,20 @@
  */
 
  
-/**
-* MODIFYING OR CREATING REGIONS
-*
-* Regions are areas in your theme where you can place blocks.
-* The default regions used in themes  are "left sidebar", "right sidebar", "header", and "footer",  although you can create
-* as many regions as you want.  Once declared, they are made available to the page.tpl.php file as a variable.  
-* For instance, we use <?php print $header ?> for the placement of the "header" region in page.tpl.php.
-* 
-* By going to  the administer > site building > blocks page you can choose which regions various blocks should be placed.
-* New regions you define here will automatically show up in the drop-down list by their human readable name.
+/*
+ * MODIFYING OR CREATING REGIONS
+ *
+ * Regions are areas in your theme where you can place blocks.
+ * The default regions used in themes  are "left sidebar", "right sidebar", "header", and "footer",  although you can create
+ * as many regions as you want.  Once declared, they are made available to the page.tpl.php file as a variable.  
+ * For instance, we use <?php print $header ?> for the placement of the "header" region in page.tpl.php.
+ * 
+ * By going to  the administer > site building > blocks page you can choose which regions various blocks should be placed.
+ * New regions you define here will automatically show up in the drop-down list by their human readable name.
  */
  
  
-/**
+/*
  * Declare the available regions implemented by this engine.
  *
  * @return
@@ -42,7 +48,7 @@ function zen_regions() {
   );
 } 
 
-/**
+/*
  * OVERRIDING THEME FUNCTIONS
  *
  *  The Drupal theme system uses special theme functions to generate HTML output automatically.
@@ -58,7 +64,7 @@ function zen_regions() {
  *
  */
 
-/**
+ /**
   * Return a themed breadcrumb trail.
   *
   * @param $breadcrumb
@@ -72,7 +78,7 @@ function zen_regions() {
  }
  
  
-/** 
+/* 
  * CREATE OR MODIFY VARIABLES FOR YOUR THEME
  *
  *  The most powerful function available to themers is the _phptemplate_variables() function. It allows you
@@ -106,12 +112,12 @@ function _phptemplate_variables($hook, $vars = array()) {
     case 'page':   
       global $user;      
       // An anonymous user has a user id of zero.      
-      if($user->uid > 0) {
-        // the user is logged in
+      if ($user->uid > 0) {
+        // The user is logged in.
         $vars['logged_in'] = TRUE;
       }
       else {
-        // the user has logged out
+        // The user has logged out.
         $vars['logged_in'] = FALSE;
       }
       break; 
