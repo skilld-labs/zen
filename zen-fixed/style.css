@@ -18,9 +18,8 @@ body {
 }
 
 #page {
-  padding-top:10px;
   width: 800px;              /* page width - optional */
-  margin: 0 auto;            /* center the page - optional */
+  margin: 10px auto;            /* center the page - optional */
 }
 
 #logo-title {
