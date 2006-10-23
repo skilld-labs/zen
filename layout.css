@@ -1,5 +1,7 @@
-/*****************************************************
-*  Layout STYLES 
+/*   $Id$ */
+
+/**
+*  LAYOUT STYLES
 *
 *  Define CSS classes to implement the Holy Grail Layout
 *  to create a table-free, 3-column, 2-column, or single column 
@@ -7,8 +9,7 @@
 *  or right columns
 *  more info: 
 *  http://www.alistapart.com/articles/holygrail/
-*
-******************************************************/
+*/
 
 #main {
   padding: 10px 10px;    /* main padding */  /* horizontal padding considers border width */
@@ -62,5 +63,3 @@ html>body #container.withright #main {
   padding-bottom: 10010px;
   margin-bottom: -10000px;
 }
-
-

@@ -1,34 +1,31 @@
 @CHARSET "UTF-8";
 
-/*****************************************************
+/**
 *   Zen CSS
 *
 *   $Id$
-*
-******************************************************/
+*/
 
-/*****************************************************
+/**
 *   IMPORT EXTERNAL STYLE SHEETS 
 *   We have separated out these styles because they are
 *   common to the zen template system.
-*
-******************************************************/
+*/
 @import "layout.css";
 @import "icons.css";
 
-
-/*****************************************************
+/**
 *   FONT STYLES 
 *
 *  Standardize font sizes and line-height across browsers 
-*
-******************************************************/
+*/
 
 body {
   font:13px arial,helvetica,clean,sans-serif;
   *font-size:small;
   *font:x-small;
 }
+
 table {
   font-size:inherit;
   font:100%;
@@ -54,19 +51,18 @@ td.icon {
 }
 
 
-/*****************************************************
+/**
 *   LAYOUT STYLES 
 *
 *  Styles pertaining to minor layout adjustments, such as
 *   changing from fluid width to fixed width.  
 *   See layout.css for major adjustments.
-*
-******************************************************/
+*/
 body {
   margin: 0;
   padding: 0;
-  min-width: 700px;      /* 2x (left-side fullwidth +
-                            main padding) + right-side fullwidth */
+  min-width: 700px;      
+  /* 2x (left-side fullwidth + main padding) + right-side fullwidth */
 }
 
 #page {
@@ -77,14 +73,13 @@ body {
 }
 
 
-/*****************************************************
+/**
 *  OTHER STYLES
 *
-*  Styles that are very specific to this theme.
-*
-******************************************************/
+*  Styles that are specific to this theme.
+*/
 
-/*Common styles */
+/* Common styles */
 body {
   background: #fff;
 }
@@ -96,6 +91,10 @@ body {
   background-color: #fff;
 }
 
+#container {
+  margin:0px 10px 10px 10px;
+}
+
 #main .node .content{
   color: #333;
 }
@@ -105,7 +104,6 @@ div.content, div.links {
 }
 
 a, a:link, a:visited {
-  /*color: #6191C5;  too light? */
   color: #2763A5;
   text-decoration: none;
 }
@@ -365,6 +363,11 @@ ul.links li.first {
   padding:0 .1em 0 .1em;
 }
 
+.submitted, .taxonomy { 
+  font-size: 85%;
+  color: #999; 
+}
+
 /* Form styles */	
 input, textarea, textfield {
   margin:0;
@@ -559,7 +562,26 @@ div.node div.content .book-navigation .page-links{
   width: 100%;
 }
 
-/* Node, content styles */
+/* Pager styles */
+.pager {
+  text-align:center;
+  margin-top: 30px;
+}
+
+.pager  a, .pager-current{
+  padding:3px 8px 3px 8px;
+  margin:0 2px 0 2px;
+  color: #2763A5;
+  font-weight:bold;
+  border: solid 1px #eee;
+}
+
+.pager-current {
+  color: #fff;
+  background-color: #2763A5;  
+}
+
+/* Node, Block, Content styles */
 .node {
   margin-bottom:15px;
   padding-bottom:15px;
@@ -582,21 +604,12 @@ div.node div.content .book-navigation .page-links{
   padding-bottom:5px;
 }
 
-.submitted, .taxonomy { 
-  font-size: 85%;
-  color: #999; 
-}
-
 .sticky {
   border-bottom: solid 3px #ddd;
 }
 
 .profile {
   clear:none;
-}
-
-#container {
-  margin:0px 10px 10px 10px;
 }
 
 #sidebar-left .block, #sidebar-right .block {
@@ -608,22 +621,3 @@ div.node div.content .book-navigation .page-links{
 .block .item-list ul {
   padding-left:0;
 }
-
-.pager {
-  text-align:center;
-  margin-top: 30px;
-}
-
-.pager  a, .pager-current{
-  padding:3px 8px 3px 8px;
-  margin:0 2px 0 2px;
-  color: #2763A5;
-  font-weight:bold;
-  border: solid 1px #eee;
-}
-
-.pager-current {
-  color: #fff;
-  background-color: #2763A5;  
-}
-

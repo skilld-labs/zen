@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
 
-/*****************************************************
+/**
 *   Zen Fixed
 *
 *   Provides CSS to make a fixed width version of the theme.
 *   $Id$
 *
-******************************************************/
+*/
 
 /* We need to grab the CSS files from the directory above*/
 @import "../layout.css";
