@@ -23,7 +23,7 @@
  * Regions are areas in your theme where you can place blocks.
  * The default regions used in themes  are "left sidebar", "right sidebar", "header", and "footer",  although you can create
  * as many regions as you want.  Once declared, they are made available to the page.tpl.php file as a variable.  
- * For instance, we use <?php print $header ?> for the placement of the "header" region in page.tpl.php.
+ * For instance, use <?php print $header ?> for the placement of the "header" region in page.tpl.php.
  * 
  * By going to  the administer > site building > blocks page you can choose which regions various blocks should be placed.
  * New regions you define here will automatically show up in the drop-down list by their human readable name.
