@@ -109,8 +109,10 @@ function zen_regions() {
 function _phptemplate_variables($hook, $vars = array()) {
   switch ($hook) {
     // Send a new variable, $logged_in, to page.tpl.php to tell us if the current user is logged in or out.
-    case 'page':   
-      global $user;      
+    case 'page':
+      // get the currently logged in user
+      global $user;
+      
       // An anonymous user has a user id of zero.      
       if ($user->uid > 0) {
         // The user is logged in.
@@ -120,7 +122,24 @@ function _phptemplate_variables($hook, $vars = array()) {
         // The user has logged out.
         $vars['logged_in'] = FALSE;
       }
-      break; 
+      break;
+      
+    case 'node':
+      // get the currently logged in user
+      global $user;
+
+      // set a new $is_admin variable
+      // this is determined by looking at the currently logged in user and seeing if they are in the role 'admin'
+      $vars['is_admin'] = in_array('admin', $user->roles);
+      break;
+      
+    case 'comment':
+      // we load the node object that the current comment is attached to
+      $node = node_load($vars['comment']->nid);
+      // if the author of this comment is equal to the author of the node, we set a variable
+      // then in our theme we can theme this comment differently to stand out
+      $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
+      break;
   }
   
   return $vars;
