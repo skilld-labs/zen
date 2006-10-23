@@ -290,7 +290,7 @@ div.menu {
   background-position: 0% -84px;
 }
 
-#secondary{
+#secondary {
   padding-left:20px;
   background: #6DA6E2; /*#347FD2;*/
   border-bottom: solid #2763A5 4px;
@@ -306,7 +306,7 @@ div.menu {
   display:inline;
 }
 
-#secondary li a{
+#secondary li a {
   float:left;
   display:block;
   color: #fff;
@@ -413,7 +413,7 @@ input.form-checkbox, input.form-radio {
   text-align:left;
 }
 
-#user-login-form .item-list ul{
+#user-login-form .item-list ul {
   margin-top:10px;
 }
 
@@ -472,7 +472,7 @@ div.error {
   padding:0;
 }
 
-.admin-panel .body{
+.admin-panel .body {
   background-color: #eee;
   border: solid #6191C5 1px;
 }
@@ -481,7 +481,7 @@ div.error {
   padding:10px;
 }
 
-.admin-panel h3{
+.admin-panel h3 {
   margin-bottom:0;
   padding:5px 5px 5px 30px;
   font-family: verdana;
@@ -497,7 +497,7 @@ div.error {
   background: #EBF2F8;
 }
 
-.comment  h3.title, .comment  h3.title a{
+.comment  h3.title, .comment  h3.title a {
   font-size: 122%;
   color: #2266AB;
   font-weight:normal;
@@ -549,7 +549,7 @@ div.node div.content .book-navigation ul.menu {
   padding-bottom:10px;
 }
 
-div.node div.content .book-navigation .page-links{
+div.node div.content .book-navigation .page-links {
   background: #C1D4EA; /*#347FD2;*/
   border:1px solid #2763A5;
   border-width:1px 0 1px 0;
@@ -568,7 +568,7 @@ div.node div.content .book-navigation .page-links{
   margin-top: 30px;
 }
 
-.pager  a, .pager-current{
+.pager  a, .pager-current {
   padding:3px 8px 3px 8px;
   margin:0 2px 0 2px;
   color: #2763A5;
