@@ -122,6 +122,18 @@ function _phptemplate_variables($hook, $vars = array()) {
         // The user has logged out.
         $vars['logged_in'] = FALSE;
       }
+      
+      $body_classes = array();
+      // classes for body element
+      // allows advanced theming based on context (home page, node of certain type, etc.)
+      $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
+      $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
+      if ($vars['node']->type) {
+        $body_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
+      }
+      // implode with spaces
+      $vars['body_classes'] = implode(' ', $body_classes);
+      
       break;
       
     case 'node':
@@ -131,6 +143,18 @@ function _phptemplate_variables($hook, $vars = array()) {
       // set a new $is_admin variable
       // this is determined by looking at the currently logged in user and seeing if they are in the role 'admin'
       $vars['is_admin'] = in_array('admin', $user->roles);
+      
+      $node_classes = array('node');
+      if ($vars['sticky']) {
+      	$node_classes[] = 'sticky';
+      }
+      if (!$vars['node']->status) {
+      	$node_classes[] = 'node-unpublished';
+      }
+      $node_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
+      // implode with spaces
+      $vars['node_classes'] = implode(' ', $node_classes);
+      
       break;
       
     case 'comment':
@@ -143,4 +167,23 @@ function _phptemplate_variables($hook, $vars = array()) {
   }
   
   return $vars;
+}
+
+/**
+* Converts a string to a suitable html ID attribute.
+* - Preceeds initial numeric with 'n' character.
+* - Replaces space and underscore with dash.
+* - Converts entire string to lowercase.
+* - Works for classes too!
+* 
+* @param string $string
+*  the string
+* @return
+*  the converted string
+*/
+function zen_id_safe($string) {
+  if (is_numeric($string{0})) {
+    $string = 'n'. $string;
+  }
+  return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
 }
