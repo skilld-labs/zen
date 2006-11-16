@@ -66,18 +66,6 @@
     </div> <!-- /header -->
 
     <div id="container">
-    
-      <div id="main" class="column">
-        <?php if ($mission): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
-        <?php if ($content_top):?><div id="content-top"><?php print $content_top; ?></div><?php endif; ?>
-        <?php if ($title): ?><h1 class="title"><?php print $title; ?></h1><?php endif; ?>
-        <?php if ($tabs): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
-        <?php print $help; ?>
-        <?php print $messages; ?>
-        <?php print $content; ?>
-        <?php print $feed_icons; ?>
-        <?php if ($content_bottom): ?><div id="content-bottom"><?php print $content_bottom; ?></div><?php endif; ?>
-      </div>
             
       <?php if ($sidebar_left): ?>
         <div id="sidebar-left" class="column sidebar">
