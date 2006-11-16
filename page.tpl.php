@@ -37,12 +37,12 @@
           </div>
         <?php endif; ?>
         
-        </div>
+        </div> <!-- /name-and-slogan -->
         
-      </div>
+      </div> <!-- /logo-title -->
      
       
-      <div class="menu <?php if ($primary_links) { print "withprimary"; } if ($secondary_links) { print " withsecondary"; } ?> ">
+      <div id="navigation" class="menu <?php if ($primary_links) { print "withprimary"; } if ($secondary_links) { print " withsecondary"; } ?> ">
           <?php if ($primary_links): ?>
             <div id="primary" class="clear-block">
               <?php print theme('menu_links', $primary_links); ?>
@@ -54,7 +54,7 @@
               <?php print theme('menu_links', $secondary_links); ?>
             </div>
           <?php endif; ?>
-      </div>
+      </div> <!-- /navigation -->
       
       <?php if ($header || $breadcrumb): ?>
         <div id="header-region">
@@ -63,9 +63,9 @@
         </div>
       <?php endif; ?>
       
-    </div>
+    </div> <!-- /header -->
 
-    <div id="container" class="<?php if ($sidebar_left) { print "withleft"; } if ($sidebar_right) { print " withright"; }?> ">
+    <div id="container">
     
       <div id="main" class="column">
         <?php if ($mission): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
@@ -82,26 +82,38 @@
       <?php if ($sidebar_left): ?>
         <div id="sidebar-left" class="column sidebar">
           <?php print $sidebar_left; ?>
-        </div>
+        </div> <!-- /sidebar-left -->
       <?php endif; ?>  
+    
+      <div id="main" class="column"><div id="squeeze">
+        <?php if ($mission): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
+        <?php if ($content_top):?><div id="content-top"><?php print $content_top; ?></div><?php endif; ?>
+        <?php if ($title): ?><h1 class="title"><?php print $title; ?></h1><?php endif; ?>
+        <?php if ($tabs): ?><div class="tabs"><?php print $tabs; ?></div><?php endif; ?>
+        <?php print $help; ?>
+        <?php print $messages; ?>
+        <?php print $content; ?>
+        <?php print $feed_icons; ?>
+        <?php if ($content_bottom): ?><div id="content-bottom"><?php print $content_bottom; ?></div><?php endif; ?>
+      </div></div> <!-- /squeeze /main -->
 
       <?php if ($sidebar_right): ?>
         <div id="sidebar-right" class="column sidebar">
           <?php print $sidebar_right; ?>
-        </div>
+        </div> <!-- /sidebar-right -->
       <?php endif; ?>
 
-    </div>
+    </div> <!-- /container -->
 
     <div id="footer-wrapper">
       <div id="footer">
         <?php print $footer_message; ?>
-      </div>
-    </div>
+      </div> <!-- /footer -->
+    </div> <!-- /footer-wrapper -->
     
     <?php print $closure; ?>
     
-  </div>
+  </div> <!-- /page -->
 
 </body>
 </html>
