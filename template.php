@@ -122,7 +122,6 @@ function _phptemplate_variables($hook, $vars = array()) {
         // The user has logged out.
         $vars['logged_in'] = FALSE;
       }
-<<<<<<< template.php
       
       $body_classes = array();
       // classes for body element
@@ -146,20 +145,6 @@ function _phptemplate_variables($hook, $vars = array()) {
       // implode with spaces
       $vars['body_classes'] = implode(' ', $body_classes);
       
-=======
-      
-      $body_classes = array();
-      // classes for body element
-      // allows advanced theming based on context (home page, node of certain type, etc.)
-      $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
-      $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
-      if ($vars['node']->type) {
-        $body_classes[] = 'ntype-'. zen_id_safe($vars['node']->type);
-      }
-      // implode with spaces
-      $vars['body_classes'] = implode(' ', $body_classes);
-      
->>>>>>> 1.10
       break;
       
     case 'node':
