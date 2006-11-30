@@ -65,8 +65,8 @@
       
     </div> <!-- /header -->
 
-    <div id="container">
-            
+    <div id="container" class="clear-block">
+                  
       <?php if ($sidebar_left): ?>
         <div id="sidebar-left" class="column sidebar">
           <?php print $sidebar_left; ?>
