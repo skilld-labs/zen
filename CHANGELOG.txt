@@ -494,7 +494,7 @@ Zen 5.x-0.7, 2007-10-15
 - #118170 by : blockquote css border has two widths
 - #110810: change .submitted span to div
 - #100899: don't use sidebar class for widths
-- #182130 by : links in h2 and h3 different sizes
+- #182130 by joachim: links in h2 and h3 different sizes
 - #182556: Added CHANGELOG
 
 Zen 5.x-0.6, 2007-01-17
