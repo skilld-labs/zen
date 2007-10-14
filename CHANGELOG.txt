@@ -480,7 +480,7 @@ Zen 5.x-0.7, 2007-10-15
 - #118467 by : Screen redraw errors with resizable textareas in Firefox
 - #154937 by : add skip navigation for screen readers/mobility impaired
 - #122592: Ability to theme each primary link
-- #178560 by : Shifting avatars in the comment blocks
+- #178560 by incognito: Shifting avatars in the comment blocks
 - #110553 by rport: Use png instead of gif for images
 - #120052: Add linux fonts
 - #183360: Empty H2 appears on blocks with no titles
