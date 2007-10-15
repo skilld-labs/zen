@@ -477,7 +477,7 @@ Zen 5.x-0.8, 2007-11-29
 Zen 5.x-0.7, 2007-10-15
 -----------------------
 - #100894: For SEO, H1#site-name should be div#site-name strong
-- #118467 by : Screen redraw errors with resizable textareas in Firefox
+- #118467 by leandrosiow: Screen redraw errors with resizable textareas in Firefox
 - #154937 by msonnabaum: add skip navigation for screen readers/mobility impaired
 - #122592: Ability to theme each primary link
 - #178560 by incognito: Shifting avatars in the comment blocks
