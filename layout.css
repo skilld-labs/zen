@@ -1,16 +1,12 @@
-/*   $Id$ */
+/* $Id$ */
 
-/**
-*  LAYOUT STYLES
-*
-*  Define CSS classes to create a table-free,
-*  3-column, 2-column, or single column layout 
-*  depending on whether blocks are enabled in the 
-*  left or right columns.
-*/
-
-/**
- * Layout
+/*
+ * LAYOUT STYLES
+ *
+ * Define CSS classes to create a table-free,
+ * 3-column, 2-column, or single column layout
+ * depending on whether blocks are enabled in the
+ * left or right columns.
  */
 
 #container {
@@ -20,7 +16,7 @@
 }
 
 /* With 3 columns, require a minimum width of 1000px to ensure there is enough horizontal space. */
-body.both-sidebars {
+body.two-sidebars {
   /*min-width: 980px;*/
 }
 /* With 2 columsn, require a minimum width of 800px. */
@@ -35,14 +31,13 @@ body.sidebar-left, body.sidebar-right {
 }
 
 /* So we move the #main container over the sidebars to compensate */
-body.sidebar-left #main {
+body.sidebar-left #main,
+body.two-sidebars #main {
   margin-left: -210px;
 }
-body.sidebar-right #main {
+body.sidebar-right #main,
+body.two-sidebars #main {
   margin-right: -210px;
-}
-body.both-sidebars #main {
-  margin: 0 -210px;
 }
 
 #squeeze {
@@ -51,23 +46,34 @@ body.both-sidebars #main {
 }
 
 /* And add blanks left and right for the sidebars to fill */
-body.sidebar-left #squeeze {
+body.sidebar-left #squeeze,
+body.two-sidebars #squeeze {
   margin-left: 210px;
 }
-body.sidebar-right #squeeze {
+body.sidebar-right #squeeze,
+body.two-sidebars #squeeze {
   margin-right: 210px;
-}
-body.both-sidebars #squeeze {
-  margin: 0 210px;
 }
 
 /* We ensure the sidebars are still clickable using z-index */
-#container .sidebar {
-  margin: 0 0 5em;
+#container #sidebar-left {
   width: 210px;
+}
+#container #sidebar-right {
+  width: 210px;
+}
+#container .sidebar {
+  margin: 0;
   float: left;
   z-index: 2;
   position: relative;
+}
+
+/* Ensure long text or wide images don't break IE6 layout. */
+#page, #header, #footer, #squeeze, #container .sidebar {
+  _overflow: hidden;
+  _overflow-y: visible;
+  word-wrap: break-word; /* A very nice CSS3 property */
 }
 
 #container .sidebar .block {
@@ -75,11 +81,11 @@ body.both-sidebars #squeeze {
 }
 
 #sidebar-left .block {
-  padding: 0 15px 0 0px;
+  padding: 0 15px 0 0;
 }
 
 #sidebar-right .block {
-  padding: 0 0px 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .block .content {
@@ -91,18 +97,3 @@ body.both-sidebars #squeeze {
   clear: both;
   margin: 4em 0 -3em;
 }
-
-
-/*
-body.sidebar-left  #footer {
-  margin-left: -210px;
-}
-
-body.sidebar-right #footer {
-  margin-right: -210px;
-}
-
-body.both-sidebars #footer {
-  margin: 0 -210px;
-}
-

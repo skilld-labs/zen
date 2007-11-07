@@ -1,0 +1,41 @@
+Zen 5.x-1.x-dev
+  * Add prettier tab styling
+  * #141784: Add conditional IE stylesheets
+  * Merge zen-fixed with zen_classic
+  * Add optional Theme Settings API integration
+  * #169359: Base CSS and tpl files don't get loaded (sub-theme with page.tpl.php)
+  * #171464: Create starter theme; migrate current style to a sub-theme
+  * Add ability to change regions in a sub-theme
+  * Add complete Drupal 5 CSS for easy reference by theme developers
+  * #183936: Backport Drupal 6 $body_classes
+
+Zen 5.x-0.7
+  * #100894: For SEO, H1#site-name should be div#site-name strong
+  * #118467 by leandrosiow: Screen redraw errors with resizable textareas in Firefox
+  * #154937 by msonnabaum: add skip navigation for screen readers/mobility impaired
+  * #122592: Ability to theme each primary link
+  * #178560 by incognito: Shifting avatars in the comment blocks
+  * #110553 by rport: Use png instead of gif for images
+  * #120052: Add linux fonts
+  * #183360: Empty H2 appears on blocks with no titles
+  * #121101: zen.css does not validate
+  * #110902: IE6: text falls outside and to the left of content area
+  * #183354: Add a div around the feed icons
+  * #120341: Sidebar has unwanted 5em bottom margin
+  * #122938: Enabling CSS aggregation messes up the CSS in Safari
+  * #110897: oversize content causes IE6 layout breakage
+  * #119270: profile pictures indenting
+  * #118170 by mr700: blockquote css border has two widths
+  * #110810: change .submitted span to div
+  * #100899: don't use sidebar class for widths
+  * #182130 by joachim: links in h2 and h3 different sizes
+  * #182556: Added CHANGELOG.
+
+Zen 5.x-0.6
+  * Another pre-release.
+
+Zen 5.x-0.5
+  * Initial pre-release.
+
+Zen 5.x-0.4
+  * Un-released version.

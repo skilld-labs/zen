@@ -1,0 +1,52 @@
+/* $Id$ */
+
+/*
+ * IE CSS
+ *
+ * CSS targeted specifically for Internet Explorer for Windows.
+ *
+ * Properties staring with an underscore _ are for IE 5 and 6 only.
+ *
+ */
+
+
+/*
+ * Tabs CSS - IE 5 and 6 don't support PNGs with alpha transparency.
+ */
+
+ul.primary
+{
+  _background: url(images/tab-bar-ie6.png) repeat-x left bottom;
+}
+
+ul.primary li a
+{
+  _background: url(images/tab-left-ie6.png) no-repeat left -38px;
+}
+
+ul.primary li a .tab
+{
+  _background: url(images/tab-right-ie6.png) no-repeat right -38px;
+}
+
+ul.primary li a:hover
+{
+  _background: url(images/tab-left-ie6.png) no-repeat left -76px;
+}
+
+ul.primary li a:hover .tab
+{
+  _background: url(images/tab-right-ie6.png) no-repeat right -76px;
+}
+
+ul.primary li.active a,
+ul.primary li.active a:hover
+{
+  _background: url(images/tab-left-ie6.png) no-repeat left 0;
+}
+
+ul.primary li.active a .tab,
+ul.primary li.active a:hover .tab
+{
+  _background: url(images/tab-right-ie6.png) no-repeat right 0;
+}
