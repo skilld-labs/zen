@@ -1,129 +1,161 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language ?>" xml:lang="<?php print $language ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language; ?>" xml:lang="<?php print $language; ?>">
 
 <head>
   <title><?php print $head_title; ?></title>
   <?php print $head; ?>
   <?php print $styles; ?>
   <!--[if IE]>
-    <link rel="stylesheet" href="<?php print $base_path . $directory ?>/ie.css" type="text/css">
+    <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
     <?php if ($subtheme_directory && file_exists($subtheme_directory .'/ie.css')): ?>
-      <link rel="stylesheet" href="<?php print $base_path . $subtheme_directory ?>/ie.css" type="text/css">
+      <link rel="stylesheet" href="<?php print $base_path . $subtheme_directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
   <![endif]-->
   <?php print $scripts; ?>
 </head>
 
-<?php /* different classes allow for separate theming of the home page */ ?>
 <body class="<?php print $body_classes; ?>">
-  <div id="page">
-    <div id="header">
 
-      <div id="skip-nav"><a href="#content"><?php print t('Skip to Main Content'); ?></a></div>
+  <div id="page"><div id="page-inner">
 
-      <div id="logo-title">
+    <a name="top"></a>
+    <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
 
-        <?php print $search_box; ?>
-        <?php if (!empty($logo)): ?>
-          <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
-            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo" />
-          </a>
-        <?php endif; ?>
+    <div id="header"><div id="header-inner" class="clear-block">
 
-        <div id="name-and-slogan">
+      <?php if ($logo || $site_name || $site_slogan): ?>
+        <div id="logo-title">
 
-        <?php if (!empty($site_name)): ?>
-          <div id='site-name'><strong>
-            <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>" rel="home">
-              <?php print $site_name; ?>
-            </a>
-          </strong></div>
-        <?php endif; ?>
+          <?php if ($logo): ?>
+            <div id="logo"><a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo-image" /></a></div>
+          <?php endif; ?>
 
-        <?php if (!empty($site_slogan)): ?>
-          <div id='site-slogan'>
-            <?php print $site_slogan; ?>
-          </div>
-        <?php endif; ?>
+          <?php if ($site_name): ?>
+            <?php
+              // Use an H1 only on the homepage
+              $tag = $is_front ? 'h1' : 'div';
+            ?>
+            <<?php print $tag; ?> id='site-name'><strong>
+              <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <?php print $site_name; ?>
+              </a>
+            </strong></<?php print $tag; ?>>
+          <?php endif; ?>
 
-        </div> <!-- /name-and-slogan -->
+          <?php if ($site_slogan): ?>
+            <div id='site-slogan'><?php print $site_slogan; ?></div>
+          <?php endif; ?>
 
-      </div> <!-- /logo-title -->
+        </div> <!-- /#logo-title -->
+      <?php endif; ?>
 
-      <div id="navigation" class="menu<?php if ($primary_links) { print " withprimary"; } if ($secondary_links) { print " withsecondary"; } ?> ">
-        <?php if (!empty($primary_links)): ?>
-          <div id="primary" class="clear-block">
-            <?php print theme('links', $primary_links); ?>
-          </div>
-        <?php endif; ?>
-
-        <?php if (!empty($secondary_links)): ?>
-          <div id="secondary" class="clear-block">
-            <?php print theme('links', $secondary_links); ?>
-          </div>
-        <?php endif; ?>
-      </div> <!-- /navigation -->
-
-      <?php if (!empty($header) || !empty($breadcrumb)): ?>
-        <div id="header-region">
-          <?php print $breadcrumb; ?>
+      <?php if ($header): ?>
+        <div id="header-blocks">
           <?php print $header; ?>
-        </div> <!-- /header-region -->
+        </div> <!-- /#header-blocks -->
       <?php endif; ?>
 
-    </div> <!-- /header -->
+    </div></div> <!-- /#header-inner, /#header -->
 
-    <div id="container" class="clear-block">
+    <div id="main"><div id="main-inner" class="clear-block<?php if ($search_box || $primary_links || $secondary_links || $navbar) { print ' with-navbar'; } ?>">
 
-      <?php if (!empty($sidebar_left)): ?>
-        <div id="sidebar-left" class="column sidebar">
-          <?php print $sidebar_left; ?>
-        </div> <!-- /sidebar-left -->
-      <?php endif; ?>
+      <div id="content"><div id="content-inner">
 
-      <div id="main" class="column"><div id="squeeze" class="clear-block">
-        <?php if (!empty($mission)): ?>
+        <?php if ($mission): ?>
           <div id="mission"><?php print $mission; ?></div>
         <?php endif; ?>
-        <?php if (!empty($content_top)):?>
-          <div id="content-top"><?php print $content_top; ?></div>
-        <?php endif; ?>
-        <div id="content">
-          <?php if (!empty($title)): ?>
-            <h1 class="title"><?php print $title; ?></h1>
-          <?php endif; ?>
-          <?php if (!empty($tabs)): ?>
-            <div class="tabs"><?php print $tabs; ?></div>
-          <?php endif; ?>
-          <?php print $help; ?>
-          <?php print $messages; ?>
-          <?php print $content; ?>
-          <?php if (!empty($feed_icons)): ?>
-            <div class="feed-icons"><?php print $feed_icons; ?></div>
-          <?php endif; ?>
-        </div> <!-- /content -->
-        <?php if (!empty($content_bottom)): ?>
-          <div id="content-bottom"><?php print $content_bottom; ?></div>
-        <?php endif; ?>
-      </div></div> <!-- /squeeze /main -->
 
-      <?php if (!empty($sidebar_right)): ?>
-        <div id="sidebar-right" class="column sidebar">
-          <?php print $sidebar_right; ?>
-        </div> <!-- /sidebar-right -->
+        <?php if ($content_top): ?>
+          <div id="content-top">
+            <?php print $content_top; ?>
+          </div> <!-- /#content-top -->
+        <?php endif; ?>
+
+        <?php if ($breadcrumb or $title or $tabs or $help or $messages): ?>
+          <div id="content-header">
+            <?php print $breadcrumb; ?>
+            <?php if ($title): ?>
+              <h1 class="title"><?php print $title; ?></h1>
+            <?php endif; ?>
+            <?php print $messages; ?>
+            <?php if ($tabs): ?>
+              <div class="tabs"><?php print $tabs; ?></div>
+            <?php endif; ?>
+            <?php print $help; ?>
+          </div> <!-- /#content-header -->
+        <?php endif; ?>
+
+        <div id="content-area">
+          <?php print $content; ?>
+        </div>
+
+        <?php if ($feed_icons): ?>
+          <div class="feed-icons"><?php print $feed_icons; ?></div>
+        <?php endif; ?>
+
+        <?php if ($content_bottom): ?>
+          <div id="content-bottom">
+            <?php print $content_bottom; ?>
+          </div> <!-- /#content-bottom -->
+        <?php endif; ?>
+
+      </div></div> <!-- /#content-inner, /#content -->
+
+      <?php if ($search_box || $primary_links || $secondary_links || $navbar): ?>
+        <div id="navbar"><div id="navbar-inner">
+
+          <a name="navigation" id="navigation"></a>
+
+          <?php if ($search_box): ?>
+            <div id="search-box">
+              <?php print $search_box; ?>
+            </div> <!-- /#search-box -->
+          <?php endif; ?>
+
+          <?php if ($primary_links): ?>
+            <div id="primary">
+              <?php print theme('links', $primary_links); ?>
+            </div> <!-- /#primary -->
+          <?php endif; ?>
+
+          <?php if ($secondary_links): ?>
+            <div id="secondary">
+              <?php print theme('links', $secondary_links); ?>
+            </div> <!-- /#secondary -->
+          <?php endif; ?>
+
+          <?php print $navbar; ?>
+
+        </div></div> <!-- /#navbar-inner, /#navbar -->
       <?php endif; ?>
 
-    </div> <!-- /container -->
+      <?php if ($sidebar_left): ?>
+        <div id="sidebar-left"><div id="sidebar-left-inner">
+          <?php print $sidebar_left; ?>
+        </div></div> <!-- /#sidebar-left-inner, /#sidebar-left -->
+      <?php endif; ?>
 
-    <div id="footer-wrapper">
-      <div id="footer">
-        <?php print $footer_message; ?>
-      </div> <!-- /footer -->
-    </div> <!-- /footer-wrapper -->
+      <?php if ($sidebar_right): ?>
+        <div id="sidebar-right"><div id="sidebar-right-inner">
+          <?php print $sidebar_right; ?>
+        </div></div> <!-- /#sidebar-right-inner, /#sidebar-right -->
+      <?php endif; ?>
+
+    </div></div> <!-- /#main-inner, /#main -->
+
+    <div id="footer"><div id="footer-inner">
+
+      <div id="footer-message"><?php print $footer_message; ?></div>
+
+    </div></div> <!-- /#footer-inner, /#footer -->
+
+    <?php if ($closure_region): ?>
+      <div id="closure-blocks"><?php print $closure_region; ?></div>
+    <?php endif; ?>
 
     <?php print $closure; ?>
 
-  </div> <!-- /page -->
+  </div></div> <!-- /#page-inner, /#page -->
 
 </body>
 </html>

@@ -1,15 +1,14 @@
 <?php
 // $Id$
 
-if (is_null(theme_get_setting('zen_classic_fixed'))) {
+if (is_null(theme_get_setting('zen_breadcrumb_trailing'))) {
   global $theme_key;
   // Save default theme settings
   $defaults = array(
-    'zen_classic_fixed' => 0,
     'zen_breadcrumb' => 'yes',
-    'zen_breadcrumb_separator' => ' :: ',
+    'zen_breadcrumb_separator' => ' › ',
     'zen_breadcrumb_home' => 1,
-    'zen_breadcrumb_trailing' => 0,
+    'zen_breadcrumb_trailing' => 1,
   );
   variable_set(
     str_replace('/', '_', 'theme_'. $theme_key .'_settings'),

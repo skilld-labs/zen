@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box"><div class="box-inner">
 
   <?php if ($title): ?>
     <h2 class="title"><?php print $title; ?></h2>
@@ -8,4 +8,4 @@
     <?php print $content; ?>
   </div>
 
-</div>
+</div></div> <!-- /box-inner, /box -->

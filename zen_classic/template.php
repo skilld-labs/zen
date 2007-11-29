@@ -25,18 +25,35 @@
 
 
 /*
+ * Initialize theme settings
+ */
+include_once 'theme-settings-init.php';
+
+
+/*
  * Sub-themes with their own page.tpl.php files are seen by PHPTemplate as their
  * own theme (seperate from Zen). So we need to re-connect those sub-themes
  * with the main Zen theme.
  */
-include_once 'zen-subtheme.php';
+include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 
 
-/*
- * Initialize theme settings
+/**
+ * Declare the available regions implemented by this theme.
+ *
+ * @return
+ *   An array of regions.
  */
-include 'theme-settings-init.php';
-
+function zen_classic_regions() {
+  return array(
+    'left' => t('left sidebar'),
+    'right' => t('right sidebar'),
+    'content_top' => t('content top'),
+    'content_bottom' => t('content bottom'),
+    'header' => t('header'),
+    'footer' => t('footer'),
+  );
+}
 
 /**
  * Intercept template variables
@@ -52,10 +69,10 @@ function zen_variables($hook, $vars) {
   switch ($hook) {
     case 'page':
       // Add main Zen styles.
-      drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
       drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-      drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
       // Then add styles for this sub-theme.
+      drupal_add_css($vars['subtheme_directory'] .'/layout.css', 'theme', 'all');
+      drupal_add_css($vars['subtheme_directory'] .'/print.css', 'theme', 'print');
       drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
       drupal_add_css($vars['subtheme_directory'] .'/icons.css', 'theme', 'all');
       // Optionally add the fixed width CSS file.

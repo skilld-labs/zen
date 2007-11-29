@@ -1,4 +1,10 @@
 Zen 5.x-1.x-dev
+  * #184232: Add README documentation
+  * #121991: Source rendering order needs adjustment
+  * #110897: oversize content causes IE6 layout breakage
+  * Added unique classes for each page and website section
+  * Added customizable breadcrumb settings
+  * Split template.php into multiple files to ease theme developer overload
   * Add prettier tab styling
   * #141784: Add conditional IE stylesheets
   * Merge zen-fixed with zen_classic

@@ -16,8 +16,24 @@
  */
 
 
+/*
+ * To make this file easier to read, we split up the code into managable parts.
+ * Theme developers are likely to only be interested in functions that are in
+ * this main template.php file.
+ */
+
+// Sub-theme support
+include_once 'template-subtheme.php';
+
+// Initialize theme settings
+include_once 'theme-settings-init.php';
+
+// Tabs and menu functions
+include_once 'template-menus.php';
+
+
 /**
- * Declare the available regions implemented by this engine.
+ * Declare the available regions implemented by this theme.
  *
  * Regions are areas in your theme where you can place blocks. The default
  * regions used in themes are "left sidebar", "right sidebar", "header", and
@@ -46,12 +62,14 @@ function zen_regions() {
   }
 
   return array(
-       'left' => t('left sidebar'),
-       'right' => t('right sidebar'),
-       'content_top' => t('content top'),
-       'content_bottom' => t('content bottom'),
-       'header' => t('header'),
-       'footer' => t('footer'),
+    'left' => t('left sidebar'),
+    'right' => t('right sidebar'),
+    'navbar' => t('navigation bar'),
+    'content_top' => t('content top'),
+    'content_bottom' => t('content bottom'),
+    'header' => t('header'),
+    'footer' => t('footer'),
+    'closure_region' => t('closure'),
   );
 }
 
@@ -64,13 +82,14 @@ function zen_regions() {
  * have to override the theme function. You have to first find the theme
  * function that generates the output, and then "catch" it and modify it here.
  * The easiest way to do it is to copy the original function in its entirety and
- * paste it here, changing the prefix from theme_ to zen_. For example:
+ * paste it here, changing the prefix from theme_ to phptemplate_ or zen_. For
+ * example:
  *
  *   original: theme_breadcrumb()
  *   theme override: zen_breadcrumb()
  *
- * See the following example. In this theme, we want to change all of the
- * breadcrumb separator links from >> to ::
+ * See the following example. In this function, we want to change all of the
+ * breadcrumb separator characters from >> to a custom string.
  */
 
 
@@ -82,10 +101,25 @@ function zen_regions() {
  * @return
  *   A string containing the breadcrumb output.
  */
-function zen_breadcrumb($breadcrumb) {
-  if (!empty($breadcrumb)) {
-    return '<div class="breadcrumb">'. implode(' :: ', $breadcrumb) .'</div>';
+function phptemplate_breadcrumb($breadcrumb) {
+  $show_breadcrumb = theme_get_setting('zen_breadcrumb');
+  $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
+  $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
+  $trailing_separator = theme_get_setting('zen_breadcrumb_trailing') ? $breadcrumb_separator : '';
+
+  // Determine if we are to display the breadcrumb
+  if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
+    if (!$show_breadcrumb_home) {
+      // Optionally get rid of the homepage link
+      array_shift($breadcrumb);
+    }
+    if (!empty($breadcrumb)) {
+      // Return the breadcrumb with separators
+      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$trailing_separator</div>";
+    }
   }
+  // Otherwise, return an empty string
+  return '';
 }
 
 
@@ -112,9 +146,11 @@ function zen_breadcrumb($breadcrumb) {
  * Intercept template variables
  *
  * @param $hook
- *   The name of the theme function being executed
+ *   The name of the theme function being executed (name of the .tpl.php file)
  * @param $vars
- *   A sequential array of variables passed to the theme function.
+ *   A copy of the array containing the variables for the hook.
+ * @return
+ *   The array containing additional variables to merge with $vars.
  */
 function _phptemplate_variables($hook, $vars = array()) {
   // Get the currently logged in user
@@ -137,8 +173,11 @@ function _phptemplate_variables($hook, $vars = array()) {
         // We had previously used @import declarations in the css files,
         // but these are incompatible with the CSS caching in Drupal 5
         drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-        $vars['css'] = drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+        drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
+        drupal_add_css($vars['directory'] .'/print.css', 'theme', 'print');
+        $vars['css'] = drupal_add_css();
         $vars['styles'] = drupal_get_css();
       }
 
@@ -153,7 +192,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
       if ($vars['node']->type) {
         // If on an individual node page, put the node type in the body classes
-        $body_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
+        $body_classes[] = 'node-type-'. $vars['node']->type;
       }
       if ($vars['sidebar_left'] && $vars['sidebar_right']) {
         $body_classes[] = 'two-sidebars';
@@ -166,6 +205,23 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       else {
         $body_classes[] = 'no-sidebars';
+      }
+      if (!$vars['is_front']) {
+        // Add unique classes for each page and website section
+        // First, remove base path and any query string.
+        global $base_path;
+        list(,$path) = explode($base_path, $_SERVER['REQUEST_URI'], 2);
+        // If clean URLs are off, strip remainder of query string.
+        list($path,) = explode('&', $path, 2);
+        // Strip query string.
+        list($path,) = explode('?', $path, 2);
+        $path = rtrim($path, '/');
+        // Construct the id name from the path, replacing slashes with dashes.
+        $full_path = str_replace('/', '-', $path);
+        // Construct the class name from the first part of the path only.
+        list($section,) = explode('/', $path, 2);
+        $body_classes[] = zen_id_safe('page-'. $full_path);
+        $body_classes[] = zen_id_safe('section-'. $section);
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
@@ -188,7 +244,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       // $vars['links']
 
       // Special classes for nodes
-      $node_classes = array('node');
+      $node_classes = array();
       if ($vars['sticky']) {
         $node_classes[] = 'sticky';
       }
@@ -200,7 +256,7 @@ function _phptemplate_variables($hook, $vars = array()) {
         $node_classes[] = 'node-mine';
       }
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-      $node_classes[] = 'node-type-'. zen_id_safe($vars['node']->type);
+      $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
 
       break;
@@ -212,7 +268,7 @@ function _phptemplate_variables($hook, $vars = array()) {
       // set a variable so we can theme this comment uniquely.
       $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
 
-      $comment_classes = array('comment');
+      $comment_classes = array();
 
       // Odd/even handling
       static $comment_odd = TRUE;
@@ -271,148 +327,4 @@ function zen_id_safe($string) {
     $string = 'n'. $string;
   }
   return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
-}
-
-/*
- * This bit allows the sub-theme to have its own template.php.
- */
-if (path_to_subtheme()) {
-  // I'm being careful not to create variables in the global scope
-  if (file_exists(path_to_subtheme() .'/template.php')) {
-    include_once(path_to_subtheme() .'/template.php');
-  }
-}
-
-/*
- * These next functions allow sub-themes to have their own page.tpl.php,
- * node.tpl.php, node-type.tpl.php, etc.
- */
-function _phptemplate_node($vars, $suggestions) {
-  array_unshift($suggestions, 'node'); // Not sure why I need to do this.
-  return _zen_default('node', $vars, $suggestions);
-}
-
-function _phptemplate_comment($vars, $suggestions) {
-  array_unshift($suggestions, 'comment'); // Not sure why I need to do this.
-  return _zen_default('comment', $vars, $suggestions);
-}
-
-function _phptemplate_page($vars, $suggestions) {
-  return _zen_default('page', $vars, $suggestions);
-}
-
-function _phptemplate_block($vars, $suggestions) {
-  return _zen_default('block', $vars, $suggestions);
-}
-
-function _phptemplate_box($vars, $suggestions) {
-  return _zen_default('box', $vars, $suggestions);
-}
-
-/**
- * Return the path to the sub-theme directory or FALSE if there is no sub-theme.
- */
-function path_to_subtheme() {
-  global $theme, $theme_key;
-  static $theme_path;
-  if (!isset($theme_path)) {
-    if ($theme != $theme_key) {
-      $themes = list_themes();
-      $theme_path = dirname($themes[$theme_key]->filename);
-    }
-    else {
-      $theme_path = FALSE;
-    }
-  }
-  return $theme_path;
-}
-
-/**
- * This is an exact copy of _phptemplate_default() with the addition of the
- * $theme_path and $parent_theme_path
- */
-function _zen_default($hook, $variables, $suggestions = array(), $extension = '.tpl.php') {
-  global $theme_engine;
-  global $theme;
-  global $theme_key;
-
-  if ($theme_path = path_to_subtheme()) {
-    $parent_theme_path = path_to_theme();
-  }
-  else {
-    $theme_path = path_to_theme();
-  }
-
-  // Loop through any suggestions in FIFO order.
-  $suggestions = array_reverse($suggestions);
-  foreach ($suggestions as $suggestion) {
-    if (!empty($suggestion) && file_exists($theme_path .'/'. $suggestion . $extension)) {
-      $file = $theme_path .'/'. $suggestion . $extension;
-      break;
-    }
-    elseif (isset($parent_theme_path) && !empty($suggestion) && file_exists($parent_theme_path .'/'. $suggestion . $extension)) {
-      $file = $parent_theme_path .'/'. $suggestion . $extension;
-      break;
-    }
-  }
-
-  if (!isset($file)) {
-    if (file_exists($theme_path ."/$hook$extension")) {
-      $file = $theme_path ."/$hook$extension";
-    }
-    else {
-      if (in_array($hook, array('node', 'block', 'box', 'comment'))) {
-        $file = "themes/engines/$theme_engine/$hook$extension";
-      }
-      else {
-        $variables['hook'] = $hook;
-        watchdog('error', t('%engine.engine was instructed to override the %name theme function, but no valid template file was found.', array('%engine' => $theme_engine, '%name' => $hook)));
-        $file = "themes/engines/$theme_engine/default$extension";
-      }
-    }
-  }
-  if (isset($file)) {
-    return call_user_func('_'. $theme_engine .'_render', $file, $variables);
-  }
-}
-
-/**
- * Generate the HTML representing a given menu item ID.
- *
- * An implementation of theme_menu_item_link()
- *
- * @param $item
- *   array The menu item to render.
- * @param $link_item
- *   array The menu item which should be used to find the correct path.
- * @return
- *   string The rendered menu item.
- */
-function phptemplate_menu_item_link($item, $link_item) {
-  $tab = ($item['type'] & MENU_IS_LOCAL_TASK) ? TRUE : FALSE;
-  return l(
-    $tab ? '<span class="tab">'. check_plain($item['title']) .'</span>' : $item['title'],
-    $link_item['path'],
-    !empty($item['description']) ? array('title' => $item['description']) : array(),
-    !empty($item['query']) ? $item['query'] : NULL,
-    !empty($link_item['fragment']) ? $link_item['fragment'] : NULL,
-    FALSE,
-    $tab
-  );
-}
-
-/**
- * Returns the rendered local tasks (adds clear-block to tabs.)
- */
-function phptemplate_menu_local_tasks() {
-  $output = '';
-
-  if ($primary = menu_primary_local_tasks()) {
-    $output .= '<ul class="tabs primary clear-block">'. $primary .'</ul>';
-  }
-  if ($secondary = menu_secondary_local_tasks()) {
-    $output .= '<ul class="tabs secondary clear-block">'. $secondary .'</ul>';
-  }
-
-  return $output;
 }

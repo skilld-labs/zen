@@ -1,19 +1,26 @@
 <?php
 // $Id$
 
+// Include base theme's settings file.
+include_once path_to_theme() .'/theme-settings.php';
+
 /**
  * Implementation of THEMEHOOK_settings() function.
  *
  * @param $saved_settings
- *   array An array of saved settings for this theme.
+ *   An array of saved settings for this theme.
  * @return
- *   array A form array.
+ *   A form array.
  */
-function phptemplate_settings($saved_settings) {
+function zen_classic_settings($saved_settings) {
 
   // The default values for the theme variables
   $defaults = array(
     'zen_classic_fixed' => 0,
+    'zen_breadcrumb' => 'yes',
+    'zen_breadcrumb_separator' => ' :: ',
+    'zen_breadcrumb_home' => 1,
+    'zen_breadcrumb_trailing' => 0,
   );
 
   // Merge the saved variables and their default values
@@ -28,6 +35,9 @@ function phptemplate_settings($saved_settings) {
     '#default_value' => $settings['zen_classic_fixed'],
     '#description'   => 'The theme should be centered and fixed at 960 pixels wide.',
   );
+
+  // Add the base theme's settings.
+  $form += zen_settings($saved_settings, $defaults);
 
   // Return the form
   return $form;
