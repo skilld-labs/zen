@@ -72,15 +72,16 @@ function zen_variables($hook, $vars) {
       drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
       // Then add styles for this sub-theme.
       drupal_add_css($vars['subtheme_directory'] .'/layout.css', 'theme', 'all');
-      drupal_add_css($vars['subtheme_directory'] .'/print.css', 'theme', 'print');
-      drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
       drupal_add_css($vars['subtheme_directory'] .'/icons.css', 'theme', 'all');
+      drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
       // Optionally add the fixed width CSS file.
       if (theme_get_setting('zen_classic_fixed')) {
         drupal_add_css($vars['subtheme_directory'] .'/zen-fixed.css', 'theme', 'all');
       }
       $vars['css'] = drupal_add_css();
       $vars['styles'] = drupal_get_css();
+      // Avoid IE5 bug that always loads @import print stylesheets
+      $vars['head'] = zen_add_print_css($vars['subtheme_directory'] .'/print.css');
   }
   return $vars;
 }

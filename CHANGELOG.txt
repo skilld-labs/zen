@@ -1,4 +1,5 @@
-Zen 5.x-1.x-dev
+Zen 5.x-0.8
+  * #196223: IE5 always loads @import print stylesheet
   * #184232: Add README documentation
   * #121991: Source rendering order needs adjustment
   * #110897: oversize content causes IE6 layout breakage
