@@ -1,4 +1,4 @@
-Full documentation can (cough) /will/ be found in Drupal's Handbook:
+Full documentation can be found in Drupal's Handbook:
   http://drupal.org/node/193318
 
 
@@ -23,8 +23,8 @@ Installation:
      This module is built-in to Drupal 6, so why not add it to your Drupal 5 installation?
 
   5. From the Theme settings page (admin/build/themes) configure the Zen theme
-     or a sub-theme and note the additional settings that are now available the
-     under "Theme-specific settings" heading.
+     or a sub-theme and note the additional settings that are now available
+     under the "Theme-specific settings" heading.
 
 Build your own sub-theme:
 
