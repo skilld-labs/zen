@@ -448,7 +448,7 @@ Zen 5.x-1.0-beta1, 2008-01-06
 - Added SUBTHEME directory as a starter sub-theme for developers
 - #199036 by : Make padding on #squeeze conditional
 - #199578: Fatal error on Zen Classic theme settings when using admin theme
-- #200380 by : missing semi-colon in layout-fixed.css
+- #200380 by psynaptic: missing semi-colon in layout-fixed.css
 - #196230: Tabs broken in IE5 and IE6
 - #199682: 'Submitted by' text is shown even if setting is disabled
 - #171201: Remove un-localizable date/time format from base theme
