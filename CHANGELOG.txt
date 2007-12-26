@@ -440,7 +440,7 @@ Zen 5.x-1.0-beta2, 2008-01-29
 Zen 5.x-1.0-beta1, 2008-01-06
 -----------------------------
 - Removed named anchors from doc flow to prevent any styles from appearing
-- #203213 by : Add node-teaser class to nodes displayed as teasers
+- #203213 by kdebaas: Add node-teaser class to nodes displayed as teasers
 - #203112 by kdebaas: Un-localizable string in search-theme-form.tpl.php
 - #201793: Fixed fatal error when no settings are added to a sub-theme's settings
 - #196181: _phptemplate_callback doesn't look in sub-theme folder for .tpl.php files
