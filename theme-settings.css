@@ -1,0 +1,65 @@
+/* $Id$ */
+
+/*
+ * THEME SETTINGS STYLES
+ *
+ * This file is only loaded on the Theme Settings page for Zen and its
+ * subthemes: admin/build/themes/settings
+ */
+
+
+  #zen-settings .form-item
+  {
+    padding-left: 200px;
+  }
+
+  #zen-settings .form-checkboxes .form-item,
+  #zen-settings .form-radios .form-item
+  {
+    padding-left: 0;
+  }
+
+  #zen-settings .form-item label
+  {
+    float: left;
+    width: 190px;
+    margin-left: -200px;
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  #zen-settings .form-item label.option
+  {
+    float: none;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  #div-zen-wireframes
+  {
+    margin: 1em 0;
+  }
+
+  #div-zen-wireframes strong
+  {
+    float: left;
+    width: 190px;
+    margin-left: 0;
+    margin-right: 10px;
+    text-align: right;
+  }
+
+  #div-zen-wireframes .form-item
+  {
+    display: inline;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  #div-zen-wireframes .form-item .description
+  {
+    display: block;
+    margin-left: 200px;
+  }

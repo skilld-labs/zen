@@ -1,9 +1,6 @@
 <?php
 // $Id$
 
-// Include base theme's settings file.
-include_once path_to_theme() .'/theme-settings.php';
-
 /**
  * Implementation of THEMEHOOK_settings() function.
  *
@@ -14,7 +11,10 @@ include_once path_to_theme() .'/theme-settings.php';
  */
 function zen_classic_settings($saved_settings) {
 
-  // The default values for the theme variables
+  /*
+   * The default values for the theme variables. Make sure $defaults exactly
+   * matches the $defaults in the theme-settings-init.php file.
+   */
   $defaults = array(
     'zen_classic_fixed' => 0,
     'zen_breadcrumb' => 'yes',
@@ -27,17 +27,23 @@ function zen_classic_settings($saved_settings) {
   $settings = array_merge($defaults, $saved_settings);
 
   /*
-   * Create the form using Form API
+   * Create the form using Forms API: http://api.drupal.org/api/5
    */
+  $form = array();
   $form['zen_classic_fixed'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Use fixed width for theme'),
     '#default_value' => $settings['zen_classic_fixed'],
-    '#description'   => 'The theme should be centered and fixed at 960 pixels wide.',
+    '#description'   => t('The theme should be centered and fixed at 960 pixels wide.'),
   );
 
   // Add the base theme's settings.
+  include_once './'. drupal_get_path('theme', 'zen') .'/theme-settings.php';
   $form += zen_settings($saved_settings, $defaults);
+
+  // Remove some of the base theme's settings.
+  unset($form['themedev']);
+  //unset($form['themedev']['zen_layout']); // We don't need to select the base stylesheet.
 
   // Return the form
   return $form;

@@ -1,14 +1,7 @@
 /* $Id$ */
 
-body {
-  min-width: 960px;
-}
-
-#page {
-  width: 960px;      /* page width  */
-  margin: 10px auto; /* center the page */
-}
-
-#logo-title {
-  margin: 10px 0 0 0;
-}
+  #page
+  {
+    width: 960px; /* page width  */
+    margin: 0 auto; /* Center the page */
+  }

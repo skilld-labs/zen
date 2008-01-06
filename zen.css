@@ -284,6 +284,10 @@
   {
   }
 
+  .node-teaser /* A node displayed as teaser */
+  {
+  }
+
   /* All nodes are given a node-type-FOO class that describes the type of
    * content that it is. If you create a new content type called
    * "my-custom-type", it will receive a "node-type-my-custom-type" class.
@@ -550,7 +554,7 @@
     text-align: left;
   }
 
-  tr.even, tr.odd /* Some tables have rows marked even or odd. See also the ".section-admin tr.even" declaration below. */
+  tr.even, tr.odd /* Some tables have rows marked even or odd. See also the ".section-admin #content tr.even" declaration below. */
   {
     border-bottom: none;
     padding: 0;
@@ -630,41 +634,36 @@
     font-size: 0.9em;
   }
 
-  .section-admin #div-zen-breadcrumb /* Zen's theme settings CSS -- safe to ignore. */
-  {
-    margin-top: 1em;
-  }
-
 /** Drupal admin tables **/
   /* We overrode these styles in html-elements.css, but restore them for the
    * admin section of the site.
    */
-  .section-admin tbody
+  .section-admin #content tbody
   {
     border-top: 1px solid #ccc;
   }
 
-  .section-admin th
+  .section-admin #content th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
   }
 
-  .section-admin tbody th
+  .section-admin #content tbody th
   {
     border-bottom: 1px solid #ccc;
   }
 
-  .section-admin thead th
+  .section-admin #content thead th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
   }
 
-  .section-admin tr.even,
-  .section-admin tr.odd
+  .section-admin #content tr.even,
+  .section-admin #content tr.odd
   {
     background-color: #eee;
     border-bottom: 1px solid #ccc;

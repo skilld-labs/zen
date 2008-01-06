@@ -57,7 +57,7 @@ function zen_regions() {
   if ($theme_key != 'zen') {
     $function = str_replace('-', '_', $theme_key) .'_regions';
     if (function_exists($function)) {
-      return call_user_func($function);
+      return $function();
     }
   }
 
@@ -154,7 +154,7 @@ function phptemplate_breadcrumb($breadcrumb) {
  */
 function _phptemplate_variables($hook, $vars = array()) {
   // Get the currently logged in user
-  global $user;
+  global $user, $theme_key;
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The
@@ -164,23 +164,31 @@ function _phptemplate_variables($hook, $vars = array()) {
 
   switch ($hook) {
     case 'page':
-      global $theme, $theme_key;
+      global $theme;
 
-      // If we're in the main theme
-      if ($theme == $theme_key) {
-        // These next lines add additional CSS files and redefine
-        // the $css and $styles variables available to your page template
-        // We had previously used @import declarations in the css files,
-        // but these are incompatible with the CSS caching in Drupal 5
-        drupal_add_css($vars['directory'] .'/layout.css', 'theme', 'all');
+      // These next lines add additional CSS files and redefine
+      // the $css and $styles variables available to your page template
+      if ($theme == $theme_key) { // If we're in the main theme
+        // Load the stylesheet for a liquid layout
+        if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
+          drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
+        }
+        // Or load the stylesheet for a fixed width layout
+        else {
+          drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
+        }
         drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
         drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
-        $vars['css'] = drupal_add_css();
-        $vars['styles'] = drupal_get_css();
         // Avoid IE5 bug that always loads @import print stylesheets
         $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
       }
+      // Optionally add the wireframes style.
+      if (theme_get_setting('zen_wireframes')) {
+        drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+      }
+      $vars['css'] = drupal_add_css();
+      $vars['styles'] = drupal_get_css();
 
       // Send a new variable, $logged_in, to page.tpl.php to tell us if the
       // current user is logged in or out. An anonymous user has a user id of 0.
@@ -226,24 +234,18 @@ function _phptemplate_variables($hook, $vars = array()) {
       }
       $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
 
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_page')) {
+        $function = $theme_key .'_preprocess_page';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_page')) {
+        phptemplate_preprocess_page($vars);
+      }
+
       break;
 
     case 'node':
-      if ($vars['submitted']) {
-        // We redefine the format for submitted.
-        $vars['submitted'] =
-          t('Posted <abbr class="created" title="!microdate">@date</abbr> by !username',
-            array(
-              '!username' => theme('username', $vars['node']),
-              '@date' => format_date($vars['node']->created,'custom', "F jS, Y"),
-              '!microdate' => format_date($vars['node']->created,'custom', "Y-m-d\TH:i:sO"),
-            )
-          );
-      }
-
-      // In this section you can also edit the following variables:
-      // $vars['links']
-
       // Special classes for nodes
       $node_classes = array();
       if ($vars['sticky']) {
@@ -256,9 +258,22 @@ function _phptemplate_variables($hook, $vars = array()) {
         // Node is authored by current user
         $node_classes[] = 'node-mine';
       }
+      if ($vars['teaser']) {
+        // Node is displayed as teaser
+        $node_classes[] = 'node-teaser';
+      }
       // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
       $node_classes[] = 'node-type-'. $vars['node']->type;
       $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
+
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_node')) {
+        $function = $theme_key .'_preprocess_node';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_node')) {
+        phptemplate_preprocess_node($vars);
+      }
 
       break;
 
@@ -298,13 +313,25 @@ function _phptemplate_variables($hook, $vars = array()) {
         $vars['title'] = '';
       }
 
+      // Allow a sub-theme to add/alter variables
+      if (function_exists($theme_key .'_preprocess_comment')) {
+        $function = $theme_key .'_preprocess_comment';
+        $function($vars);
+      }
+      elseif (function_exists('phptemplate_preprocess_comment')) {
+        phptemplate_preprocess_comment($vars);
+      }
+
       break;
   }
 
-  // Allow a sub-theme to add/alter variables
+  // The following is a deprecated function included for backwards compatibility
+  // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
   if (function_exists('zen_variables')) {
     $vars = zen_variables($hook, $vars);
   }
+
+  _zen_hook($hook); // Add support for sub-theme template files
 
   return $vars;
 }

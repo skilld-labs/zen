@@ -40,9 +40,20 @@
  * Tabs CSS - IE 5 and 6 don't support PNGs with alpha transparency.
  */
 
-  ul.primary
+  ul.primary li a,
+  ul.primary li a .tab,
+  ul.secondary li a,
+  ul.secondary li a .tab
   {
-    _background: url(images/tab-bar-ie6.png) repeat-x left bottom;
+    _display: inline; /* Otherwise the blocks mistakenly get 100% width in IE5 */
+    _di\splay: inline-block; /* Otherwise the blocks mistakenly get 100% width in IE6 */
+  }
+
+  ul.primary,
+  ul.secondary
+  {
+    _width: 100%; /* Otherwise IE5 treats the ul as floated */
+    _w\idth: auto; /* Reset to auto width for IE6 */
   }
 
   ul.primary li a

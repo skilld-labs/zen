@@ -1,690 +1,704 @@
 /* $Id$ */
 
 /*
- * FONT STYLES
- *
- * Standardize font sizes and line-height across browsers
+ * COMMON STYLES
  */
 
-body {
-  font: 13px Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-}
-/* IE 5 and 6 can't resize text that is specified in pixels. */
-* html body {
-  font-size: x-small; /* IE5 will get this value */
-  f\ont-size: small; /* IE6 will get this value */
-}
+  body
+  {
+    background: #fff;
+  }
 
-table {
-  font-size: 100%; /* Forces font size inheritance in IE5 */
-  f\ont-size: inherit;
-}
-select, input, textarea {
-  font: 99% Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-}
-pre, code {
-  font: 115% "Bitstream Vera Sans Mono", "Courier New", monospace;
-}
+  #page
+  {
+    color: #111;
+    background-color: #fff;
+  }
 
-table tr.odd {
-  background: #ddd;
-}
+  #container
+  {
+    margin: 0 10px 10px 10px;
+  }
 
-tr, td {
-  padding: .25em;
-}
+  #main .node .content
+  {
+    color: #333;
+  }
 
-td.icon {
-  text-align: center;
-}
+  div.content, div.links
+  {
+    font-size: 92%;
+  }
 
+  .block h3
+  {
+    font-size: 122%;
+  }
+
+  .book .body
+  {
+    padding: 0 0 0.5em 0;
+    margin: 0;
+  }
 
 /*
- * LAYOUT STYLES
- *
- * Styles pertaining to minor layout adjustments, such as
- * changing from fluid width to fixed width.
- * See layout.css for major adjustments.
+ * HEADER STYLES
  */
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 700px;
-  /* 2x (left-side fullwidth + main padding) + right-side fullwidth */
-}
 
-#page {
-  /*width: 900px;  */             /* page width - optional */
-  /*margin: 0 auto;   */          /* center the page - optional */
-  /*border-left: 2px solid #AAA;*/
-  /*border-right: 2px solid #AAA;*/
-}
+  #logo-title
+  {
+    margin: 10px 20px 0 20px;
+    position: relative;
+  }
 
+  #logo
+  {
+    vertical-align: baseline;
+  }
+
+  #name-and-slogan
+  {
+    display: inline;
+  }
+
+  #site-name
+  {
+    margin: 0;
+    display: inline;
+    font-size: 246%;
+  }
+
+  #site-name a, #site-name a:hover
+  {
+    font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: #6DA6E2;
+    margin: 0;
+    padding: 0;
+  }
+
+  #site-slogan
+  {
+    color: #aaa;
+    margin: 0;
+    font-size: 85%;
+    margin-left: 20px;
+  }
+
+  #search
+  {
+    position: absolute;
+    padding: 0;
+    top: 0;
+    right: 0;
+  }
+
+  #mission
+  {
+    color: #666;
+    font-weight: bold;
+    padding: 2em;
+    background: #D7E3F0 url(images/background.png);
+    margin-bottom: 20px;
+    font-size: 85%;
+    border: solid 1px #B5C9D8;
+  }
+
+  .breadcrumb
+  {
+    margin: 0;
+    padding: 0;
+    font-size: 85%;
+    margin-left: 20px;
+  }
+
+  /* "Skip to Main Content" link
+   *
+   * This link useful for both blind people and people with mobility impairments
+   * who cannot use a mouse.
+   */
+
+  #skip-nav
+  {
+    margin: 0 !important;
+    padding-left: 20px;
+    font-size: 0.8em;
+    line-height: 1;
+  }
+
+  #skip-nav a
+  {
+    padding: 1px 10px;
+  }
+
+  #skip-nav a:link, #skip-nav a:visited
+  {
+    color: #ffffff; /* same as background color */
+  }
+
+  #skip-nav a:hover, #skip-nav a:active, #skip-nav a:focus
+  {
+    color: #ffffff;
+    background: #2763A5;
+    text-decoration: none;
+  }
+
+  /* Alternatively, the skip-nav link can be completely hidden until a user tabs
+     to the link. Un-comment the following CSS to use this technique. */
+  /*
+  #skip-nav a, #skip-nav a:hover, #skip-nav a:visited
+  {
+    position: absolute;
+    left: 0;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  #skip-nav a:active, #skip-nav a:focus
+  {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  #logo-title
+  {
+    margin: 10px 20px 0 20px;
+  }
+  */
 
 /*
- * OTHER STYLES
- *
- * Styles that are specific to this theme.
+ * MENU STYLES
  */
 
-/* Common styles */
-body {
-  background: #fff;
-}
+  div.menu
+  {
+    margin-top: 15px;
+  }
 
-#page {
-  font-family: Verdana, "Bitstream Vera Sans", Arial, Helvetica, sans-serif;
-  color: #111;
-  line-height: 1.5em;
-  background-color: #fff;
-}
+  #primary
+  {
+    font-size: 85%;
+    line-height: normal;
+    padding: 0 0 1px 20px;
+    border-bottom: 4px solid #2763A5;
+  }
 
-#container {
-  margin: 0 10px 10px 10px;
-}
+  #primary ul
+  {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 
-#main .node .content{
-  color: #333;
-}
+  #primary ul.links li,
+  #secondary ul.links li
+  {
+    display: inline;
+    border-left: none;
+    margin: 0;
+    padding: 0;
+  }
 
-div.content, div.links {
-  font-size: 92%;
-}
+  #primary a
+  {
+    background: #6DA6E2 url(images/tabs.png) repeat-x;
+    color: #FFF;
+    font-weight: bold;
+    display: block;
+    float: left;
+    padding: 5px 14px 5px 14px;
+    margin: 0 1px 0 0;
+    border: solid #6191C5 1px;
+    border-width: 1px 1px 0 1px;
+  }
 
-a, a:link, a:visited {
-  color: #2763A5;
-  text-decoration: none;
-}
+  #primary a
+  {
+    background-position: 0% 0;
+  }
 
-a:hover, a:focus {
-  color: #6191C5;
-  text-decoration: underline;
-}
+  #primary a:hover
+  {
+    background-position: 0% -42px;
+    text-decoration: none;
+  }
 
-a:active, a.active {
-  color: #89A3E4;
-}
+  #primary a.active
+  {
+    background-position: 0% -84px;
+  }
 
-h1.title {
-  font-size: 200%;
-}
+  #secondary
+  {
+    padding-left: 20px;
+    background: #6DA6E2; /*#347FD2;*/
+    border-bottom: solid #2763A5 4px;
+  }
 
-h1.title, h1.title a, h1.title a:hover {
-  font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  color: #6191C5;
-  margin: 0;
-  margin-bottom: 0;
-  line-height: normal;
-}
+  #secondary ul
+  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-h1 {
-  font-size: 140%;
-}
+  #secondary li a
+  {
+    float: left;
+    display: block;
+    color: #fff;
+    font-size: 85%;
+    text-decoration: none;
+    padding: 0 5px 0 5px;
+  }
 
-h1, h1 a, h1 a:hover {
-  color: #444;
-  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-  margin: .5em 0 .5em 0;
-}
+  #secondary a:hover
+  {
+    background: #2763A5;
+  }
 
-h2, .block h3 {
-  font-size: 122%;
-}
+  #secondary a.active
+  {
+    font-weight: bold;
+  }
 
-h2, h2 a, h2 a:hover, .block h3, .block h3 a {
-  color: #444;
-  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-  margin: .5em 0 .5em 0;
-}
-
-h3 {
-  font-size: 107%;
-  font-weight: bold;
-  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-}
-
-h4, h5, h6 {
-  font-weight: bold;
-  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-}
-
-p, .book .body {
-  padding: 0 0 0.5em 0;
-  margin: 0;
-}
-
-pre {
-  background: #ddd;
-  border: 1px solid #aaa;
-  padding: 0.75em 1.5em;
-}
-
-blockquote {
-  border: 1px #ccc solid;
-  margin: 0.5em 1em;
-  padding: 0.3em;
-  font-style: italic;
-}
-
-img {
-  border: 0;
-}
-
-ol, ul, dl {
-  position: relative;
-}
-
-abbr.created {
-  border-bottom: none;
-  text-decoration: none;
-}
-
-/* Header styles */
-
-#logo-title {
-  margin: 10px 20px 0 20px;
-  position: relative;
-}
-
-#logo{
-  vertical-align: baseline;
-}
-
-#name-and-slogan {
-  display: inline;
-}
-
-#site-name {
-  margin: 0;
-  display: inline;
-  font-size: 246%;
-}
-
-#site-name a, #site-name a:hover {
-  font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  color: #6DA6E2;
-  margin: 0;
-  padding: 0;
-}
-
-#site-slogan {
-  color: #aaa;
-  margin: 0;
-  font-size: 85%;
-  margin-left: 20px;
-}
-
-
-#search {
-  position: absolute;
-  padding: 0;
-  top: 0;
-  right: 0;
-}
-
-#mission {
-  color: #666;
-  font-weight: bold;
-  padding: 2em;
-  background: #D7E3F0 url(images/background.png);
-  margin-bottom: 20px;
-  font-size: 85%;
-  border: solid 1px #B5C9D8;
-}
-
-.breadcrumb {
-  margin: 0;
-  padding: 0;
-  font-size: 85%;
-  margin-left: 20px;
-}
-
-/* "Skip to Main Content" link
- *
- * This link useful for both blind people and people with mobility impairments
- * who cannot use a mouse.
- */
-
-#skip-nav {
-  margin: 0 !important;
-  padding-left: 20px;
-  font-size: 0.8em;
-  line-height: 1;
-}
-#skip-nav a {
-  padding: 1px 10px;
-}
-#skip-nav a:link, #skip-nav a:visited {
-  color: #ffffff; /* same as background color */
-}
-#skip-nav a:hover, #skip-nav a:active, #skip-nav a:focus {
-  color: #ffffff;
-  background: #2763A5;
-  text-decoration: none;
-}
-/* Alternatively, the skip-nav link can be completely hidden until a user tabs
-   to the link. Un-comment the following CSS to use this technique. */
 /*
-#skip-nav a, #skip-nav a:hover, #skip-nav a:visited {
-  position: absolute;
-  left: 0;
-  top: -500px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-#skip-nav a:active, #skip-nav a:focus {
-  position: static;
-  width: auto;
-  height: auto;
-}
-#logo-title {
-  margin: 10px 20px 0 20px;
-}
-*/
-
-/* Menu styles */
-div.menu {
-  margin-top: 15px;
-}
-
-#primary {
-  font-size: 85%;
-  line-height: normal;
-  padding: 0 0 1px 20px;
-  border-bottom: 4px solid #2763A5;
-}
-
-#primary ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-#primary ul.links li,
-#secondary ul.links li {
-  display: inline;
-  border-left: none;
-  margin: 0;
-  padding: 0;
-}
-
-#primary a {
-  background: #6DA6E2 url(images/tabs.png) repeat-x;
-  color: #FFF;
-  font-weight: bold;
-  display: block;
-  float: left;
-  padding: 5px 14px 5px 14px;
-  margin: 0 1px 0 0;
-  border: solid #6191C5 1px;
-  border-width: 1px 1px 0 1px;
-}
-
-#primary a {
-  background-position: 0% 0;
-}
-
-#primary a:hover {
-  background-position: 0% -42px;
-  text-decoration: none;
-}
-
-#primary a.active {
-  background-position: 0% -84px;
-}
-
-#secondary {
-  padding-left: 20px;
-  background: #6DA6E2; /*#347FD2;*/
-  border-bottom: solid #2763A5 4px;
-}
-#secondary ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-#secondary li a {
-  float: left;
-  display: block;
-  color: #fff;
-  font-size: 85%;
-  text-decoration: none;
-  padding: 0 5px 0 5px;
-}
-
-#secondary a:hover {
-  background: #2763A5;
-}
-
-#secondary a.active {
-  font-weight: bold;
-}
-
-/* Link styles */
-ul.links {
-  text-align: left;
-}
-
-ul.links li {
-  border-left: 1px solid #9cf;
-}
-
-.taxonomy {
-  margin: 0;
-  padding: 0;
-  display: inline;
-}
-
-.taxonomy ul.links li {
-  border: none;
-  padding: 0 .1em 0 .2em;
-}
-
-.taxonomy ul.links li:after {
-  content: ",";
-}
-
-.taxonomy ul.links li.last:after {
-  content: "";
-}
-
-ul.links li.first {
-  padding-left: 0;
-  border: none;
-}
-
-.links {
-  color: #999;
-}
-.links a {
-  padding: 0 .1em 0 .1em;
-}
-
-.submitted, .taxonomy {
-  font-size: 85%;
-  color: #999;
-}
-
-/* Form styles */
-input, textarea, textfield {
-  margin: 0;
-  color: #000;
-  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-  padding: 1px;
-  font-size: 100%;
-}
-
-fieldset {
-  border: solid #ccc 1px;
-}
-
-input.form-checkbox, input.form-radio {
-  border: none;
-}
-
-#search .form-text, #user-login-form .form-text {
-  color: #444;
-  border: 1px solid #6191C5;
-  padding: 2px;
-}
-
-.form-submit, .button {
-  padding: 1px;
-}
-
-#search .button,
-#search .form-submit,
-#user-login-form .button,
-#user-login-form .form-submit {
-  background-color: #68A0D9;
-  color: #fff;
-  font-weight: bold;
-  border: 1px solid #4070A1;
-}
-
-#user-login-form {
-  text-align: left;
-}
-
-#user-login-form .item-list ul {
-  margin-top: 10px;
-}
-
-/* Alerts, Status, Help Messages  */
-.messages {
-  min-height: 32px;                 /* icon height */
-  padding: 1.3em 1em .3em 52px;
-  border: 2px solid #ddd;
-  background: #eee;
-  margin: 10px 0;
-}
-
-div.error {
-  border: 2px solid #F00;
-}
-
-.messages ul {
-  padding: 0 0 0 20px;
-  margin: 0;
-}
-
-/* Footer styles */
-#footer-wrapper {
-  margin: 0;
-  margin-top: 15px;
-}
-
-#footer {
-  background-color: #2763A5;
-  border: solid 1px #004969;
-  color: #FFFFFF;
-  text-align: center;
-  margin: 0;
-  font-size: 85%;
-  padding: 1em;
-}
-
-#footer a {
-  color: #fff;
-  font-weight: bold;
-  border-bottom: 1px dotted #FFFFFF;
-}
-
-#footer a:hover {
-  border-bottom: 1px solid #FFFFFF;
-}
-
-#footer img.drupal-powered {
-  position: relative;
-  top: .3em;
-}
-
-/* Administration styles */
-.admin-panel {
-  margin: 0;
-  padding: 0;
-}
-
-.admin-panel .body {
-  background-color: #eee;
-  border: solid #6191C5 1px;
-}
-
-.admin-panel .body dl, .admin-panel .body p {
-  padding: 10px;
-}
-
-.admin-panel h3 {
-  margin-bottom: 0;
-  padding: 5px 5px 5px 30px;
-  font-family: Verdana, "Bitstream Vera Sans", Arial, Helvetica, sans-serif;
-  font-size: 122%;
-  color: #fff;
-  border-width: 0 2px 2px 2px;
-}
-
-/* Comment styles */
-.comment {
-  margin: 0 0 10px 0;
-  padding: 10px;
-  background: #EBF2F8;
-}
-
-.comment-unpublished {
-  background-color: #FFF;
-  background-image: url(images/unpublished.png);
-  background-position: center 20px;
-  background-repeat: no-repeat;
-}
-
-.comment-by-author {
-  background: none;
-  border: 1px solid #6191C5;
-}
-
-.comment  h3.title {
-  font-size: 122%;
-}
-
-.comment  h3.title, .comment  h3.title a {
-  color: #2266AB;
-  font-weight: normal;
-  font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
-  margin-bottom: 3px;
-  margin-top: 0;
-}
-
-.comment .picture, .node .picture {
-  float: left;
-  margin-right: 15px;
-}
-
-.comment .new {
-  color: #FFC600;
-  font-weight: bold;
-  font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
-}
-
-.comment .links {
-  text-align: right;
-}
-
-/* Poll styles */
-.poll .bar .foreground {
-  background: #2763A5;
-}
-
-.poll .bar {
-  padding: 2px;
-  background: #BDCBDD;
-}
-
-/* Book styles */
-div.node div.content .book-navigation {
-  background: #eee;
-  margin: 0;
-  padding: 0;
-}
-
-div.node div.content .book-navigation ul.menu {
-  border: 0;
-  border-top: 1px solid #2763A5;
-  margin: 0;
-  padding-bottom: 10px;
-}
-
-div.node div.content .book-navigation .page-links {
-  background: #C1D4EA; /*#347FD2;*/
-  border: 1px solid #2763A5;
-  border-width: 1px 0 1px 0;
-  padding: 5px;
-  margin: 0;
-}
-
-/* Forum styles */
-#forum table {
-  width: 100%;
-}
-
-/* Pager styles */
-.pager {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.pager  a, .pager-current {
-  padding: 3px 8px 3px 8px;
-  margin: 0 2px 0 2px;
-  color: #2763A5;
-  font-weight: bold;
-  border: solid 1px #eee;
-}
-
-.pager-current {
-  color: #fff;
-  background-color: #2763A5;
-}
-
-/* Node, Block, Content styles */
-.node {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-}
-
-.node-unpublished {
-  background-image: url(images/unpublished.png);
-  background-position: center 20px;
-  background-repeat: no-repeat;
-}
-
-.node h2.title {
-  margin-bottom: .1em;
-}
-
-.node h2.title a {
-  color: #555;
-  font-size: 129%;
-  font-weight: normal;
-  font-family: Verdana, Tahoma, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
-  line-height: 1.4em;
-}
-
-.node .content {
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-
-.sticky {
-  border-bottom: solid 3px #ddd;
-}
-
-#sidebar-left .block, #sidebar-right .block {
-  border-bottom: solid #ddd 1px;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-}
-
-.block .item-list ul {
-  padding-left: 0;
-}
+ * LINK STYLES
+ */
+
+  ul.links
+  {
+    text-align: left;
+  }
+
+  ul.links li
+  {
+    border-left: 1px solid #9cf;
+  }
+
+  .taxonomy
+  {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  .taxonomy ul.links li
+  {
+    border: none;
+    padding: 0 .1em 0 .2em;
+  }
+
+  .taxonomy ul.links li:after
+  {
+    content: ",";
+  }
+
+  .taxonomy ul.links li.last:after
+  {
+    content: "";
+  }
+
+  ul.links li.first
+  {
+    padding-left: 0;
+    border: none;
+  }
+
+  .links
+  {
+    color: #999;
+  }
+
+  .links a
+  {
+    padding: 0 .1em 0 .1em;
+  }
+
+  .submitted, .taxonomy
+  {
+    font-size: 85%;
+    color: #999;
+  }
+
+/*
+ * FORM STYLES
+ */
+
+  input, textarea, textfield
+  {
+    margin: 0;
+    color: #000;
+    font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    padding: 1px;
+    font-size: 100%;
+  }
+
+  input.form-checkbox, input.form-radio
+  {
+    border: none;
+  }
+
+  #search .form-text, #user-login-form .form-text
+  {
+    color: #444;
+    border: 1px solid #6191C5;
+    padding: 2px;
+  }
+
+  .form-submit, .button
+  {
+    padding: 1px;
+  }
+
+  #search .button,
+  #search .form-submit,
+  #user-login-form .button,
+  #user-login-form .form-submit
+  {
+    background-color: #68A0D9;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #4070A1;
+  }
+
+  #user-login-form
+  {
+    text-align: left;
+  }
+
+  #user-login-form .item-list ul
+  {
+    margin-top: 10px;
+  }
+
+/*
+ * ALERTS, STATUS, HELP MESSAGE STYLES
+ */
+
+  .messages
+  {
+    padding: 1.3em 1em .3em 52px;
+    border: 2px solid #ddd;
+    background: #eee;
+    margin: 10px 0;
+  }
+
+  div.error
+  {
+    border: 2px solid #F00;
+  }
+
+  .messages ul
+  {
+    padding: 0 0 0 20px;
+    margin: 0;
+  }
+
+/*
+ * FOOTER STYLES
+ */
+
+  #footer-wrapper
+  {
+    margin: 0;
+    margin-top: 15px;
+  }
+
+  #footer
+  {
+    background-color: #2763A5;
+    border: solid 1px #004969;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0;
+    font-size: 85%;
+    padding: 1em;
+  }
+
+  #footer a
+  {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 1px dotted #FFFFFF;
+  }
+
+  #footer a:hover
+  {
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  #footer img.drupal-powered
+  {
+    position: relative;
+    top: .3em;
+  }
+
+/*
+ * ADMINISTRATION STYLES
+ */
+
+  .admin-panel
+  {
+    margin: 0;
+    padding: 0;
+  }
+
+  .admin-panel .body
+  {
+    background-color: #eee;
+    border: solid #6191C5 1px;
+  }
+
+  .admin-panel .body dl, .admin-panel .body p
+  {
+    padding: 10px;
+  }
+
+  .admin-panel h3
+  {
+    margin-bottom: 0;
+    padding: 5px 5px 5px 30px;
+    font-family: Verdana, "Bitstream Vera Sans", Arial, Helvetica, sans-serif;
+    font-size: 122%;
+    color: #fff;
+    border-width: 0 2px 2px 2px;
+  }
+
+  table tr.odd
+  {
+    background: #ddd;
+  }
+
+  td.icon
+  {
+    text-align: center;
+  }
+
+/*
+ * COMMENT STYLES
+ */
+
+  .comment
+  {
+    margin: 0 0 10px 0;
+    padding: 10px;
+    background: #EBF2F8;
+  }
+
+  .comment-unpublished
+  {
+    background-color: #FFF;
+    background-image: url(images/unpublished.png);
+    background-position: center 20px;
+    background-repeat: no-repeat;
+  }
+
+  .comment-by-author
+  {
+    background: none;
+    border: 1px solid #6191C5;
+  }
+
+  .comment  h3.title
+  {
+    font-size: 122%;
+  }
+
+  .comment  h3.title, .comment  h3.title a
+  {
+    color: #2266AB;
+    font-weight: normal;
+    font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+    margin-bottom: 3px;
+    margin-top: 0;
+  }
+
+  .comment .picture, .node .picture
+  {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .comment .new
+  {
+    color: #FFC600;
+    font-weight: bold;
+    font-family: "Trebuchet MS", "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif;
+  }
+
+  .comment .links
+  {
+    text-align: right;
+  }
+
+/*
+ * POLL STYLES
+ */
+
+  .poll .bar .foreground
+  {
+    background: #2763A5;
+  }
+
+  .poll .bar
+  {
+    padding: 2px;
+    background: #BDCBDD;
+  }
+
+/*
+ * BOOK STYLES
+ */
+
+  div.node div.content .book-navigation
+  {
+    background: #eee;
+    margin: 0;
+    padding: 0;
+  }
+
+  div.node div.content .book-navigation ul.menu
+  {
+    border: 0;
+    border-top: 1px solid #2763A5;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  div.node div.content .book-navigation .page-links
+  {
+    background: #C1D4EA; /*#347FD2;*/
+    border: 1px solid #2763A5;
+    border-width: 1px 0 1px 0;
+    padding: 5px;
+    margin: 0;
+  }
+
+/*
+ * FORUM STYLES
+ */
+
+  #forum table
+  {
+    width: 100%;
+  }
+
+/*
+ * Pager styles
+ */
+
+  .pager
+  {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .pager  a, .pager-current
+  {
+    padding: 3px 8px 3px 8px;
+    margin: 0 2px 0 2px;
+    color: #2763A5;
+    font-weight: bold;
+    border: solid 1px #eee;
+  }
+
+  .pager-current
+  {
+    color: #fff;
+    background-color: #2763A5;
+  }
+
+/*
+ * Node, Block, Content styles
+ */
+
+  .node
+  {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .node-unpublished
+  {
+    background-image: url(images/unpublished.png);
+    background-position: center 20px;
+    background-repeat: no-repeat;
+  }
+
+  .node h2.title
+  {
+    margin-bottom: .1em;
+  }
+
+  .node h2.title a
+  {
+    color: #555;
+    font-size: 129%;
+    font-weight: normal;
+    font-family: Verdana, Tahoma, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    line-height: 1.4em;
+  }
+
+  .node .content
+  {
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
+  .sticky
+  {
+    border-bottom: solid 3px #ddd;
+  }
+
+  #sidebar-left .block,
+  #sidebar-right .block
+  {
+    border-bottom: solid #ddd 1px;
+    padding-bottom: 15px;
+    margin: 0 0 1.5em 0;
+  }
+
+  #sidebar-left .block
+  {
+    padding-right: 15px;
+  }
+
+  #sidebar-right .block
+  {
+    padding-left: 15px;
+  }
+
+  .block .content
+  {
+    margin: 0.5em 0;
+  }
+
+  .block .item-list ul
+  {
+    padding-left: 0;
+  }
 
 /*
  * Status report colors.
  */
-table.system-status-report tr.error, table.system-status-report tr.error th {
-  background-color: #fcc;
-  border-color: #ebb;
-  color: #200;
-}
-table.system-status-report tr.warning, table.system-status-report tr.warning th {
-  background-color: #ffd;
-  border-color: #eeb;
-}
-table.system-status-report tr.ok, table.system-status-report tr.ok th {
-  background-color: #dfd;
-  border-color: #beb;
-}
+
+  table.system-status-report tr.error, table.system-status-report tr.error th
+  {
+    background-color: #fcc;
+    border-color: #ebb;
+    color: #200;
+  }
+
+  table.system-status-report tr.warning, table.system-status-report tr.warning th
+  {
+    background-color: #ffd;
+    border-color: #eeb;
+  }
+
+  table.system-status-report tr.ok, table.system-status-report tr.ok th
+  {
+    background-color: #dfd;
+    border-color: #beb;
+  }

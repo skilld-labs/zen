@@ -6,21 +6,23 @@
  *
  * The Zen theme allows its sub-themes to have their own template.php files. The
  * only restriction with these files is that they cannot redefine any of the
- * functions that are already defined in Zen's main template.php file.
+ * functions that are already defined in Zen's main template files:
+ * template.php, template-menus.php, and template-subtheme.php.
  *
- * Also remember that the "main" theme is still Zen, so your theme functions
- * should be named as such:
- *  theme_block()  becomes  zen_block()
- *  theme_feed_icon() becomes zen_feed_icon() as well
+ * Also remember that the "main" theme is still Zen, so your theme override
+ * functions should be named as such:
+ *  theme_block()      becomes  zen_block()
+ *  theme_feed_icon()  becomes  zen_feed_icon()  as well
  *
  * For a sub-theme to define its own regions, use the function name
- *   THEMENAME_regions()
- * where THEMENAME is replaced with the name of your sub-theme (with dashes
- * replaced with underscores). For example, the zen_classic theme would define
- * a zen_classic_regions() function.
+ *   SUBTHEME_regions()
+ * where SUBTHEME is the name of your sub-theme. For example, the zen_classic
+ * theme would define a zen_classic_regions() function.
  *
- * For a sub-theme to add its own variables, use the function name
- *   zen_variables($hook, $vars)
+ * For a sub-theme to add its own variables, use these functions
+ *   SUBTHEME_preprocess_page(&$vars)
+ *   SUBTHEME_preprocess_node(&$vars)
+ *   SUBTHEME_preprocess_comment(&$vars)
  */
 
 
@@ -38,6 +40,31 @@ include_once 'theme-settings-init.php';
 include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 
 
+/*
+ * Add the stylesheets you will need for this sub-theme.
+ *
+ * To add stylesheets that are in the main Zen folder, use path_to_theme().
+ * To add stylesheets thar are in your sub-theme's folder, use path_to_subtheme().
+ */
+
+// Add any stylesheets you would like from the main Zen theme.
+//drupal_add_css(path_to_theme() .'/html-elements.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/tabs.css', 'theme', 'all');
+
+// Then add styles for this sub-theme.
+drupal_add_css(path_to_subtheme() .'/html-elements.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/layout-garland.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/icons.css', 'theme', 'all');
+drupal_add_css(path_to_subtheme() .'/zen-classic.css', 'theme', 'all');
+// Optionally add the fixed width CSS file.
+if (theme_get_setting('zen_classic_fixed')) {
+  drupal_add_css(path_to_subtheme() .'/zen-fixed.css', 'theme', 'all');
+}
+
+// Avoid IE5 bug that always loads @import print stylesheets
+zen_add_print_css(path_to_subtheme() .'/print.css');
+
+
 /**
  * Declare the available regions implemented by this theme.
  *
@@ -52,36 +79,53 @@ function zen_classic_regions() {
     'content_bottom' => t('content bottom'),
     'header' => t('header'),
     'footer' => t('footer'),
+    'closure_region' => t('closure'),
   );
 }
 
-/**
- * Intercept template variables
- *
- * @param $hook
- *   The name of the theme function being executed
- * @param $vars
- *   A sequential array of variables passed to the theme function.
- */
-function zen_variables($hook, $vars) {
-  $vars['subtheme_directory'] = path_to_subtheme();
 
-  switch ($hook) {
-    case 'page':
-      // Add main Zen styles.
-      drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-      // Then add styles for this sub-theme.
-      drupal_add_css($vars['subtheme_directory'] .'/layout.css', 'theme', 'all');
-      drupal_add_css($vars['subtheme_directory'] .'/icons.css', 'theme', 'all');
-      drupal_add_css($vars['subtheme_directory'] .'/zen-classic.css', 'theme', 'all');
-      // Optionally add the fixed width CSS file.
-      if (theme_get_setting('zen_classic_fixed')) {
-        drupal_add_css($vars['subtheme_directory'] .'/zen-fixed.css', 'theme', 'all');
-      }
-      $vars['css'] = drupal_add_css();
-      $vars['styles'] = drupal_get_css();
-      // Avoid IE5 bug that always loads @import print stylesheets
-      $vars['head'] = zen_add_print_css($vars['subtheme_directory'] .'/print.css');
-  }
-  return $vars;
+/**
+ * Override or insert PHPTemplate variables into the page templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+/* -- Delete this line if you want to use this function
+function zen_classic_preprocess_page(&$vars) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
 }
+// */
+
+/**
+ * Override or insert PHPTemplate variables into the node templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+/* -- Delete this line if you want to use this function
+function zen_classic_preprocess_node(&$vars) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+/**
+ * Override or insert PHPTemplate variables into the comment templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+/* -- Delete this line if you want to use this function
+function zen_classic_preprocess_comment(&$vars) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+
+/**
+ * Override the Drupal search form using the search-theme-form.tpl.php file.
+ */
+/* -- Delete this line if you want to use this function
+function phptemplate_search_theme_form($form) {
+  return _phptemplate_callback('search-theme-form', array('form' => $form));
+}
+// */

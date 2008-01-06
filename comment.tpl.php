@@ -9,7 +9,7 @@
   <?php if ($picture) print $picture; ?>
 
   <div class="submitted">
-    <?php print t('On ') . format_date($comment->timestamp, 'custom', 'F jS, Y'); ?> <?php print theme('username', $comment) . t(' said:'); ?>
+    <?php print $submitted; ?>
   </div>
 
   <div class="content">

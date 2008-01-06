@@ -18,7 +18,7 @@
 
   <div id="page"><div id="page-inner">
 
-    <a name="top"></a>
+    <a name="top" id="navigation-top"></a>
     <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
 
     <div id="header"><div id="header-inner" class="clear-block">

@@ -7,7 +7,8 @@
  * column layout depending on whether blocks are enabled in the left or right
  * columns.
  *
- * This layout is based on the Holy Slurpy Cup layout method.
+ * This layout is based on the Border Politics Layout Method.
+ *   http://drupal.org/node/201428
  *
  * Only CSS that affects the layout (positioning) of major elements should be
  * listed here.  Such as:
@@ -30,11 +31,16 @@
      * this is the standards-compliant way to do that. See also the ie.css file
      * for the necessary IE5 hack to center a div.
      */
-    /*
     margin-left: auto;
     margin-right: auto;
     width: 960px;
-    */
+  }
+
+  #navigation-top,
+  #navigation
+  {
+    position: absolute; /* Take the named anchors out of the doc flow    */
+    left: -10000px;     /* and prevent any anchor styles from appearing. */
   }
 
   #skip-to-nav
@@ -103,35 +109,40 @@
   }
 
 /** content **/
-  #content
+  #content,
+  .two-sidebars #content
   {
     float: left;
-    width: 100%;
+    width: 560px;
+    margin-left: 200px; /* The width of #sidebar-left */
+    margin-right: -760px; /* Negative value of #content's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
+  }
+
+  .sidebar-left #content
+  {
+    width: 760px;
+    margin-left: 200px; /* The width of #sidebar-left. */
+    margin-right: -960px; /* Negative value of #content's width + left margin. */
+  }
+
+  .sidebar-right #content
+  {
+    width: 760px;
     margin-left: 0;
-    margin-right: -100%; /* Negative value of #content's width. */
-    padding: 0; /* DO NOT CHANGE. Add padding to #content-inner. */
+    margin-right: -760px; /* Negative value of #content's width + left margin. */
   }
 
-  .two-sidebars #content-inner
+  .no-sidebars #content
   {
-    padding-left: 200px; /* The width of #sidebar-left. */
-    padding-right: 200px; /* The width of #sidebar-right. */
-  }
-
-  .sidebar-left #content-inner
-  {
-    padding-left: 200px; /* The width of #sidebar-left. */
-    padding-right: 0;
-  }
-
-  .sidebar-right #content-inner
-  {
-    padding-left: 0;
-    padding-right: 200px; /* The width of #sidebar-right. */
+    width: 960px;
+    margin-left: 0;
+    margin-right: -960px; /* Negative value of #content's width + left margin. */
   }
 
   #content-inner
   {
+    margin: 0;
     padding: 0;
   }
 
@@ -141,28 +152,30 @@
     float: left;
     width: 200px;
     margin-left: 0;
-    margin-right: -200px; /* Negative value of #sidebar-left's width. */
-    padding: 0; /* DO NOT CHANGE. Add padding to #sidebar-left-inner. */
+    margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
   }
 
   #sidebar-left-inner
   {
-    padding-right: 20px;
+    margin: 0 20px 0 0;
+    padding: 0;
   }
 
 /** sidebar-right **/
   #sidebar-right
   {
-    float: right;
+    float: left;
     width: 200px;
-    margin-left: -200px; /* Negative value of #sidebar-right's width. */
-    margin-right: 0;
-    padding: 0; /* DO NOT CHANGE. Add padding to #sidebar-right-inner. */
+    margin-left: 760px; /* Width of content + sidebar-left. */
+    margin-right: -960px; /* Negative value of #sidebar-right's width + left margin. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
   }
 
   #sidebar-right-inner
   {
-    padding-left: 20px;
+    margin: 0 0 0 20px;
+    padding: 0;
   }
 
 /** navbar **/
@@ -172,7 +185,7 @@
     width: 100%;
     margin-left: 0;
     margin-right: -100%; /* Negative value of #navbar's width. */
-    padding: 0; /* DO NOT CHANGE. Add padding to #navbar-inner. */
+    padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
     height: 3.6em; /* The navbar can have any arbritrary height. We picked one
                       that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
                       Set this to the same value as the margin-top below. */
@@ -209,14 +222,23 @@
     text-align: left;
   }
 
+  #navbar li /* A simple method to get navbar links to appear in one line. */
+  {
+    float: left;
+    padding: 0 10px 0 0;
+  }
+
+  /* There are many methods to get navbar links to appear in one line.
+   * Here's an alternate method: */
+  /*
   #navbar li
   {
     display: inline;
     padding: 0 10px 0 0;
   }
+  */
 
-
-/** prevent overflowing content **/
+/** Prevent overflowing content **/
   #header,
   #content,
   #navbar,

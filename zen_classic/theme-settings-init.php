@@ -3,7 +3,12 @@
 
 if (is_null(theme_get_setting('zen_classic_fixed'))) {
   global $theme_key;
-  // Save default theme settings
+
+  /*
+   * Modify the values in $defaults below if you want the subtheme to have
+   * different defaults than the main Zen theme. Make sure $defaults exactly
+   * matches the $defaults in the theme-settings.php file.
+   */
   $defaults = array(
     'zen_classic_fixed' => 0,
     'zen_breadcrumb' => 'yes',
@@ -11,6 +16,8 @@ if (is_null(theme_get_setting('zen_classic_fixed'))) {
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 0,
   );
+
+  // Save default theme settings
   variable_set(
     str_replace('/', '_', 'theme_'. $theme_key .'_settings'),
     array_merge($defaults, theme_get_settings($theme_key))

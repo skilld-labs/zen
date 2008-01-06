@@ -2,7 +2,7 @@ $(document).ready( function() {
   // Breadcrumb
   $('#edit-zen-breadcrumb').change(
     function() {
-      div = $('#div-zen-breadcrumb');
+      div = $('#div-zen-breadcrumb-collapse');
       if ($('#edit-zen-breadcrumb').val() == 'no') {
         div.slideUp('slow');
       } else if (div.css('display') == 'none') {
@@ -11,6 +11,6 @@ $(document).ready( function() {
     }
   );
   if ($('#edit-zen-breadcrumb').val() == 'no') {
-    $('#div-zen-breadcrumb').css('display', 'none');
+    $('#div-zen-breadcrumb-collapse').css('display', 'none');
   }
 } );
