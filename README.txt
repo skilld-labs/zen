@@ -45,7 +45,11 @@ Build your own sub-theme:
 
      For example, copy the zen/SUBTHEME folder and rename it as zen/foo.
 
-  2. If you want a liquid layout for your theme, copy the layout-liquid.css from
+  2. Rename the SUBTHEME.info file to the name of your new sub-theme.
+
+     For example, rename the zen/foo/SUBTHEME.info file to zen/foo/foo.info.
+
+  3. If you want a liquid layout for your theme, copy the layout-liquid.css from
      the zen folder and place it in your sub-theme's folder. If you want a
      fixed-width layout for your theme, copy the layout-fixed.css from the zen
      folder and place it in your sub-theme's folder. Rename the layout
@@ -53,29 +57,29 @@ Build your own sub-theme:
 
      For example, copy zen/layout-fixed.css and rename it as zen/foo/layout.css.
 
-  3. Copy the print stylesheet from the zen folder and place it in your
+  4. Copy the print stylesheet from the zen folder and place it in your
      sub-theme's folder.
 
      For example, copy zen/print.css to zen/foo/print.css.
 
-  4. Copy the zen stylesheet from the zen folder and place it in your
+  5. Copy the zen stylesheet from the zen folder and place it in your
      sub-theme's folder. Rename it to be the name of your sub-theme.
 
      For example, copy zen/zen.css and rename it as zen/foo/foo.css.
 
-  5. Edit the template.php and theme-settings.php files in your sub-theme's
+  6. Edit the template.php and theme-settings.php files in your sub-theme's
      folder; replace ALL occurances of "SUBTHEME" with the name of your
      sub-theme. However, do not replace occurances of "subtheme".
 
      For example, edit zen/foo/template.php and zen/foo/theme-settings.php and
      replace "SUBTHEME" with "foo".
 
-  6. Log in as an administrator on your Drupal site and go to Administer > Site
+  7. Log in as an administrator on your Drupal site and go to Administer > Site
      building > Themes (admin/build/themes) and enable your new sub-theme.
 
   Optional:
 
-  7. MODIFYING ZEN CORE STYLESHEETS:
+  8. MODIFYING ZEN CORE STYLESHEETS:
      If you decide you want to modify any of the other stylesheets in the zen
      folder, copy them to your sub-theme's folder before making any changes.
      Also, be sure to edit the drupal_add_css() calls near the beginning of your
@@ -87,18 +91,18 @@ Build your own sub-theme:
      to:
        drupal_add_css(path_to_subtheme() .'/html-elements.css', 'theme', 'all');
 
-  8. MODIFYING ZEN CORE TEMPLATE FILES:
+  9. MODIFYING ZEN CORE TEMPLATE FILES:
      If you decide you want to modify any of the .tpl.php template files in the
      zen folder, copy them to your sub-theme's folder before making any changes.
 
      For example, copy zen/page.tpl.php to zen/foo/page.tpl.php.
 
-  9. THEMEING DRUPAL'S SEARCH FORM:
+  10. THEMEING DRUPAL'S SEARCH FORM:
      Copy the search-theme-form.tpl.php template file from the zen folder and
      place it in your sub-theme's folder. In your sub-theme's template.php file,
      un-comment the SUBTHEME_search_theme_form() function.
 
-  10. FURTHER EXTENSIONS OF YOUR SUB-THEME:
+  11. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
      documentation and Drupal's Theme Developer's Guide online at:
        http://drupal.org/handbooks

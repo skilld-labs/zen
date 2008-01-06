@@ -1,3 +1,6 @@
+Zen 6.x-1.x-dev
+  * Upgrading to Drupal 6. Not yet complete.
+
 Zen 5.x-1.x-dev
   #206060: changed inline styling method for navbar links from inline to float
 

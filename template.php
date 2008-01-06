@@ -8,11 +8,10 @@
  * ABOUT
  *
  * The template.php file is one of the most useful files when creating or
- * modifying Drupal themes. You can add new regions for block content, modify or
- * override Drupal's theme functions, intercept or make additional variables
- * available to your theme, and create custom PHP logic. For more information,
- * please visit the Theme Developer's Guide on Drupal.org:
- * http://drupal.org/theme-guide
+ * modifying Drupal themes. You can modify or override Drupal's theme functions,
+ * intercept or make additional variables available to your theme, and create
+ * custom PHP logic. For more information, please visit the Theme Developer's
+ * Guide on Drupal.org: http://drupal.org/theme-guide
  */
 
 
@@ -32,47 +31,9 @@ include_once 'theme-settings-init.php';
 include_once 'template-menus.php';
 
 
-/**
- * Declare the available regions implemented by this theme.
- *
- * Regions are areas in your theme where you can place blocks. The default
- * regions used in themes are "left sidebar", "right sidebar", "header", and
- * "footer", although you can create as many regions as you want. Once declared,
- * they are made available to the page.tpl.php file as a variable. For instance,
- * use <?php print $header ?> for the placement of the "header" region in
- * page.tpl.php.
- *
- * By going to the administer > site building > blocks page you can choose
- * which regions various blocks should be placed. New regions you define here
- * will automatically show up in the drop-down list by their human readable name.
- *
- * @return
- *   An array of regions. The first array element will be used as the default
- *   region for themes. Each array element takes the format:
- *   variable_name => t('human readable name')
- */
-function zen_regions() {
-  // Allow a sub-theme to add/alter variables
-  global $theme_key;
-  if ($theme_key != 'zen') {
-    $function = str_replace('-', '_', $theme_key) .'_regions';
-    if (function_exists($function)) {
-      return $function();
-    }
-  }
-
-  return array(
-    'left' => t('left sidebar'),
-    'right' => t('right sidebar'),
-    'navbar' => t('navigation bar'),
-    'content_top' => t('content top'),
-    'content_bottom' => t('content bottom'),
-    'header' => t('header'),
-    'footer' => t('footer'),
-    'closure_region' => t('closure'),
-  );
+if (0) { // Verify this has been deprecated
+  _zen_hook($hook); // Add support for sub-theme template files
 }
-
 
 /*
  * OVERRIDING THEME FUNCTIONS
@@ -143,18 +104,40 @@ function phptemplate_breadcrumb($breadcrumb) {
 
 
 /**
- * Intercept template variables
+ * Override or insert PHPTemplate variables into the page templates.
  *
- * @param $hook
- *   The name of the theme function being executed (name of the .tpl.php file)
  * @param $vars
- *   A copy of the array containing the variables for the hook.
- * @return
- *   The array containing additional variables to merge with $vars.
+ *   A sequential array of variables to pass to the theme template.
  */
-function _phptemplate_variables($hook, $vars = array()) {
-  // Get the currently logged in user
-  global $user, $theme_key;
+function phptemplate_preprocess_page(&$vars) {
+  global $user, $theme, $theme_key;
+
+  // These next lines add additional CSS files and redefine
+  // the $css and $styles variables available to your page template
+  if ($theme == $theme_key) { // If we're in the main theme
+    // Load the stylesheet for a liquid layout
+    if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
+      drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
+    }
+    // Or load the stylesheet for a fixed width layout
+    else {
+      drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
+    }
+    drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
+    drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
+    drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
+    // Avoid IE5 bug that always loads @import print stylesheets
+    $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
+  }
+  // Optionally add the wireframes style.
+  if (theme_get_setting('zen_wireframes')) {
+    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+  }
+  $vars['css'] = drupal_add_css();
+  $vars['styles'] = drupal_get_css();
+
+  // Allow sub-themes to have an ie.css file
+  $vars['subtheme_directory'] = path_to_subtheme();
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The
@@ -162,178 +145,118 @@ function _phptemplate_variables($hook, $vars = array()) {
   // variable is available to all templates.
   $vars['is_admin'] = in_array('admin', $user->roles);
 
-  switch ($hook) {
-    case 'page':
-      global $theme;
+  // Send a new variable, $logged_in, to page.tpl.php to tell us if the
+  // current user is logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
 
-      // These next lines add additional CSS files and redefine
-      // the $css and $styles variables available to your page template
-      if ($theme == $theme_key) { // If we're in the main theme
-        // Load the stylesheet for a liquid layout
-        if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
-          drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
-        }
-        // Or load the stylesheet for a fixed width layout
-        else {
-          drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
-        }
-        drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
-        drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-        drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
-        // Avoid IE5 bug that always loads @import print stylesheets
-        $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
-      }
-      // Optionally add the wireframes style.
-      if (theme_get_setting('zen_wireframes')) {
-        drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
-      }
-      $vars['css'] = drupal_add_css();
-      $vars['styles'] = drupal_get_css();
-
-      // Send a new variable, $logged_in, to page.tpl.php to tell us if the
-      // current user is logged in or out. An anonymous user has a user id of 0.
-      $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
-
-      // Classes for body element. Allows advanced theming based on context
-      // (home page, node of certain type, etc.)
-      $body_classes = array();
-      $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
-      $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
-      if ($vars['node']->type) {
-        // If on an individual node page, put the node type in the body classes
-        $body_classes[] = 'node-type-'. $vars['node']->type;
-      }
-      if ($vars['sidebar_left'] && $vars['sidebar_right']) {
-        $body_classes[] = 'two-sidebars';
-      }
-      elseif ($vars['sidebar_left']) {
-        $body_classes[] = 'one-sidebar sidebar-left';
-      }
-      elseif ($vars['sidebar_right']) {
-        $body_classes[] = 'one-sidebar sidebar-right';
-      }
-      else {
-        $body_classes[] = 'no-sidebars';
-      }
-      if (!$vars['is_front']) {
-        // Add unique classes for each page and website section
-        // First, remove base path and any query string.
-        global $base_path;
-        list(,$path) = explode($base_path, $_SERVER['REQUEST_URI'], 2);
-        // If clean URLs are off, strip remainder of query string.
-        list($path,) = explode('&', $path, 2);
-        // Strip query string.
-        list($path,) = explode('?', $path, 2);
-        $path = rtrim($path, '/');
-        // Construct the id name from the path, replacing slashes with dashes.
-        $full_path = str_replace('/', '-', $path);
-        // Construct the class name from the first part of the path only.
-        list($section,) = explode('/', $path, 2);
-        $body_classes[] = zen_id_safe('page-'. $full_path);
-        $body_classes[] = zen_id_safe('section-'. $section);
-      }
-      $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
-
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_page')) {
-        $function = $theme_key .'_preprocess_page';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_page')) {
-        phptemplate_preprocess_page($vars);
-      }
-
-      break;
-
-    case 'node':
-      // Special classes for nodes
-      $node_classes = array();
-      if ($vars['sticky']) {
-        $node_classes[] = 'sticky';
-      }
-      if (!$vars['node']->status) {
-        $node_classes[] = 'node-unpublished';
-      }
-      if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
-        // Node is authored by current user
-        $node_classes[] = 'node-mine';
-      }
-      if ($vars['teaser']) {
-        // Node is displayed as teaser
-        $node_classes[] = 'node-teaser';
-      }
-      // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-      $node_classes[] = 'node-type-'. $vars['node']->type;
-      $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
-
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_node')) {
-        $function = $theme_key .'_preprocess_node';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_node')) {
-        phptemplate_preprocess_node($vars);
-      }
-
-      break;
-
-    case 'comment':
-      // We load the node object that the current comment is attached to
-      $node = node_load($vars['comment']->nid);
-      // If the author of this comment is equal to the author of the node, we
-      // set a variable so we can theme this comment uniquely.
-      $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
-
-      $comment_classes = array();
-
-      // Odd/even handling
-      static $comment_odd = TRUE;
-      $comment_classes[] = $comment_odd ? 'odd' : 'even';
-      $comment_odd = !$comment_odd;
-
-      if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
-        $comment_classes[] = 'comment-unpublished';
-      }
-      if ($vars['author_comment']) {
-        // Comment is by the node author
-        $comment_classes[] = 'comment-by-author';
-      }
-      if ($vars['comment']->uid == 0) {
-        // Comment is by an anonymous user
-        $comment_classes[] = 'comment-by-anon';
-      }
-      if ($user->uid && $vars['comment']->uid == $user->uid) {
-        // Comment was posted by current user
-        $comment_classes[] = 'comment-mine';
-      }
-      $vars['comment_classes'] = implode(' ', $comment_classes);
-
-      // If comment subjects are disabled, don't display 'em
-      if (variable_get('comment_subject_field', 1) == 0) {
-        $vars['title'] = '';
-      }
-
-      // Allow a sub-theme to add/alter variables
-      if (function_exists($theme_key .'_preprocess_comment')) {
-        $function = $theme_key .'_preprocess_comment';
-        $function($vars);
-      }
-      elseif (function_exists('phptemplate_preprocess_comment')) {
-        phptemplate_preprocess_comment($vars);
-      }
-
-      break;
+  // Classes for body element. Allows advanced theming based on context
+  // (home page, node of certain type, etc.)
+  $body_classes = array($vars['body_classes']);
+  if (!$vars['is_front']) {
+    // Add unique classes for each page and website section
+    // First, remove base path and any query string.
+    global $base_path;
+    list(,$path) = explode($base_path, $_SERVER['REQUEST_URI'], 2);
+    // If clean URLs are off, strip remainder of query string.
+    list($path,) = explode('&', $path, 2);
+    // Strip query string.
+    list($path,) = explode('?', $path, 2);
+    $path = rtrim($path, '/');
+    // Construct the id name from the path, replacing slashes with dashes.
+    $full_path = str_replace('/', '-', $path);
+    // Construct the class name from the first part of the path only.
+    list($section,) = explode('/', $path, 2);
+    $body_classes[] = zen_id_safe('page-'. $full_path);
+    $body_classes[] = zen_id_safe('section-'. $section);
   }
+  $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
+}
 
-  // The following is a deprecated function included for backwards compatibility
-  // with Zen 5.x-0.8 and earlier. New sub-themes should not use this function.
-  if (function_exists('zen_variables')) {
-    $vars = zen_variables($hook, $vars);
+/**
+ * Override or insert PHPTemplate variables into the node templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function phptemplate_preprocess_node(&$vars) {
+  global $user;
+
+  // Set a new $is_admin variable. This is determined by looking at the
+  // currently logged in user and seeing if they are in the role 'admin'. The
+  // 'admin' role will need to have been created manually for this to work this
+  // variable is available to all templates.
+  $vars['is_admin'] = in_array('admin', $user->roles);
+
+  // Special classes for nodes
+  $node_classes = array();
+  if ($vars['sticky']) {
+    $node_classes[] = 'sticky';
   }
+  if (!$vars['node']->status) {
+    $node_classes[] = 'node-unpublished';
+  }
+  if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
+    // Node is authored by current user
+    $node_classes[] = 'node-mine';
+  }
+  if ($vars['teaser']) {
+    // Node is displayed as teaser
+    $node_classes[] = 'node-teaser';
+  }
+  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
+  $node_classes[] = 'node-type-'. $vars['node']->type;
+  $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
+}
 
-  _zen_hook($hook); // Add support for sub-theme template files
+/**
+ * Override or insert PHPTemplate variables into the comment templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function phptemplate_preprocess_comment(&$vars) {
+  global $user;
 
-  return $vars;
+  // Set a new $is_admin variable. This is determined by looking at the
+  // currently logged in user and seeing if they are in the role 'admin'. The
+  // 'admin' role will need to have been created manually for this to work this
+  // variable is available to all templates.
+  $vars['is_admin'] = in_array('admin', $user->roles);
+
+  // We load the node object that the current comment is attached to
+  $node = node_load($vars['comment']->nid);
+  // If the author of this comment is equal to the author of the node, we
+  // set a variable so we can theme this comment uniquely.
+  $vars['author_comment'] = $vars['comment']->uid == $node->uid ? TRUE : FALSE;
+
+  $comment_classes = array();
+
+  // Odd/even handling
+  static $comment_odd = TRUE;
+  $comment_classes[] = $comment_odd ? 'odd' : 'even';
+  $comment_odd = !$comment_odd;
+
+  if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
+    $comment_classes[] = 'comment-unpublished';
+  }
+  if ($vars['author_comment']) {
+    // Comment is by the node author
+    $comment_classes[] = 'comment-by-author';
+  }
+  if ($vars['comment']->uid == 0) {
+    // Comment is by an anonymous user
+    $comment_classes[] = 'comment-by-anon';
+  }
+  if ($user->uid && $vars['comment']->uid == $user->uid) {
+    // Comment was posted by current user
+    $comment_classes[] = 'comment-mine';
+  }
+  $vars['comment_classes'] = implode(' ', $comment_classes);
+
+  // If comment subjects are disabled, don't display 'em
+  if (variable_get('comment_subject_field', 1) == 0) {
+    $vars['title'] = '';
+  }
 }
 
 /**

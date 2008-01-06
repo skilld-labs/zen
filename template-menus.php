@@ -6,25 +6,27 @@
  *
  * An implementation of theme_menu_item_link()
  *
- * @param $item
+ * @param $link
  *   array The menu item to render.
- * @param $link_item
- *   array The menu item which should be used to find the correct path.
  * @return
  *   string The rendered menu item.
  */
-function phptemplate_menu_item_link($item, $link_item) {
+function phptemplate_menu_item_link($link) {
+  if (empty($link['options'])) {
+    $link['options'] = array();
+  }
+
   // If an item is a LOCAL TASK, render it as a tab
-  $tab = ($item['type'] & MENU_IS_LOCAL_TASK) ? TRUE : FALSE;
-  return l(
-    $tab ? '<span class="tab">'. check_plain($item['title']) .'</span>' : $item['title'],
-    $link_item['path'],
-    !empty($item['description']) ? array('title' => $item['description']) : array(),
-    !empty($item['query']) ? $item['query'] : NULL,
-    !empty($link_item['fragment']) ? $link_item['fragment'] : NULL,
-    FALSE,
-    $tab
-  );
+  if ($link['type'] & MENU_IS_LOCAL_TASK) {
+    $link['title'] = '<span class="tab">'. check_plain($link['title']) .'</span>';
+    $link['options']['html'] = TRUE;
+  }
+
+  if (empty($link['type'])) {
+  	$true = TRUE;
+  }
+
+  return l($link['title'], $link['href'], $link['options']);
 }
 
 /**
