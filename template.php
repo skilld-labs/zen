@@ -154,19 +154,9 @@ function phptemplate_preprocess_page(&$vars) {
   $body_classes = array($vars['body_classes']);
   if (!$vars['is_front']) {
     // Add unique classes for each page and website section
-    // First, remove base path and any query string.
-    global $base_path;
-    list(,$path) = explode($base_path, $_SERVER['REQUEST_URI'], 2);
-    // If clean URLs are off, strip remainder of query string.
-    list($path,) = explode('&', $path, 2);
-    // Strip query string.
-    list($path,) = explode('?', $path, 2);
-    $path = rtrim($path, '/');
-    // Construct the id name from the path, replacing slashes with dashes.
-    $full_path = str_replace('/', '-', $path);
-    // Construct the class name from the first part of the path only.
+    $path = drupal_get_path_alias($_GET['q']);
     list($section,) = explode('/', $path, 2);
-    $body_classes[] = zen_id_safe('page-'. $full_path);
+    $body_classes[] = zen_id_safe('page-'. $path);
     $body_classes[] = zen_id_safe('section-'. $section);
   }
   $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
