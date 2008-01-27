@@ -2,9 +2,9 @@
 // $Id$
 
 /*
- * Allow the sub-theme to have its own template.php.
+ * Allow the sub-theme to include its parent's template.php files.
  */
-if (path_to_subtheme()) {
+if (path_to_zentheme()) {
   // Be careful not to create variables in the global scope
   if (file_exists(path_to_subtheme() .'/template.php')) {
     include_once path_to_subtheme() .'/template.php';
@@ -32,20 +32,6 @@ function path_to_subtheme() {
     else {
       // Extract current files from database.
       $themes = list_themes();
-
-      // Sub-themes with their own page.tpl.php files are seen by PHPTemplate as
-      // their own theme (seperate from Zen). So we need to re-connect those
-      // sub-themes with the base Zen theme.
-      if ($theme == $theme_key) {
-        // Update database
-        $parent_path = $themes[$base_theme]->filename;
-        $subtheme_path = str_replace('page.tpl.php', 'style.css', $themes[$theme]->filename);
-        db_query("UPDATE {system} SET description='%s', filename='%s' WHERE name='%s'", $parent_path, $subtheme_path, $theme);
-
-        // Refresh Drupal internals.
-        $theme = $base_theme;
-        $themes = list_themes(TRUE);
-      }
 
       $theme_path = dirname($themes[$theme_key]->filename);
     }
