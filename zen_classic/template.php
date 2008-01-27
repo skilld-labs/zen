@@ -43,45 +43,26 @@ include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
 /*
  * Add the stylesheets you will need for this sub-theme.
  *
- * To add stylesheets that are in the main Zen folder, use path_to_theme().
- * To add stylesheets thar are in your sub-theme's folder, use path_to_subtheme().
+ * To add stylesheets that are in the main Zen folder, use path_to_zentheme().
+ * To add stylesheets thar are in your sub-theme's folder, use path_to_theme().
  */
 
 // Add any stylesheets you would like from the main Zen theme.
-//drupal_add_css(path_to_theme() .'/html-elements.css', 'theme', 'all');
-drupal_add_css(path_to_theme() .'/tabs.css', 'theme', 'all');
+//drupal_add_css(path_to_zentheme() .'/html-elements.css', 'theme', 'all');
+drupal_add_css(path_to_zentheme() .'/tabs.css', 'theme', 'all');
 
 // Then add styles for this sub-theme.
-drupal_add_css(path_to_subtheme() .'/html-elements.css', 'theme', 'all');
-drupal_add_css(path_to_subtheme() .'/layout-garland.css', 'theme', 'all');
-drupal_add_css(path_to_subtheme() .'/icons.css', 'theme', 'all');
-drupal_add_css(path_to_subtheme() .'/zen-classic.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/html-elements.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/layout-garland.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/icons.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/zen-classic.css', 'theme', 'all');
 // Optionally add the fixed width CSS file.
 if (theme_get_setting('zen_classic_fixed')) {
-  drupal_add_css(path_to_subtheme() .'/zen-fixed.css', 'theme', 'all');
+  drupal_add_css(path_to_theme() .'/zen-fixed.css', 'theme', 'all');
 }
 
 // Avoid IE5 bug that always loads @import print stylesheets
-zen_add_print_css(path_to_subtheme() .'/print.css');
-
-
-/**
- * Declare the available regions implemented by this theme.
- *
- * @return
- *   An array of regions.
- */
-function zen_classic_regions() {
-  return array(
-    'left' => t('left sidebar'),
-    'right' => t('right sidebar'),
-    'content_top' => t('content top'),
-    'content_bottom' => t('content bottom'),
-    'header' => t('header'),
-    'footer' => t('footer'),
-    'closure_region' => t('closure'),
-  );
-}
+zen_add_print_css(path_to_theme() .'/print.css');
 
 
 /**
@@ -116,6 +97,18 @@ function zen_classic_preprocess_node(&$vars) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_comment(&$vars) {
+  $vars['sample_variable'] = t('Lorem ipsum.');
+}
+// */
+
+/**
+ * Override or insert PHPTemplate variables into the block templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+/* -- Delete this line if you want to use this function
+function zen_classic_preprocess_block(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */

@@ -31,10 +31,6 @@ include_once 'theme-settings-init.php';
 include_once 'template-menus.php';
 
 
-if (0) { // Verify this has been deprecated
-  _zen_hook($hook); // Add support for sub-theme template files
-}
-
 /*
  * OVERRIDING THEME FUNCTIONS
  *
