@@ -432,7 +432,7 @@ Zen 5.x-1.0-beta2, 2008-01-29
 - #207743 by : Added translatable "Unpublished" text as background
 - #207743 by : Added block editing links on hover
 - Added extended block classes (zebra class by jjeff)
-- #207743 by : Allow a sub-theme to add/alter block variables
+- #207743 by jjeff: Allow a sub-theme to add/alter block variables
 - #110897: oversize content causes IE6 layout breakage (now fixed in Zen Classic)
 - #211156 by jjeff: $subtheme_directory variable in page.tpl.php never gets populated
 - #206060: changed inline styling method for navbar links from inline to float
