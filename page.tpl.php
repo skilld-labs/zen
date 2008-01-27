@@ -6,9 +6,11 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <!--[if IE]>
-    <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
-    <?php if ($subtheme_directory && file_exists($subtheme_directory .'/ie.css')): ?>
-      <link rel="stylesheet" href="<?php print $base_path . $subtheme_directory; ?>/ie.css" type="text/css">
+    <?php if ($zentheme_directory): ?>
+      <link rel="stylesheet" href="<?php print $base_path . $zentheme_directory; ?>/ie.css" type="text/css">
+    <?php endif; ?>
+    <?php if (!$zentheme_directory && file_exists($directory .'/ie.css')): ?>
+      <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
   <![endif]-->
   <?php print $scripts; ?>

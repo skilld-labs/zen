@@ -110,7 +110,7 @@ function phptemplate_preprocess_page(&$vars) {
 
   // These next lines add additional CSS files and redefine
   // the $css and $styles variables available to your page template
-  if ($theme == $theme_key) { // If we're in the main theme
+  if ($theme == 'zen') { // If we're in the main theme
     // Load the stylesheet for a liquid layout
     if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
       drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
@@ -127,13 +127,13 @@ function phptemplate_preprocess_page(&$vars) {
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+    drupal_add_css(path_to_zentheme() .'/wireframes.css', 'theme', 'all');
   }
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
 
   // Allow sub-themes to have an ie.css file
-  $vars['subtheme_directory'] = path_to_subtheme();
+  $vars['zentheme_directory'] = path_to_zentheme();
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The

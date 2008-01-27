@@ -83,6 +83,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('Theme development settings'),
     '#attributes'    => array('id' => 'zen-themedev'),
   );
+  // drupal_rebuild_theme_registry()
   $form['themedev']['zen_layout'] = array(
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
