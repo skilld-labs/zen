@@ -15,14 +15,14 @@
  *  theme_feed_icon()  becomes  zen_feed_icon()  as well
  *
  * For a sub-theme to define its own regions, use the function name
- *   SUBTHEME_regions()
- * where SUBTHEME is the name of your sub-theme. For example, the zen_classic
+ *   STARTERKIT_regions()
+ * where STARTERKIT is the name of your sub-theme. For example, the zen_classic
  * theme would define a zen_classic_regions() function.
  *
  * For a sub-theme to add its own variables, use these functions
- *   SUBTHEME_preprocess_page(&$vars)
- *   SUBTHEME_preprocess_node(&$vars)
- *   SUBTHEME_preprocess_comment(&$vars)
+ *   STARTERKIT_preprocess_page(&$vars)
+ *   STARTERKIT_preprocess_node(&$vars)
+ *   STARTERKIT_preprocess_comment(&$vars)
  */
 
 
@@ -53,7 +53,7 @@ drupal_add_css(path_to_zentheme() .'/tabs.css', 'theme', 'all');
 
 // Then add styles for this sub-theme.
 drupal_add_css(path_to_theme() .'/layout.css', 'theme', 'all');
-drupal_add_css(path_to_theme() .'/SUBTHEME.css', 'theme', 'all');
+drupal_add_css(path_to_theme() .'/STARTERKIT.css', 'theme', 'all');
 
 // Avoid IE5 bug that always loads @import print stylesheets
 zen_add_print_css(path_to_theme() .'/print.css');
@@ -66,7 +66,7 @@ zen_add_print_css(path_to_theme() .'/print.css');
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_page(&$vars) {
+function STARTERKIT_preprocess_page(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -78,7 +78,7 @@ function SUBTHEME_preprocess_page(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_node(&$vars) {
+function STARTERKIT_preprocess_node(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -90,7 +90,7 @@ function SUBTHEME_preprocess_node(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function SUBTHEME_preprocess_comment(&$vars) {
+function STARTERKIT_preprocess_comment(&$vars) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */

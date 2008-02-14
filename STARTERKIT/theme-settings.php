@@ -9,7 +9,7 @@
  * @return
  *   A form array.
  */
-function SUBTHEME_settings($saved_settings) {
+function STARTERKIT_settings($saved_settings) {
 
   /*
    * The default values for the theme variables. Make sure $defaults exactly
