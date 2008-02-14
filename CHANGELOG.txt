@@ -419,7 +419,7 @@ Zen 5.x-1.1, 2008-04-21
 Zen 5.x-1.0, 2008-02-14
 -----------------------
 - #220161: Change SUBTHEME to STARTERKIT to prevent accidental WSOD
-- #221545 by : Add theme_comment_wrapper() and theme_username() from Zengine
+- #221545 by jjeff: Add theme_comment_wrapper() and theme_username() from Zengine
 - #220551: IE6: sidebars disappear when resizing window
 - Added body classes: section-node-add, section-node-edit, section-node-delete
 - Prevented display of empty help from node_help()
