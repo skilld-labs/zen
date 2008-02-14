@@ -9,7 +9,7 @@
     <?php if ($zentheme_directory): ?>
       <link rel="stylesheet" href="<?php print $base_path . $zentheme_directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
-    <?php if (!$zentheme_directory && file_exists($directory .'/ie.css')): ?>
+    <?php if (file_exists($directory .'/ie.css')): ?>
       <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
   <![endif]-->
@@ -77,7 +77,7 @@
 
     <div id="container" class="clear-block">
 
-      <?php if ($left): ?>
+      <?php if (!empty($left)): ?>
         <div id="sidebar-left" class="column sidebar">
           <?php print $left; ?>
         </div> <!-- /sidebar-left -->

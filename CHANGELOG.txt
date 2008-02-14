@@ -1,7 +1,23 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
 
-Zen 5.x-1.x-dev
+Zen 5.x-1.0
+  #220161: Change SUBTHEME to STARTERKIT to prevent accidental WSOD
+  #221545 by jjeff: Add theme_comment_wrapper() and theme_username() from Zengine
+  #220551: IE6: sidebars disappear when resizing window
+  * Added body classes: section-node-add, section-node-edit, section-node-delete
+  * Prevented display of empty help from node_help()
+  #219401: Add theme override examples for all functions used in Zen core
+
+Zen 5.x-1.0-beta2
+  #214777: sub-theme's search-theme-form.tpl is ignored
+  #206707: tr.even/odd border-bottom is missing in IE
+  #207743 by jjeff: Added translatable "Unpublished" text as background
+  #207743 by jjeff: Added block editing links on hover
+  * Added extended block classes (zebra class by jjeff)
+  #207743 by jjeff: Allow a sub-theme to add/alter block variables
+  #110897: oversize content causes IE6 layout breakage (now fixed in Zen Classic)
+  #211156 by jjeff: $subtheme_directory variable in page.tpl.php never gets populated
   #206060: changed inline styling method for navbar links from inline to float
 
 Zen 5.x-1.0-beta1

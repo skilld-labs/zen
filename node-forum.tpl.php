@@ -6,6 +6,10 @@
     </h2>
   <?php endif; ?>
 
+  <?php if ($unpublished) : ?>
+    <div class="unpublished"><?php print t('Unpublished'); ?></div>
+  <?php endif; ?>
+
   <?php if ($picture) print $picture; ?>
 
   <?php if ($submitted): ?>

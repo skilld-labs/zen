@@ -1,7 +1,7 @@
 <?php
 // $Id$
 
-if (is_null(theme_get_setting('zen_classic_fixed'))) {
+if (is_null(theme_get_setting('zen_block_editing'))) {
   global $theme_key;
 
   /*
@@ -11,6 +11,7 @@ if (is_null(theme_get_setting('zen_classic_fixed'))) {
    */
   $defaults = array(
     'zen_classic_fixed' => 0,
+    'zen_block_editing' => 1,
     'zen_breadcrumb' => 'yes',
     'zen_breadcrumb_separator' => ' :: ',
     'zen_breadcrumb_home' => 1,

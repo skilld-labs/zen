@@ -8,18 +8,18 @@
  */
 
 
-  #zen-settings .form-item
+  #zen-settings fieldset .form-item
   {
     padding-left: 200px;
   }
 
-  #zen-settings .form-checkboxes .form-item,
-  #zen-settings .form-radios .form-item
+  #zen-settings fieldset .form-checkboxes .form-item,
+  #zen-settings fieldset .form-radios .form-item
   {
     padding-left: 0;
   }
 
-  #zen-settings .form-item label
+  #zen-settings fieldset .form-item label
   {
     float: left;
     width: 190px;
@@ -28,7 +28,7 @@
     text-align: right;
   }
 
-  #zen-settings .form-item label.option
+  #zen-settings fieldset .form-item label.option
   {
     float: none;
     width: auto;
@@ -51,14 +51,14 @@
     text-align: right;
   }
 
-  #div-zen-wireframes .form-item
+  #div-zen-wireframes fieldset .form-item
   {
     display: inline;
     margin-left: 0;
     padding-left: 0;
   }
 
-  #div-zen-wireframes .form-item .description
+  #div-zen-wireframes fieldset .form-item .description
   {
     display: block;
     margin-left: 200px;

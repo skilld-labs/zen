@@ -8,10 +8,18 @@
  * ABOUT
  *
  * The template.php file is one of the most useful files when creating or
- * modifying Drupal themes. You can modify or override Drupal's theme functions,
- * intercept or make additional variables available to your theme, and create
- * custom PHP logic. For more information, please visit the Theme Developer's
- * Guide on Drupal.org: http://drupal.org/theme-guide
+ * modifying Drupal themes. You can add new regions for block content, modify or
+ * override Drupal's theme functions, intercept or make additional variables
+ * available to your theme, and create custom PHP logic. For more information,
+ * please visit the Theme Developer's Guide on Drupal.org:
+ * http://drupal.org/theme-guide
+ *
+ * NOTE ABOUT ZEN'S TEMPLATE.PHP FILE
+ *
+ * The base Zen theme is designed to be easily extended by its sub-themes. You
+ * shouldn't modify this or any of the CSS or PHP files in the root zen/ folder.
+ * See the online documentation for more information:
+ *   http://drupal.org/node/193318
  */
 
 
@@ -29,25 +37,6 @@ include_once 'theme-settings-init.php';
 
 // Tabs and menu functions
 include_once 'template-menus.php';
-
-
-/*
- * OVERRIDING THEME FUNCTIONS
- *
- * The Drupal theme system uses special theme functions to generate HTML output
- * automatically. Often we wish to customize this HTML output. To do this, we
- * have to override the theme function. You have to first find the theme
- * function that generates the output, and then "catch" it and modify it here.
- * The easiest way to do it is to copy the original function in its entirety and
- * paste it here, changing the prefix from theme_ to phptemplate_ or zen_. For
- * example:
- *
- *   original: theme_breadcrumb()
- *   theme override: zen_breadcrumb()
- *
- * See the following example. In this function, we want to change all of the
- * breadcrumb separator characters from >> to a custom string.
- */
 
 
 /**
@@ -106,7 +95,17 @@ function phptemplate_breadcrumb($breadcrumb) {
  *   A sequential array of variables to pass to the theme template.
  */
 function phptemplate_preprocess_page(&$vars) {
-  global $user, $theme, $theme_key;
+  global $user, $theme;
+
+  // Set a new $is_admin variable. This is determined by looking at the
+  // currently logged in user and seeing if they are in the role 'admin'. The
+  // 'admin' role will need to have been created manually for this to work this
+  // variable is available to all templates.
+  $vars['is_admin'] = in_array('admin', $user->roles);
+
+  // Send a new variable, $logged_in, to tell us if the current user is
+  // logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
 
   // These next lines add additional CSS files and redefine
   // the $css and $styles variables available to your page template
@@ -125,6 +124,10 @@ function phptemplate_preprocess_page(&$vars) {
     // Avoid IE5 bug that always loads @import print stylesheets
     $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
   }
+  // Optionally add the block editing styles.
+  if (theme_get_setting('zen_block_editing')) {
+    drupal_add_css($vars['directory'] .'/block-editing.css');
+  }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
     drupal_add_css(path_to_zentheme() .'/wireframes.css', 'theme', 'all');
@@ -135,15 +138,10 @@ function phptemplate_preprocess_page(&$vars) {
   // Allow sub-themes to have an ie.css file
   $vars['zentheme_directory'] = path_to_zentheme();
 
-  // Set a new $is_admin variable. This is determined by looking at the
-  // currently logged in user and seeing if they are in the role 'admin'. The
-  // 'admin' role will need to have been created manually for this to work this
-  // variable is available to all templates.
-  $vars['is_admin'] = in_array('admin', $user->roles);
-
-  // Send a new variable, $logged_in, to page.tpl.php to tell us if the
-  // current user is logged in or out. An anonymous user has a user id of 0.
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+  // Don't display empty help from node_help().
+  if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
+    $vars['help'] = '';
+  }
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
@@ -154,8 +152,22 @@ function phptemplate_preprocess_page(&$vars) {
     list($section,) = explode('/', $path, 2);
     $body_classes[] = zen_id_safe('page-'. $path);
     $body_classes[] = zen_id_safe('section-'. $section);
+    if (arg(0) == 'node') {
+      if (arg(1) == 'add') {
+        if ($section == 'node') {
+          array_pop($body_classes); // Remove 'section-node'
+        }
+        $body_classes[] = 'section-node-add'; // Add 'section-node-add'
+      }
+      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
+        if ($section == 'node') {
+          array_pop($body_classes); // Remove 'section-node'
+        }
+        $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
+      }
+    }
   }
-  $vars['body_classes'] = implode(' ', $body_classes); // implode with spaces
+  $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
 }
 
 /**
@@ -173,6 +185,10 @@ function phptemplate_preprocess_node(&$vars) {
   // variable is available to all templates.
   $vars['is_admin'] = in_array('admin', $user->roles);
 
+  // Send a new variable, $logged_in, to tell us if the current user is
+  // logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+
   // Special classes for nodes
   $node_classes = array();
   if ($vars['sticky']) {
@@ -180,6 +196,10 @@ function phptemplate_preprocess_node(&$vars) {
   }
   if (!$vars['node']->status) {
     $node_classes[] = 'node-unpublished';
+    $vars['unpublished'] = TRUE;
+  }
+  else {
+    $vars['unpublished'] = FALSE;
   }
   if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
     // Node is authored by current user
@@ -191,7 +211,7 @@ function phptemplate_preprocess_node(&$vars) {
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
   $node_classes[] = 'node-type-'. $vars['node']->type;
-  $vars['node_classes'] = implode(' ', $node_classes); // implode with spaces
+  $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
 }
 
 /**
@@ -209,6 +229,10 @@ function phptemplate_preprocess_comment(&$vars) {
   // variable is available to all templates.
   $vars['is_admin'] = in_array('admin', $user->roles);
 
+  // Send a new variable, $logged_in, to tell us if the current user is
+  // logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+
   // We load the node object that the current comment is attached to
   $node = node_load($vars['comment']->nid);
   // If the author of this comment is equal to the author of the node, we
@@ -224,6 +248,10 @@ function phptemplate_preprocess_comment(&$vars) {
 
   if ($vars['comment']->status == COMMENT_NOT_PUBLISHED) {
     $comment_classes[] = 'comment-unpublished';
+    $vars['unpublished'] = TRUE;
+  }
+  else {
+    $vars['unpublished'] = FALSE;
   }
   if ($vars['author_comment']) {
     // Comment is by the node author
@@ -246,14 +274,67 @@ function phptemplate_preprocess_comment(&$vars) {
 }
 
 /**
+ * Override or insert PHPTemplate variables into the block templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function phptemplate_preprocess_block(&$vars) {
+  global $user;
+
+  // Set a new $is_admin variable. This is determined by looking at the
+  // currently logged in user and seeing if they are in the role 'admin'. The
+  // 'admin' role will need to have been created manually for this to work this
+  // variable is available to all templates.
+  $vars['is_admin'] = in_array('admin', $user->roles);
+
+  // Send a new variable, $logged_in, to tell us if the current user is
+  // logged in or out. An anonymous user has a user id of 0.
+  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+
+  $block = $vars['block'];
+
+  // Special classes for blocks
+  $block_classes = array();
+  $block_classes[] = 'block-'. $block->module;
+  $block_classes[] = 'region-'. $vars['block_zebra'];
+  $block_classes[] = $vars['zebra'];
+  $block_classes[] = 'region-count-'. $vars['block_id'];
+  $block_classes[] = 'count-'. $vars['id'];
+  $vars['block_classes'] = implode(' ', $block_classes);
+
+  if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
+    // Display 'edit block' for custom blocks
+    if ($block->module == 'block') {
+      $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('edit the content of this block'), 'class' => 'block-edit'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
+    // Display 'configure' for other blocks
+    else {
+      $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('configure this block'), 'class' => 'block-config'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
+
+    // Display 'administer views' for views blocks
+    if ($block->module == 'views' && user_access('administer views')) {
+      $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit', array('title' => t('edit the view that defines this block'), 'class' => 'block-edit-view'), drupal_get_destination(), 'edit-block', FALSE, TRUE);
+    }
+    // Display 'edit menu' for menu blocks
+    elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
+      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu', array('title' => t('edit the menu that defines this block'), 'class' => 'block-edit-menu'), drupal_get_destination(), NULL, FALSE, TRUE);
+    }
+    $vars['edit_links_array'] = $edit_links;
+    $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
+  }
+}
+
+/**
  * Converts a string to a suitable html ID attribute.
  *
  * - Preceeds initial numeric with 'n' character.
- * - Replaces space and underscore with dash.
+ * - Replaces any character except A-Z, numbers, and underscores with dashes.
  * - Converts entire string to lowercase.
  * - Works for classes too!
  *
- * @param string $string
+ * @param $string
  *   The string
  * @return
  *   The converted string
@@ -263,7 +344,7 @@ function zen_id_safe($string) {
     // If the first character is numeric, add 'n' in front
     $string = 'n'. $string;
   }
-  return strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
+  return strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
 }
 
 /**
@@ -273,7 +354,7 @@ function zen_id_safe($string) {
  * stylesheets for screen display when using an @import method, Drupal's default
  * method when using drupal_add_css().
  *
- * @param string $url
+ * @param $url
  *   The URL of the print stylesheet
  * @return
  *   All the rendered links for the $head variable

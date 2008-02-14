@@ -1,9 +1,3 @@
-IMPORTANT DISCLAIMER
-
-  If you are developing a new theme based off of Zen, do NOT use the Zen Classic
-  theme as a starting point. There are known issues with it that have been fixed
-  in the main Zen theme.
-
 ABOUT ZEN CLASSIC
 
   The Zen Classic theme contains the old stylesheets from Zen 5.x-0.7. It was
@@ -14,6 +8,9 @@ ABOUT ZEN CLASSIC
 SUPPORT
 
   The Zen Classic theme is left as-is for historical purposes and as a reference
-  for people who used Zen 5.x-0.7 and earlier.
+  for people who used Zen 5.x-0.7 and earlier and have gotten used to themeing
+  with it.
 
-  Support for the theme is minimal.
+  However, since most developers dislike using it as a starting point for theme
+  development, fewer people will be available to help with themeing issues you
+  may encounter.

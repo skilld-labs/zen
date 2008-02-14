@@ -40,14 +40,14 @@ Build your own sub-theme:
   of the root zen/ folder.  For example, the zen_classic sub-folder contains the
   files for the Zen Classic sub-theme.
 
-  1. Copy the SUBTHEME folder and rename it to be your new sub-theme. IMPORTANT:
-     Only lowercase letters and underscores should be used.
+  1. Copy the STARTERKIT folder and rename it to be your new sub-theme.
+     IMPORTANT: Only lowercase letters and underscores should be used.
 
-     For example, copy the zen/SUBTHEME folder and rename it as zen/foo.
+     For example, copy the zen/STARTERKIT folder and rename it as zen/foo.
 
-  2. Rename the SUBTHEME.info file to the name of your new sub-theme.
+  2. Rename the STARTERKIT.info file to the name of your new sub-theme.
 
-     For example, rename the zen/foo/SUBTHEME.info file to zen/foo/foo.info.
+     For example, rename the zen/foo/STARTERKIT.info file to zen/foo/foo.info.
 
   3. If you want a liquid layout for your theme, copy the layout-liquid.css from
      the zen folder and place it in your sub-theme's folder. If you want a
@@ -68,11 +68,11 @@ Build your own sub-theme:
      For example, copy zen/zen.css and rename it as zen/foo/foo.css.
 
   6. Edit the template.php and theme-settings.php files in your sub-theme's
-     folder; replace ALL occurances of "SUBTHEME" with the name of your
-     sub-theme. However, do not replace occurances of "subtheme".
+     folder; replace ALL occurances of "STARTERKIT" with the name of your
+     sub-theme.
 
      For example, edit zen/foo/template.php and zen/foo/theme-settings.php and
-     replace "SUBTHEME" with "foo".
+     replace "STARTERKIT" with "foo".
 
   7. Log in as an administrator on your Drupal site and go to Administer > Site
      building > Themes (admin/build/themes) and enable your new sub-theme.
@@ -100,9 +100,11 @@ Build your own sub-theme:
   10. THEMEING DRUPAL'S SEARCH FORM:
      Copy the search-theme-form.tpl.php template file from the zen folder and
      place it in your sub-theme's folder. In your sub-theme's template.php file,
-     un-comment the SUBTHEME_search_theme_form() function.
+     un-comment the STARTERKIT_search_theme_form() function.
 
   11. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
-     documentation and Drupal's Theme Developer's Guide online at:
+     documentation online at:
+       http://drupal.org/node/193318
+     and Drupal's Theme Developer's Guide online at:
        http://drupal.org/handbooks

@@ -24,10 +24,13 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
    * matches the $defaults in the theme-settings-init.php file.
    */
   $defaults = array(
+    'zen_block_editing' => 1,
     'zen_breadcrumb' => 'yes',
     'zen_breadcrumb_separator' => ' › ',
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 1,
+    'zen_layout' => 'border-politics-liquid',
+    'zen_wireframes' => 0,
   );
   $defaults = array_merge($defaults, $subtheme_defaults);
 
@@ -39,6 +42,13 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
    */
   $form['zen-div-opening'] = array(
     '#value'         => '<div id="zen-settings">',
+  );
+
+  $form['zen_block_editing'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Show block editing on hover'),
+    '#description'   => t('When hovering over a block, privileged users will see block editing links.'),
+    '#default_value' => $settings['zen_block_editing'],
   );
 
   $form['breadcrumb'] = array(

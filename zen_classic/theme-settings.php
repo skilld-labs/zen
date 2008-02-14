@@ -17,6 +17,7 @@ function zen_classic_settings($saved_settings) {
    */
   $defaults = array(
     'zen_classic_fixed' => 0,
+    'zen_block_editing' => 1,
     'zen_breadcrumb' => 'yes',
     'zen_breadcrumb_separator' => ' :: ',
     'zen_breadcrumb_home' => 1,

@@ -490,9 +490,6 @@
   .comment-unpublished
   {
     background-color: #FFF;
-    background-image: url(images/unpublished.png);
-    background-position: center 20px;
-    background-repeat: no-repeat;
   }
 
   .comment-by-author
@@ -519,6 +516,12 @@
   {
     float: left;
     margin-right: 15px;
+  }
+
+  .node.node-unpublished .picture,
+  .comment.comment-unpublished .picture
+  {
+    position: relative; /* Otherwise floated pictures will appear below the "Unpublished" text. */
   }
 
   .comment .new
@@ -620,11 +623,19 @@
     padding-bottom: 15px;
   }
 
-  .node-unpublished
+  .node-unpublished div.unpublished, /* The word "Unpublished" displayed beneath the content. */
+  .comment-unpublished div.unpublished
   {
-    background-image: url(images/unpublished.png);
-    background-position: center 20px;
-    background-repeat: no-repeat;
+    height: 0;
+    overflow: visible;
+    color: #d8d8d8;
+    font-size: 75px;
+    line-height: 1;
+    font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word; /* A very nice CSS3 property */
   }
 
   .node h2.title
