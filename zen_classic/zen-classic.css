@@ -417,6 +417,11 @@
     padding: 1em;
   }
 
+  #footer *
+  {
+    color: #FFFFFF;
+  }
+
   #footer a
   {
     color: #fff;
@@ -433,6 +438,16 @@
   {
     position: relative;
     top: .3em;
+  }
+
+  #footer .block
+  {
+    text-align: left;
+  }
+ 
+  #footer div.block div.edit
+  {
+    background-color: #2763A5;
   }
 
 /*
