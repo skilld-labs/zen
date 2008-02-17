@@ -35,7 +35,7 @@ Installation:
 Build your own sub-theme:
 
   The base Zen theme is designed to be easily extended by its sub-themes. You
-  shouldn't modify any of the CSS or PHP files in the root zen/ folder; but
+  shouldn't modify any of the CSS or PHP files in the zen/zen/ folder; but
   instead you should create a sub-theme of zen which is located in a sub-folder
   of the root zen/ folder.  For example, the zen_classic sub-folder contains the
   files for the Zen Classic sub-theme.
