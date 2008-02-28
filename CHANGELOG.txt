@@ -375,7 +375,7 @@ Zen 6.x-1.0-beta1, 2008-05-15
 - #227297 by : CSS Include for wireframes broken
 - Prevented "notice: Undefined variable: edit_links" for anonymous users
 - Made block-editing.css a "theme"-type CSS file
-- #224416 by : <span> displaying on mouse over on block heading
+- #224416 by sykora: <span> displaying on mouse over on block heading
 - Added complete Drupal 6 CSS for easy reference by theme developers
 - Added Photoshop file for tabs
 - #222299: Block editing link in Zen Classic footer is white on white
