@@ -130,7 +130,7 @@ function phptemplate_preprocess_page(&$vars) {
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css(path_to_zentheme() .'/wireframes.css', 'theme', 'all');
+    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
   }
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
