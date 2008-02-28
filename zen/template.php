@@ -303,6 +303,7 @@ function phptemplate_preprocess_block(&$vars) {
   $block_classes[] = 'count-'. $vars['id'];
   $vars['block_classes'] = implode(' ', $block_classes);
 
+  $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     // Display 'edit block' for custom blocks
     if ($block->module == 'block') {
