@@ -306,20 +306,57 @@ function phptemplate_preprocess_block(&$vars) {
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     // Display 'edit block' for custom blocks
     if ($block->module == 'block') {
-      $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('edit the content of this block'), 'class' => 'block-edit'), drupal_get_destination(), NULL, FALSE, TRUE);
+      $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta,
+        array(
+          'attributes' => array(
+            'title' => t('edit the content of this block'),
+            'class' => 'block-edit',
+          ),
+          'query' => drupal_get_destination(),
+          'html' => TRUE,
+        )
+      );
     }
     // Display 'configure' for other blocks
     else {
-      $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta, array('title' => t('configure this block'), 'class' => 'block-config'), drupal_get_destination(), NULL, FALSE, TRUE);
+      $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta,
+        array(
+          'attributes' => array(
+            'title' => t('configure this block'),
+            'class' => 'block-config',
+          ),
+          'query' => drupal_get_destination(),
+          'html' => TRUE,
+        )
+      );
     }
 
     // Display 'administer views' for views blocks
     if ($block->module == 'views' && user_access('administer views')) {
-      $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit', array('title' => t('edit the view that defines this block'), 'class' => 'block-edit-view'), drupal_get_destination(), 'edit-block', FALSE, TRUE);
+      $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit',
+        array(
+          'attributes' => array(
+            'title' => t('edit the view that defines this block'),
+            'class' => 'block-edit-view',
+          ),
+          'query' => drupal_get_destination(),
+          'fragment' => 'edit-block',
+          'html' => TRUE,
+        )
+      );
     }
     // Display 'edit menu' for menu blocks
     elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
-      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu', array('title' => t('edit the menu that defines this block'), 'class' => 'block-edit-menu'), drupal_get_destination(), NULL, FALSE, TRUE);
+      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu',
+        array(
+          'attributes' => array(
+            'title' => t('edit the menu that defines this block'),
+            'class' => 'block-edit-menu',
+          ),
+          'query' => drupal_get_destination(),
+          'html' => TRUE,
+        )
+      );
     }
     $vars['edit_links_array'] = $edit_links;
     $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
