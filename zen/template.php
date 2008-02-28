@@ -126,7 +126,7 @@ function phptemplate_preprocess_page(&$vars) {
   }
   // Optionally add the block editing styles.
   if (theme_get_setting('zen_block_editing')) {
-    drupal_add_css($vars['directory'] .'/block-editing.css');
+    drupal_add_css($vars['directory'] .'/block-editing.css', 'theme', 'all');
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
