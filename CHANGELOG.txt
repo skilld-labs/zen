@@ -372,7 +372,7 @@ Zen 6.x-1.0-beta1, 2008-05-15
 - #244023 by jjeff: Make block editing links go to actual menu edit pages
 - #245968 by jjeff: Put the word "Comments" above comments
 - #238387: Update README on how to edit the .info file
-- #227297 by : CSS Include for wireframes broken
+- #227297 by Aragorn450: CSS Include for wireframes broken
 - Prevented "notice: Undefined variable: edit_links" for anonymous users
 - Made block-editing.css a "theme"-type CSS file
 - #224416 by sykora: <span> displaying on mouse over on block heading
