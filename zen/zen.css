@@ -3,8 +3,8 @@
 /*
  * ZEN STYLES
  *
- * This is an example stylesheet. Sub-themes should NOT include this file, but
- * instead copy any needed CSS to their own stylesheets.
+ * This is an example stylesheet. Sub-themes should NOT include the zen/zen.css
+ * file, but instead copy this CSS to their own stylesheets.
  *
  * In this stylesheet, we have included all of the classes and IDs from this
  * theme's tpl.php files. We have also included many of the useful Drupal core
