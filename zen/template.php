@@ -118,9 +118,6 @@ function phptemplate_preprocess_page(&$vars) {
     else {
       drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
     }
-    drupal_add_css($vars['directory'] .'/html-elements.css', 'theme', 'all');
-    drupal_add_css($vars['directory'] .'/tabs.css', 'theme', 'all');
-    drupal_add_css($vars['directory'] .'/zen.css', 'theme', 'all');
     // Avoid IE5 bug that always loads @import print stylesheets
     $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
   }
