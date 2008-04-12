@@ -47,7 +47,7 @@ include_once 'template-menus.php';
  * @return
  *   A string containing the breadcrumb output.
  */
-function phptemplate_breadcrumb($breadcrumb) {
+function zen_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
@@ -72,9 +72,10 @@ function phptemplate_breadcrumb($breadcrumb) {
 /*
  * CREATE OR MODIFY VARIABLES FOR YOUR THEME
  *
- * The most powerful function available to themers is _phptemplate_variables().
- * It allows you to pass newly created variables to different template (tpl.php)
- * files in your theme. Or even unset ones you don't want to use.
+ * The most powerful functions available to themers are the
+ * THEME_preprocess_HOOK() functions. They allow you to pass newly created
+ * variables to different template (tpl.php) files in your theme. Or even unset
+ * ones you don't want to use.
  *
  * It works by switching on the hook, or name of the theme function, such as:
  *   - page
@@ -94,7 +95,7 @@ function phptemplate_breadcrumb($breadcrumb) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function phptemplate_preprocess_page(&$vars) {
+function zen_preprocess_page(&$vars) {
   global $user, $theme;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -173,7 +174,7 @@ function phptemplate_preprocess_page(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function phptemplate_preprocess_node(&$vars) {
+function zen_preprocess_node(&$vars) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -217,7 +218,7 @@ function phptemplate_preprocess_node(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function phptemplate_preprocess_comment(&$vars) {
+function zen_preprocess_comment(&$vars) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -276,7 +277,7 @@ function phptemplate_preprocess_comment(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function phptemplate_preprocess_block(&$vars) {
+function zen_preprocess_block(&$vars) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
