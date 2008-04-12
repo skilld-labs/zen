@@ -144,24 +144,23 @@
 
   div.warning /* Medium priority messages */
   {
-    border-color: #ff7;
+    /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
   }
 
   div.warning, tr.warning
   {
-    color: #000;
-    background-color: #ffc;
+    /* color: #220; */ /* Drupal core uses #220 */
+    /* background: #ffd; */ /* Drupal core uses #ffd */
   }
 
   div.error /* High priority messages. See also the .error declaration below. */
   {
-    border-color: #c00;
+    /* border: 1px solid #d77; */ /* Drupal core uses: 1px solid #d77 */
   }
 
   div.error, tr.error
   {
-    color: #900;
-    background-color: #fee;
+    /* color: #200; */ /* Drupal core uses #200 */
   }
 
   div.tabs /* See also the tabs.css file. */
@@ -590,7 +589,12 @@
 /** Miscellaneous Drupal styles **/
   .error /* Errors that are separate from div.messages status messages (see above.) */
   {
-    color: #c00;
+    /* color: #e55; */ /* Drupal core uses a #e55 background */
+  }
+
+  .warning /* Warnings that are separate from div.messages status messages (see above.) */
+  {
+    /* color: #e09010; */ /* Drupal core uses a #e09010 background */
   }
 
   .more-link /* Aggregator, blog, and forum more link */
