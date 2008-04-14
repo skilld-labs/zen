@@ -29,9 +29,6 @@
  * this main template.php file.
  */
 
-// Sub-theme support
-include_once 'template-subtheme.php';
-
 // Initialize theme settings
 include_once 'theme-settings-init.php';
 
@@ -387,4 +384,21 @@ function zen_add_print_css($url) {
       )
     ) ." />\n"
   );
+}
+
+/**
+ * Return the path to the main zen theme directory.
+ */
+function path_to_zentheme() {
+  static $theme_path;
+  if (!isset($theme_path)) {
+    global $theme;
+    if ($theme == 'zen') {
+      $theme_path = path_to_theme();
+    }
+    else {
+      $theme_path = drupal_get_path('theme', 'zen');
+    }
+  }
+  return $theme_path;
 }
