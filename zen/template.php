@@ -324,7 +324,8 @@ function zen_preprocess_block(&$vars) {
     }
     // Display 'edit menu' for menu blocks
     elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
-      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu',
+      $menu_name = ($block->module == 'user') ? 'navigation' : $block->delta;
+      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu-customize/'. $menu_name,
         array(
           'attributes' => array(
             'title' => t('edit the menu that defines this block'),
