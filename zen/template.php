@@ -154,7 +154,7 @@ function phptemplate_preprocess_page(&$vars) {
   if (!$vars['is_front']) {
     // Add unique classes for each page and website section
     $path = drupal_get_path_alias($_GET['q']);
-    list($section,) = explode('/', $path, 2);
+    list($section, ) = explode('/', $path, 2);
     $body_classes[] = zen_id_safe('page-'. $path);
     $body_classes[] = zen_id_safe('section-'. $section);
     if (arg(0) == 'node') {
