@@ -370,7 +370,7 @@ Zen 6.x-1.0-beta1, 2008-05-15
 - #246110 by : zen.css breaks .container-inline
 - #229661: Search Box doesn't return any results or warnings
 - #244023 by : Make block editing links go to actual menu edit pages
-- #245968 by : Put the word "Comments" above comments
+- #245968 by jjeff: Put the word "Comments" above comments
 - #238387: Update README on how to edit the .info file
 - #227297 by : CSS Include for wireframes broken
 - Prevented "notice: Undefined variable: edit_links" for anonymous users
