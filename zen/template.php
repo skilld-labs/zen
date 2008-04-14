@@ -90,13 +90,13 @@ function zen_breadcrumb($breadcrumb) {
 
 
 /**
- * Override or insert PHPTemplate variables into the page templates.
+ * Override or insert PHPTemplate variables into all templates.
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess_page(&$vars) {
-  global $user, $theme;
+function zen_preprocess(&$vars) {
+  global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
   // currently logged in user and seeing if they are in the role 'admin'. The
@@ -107,6 +107,16 @@ function zen_preprocess_page(&$vars) {
   // Send a new variable, $logged_in, to tell us if the current user is
   // logged in or out. An anonymous user has a user id of 0.
   $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
+}
+
+/**
+ * Override or insert PHPTemplate variables into the page templates.
+ *
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
+ */
+function zen_preprocess_page(&$vars) {
+  global $theme;
 
   // These next lines add additional CSS files and redefine
   // the $css and $styles variables available to your page template
@@ -177,16 +187,6 @@ function zen_preprocess_page(&$vars) {
 function zen_preprocess_node(&$vars) {
   global $user;
 
-  // Set a new $is_admin variable. This is determined by looking at the
-  // currently logged in user and seeing if they are in the role 'admin'. The
-  // 'admin' role will need to have been created manually for this to work this
-  // variable is available to all templates.
-  $vars['is_admin'] = in_array('admin', $user->roles);
-
-  // Send a new variable, $logged_in, to tell us if the current user is
-  // logged in or out. An anonymous user has a user id of 0.
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
-
   // Special classes for nodes
   $node_classes = array();
   if ($vars['sticky']) {
@@ -220,16 +220,6 @@ function zen_preprocess_node(&$vars) {
  */
 function zen_preprocess_comment(&$vars) {
   global $user;
-
-  // Set a new $is_admin variable. This is determined by looking at the
-  // currently logged in user and seeing if they are in the role 'admin'. The
-  // 'admin' role will need to have been created manually for this to work this
-  // variable is available to all templates.
-  $vars['is_admin'] = in_array('admin', $user->roles);
-
-  // Send a new variable, $logged_in, to tell us if the current user is
-  // logged in or out. An anonymous user has a user id of 0.
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
 
   // We load the node object that the current comment is attached to
   $node = node_load($vars['comment']->nid);
@@ -278,18 +268,6 @@ function zen_preprocess_comment(&$vars) {
  *   A sequential array of variables to pass to the theme template.
  */
 function zen_preprocess_block(&$vars) {
-  global $user;
-
-  // Set a new $is_admin variable. This is determined by looking at the
-  // currently logged in user and seeing if they are in the role 'admin'. The
-  // 'admin' role will need to have been created manually for this to work this
-  // variable is available to all templates.
-  $vars['is_admin'] = in_array('admin', $user->roles);
-
-  // Send a new variable, $logged_in, to tell us if the current user is
-  // logged in or out. An anonymous user has a user id of 0.
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
-
   $block = $vars['block'];
 
   // Special classes for blocks
