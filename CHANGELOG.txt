@@ -410,7 +410,7 @@ Zen 5.x-1.1, 2008-04-21
 - #222339: Blocks in Zen Classic header and closure lack padding
 - #248720 by : Only UPDATE {system} table WHERE type = 'theme'
 - #248780: admin table styles override update_status styling
-- #246110 by : zen.css breaks .container-inline
+- #246110 by jjeff: zen.css breaks .container-inline
 - Prevented "notice: Undefined variable: edit_links" for anonymous users
 - Made block-editing.css a "theme"-type CSS file
 - Added Photoshop file for tabs
