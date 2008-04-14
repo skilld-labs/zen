@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
+  #246110 by jjeff: zen.css breaks .container-inline
   #229661: earch Box doesn't return any results or warnings
   #244023 by jjeff: Make block editing links go to actual menu edit pages
   #245968 by jjeff: Put the word "Comments" above comments
@@ -13,6 +14,7 @@ Zen 6.x-1.x-dev
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.1
+  #246110 by jjeff: zen.css breaks .container-inline
   * Prevented "notice: Undefined variable: edit_links" for anonymous users
   * Made block-editing.css a "theme"-type CSS file
   * Added Photoshop file for tabs

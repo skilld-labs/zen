@@ -681,8 +681,9 @@
   {
   }
 
-  .container-inline .form-submit
+  .container-inline div, .container-inline label /* Inline labels and form divs */
   {
+    display: inline;
   }
 
   .tips /* Tips for Drupal's input formats */
