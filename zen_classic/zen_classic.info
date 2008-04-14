@@ -31,8 +31,8 @@ stylesheets[all][]   = icons.css
 stylesheets[all][]   = zen-classic.css
 stylesheets[print][] = print.css
   ; We prevent the zen.css file in the base theme from being included by
-  ; specifying it in the sub-theme’s .info file while not actually having a
-  ; zen.css file in the sub-theme’s directory.
+  ; specifying it in the sub-theme’s .info file and by putting an empty zen.css
+  ; file in the sub-theme’s directory.
 stylesheets[all][]   = zen.css
 
   ; The regions defined in Zen’s default page.tpl.php file.  The name in
