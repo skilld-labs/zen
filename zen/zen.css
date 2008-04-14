@@ -216,6 +216,11 @@
   {
   }
 
+  #edit-search-theme-form-1-wrapper label /* Label that says "Search this site:" */
+  {
+    display: none;
+  }
+
   #primary /* Primary links */
   {
   }
