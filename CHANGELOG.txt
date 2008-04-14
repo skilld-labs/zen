@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
+  #245968 by jjeff: Put the word "Comments" above comments
   #238387: Update README on how to edit the .info file
   #227297 by Aragorn450: CSS Include for wireframes broken
   * Prevented "notice: Undefined variable: edit_links" for anonymous users
