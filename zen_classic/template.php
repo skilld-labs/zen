@@ -11,8 +11,7 @@
  * have to override the theme function. You have to first find the theme
  * function that generates the output, and then "catch" it and modify it here.
  * The easiest way to do it is to copy the original function in its entirety and
- * paste it here, changing the prefix from theme_ to phptemplate_ or
- * STARTERKIT_. For example:
+ * paste it here, changing the prefix from theme_ to STARTERKIT_. For example:
  *
  *   original: theme_breadcrumb()
  *   theme override: STARTERKIT_breadcrumb()
@@ -20,14 +19,11 @@
  * where STARTERKIT is the name of your sub-theme. For example, the zen_classic
  * theme would define a zen_classic_breadcrumb() function.
  *
- * DIFFERENCES BETWEEN ZEN SUB-THEMES AND NORMAL DRUPAL SUB-THEMES
- *
- * The Zen theme allows its sub-themes to have their own template.php files. The
- * only restriction with these files is that they cannot redefine any of the
- * functions that are already defined in Zen's main template files:
- *   template.php, template-menus.php, and template-subtheme.php.
- * Every theme override function used in those files is documented below in this
- * file.
+ * If you would like to override any of the theme functions used in Zen core,
+ * you should first look at how Zen core implements those functions:
+ *   theme_breadcrumbs()      in zen/template.php
+ *   theme_menu_item_link()   in zen/template-menus.php
+ *   theme_menu_local_tasks() in zen/template-menus.php
  */
 
 
@@ -38,29 +34,12 @@ include_once 'theme-settings-init.php';
 
 
 /*
- * Sub-themes with their own page.tpl.php files are seen by PHPTemplate as their
- * own theme (seperate from Zen). So we need to re-connect those sub-themes
- * with the main Zen theme.
- */
-include_once './'. drupal_get_path('theme', 'zen') .'/template.php';
-
-
-/*
- * Add the stylesheets you will need for this sub-theme.
+ * Add any conditional stylesheets you will need for this sub-theme.
  *
- * To add stylesheets that are in the main Zen folder, use path_to_zentheme().
- * To add stylesheets thar are in your sub-theme's folder, use path_to_theme().
+ * To add stylesheets that always need to be included, you should add them to
+ * your .info file.
  */
 
-// Add any stylesheets you would like from the main Zen theme.
-//drupal_add_css(path_to_zentheme() .'/html-elements.css', 'theme', 'all');
-drupal_add_css(path_to_zentheme() .'/tabs.css', 'theme', 'all');
-
-// Then add styles for this sub-theme.
-drupal_add_css(path_to_theme() .'/html-elements.css', 'theme', 'all');
-drupal_add_css(path_to_theme() .'/layout-garland.css', 'theme', 'all');
-drupal_add_css(path_to_theme() .'/icons.css', 'theme', 'all');
-drupal_add_css(path_to_theme() .'/zen-classic.css', 'theme', 'all');
 // Optionally add the fixed width CSS file.
 if (theme_get_setting('zen_classic_fixed')) {
   drupal_add_css(path_to_theme() .'/zen-fixed.css', 'theme', 'all');
@@ -71,19 +50,19 @@ zen_add_print_css(path_to_theme() .'/print.css');
 
 
 /**
- * Return a themed breadcrumb trail.
+ * Override or insert PHPTemplate variables into all templates.
  *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- * @return
- *   A string containing the breadcrumb output.
+ * @param $vars
+ *   A sequential array of variables to pass to the theme template.
  */
 /* -- Delete this line if you want to use this function
-function zen_classic_breadcrumb($breadcrumb) {
-  return '<div class="breadcrumb">'. implode(' Ý ', $breadcrumb) .' Ý</div>';
+function zen_classic_preprocess(&$vars) {
+  // First run Zen's preprocess function.
+  phptemplate_preprocess($vars);
+
+  $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
-
 
 /**
  * Override or insert PHPTemplate variables into the page templates.
@@ -93,6 +72,9 @@ function zen_classic_breadcrumb($breadcrumb) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_page(&$vars) {
+  // First run Zen's preprocess function.
+  phptemplate_preprocess_page($vars);
+
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -105,6 +87,9 @@ function zen_classic_preprocess_page(&$vars) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_node(&$vars) {
+  // First run Zen's preprocess function.
+  phptemplate_preprocess_node($vars);
+
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -117,6 +102,9 @@ function zen_classic_preprocess_node(&$vars) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_comment(&$vars) {
+  // First run Zen's preprocess function.
+  phptemplate_preprocess_comment($vars);
+
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -129,6 +117,9 @@ function zen_classic_preprocess_comment(&$vars) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_block(&$vars) {
+  // First run Zen's preprocess function.
+  phptemplate_preprocess_block($vars);
+
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -136,6 +127,8 @@ function zen_classic_preprocess_block(&$vars) {
 
 /**
  * Override the Drupal search form using the search-theme-form.tpl.php file.
+ *
+ * @TODO Fix this functionality; this function is totally broken in D6.
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_search_theme_form($form) {
@@ -144,65 +137,8 @@ function zen_classic_search_theme_form($form) {
 // */
 
 /**
- * Generate the HTML representing a given menu item ID.
- *
- * An implementation of theme_menu_item_link()
- *
- * @param $item
- *   array The menu item to render.
- * @param $link_item
- *   array The menu item which should be used to find the correct path.
- * @return
- *   string The rendered menu item.
+ * Fixes broken calls to l() in Drupal's (6.0-6.2) theme_username().
  */
-/* -- Delete this line if you want to use this function
-function zen_classic_menu_item_link($item, $link_item) {
-  // If an item is a LOCAL TASK, render it as a tab
-  $tab = ($item['type'] & MENU_IS_LOCAL_TASK) ? TRUE : FALSE;
-  return l(
-    $tab ? '<span class="tab">'. check_plain($item['title']) .'</span>' : $item['title'],
-    $link_item['path'],
-    !empty($item['description']) ? array('title' => $item['description']) : array(),
-    !empty($item['query']) ? $item['query'] : NULL,
-    !empty($link_item['fragment']) ? $link_item['fragment'] : NULL,
-    FALSE,
-    $tab
-  );
-}
-// */
-
-/**
- * Duplicate of theme_menu_local_tasks() but adds clear-block to tabs.
- */
-/* -- Delete this line if you want to use this function
-function zen_classic_menu_local_tasks() {
-  $output = '';
-
-  if ($primary = menu_primary_local_tasks()) {
-    $output .= '<ul class="tabs primary clear-block">'. $primary .'</ul>';
-  }
-  if ($secondary = menu_secondary_local_tasks()) {
-    $output .= '<ul class="tabs secondary clear-block">'. $secondary .'</ul>';
-  }
-
-  return $output;
-}
-// */
-
-/**
- * Overriding theme_comment_wrapper to add CSS id around all comments
- * and add "Comments" title above
- */
-/* -- Delete this line if you want to use this function
-function zen_classic_comment_wrapper($content) {
-  return '<div id="comments"><h2 id="comments-title" class="title">'. t('Comments') .'</h2>'. $content .'</div>';
-}
-// */
-
-/**
- * Duplicate of theme_username() with rel=nofollow added for commentators.
- */
-/* -- Delete this line if you want to use this function
 function zen_classic_username($object) {
 
   if ($object->uid && $object->name) {
@@ -215,7 +151,7 @@ function zen_classic_username($object) {
     }
 
     if (user_access('access user profiles')) {
-      $output = l($name, 'user/'. $object->uid, array('title' => t('View user profile.')));
+      $output = l($name, 'user/'. $object->uid, array('attributes' => array('title' => t('View user profile.'))));
     }
     else {
       $output = check_plain($name);
@@ -226,8 +162,8 @@ function zen_classic_username($object) {
     // not registered members of the site (e.g. mailing list or news
     // aggregator modules). This clause enables modules to display
     // the true author of the content.
-    if ($object->homepage) {
-      $output = l($object->name, $object->homepage, array('rel' => 'nofollow'));
+    if (!empty($object->homepage)) {
+      $output = l($object->name, $object->homepage, array('attributes' => array('rel' => 'nofollow')));
     }
     else {
       $output = check_plain($object->name);
@@ -241,4 +177,3 @@ function zen_classic_username($object) {
 
   return $output;
 }
-// */
