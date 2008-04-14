@@ -47,7 +47,7 @@ include_once 'template-menus.php';
  * @return
  *   A string containing the breadcrumb output.
  */
-function zen_breadcrumb($breadcrumb) {
+function phptemplate_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
@@ -95,7 +95,7 @@ function zen_breadcrumb($breadcrumb) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess(&$vars) {
+function phptemplate_preprocess(&$vars) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -115,7 +115,7 @@ function zen_preprocess(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess_page(&$vars) {
+function phptemplate_preprocess_page(&$vars) {
   global $theme;
 
   // These next lines add additional CSS files and redefine
@@ -134,11 +134,11 @@ function zen_preprocess_page(&$vars) {
   }
   // Optionally add the block editing styles.
   if (theme_get_setting('zen_block_editing')) {
-    drupal_add_css($vars['directory'] .'/block-editing.css', 'theme', 'all');
+    drupal_add_css(path_to_zentheme() .'/block-editing.css', 'theme', 'all');
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css($vars['directory'] .'/wireframes.css', 'theme', 'all');
+    drupal_add_css(path_to_zentheme() .'/wireframes.css', 'theme', 'all');
   }
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
@@ -184,7 +184,7 @@ function zen_preprocess_page(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess_node(&$vars) {
+function phptemplate_preprocess_node(&$vars) {
   global $user;
 
   // Special classes for nodes
@@ -218,7 +218,7 @@ function zen_preprocess_node(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess_comment(&$vars) {
+function phptemplate_preprocess_comment(&$vars) {
   global $user;
 
   // We load the node object that the current comment is attached to
@@ -267,7 +267,7 @@ function zen_preprocess_comment(&$vars) {
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
  */
-function zen_preprocess_block(&$vars) {
+function phptemplate_preprocess_block(&$vars) {
   $block = $vars['block'];
 
   // Special classes for blocks
