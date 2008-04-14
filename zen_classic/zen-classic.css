@@ -370,7 +370,34 @@
 
   #user-login-form .item-list ul
   {
-    margin-top: 10px;
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+/*
+ * OpenID
+ *
+ * The default styling for the OpenID login link seems to assume Garland's
+ * styling of list items.
+ */
+  #user-login-form li.openid-link, /* The "Log in using OpenID" links. */
+  #user-login li.openid-link
+  {
+    margin-top: 1em;
+    margin-left: 0;
+  	padding-left: 1.5em;
+  	background-position: left center;
+  }
+
+  #user-login-form li.user-link, /* The "Cancel OpenID login" links. */
+  #user-login li.user-link
+  {
+    margin-top: 1em;
+  }
+
+  #user-login li.user-link /* The Cancl OpenID link on the /user form. */
+  {
+    margin-left: 0;
   }
 
 /*

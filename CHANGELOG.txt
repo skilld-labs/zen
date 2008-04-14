@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
+  #232840: OpenID login block displaying incorrectly
   #246110 by jjeff: zen.css breaks .container-inline
   #229661: earch Box doesn't return any results or warnings
   #244023 by jjeff: Make block editing links go to actual menu edit pages

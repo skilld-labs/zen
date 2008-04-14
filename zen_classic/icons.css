@@ -27,7 +27,9 @@
     text-decoration: none;
   }
 
-  .block ul li
+  .block ul li,
+  #user-login-form li.user-link, /* The "Cancel OpenID login" links. */
+  #user-login li.user-link
   {
     list-style-image: url(images/bullet.png);
   }
