@@ -23,7 +23,7 @@ function zen_menu_item_link($link) {
   }
 
   if (empty($link['type'])) {
-  	$true = TRUE;
+    $true = TRUE;
   }
 
   return l($link['title'], $link['href'], $link['options']);
