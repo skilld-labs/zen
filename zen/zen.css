@@ -147,10 +147,12 @@
     /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
   }
 
-  div.warning, tr.warning
+  div.warning,
+  tr.warning,
+  body.section-admin tr.warning
   {
     /* color: #220; */ /* Drupal core uses #220 */
-    /* background: #ffd; */ /* Drupal core uses #ffd */
+    background: #ffd;
   }
 
   div.error /* High priority messages. See also the .error declaration below. */
@@ -158,7 +160,9 @@
     /* border: 1px solid #d77; */ /* Drupal core uses: 1px solid #d77 */
   }
 
-  div.error, tr.error
+  div.error,
+  tr.error,
+  body.section-admin tr.error
   {
     /* color: #200; */ /* Drupal core uses #200 */
   }
@@ -612,7 +616,7 @@
     text-align: left;
   }
 
-  tr.even, tr.odd /* Some tables have rows marked even or odd. See also the ".section-admin #content tr.even" declaration below. */
+  tr.even, tr.odd /* Some tables have rows marked even or odd. See also the ".section-admin tr.even" declaration below. */
   {
     border-bottom: none;
     padding: 0;
@@ -729,32 +733,32 @@
   /* We overrode these styles in html-elements.css, but restore them for the
    * admin section of the site.
    */
-  .section-admin #content tbody
+  .section-admin tbody
   {
     border-top: 1px solid #ccc;
   }
 
-  .section-admin #content th
+  .section-admin th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
   }
 
-  .section-admin #content tbody th
+  .section-admin tbody th
   {
     border-bottom: 1px solid #ccc;
   }
 
-  .section-admin #content thead th
+  .section-admin thead th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
   }
 
-  .section-admin #content tr.even,
-  .section-admin #content tr.odd
+  .section-admin tr.even,
+  .section-admin tr.odd
   {
     background-color: #eee;
     border-bottom: 1px solid #ccc;
