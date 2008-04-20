@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
+  #222339: Blocks in Zen Classic header and closure lack padding
   #248780: admin table styles override update_status styling
   #232840: OpenID login block displaying incorrectly
   #246110 by jjeff: zen.css breaks .container-inline
@@ -16,6 +17,9 @@ Zen 6.x-1.x-dev
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.1
+  #222339: Blocks in Zen Classic header and closure lack padding
+  #248720 by matt@antinomia: Only UPDATE {system} table WHERE type = 'theme'
+  #248780: admin table styles override update_status styling
   #246110 by jjeff: zen.css breaks .container-inline
   * Prevented "notice: Undefined variable: edit_links" for anonymous users
   * Made block-editing.css a "theme"-type CSS file

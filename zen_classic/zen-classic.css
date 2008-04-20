@@ -20,6 +20,12 @@
     margin: 0 10px 10px 10px;
   }
 
+  #header-region,
+  #closure-blocks
+  {
+    margin: 0 10px;
+  }
+
   #main .node .content
   {
     color: #333;
@@ -109,7 +115,7 @@
     margin: 0;
     padding: 0;
     font-size: 85%;
-    margin-left: 20px;
+    margin-left: 10px; /* #header-region already has 10px */
   }
 
   /* "Skip to Main Content" link
