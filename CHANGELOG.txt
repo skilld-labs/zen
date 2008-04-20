@@ -408,7 +408,7 @@ Zen 5.x-1.1, 2008-04-21
 - #199682: 'Submitted by' text is shown for content even if setting is disabled
 - #247960: Add THEME_preprocess() hook to Zen
 - #222339: Blocks in Zen Classic header and closure lack padding
-- #248720 by : Only UPDATE {system} table WHERE type = 'theme'
+- #248720 by matt@antinomia: Only UPDATE {system} table WHERE type = 'theme'
 - #248780: admin table styles override update_status styling
 - #246110 by jjeff: zen.css breaks .container-inline
 - Prevented "notice: Undefined variable: edit_links" for anonymous users
