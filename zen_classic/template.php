@@ -45,18 +45,17 @@ if (theme_get_setting('zen_classic_fixed')) {
   drupal_add_css(path_to_theme() .'/zen-fixed.css', 'theme', 'all');
 }
 
-// Avoid IE5 bug that always loads @import print stylesheets
-zen_add_print_css(path_to_theme() .'/print.css');
-
 
 /**
  * Override or insert PHPTemplate variables into all templates.
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called (name of the .tpl.php file.)
  */
 /* -- Delete this line if you want to use this function
-function zen_classic_preprocess(&$vars) {
+function zen_classic_preprocess(&$vars, $hook) {
   // First run Zen's preprocess function.
   phptemplate_preprocess($vars);
 
@@ -126,7 +125,7 @@ function zen_classic_preprocess_block(&$vars) {
 
 
 /**
- * Fixes broken calls to l() in Drupal's (6.0-6.2) theme_username().
+ * The rel="nofollow" attribute is missing from anonymous users' URL in Drupal 6.0-6.2.
  */
 function zen_classic_username($object) {
 
