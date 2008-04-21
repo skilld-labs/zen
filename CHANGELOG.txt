@@ -18,6 +18,7 @@ Zen 6.x-1.x-dev
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.1
+  #246109: Add MODULE_preprocess_HOOK functions to Zen
   #199682: 'Submitted by' text is shown for content even if setting is disabled
   #247960: Add THEME_preprocess() hook to Zen
   #222339: Blocks in Zen Classic header and closure lack padding
