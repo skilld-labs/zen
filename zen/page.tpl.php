@@ -153,13 +153,13 @@
 
     </div></div> <!-- /#footer-inner, /#footer -->
 
-    <?php if ($closure_region): ?>
-      <div id="closure-blocks"><?php print $closure_region; ?></div>
-    <?php endif; ?>
-
-    <?php print $closure; ?>
-
   </div></div> <!-- /#page-inner, /#page -->
+
+  <?php if ($closure_region): ?>
+    <div id="closure-blocks"><?php print $closure_region; ?></div>
+  <?php endif; ?>
+
+  <?php print $closure; ?>
 
 </body>
 </html>

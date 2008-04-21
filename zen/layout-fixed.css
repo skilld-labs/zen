@@ -24,7 +24,8 @@
     padding: 10px;
   }
 
-  #page
+  #page,
+  #closure-blocks
   {
     /*
      * If you want to make the page a fixed width and centered in the viewport,
@@ -275,7 +276,8 @@
   {
   }
 
-  #closure-blocks
+/** closure **/
+  #closure-blocks /* See also the #page declaration above that this div shares. */
   {
   }
 

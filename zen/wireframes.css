@@ -13,10 +13,16 @@
   #navbar-inner,
   #sidebar-left-inner,
   #sidebar-right-inner,
-  #footer-inner,
-  #closure-blocks
+  #footer-inner
   {
     margin: 1px;
+    padding: 2px;
+    border: 1px solid #ccc;
+  }
+
+  #closure-blocks
+  {
+    margin-top: 1px;
     padding: 2px;
     border: 1px solid #ccc;
   }
