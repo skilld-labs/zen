@@ -126,8 +126,6 @@ function phptemplate_preprocess_page(&$vars) {
     else {
       drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
     }
-    // Avoid IE5 bug that always loads @import print stylesheets
-    $vars['head'] = zen_add_print_css($vars['directory'] .'/print.css');
   }
   // Optionally add the block editing styles.
   if (theme_get_setting('zen_block_editing')) {
@@ -357,33 +355,6 @@ function zen_id_safe($string) {
     $string = 'n'. $string;
   }
   return strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
-}
-
-/**
- * Adds a print stylesheet to the page's $head variable.
- *
- * This is a work-around for a serious bug in IE5 in which it loads print
- * stylesheets for screen display when using an @import method, Drupal's default
- * method when using drupal_add_css().
- *
- * @param $url
- *   The URL of the print stylesheet
- * @return
- *   All the rendered links for the $head variable
- */
-function zen_add_print_css($url) {
-  global $base_path;
-  return drupal_set_html_head(
-    '<link'.
-    drupal_attributes(
-      array(
-        'rel' => 'stylesheet',
-        'href' => $base_path . $url,
-        'type' => 'text/css',
-        'media' => 'print',
-      )
-    ) ." />\n"
-  );
 }
 
 /**
