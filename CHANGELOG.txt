@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #199682: 'Submitted by' text is shown for content even if setting is disabled
   * Upgrading to Drupal 6. Not yet complete.
   #222339: Blocks in Zen Classic header and closure lack padding
   #248780: admin table styles override update_status styling
@@ -17,6 +18,8 @@ Zen 6.x-1.x-dev
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.1
+  #199682: 'Submitted by' text is shown for content even if setting is disabled
+  #247960: Add THEME_preprocess() hook to Zen
   #222339: Blocks in Zen Classic header and closure lack padding
   #248720 by matt@antinomia: Only UPDATE {system} table WHERE type = 'theme'
   #248780: admin table styles override update_status styling
