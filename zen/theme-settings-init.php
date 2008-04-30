@@ -8,8 +8,8 @@ if (is_null(theme_get_setting('zen_block_editing'))) {
    * template.php. So we need to ensure that the sub-themes' theme settings init
    * are loaded first.
    */
+  global $theme;
   if ($theme != 'zen') {
-    global $theme;
     $themes = list_themes();
     $ancestor = $theme;
     while ($ancestor && isset($themes[$ancestor]->base_theme)) {
