@@ -1,6 +1,7 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
 
+  #253249: zen_id_safe fails when first character is extended latin
   #251632: Make the closure region more useful
   #199682: 'Submitted by' text is shown for content even if setting is disabled
   #222339: Blocks in Zen Classic header and closure lack padding
@@ -18,6 +19,9 @@ Zen 6.x-1.x-dev
   * Added complete Drupal 6 CSS for easy reference by theme developers
   * Added Photoshop file for tabs
   #222299: Block editing link in Zen Classic footer is white on white
+
+Zen 5.x-1.2
+  #253249: zen_id_safe fails when first character is extended latin
 
 Zen 5.x-1.1
   #246109: Add MODULE_preprocess_HOOK functions to Zen
