@@ -1,6 +1,8 @@
 Zen 6.x-1.x-dev
-  #199682: 'Submitted by' text is shown for content even if setting is disabled
   * Upgrading to Drupal 6. Not yet complete.
+
+  #251632: Make the closure region more useful
+  #199682: 'Submitted by' text is shown for content even if setting is disabled
   #222339: Blocks in Zen Classic header and closure lack padding
   #248780: admin table styles override update_status styling
   #232840: OpenID login block displaying incorrectly
