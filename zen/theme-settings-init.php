@@ -11,17 +11,20 @@ if (is_null(theme_get_setting('zen_block_editing'))) {
   global $theme;
   if ($theme != 'zen') {
     $themes = list_themes();
+    // Load the active theme and its ancestors.
     $ancestor = $theme;
     while ($ancestor && isset($themes[$ancestor]->base_theme)) {
+      // First include theme's template.php.
       $file = dirname($themes[$ancestor]->filename) .'/template.php';
       if (file_exists($file)) {
         include_once "./$file";
       }
+      // Then find theme's parent.
       $ancestor = $themes[$ancestor]->base_theme;
     }
   }
 
-  if ($theme == 'zen' || is_null(theme_get_setting('zen_block_editing'))) {
+  if (is_null(theme_get_setting('zen_block_editing'))) {
     global $theme_key;
 
     /*
