@@ -11,7 +11,7 @@
  * @return
  *   string The rendered menu item.
  */
-function phptemplate_menu_item_link($link) {
+function zen_menu_item_link($link) {
   if (empty($link['options'])) {
     $link['options'] = array();
   }
@@ -32,7 +32,7 @@ function phptemplate_menu_item_link($link) {
 /**
  * Duplicate of theme_menu_local_tasks() but adds clear-block to tabs.
  */
-function phptemplate_menu_local_tasks() {
+function zen_menu_local_tasks() {
   $output = '';
 
   if ($primary = menu_primary_local_tasks()) {

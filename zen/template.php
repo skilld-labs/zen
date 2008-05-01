@@ -44,7 +44,7 @@ include_once 'template-menus.php';
  * @return
  *   A string containing the breadcrumb output.
  */
-function phptemplate_breadcrumb($breadcrumb) {
+function zen_breadcrumb($breadcrumb) {
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
   $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
