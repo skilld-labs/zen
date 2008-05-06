@@ -29,6 +29,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     'zen_breadcrumb_separator' => ' › ',
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 1,
+    'zen_breadcrumb_title' => 0,
     'zen_layout' => 'border-politics-liquid',
     'zen_wireframes' => 0,
   );
@@ -85,6 +86,12 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('Append a separator to the end of the breadcrumb'),
     '#default_value' => $settings['zen_breadcrumb_trailing'],
     '#description'   => t('Useful when the breadcrumb is placed just before the title.'),
+  );
+  $form['breadcrumb']['zen_breadcrumb_title'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Append the content title to the end of the breadcrumb'),
+    '#default_value' => $settings['zen_breadcrumb_title'],
+    '#description'   => t('Useful when the breadcrumb is not placed just before the title.'),
     '#suffix'        => '</div>', // #div-zen-breadcrumb
   );
 

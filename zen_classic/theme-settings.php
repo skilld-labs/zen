@@ -22,6 +22,7 @@ function zen_classic_settings($saved_settings) {
     'zen_breadcrumb_separator' => ' :: ',
     'zen_breadcrumb_home' => 1,
     'zen_breadcrumb_trailing' => 0,
+    'zen_breadcrumb_title' => 0,
   );
 
   // Merge the saved variables and their default values

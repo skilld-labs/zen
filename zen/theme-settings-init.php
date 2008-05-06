@@ -24,7 +24,7 @@ if (is_null(theme_get_setting('zen_block_editing'))) {
     }
   }
 
-  if (is_null(theme_get_setting('zen_block_editing'))) {
+  if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
     global $theme_key;
 
     /*
@@ -37,6 +37,7 @@ if (is_null(theme_get_setting('zen_block_editing'))) {
       'zen_breadcrumb_separator' => ' › ',
       'zen_breadcrumb_home' => 1,
       'zen_breadcrumb_trailing' => 1,
+      'zen_breadcrumb_title' => 0,
       'zen_layout' => 'border-politics-liquid',
       'zen_wireframes' => 0,
     );
