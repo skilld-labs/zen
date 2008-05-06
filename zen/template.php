@@ -91,8 +91,10 @@ function zen_breadcrumb($breadcrumb) {
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called (name of the .tpl.php file.)
  */
-function phptemplate_preprocess(&$vars) {
+function phptemplate_preprocess(&$vars, $hook) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -111,8 +113,10 @@ function phptemplate_preprocess(&$vars) {
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called ("page" in this case.)
  */
-function phptemplate_preprocess_page(&$vars) {
+function phptemplate_preprocess_page(&$vars, $hook) {
   global $theme;
 
   // These next lines add additional CSS files and redefine
@@ -183,8 +187,10 @@ function phptemplate_preprocess_page(&$vars) {
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called ("node" in this case.)
  */
-function phptemplate_preprocess_node(&$vars) {
+function phptemplate_preprocess_node(&$vars, $hook) {
   global $user;
 
   // Special classes for nodes
@@ -217,8 +223,10 @@ function phptemplate_preprocess_node(&$vars) {
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called ("comment" in this case.)
  */
-function phptemplate_preprocess_comment(&$vars) {
+function phptemplate_preprocess_comment(&$vars, $hook) {
   global $user;
 
   // We load the node object that the current comment is attached to
@@ -266,8 +274,10 @@ function phptemplate_preprocess_comment(&$vars) {
  *
  * @param $vars
  *   A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the theme function being called ("block" in this case.)
  */
-function phptemplate_preprocess_block(&$vars) {
+function phptemplate_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
   // Special classes for blocks
