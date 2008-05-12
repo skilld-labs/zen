@@ -1,6 +1,7 @@
 Zen 6.x-1.x-dev
   * Upgrading to Drupal 6. Not yet complete.
 
+  #249532: Allow subthemes to have preprocess hooks without tpl files
   #223518: Option to show page title in breadcrumbs
   #253249: zen_id_safe fails when first character is extended latin
   #251632: Make the closure region more useful

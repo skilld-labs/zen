@@ -47,6 +47,13 @@ if (theme_get_setting('zen_classic_fixed')) {
 
 
 /**
+ * Implementation of HOOK_theme().
+ */
+function zen_classic_theme(&$existing, $type, $theme, $path) {
+  return zen_theme($existing, $type, $theme, $path);
+}
+
+/**
  * Override or insert PHPTemplate variables into all templates.
  *
  * @param $vars
@@ -56,9 +63,6 @@ if (theme_get_setting('zen_classic_fixed')) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess(&$vars, $hook) {
-  // First run Zen's preprocess function.
-  phptemplate_preprocess($vars);
-
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -73,9 +77,6 @@ function zen_classic_preprocess(&$vars, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_page(&$vars, $hook) {
-  // First run Zen's preprocess function.
-  phptemplate_preprocess_page($vars);
-
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -90,9 +91,6 @@ function zen_classic_preprocess_page(&$vars, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_node(&$vars, $hook) {
-  // First run Zen's preprocess function.
-  phptemplate_preprocess_node($vars);
-
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -107,9 +105,6 @@ function zen_classic_preprocess_node(&$vars, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_comment(&$vars, $hook) {
-  // First run Zen's preprocess function.
-  phptemplate_preprocess_comment($vars);
-
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
@@ -124,9 +119,6 @@ function zen_classic_preprocess_comment(&$vars, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function zen_classic_preprocess_block(&$vars, $hook) {
-  // First run Zen's preprocess function.
-  phptemplate_preprocess_block($vars);
-
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */

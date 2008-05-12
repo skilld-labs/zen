@@ -94,7 +94,7 @@ function zen_breadcrumb($breadcrumb) {
  * @param $hook
  *   The name of the theme function being called (name of the .tpl.php file.)
  */
-function phptemplate_preprocess(&$vars, $hook) {
+function zen_preprocess(&$vars, $hook) {
   global $user;
 
   // Set a new $is_admin variable. This is determined by looking at the
@@ -116,7 +116,7 @@ function phptemplate_preprocess(&$vars, $hook) {
  * @param $hook
  *   The name of the theme function being called ("page" in this case.)
  */
-function phptemplate_preprocess_page(&$vars, $hook) {
+function zen_preprocess_page(&$vars, $hook) {
   global $theme;
 
   // These next lines add additional CSS files and redefine
@@ -190,7 +190,7 @@ function phptemplate_preprocess_page(&$vars, $hook) {
  * @param $hook
  *   The name of the theme function being called ("node" in this case.)
  */
-function phptemplate_preprocess_node(&$vars, $hook) {
+function zen_preprocess_node(&$vars, $hook) {
   global $user;
 
   // Special classes for nodes
@@ -226,7 +226,7 @@ function phptemplate_preprocess_node(&$vars, $hook) {
  * @param $hook
  *   The name of the theme function being called ("comment" in this case.)
  */
-function phptemplate_preprocess_comment(&$vars, $hook) {
+function zen_preprocess_comment(&$vars, $hook) {
   global $user;
 
   // We load the node object that the current comment is attached to
@@ -277,7 +277,7 @@ function phptemplate_preprocess_comment(&$vars, $hook) {
  * @param $hook
  *   The name of the theme function being called ("block" in this case.)
  */
-function phptemplate_preprocess_block(&$vars, $hook) {
+function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
   // Special classes for blocks
@@ -391,4 +391,44 @@ function path_to_zentheme() {
     }
   }
   return $theme_path;
+}
+
+/**
+ * Implementation of HOOK_theme().
+ *
+ * The Zen base theme uses this function as a work-around for a bug in Drupal
+ * 6.0-6.2: #252430 (Allow BASETHEME_ prefix in preprocessor function names).
+ *
+ * Sub-themes Also use this function by calling it from their HOOK_theme() in
+ * order to get around a design limitation in Drupal 6: #249532 (Allow subthemes
+ * to have preprocess hooks without tpl files.)
+ *
+ * @param $existing
+ *   An array of existing implementations that may be used for override purposes.
+ * @param $type
+ *   What 'type' is being processed.
+ * @param $theme
+ *   The actual name of theme that is being being checked.
+ * @param $path
+ *   The directory path of the theme or module, so that it doesn't need to be looked up.
+ */
+function zen_theme(&$existing, $type, $theme, $path) {
+  // Inspect the preprocess functions for each of Zen's tpl files.
+  $default_hooks = array('page', 'node', 'comment', 'block');
+  foreach ($default_hooks AS $hook) {
+    // Each theme has two possible preprocess functions that can act on a hook.
+    $functions = array(
+      $theme . '_preprocess',
+      $theme . '_preprocess_' . $hook,
+    );
+    foreach ($functions AS $key => $function) {
+      // Add any functions that are not already in the registry.
+      if (function_exists($function) && !in_array($function, $existing[$hook]['preprocess functions'])) {
+        // We add the preprocess function to the end of the existing list.
+        $existing[$hook]['preprocess functions'][] = $function;
+      }
+    }
+  }
+  // Since we modify the $existing cache directly, return nothing.
+  return array();
 }
