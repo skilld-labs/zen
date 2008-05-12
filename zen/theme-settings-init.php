@@ -1,7 +1,7 @@
 <?php
 // $Id$
 
-if (is_null(theme_get_setting('zen_block_editing'))) {
+if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
 
   /*
    * init_theme() loads the base theme's template.php before the sub-themes'
