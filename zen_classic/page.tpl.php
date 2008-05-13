@@ -1,6 +1,6 @@
 <?php // $Id$ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language ?>" xml:lang="<?php print $language->language ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language; ?>" xml:lang="<?php print $language->language; ?>">
 
 <head>
   <title><?php print $head_title; ?></title>
@@ -10,7 +10,7 @@
     <?php if ($zentheme_directory): ?>
       <link rel="stylesheet" href="<?php print $base_path . $zentheme_directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
-    <?php if (file_exists($directory .'/ie.css')): ?>
+    <?php if (file_exists($directory . '/ie.css')): ?>
       <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
     <?php endif; ?>
   <![endif]-->
@@ -37,7 +37,7 @@
 
         <?php if (!empty($site_name)): ?>
           <div id='site-name'><strong>
-            <a href="<?php print $base_path ?>" title="<?php print t('Home'); ?>" rel="home">
+            <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
               <?php print $site_name; ?>
             </a>
           </strong></div>
@@ -88,7 +88,7 @@
         <?php if (!empty($mission)): ?>
           <div id="mission"><?php print $mission; ?></div>
         <?php endif; ?>
-        <?php if (!empty($content_top)):?>
+        <?php if (!empty($content_top)): ?>
           <div id="content-top"><?php print $content_top; ?></div>
         <?php endif; ?>
         <div id="content">

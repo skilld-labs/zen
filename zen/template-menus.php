@@ -18,7 +18,7 @@ function zen_menu_item_link($link) {
 
   // If an item is a LOCAL TASK, render it as a tab
   if ($link['type'] & MENU_IS_LOCAL_TASK) {
-    $link['title'] = '<span class="tab">'. check_plain($link['title']) .'</span>';
+    $link['title'] = '<span class="tab">' . check_plain($link['title']) . '</span>';
     $link['options']['html'] = TRUE;
   }
 
@@ -36,10 +36,10 @@ function zen_menu_local_tasks() {
   $output = '';
 
   if ($primary = menu_primary_local_tasks()) {
-    $output .= '<ul class="tabs primary clear-block">'. $primary .'</ul>';
+    $output .= '<ul class="tabs primary clear-block">' . $primary . '</ul>';
   }
   if ($secondary = menu_secondary_local_tasks()) {
-    $output .= '<ul class="tabs secondary clear-block">'. $secondary .'</ul>';
+    $output .= '<ul class="tabs secondary clear-block">' . $secondary . '</ul>';
   }
 
   return $output;

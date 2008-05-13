@@ -58,7 +58,7 @@ function zen_breadcrumb($breadcrumb) {
     }
     if (!empty($breadcrumb)) {
       // Return the breadcrumb with separators
-      return '<div class="breadcrumb">'. implode($breadcrumb_separator, $breadcrumb) ."$trailing_separator</div>";
+      return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator</div>";
     }
   }
   // Otherwise, return an empty string
@@ -124,20 +124,20 @@ function zen_preprocess_page(&$vars, $hook) {
   if ($theme == 'zen') { // If we're in the main theme
     // Load the stylesheet for a liquid layout
     if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
-      drupal_add_css($vars['directory'] .'/layout-liquid.css', 'theme', 'all');
+      drupal_add_css($vars['directory'] . '/layout-liquid.css', 'theme', 'all');
     }
     // Or load the stylesheet for a fixed width layout
     else {
-      drupal_add_css($vars['directory'] .'/layout-fixed.css', 'theme', 'all');
+      drupal_add_css($vars['directory'] . '/layout-fixed.css', 'theme', 'all');
     }
   }
   // Optionally add the block editing styles.
   if (theme_get_setting('zen_block_editing')) {
-    drupal_add_css(path_to_zentheme() .'/block-editing.css', 'theme', 'all');
+    drupal_add_css(path_to_zentheme() . '/block-editing.css', 'theme', 'all');
   }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css(path_to_zentheme() .'/wireframes.css', 'theme', 'all');
+    drupal_add_css(path_to_zentheme() . '/wireframes.css', 'theme', 'all');
   }
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
@@ -147,7 +147,7 @@ function zen_preprocess_page(&$vars, $hook) {
 
   // Add an optional title to the end of the breadcrumb.
   if (theme_get_setting('zen_breadcrumb_title') && $vars['breadcrumb']) {
-    $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] .'</div>';
+    $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] . '</div>';
   }
 
   // Don't display empty help from node_help().
@@ -162,8 +162,8 @@ function zen_preprocess_page(&$vars, $hook) {
     // Add unique classes for each page and website section
     $path = drupal_get_path_alias($_GET['q']);
     list($section, ) = explode('/', $path, 2);
-    $body_classes[] = zen_id_safe('page-'. $path);
-    $body_classes[] = zen_id_safe('section-'. $section);
+    $body_classes[] = zen_id_safe('page-' . $path);
+    $body_classes[] = zen_id_safe('section-' . $section);
     if (arg(0) == 'node') {
       if (arg(1) == 'add') {
         if ($section == 'node') {
@@ -175,7 +175,7 @@ function zen_preprocess_page(&$vars, $hook) {
         if ($section == 'node') {
           array_pop($body_classes); // Remove 'section-node'
         }
-        $body_classes[] = 'section-node-'. arg(2); // Add 'section-node-edit' or 'section-node-delete'
+        $body_classes[] = 'section-node-' . arg(2); // Add 'section-node-edit' or 'section-node-delete'
       }
     }
   }
@@ -214,7 +214,7 @@ function zen_preprocess_node(&$vars, $hook) {
     $node_classes[] = 'node-teaser';
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $node_classes[] = 'node-type-'. $vars['node']->type;
+  $node_classes[] = 'node-type-' . $vars['node']->type;
   $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
 }
 
@@ -282,18 +282,18 @@ function zen_preprocess_block(&$vars, $hook) {
 
   // Special classes for blocks
   $block_classes = array();
-  $block_classes[] = 'block-'. $block->module;
-  $block_classes[] = 'region-'. $vars['block_zebra'];
+  $block_classes[] = 'block-' . $block->module;
+  $block_classes[] = 'region-' . $vars['block_zebra'];
   $block_classes[] = $vars['zebra'];
-  $block_classes[] = 'region-count-'. $vars['block_id'];
-  $block_classes[] = 'count-'. $vars['id'];
+  $block_classes[] = 'region-count-' . $vars['block_id'];
+  $block_classes[] = 'count-' . $vars['id'];
   $vars['block_classes'] = implode(' ', $block_classes);
 
   $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     // Display 'edit block' for custom blocks
     if ($block->module == 'block') {
-      $edit_links[] = l('<span>'. t('edit block') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta,
+      $edit_links[] = l('<span>' . t('edit block') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
         array(
           'attributes' => array(
             'title' => t('edit the content of this block'),
@@ -306,7 +306,7 @@ function zen_preprocess_block(&$vars, $hook) {
     }
     // Display 'configure' for other blocks
     else {
-      $edit_links[] = l('<span>'. t('configure') .'</span>', 'admin/build/block/configure/'. $block->module .'/'. $block->delta,
+      $edit_links[] = l('<span>' . t('configure') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
         array(
           'attributes' => array(
             'title' => t('configure this block'),
@@ -320,7 +320,7 @@ function zen_preprocess_block(&$vars, $hook) {
 
     // Display 'administer views' for views blocks
     if ($block->module == 'views' && user_access('administer views')) {
-      $edit_links[] = l('<span>'. t('edit view') .'</span>', 'admin/build/views/'. $block->delta .'/edit',
+      $edit_links[] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/' . $block->delta . '/edit',
         array(
           'attributes' => array(
             'title' => t('edit the view that defines this block'),
@@ -335,7 +335,7 @@ function zen_preprocess_block(&$vars, $hook) {
     // Display 'edit menu' for menu blocks
     elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
       $menu_name = ($block->module == 'user') ? 'navigation' : $block->delta;
-      $edit_links[] = l('<span>'. t('edit menu') .'</span>', 'admin/build/menu-customize/'. $menu_name,
+      $edit_links[] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
         array(
           'attributes' => array(
             'title' => t('edit the menu that defines this block'),
@@ -347,7 +347,7 @@ function zen_preprocess_block(&$vars, $hook) {
       );
     }
     $vars['edit_links_array'] = $edit_links;
-    $vars['edit_links'] = '<div class="edit">'. implode(' ', $edit_links) .'</div>';
+    $vars['edit_links'] = '<div class="edit">' . implode(' ', $edit_links) . '</div>';
   }
 }
 

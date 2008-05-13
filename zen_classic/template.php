@@ -36,13 +36,14 @@ include_once 'theme-settings-init.php';
 /*
  * Add any conditional stylesheets you will need for this sub-theme.
  *
- * To add stylesheets that always need to be included, you should add them to
- * your .info file.
+ * To add stylesheets that ALWAYS need to be included, you should add them to
+ * your .info file instead. Only use this section if you are including
+ * stylesheets based on certain conditions.
  */
 
 // Optionally add the fixed width CSS file.
 if (theme_get_setting('zen_classic_fixed')) {
-  drupal_add_css(path_to_theme() .'/zen-fixed.css', 'theme', 'all');
+  drupal_add_css(path_to_theme() . '/zen-fixed.css', 'theme', 'all');
 }
 
 
@@ -132,14 +133,14 @@ function zen_classic_username($object) {
   if ($object->uid && $object->name) {
     // Shorten the name when it is too long or it will break many tables.
     if (drupal_strlen($object->name) > 20) {
-      $name = drupal_substr($object->name, 0, 15) .'...';
+      $name = drupal_substr($object->name, 0, 15) . '...';
     }
     else {
       $name = $object->name;
     }
 
     if (user_access('access user profiles')) {
-      $output = l($name, 'user/'. $object->uid, array('attributes' => array('title' => t('View user profile.'))));
+      $output = l($name, 'user/' . $object->uid, array('attributes' => array('title' => t('View user profile.'))));
     }
     else {
       $output = check_plain($name);
@@ -157,7 +158,7 @@ function zen_classic_username($object) {
       $output = check_plain($object->name);
     }
 
-    $output .= ' ('. t('not verified') .')';
+    $output .= ' (' . t('not verified') . ')';
   }
   else {
     $output = variable_get('anonymous', t('Anonymous'));

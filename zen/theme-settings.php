@@ -14,10 +14,10 @@
 function zen_settings($saved_settings, $subtheme_defaults = array()) {
 
   // Add the form's CSS
-  drupal_add_css(drupal_get_path('theme', 'zen') .'/theme-settings.css', 'theme');
+  drupal_add_css(drupal_get_path('theme', 'zen') . '/theme-settings.css', 'theme');
 
   // Add javascript to show/hide optional settings
-  drupal_add_js(drupal_get_path('theme', 'zen') .'/theme-settings.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'zen') . '/theme-settings.js', 'theme');
 
   /*
    * The default values for the theme variables. Make sure $defaults exactly
@@ -105,8 +105,8 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'border-politics-liquid' => t('Liquid layout') .' <small>(layout-liquid.css)</small>',
-                          'border-politics-fixed' => t('Fixed layout') .' <small>(layout-fixed.css)</small>',
+                          'border-politics-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
+                          'border-politics-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
                         ),
     '#default_value' => $settings['zen_layout'],
   );
@@ -115,7 +115,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('Display borders around main layout elements'),
     '#default_value' => $settings['zen_wireframes'],
     '#description'   => l(t('Wireframes'), 'http://www.boxesandarrows.com/view/html_wireframes_and_prototypes_all_gain_and_no_pain') . t(' are useful when prototyping a website.'),
-    '#prefix'        => '<div id="div-zen-wireframes"><strong>'. t('Wireframes:') .'</strong>',
+    '#prefix'        => '<div id="div-zen-wireframes"><strong>' . t('Wireframes:') . '</strong>',
     '#suffix'        => '</div>',
   );
 

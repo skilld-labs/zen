@@ -1,4 +1,4 @@
-<div class="node <?php print $node_classes ?>" id="node-<?php print $node->nid; ?>"><div class="node-inner">
+<div class="node <?php print $node_classes; ?>" id="node-<?php print $node->nid; ?>"><div class="node-inner">
 
   <?php if ($page == 0): ?>
     <h2 class="title">
@@ -6,7 +6,7 @@
     </h2>
   <?php endif; ?>
 
-  <?php if ($unpublished) : ?>
+  <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 

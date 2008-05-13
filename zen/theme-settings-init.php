@@ -7,6 +7,8 @@ if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
    * init_theme() loads the base theme's template.php before the sub-themes'
    * template.php. So we need to ensure that the sub-themes' theme settings init
    * are loaded first.
+   *
+   * @FIXME: Implement a default theme settings mechanism that isn't gawd awful: #245832
    */
   global $theme;
   if ($theme != 'zen') {
@@ -15,7 +17,7 @@ if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
     $ancestor = $theme;
     while ($ancestor && isset($themes[$ancestor]->base_theme)) {
       // First include theme's template.php.
-      $file = dirname($themes[$ancestor]->filename) .'/template.php';
+      $file = dirname($themes[$ancestor]->filename) . '/template.php';
       if (file_exists($file)) {
         include_once "./$file";
       }
@@ -52,7 +54,7 @@ if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
     }
     // Save default theme settings.
     variable_set(
-      str_replace('/', '_', 'theme_'. $theme_key .'_settings'),
+      str_replace('/', '_', 'theme_' . $theme_key . '_settings'),
       array_merge($defaults, $settings)
     );
     // Force refresh of Drupal internals.

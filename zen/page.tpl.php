@@ -7,7 +7,7 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <!--[if IE]>
-    <?php if (file_exists($directory .'/ie.css')): ?>
+    <?php if (file_exists($directory . '/ie.css')): ?>
       <link rel="stylesheet" href="<?php print $base_path . $directory; ?>/ie.css" type="text/css">
     <?php else: ?>
       <link rel="stylesheet" href="<?php print $base_path . $zentheme_directory; ?>/ie.css" type="text/css">
