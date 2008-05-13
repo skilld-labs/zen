@@ -29,9 +29,6 @@
  * this main template.php file.
  */
 
-// Initialize theme settings
-include_once 'theme-settings-init.php';
-
 // Tabs and menu functions
 include_once 'template-menus.php';
 
@@ -429,6 +426,49 @@ function zen_theme(&$existing, $type, $theme, $path) {
       }
     }
   }
+
+  // Since we are rebuilding the theme registry and the theme settings' default
+  // values may have changed, make sure they are saved in the database properly.
+  zen_settings_init($theme);
+
   // Since we modify the $existing cache directly, return nothing.
   return array();
+}
+
+/**
+ * Read the theme settings' default values from the .info and save them into the database.
+ *
+ * @param $theme
+ *   The actual name of theme that is being being checked.
+ */
+function zen_settings_init($theme) {
+  $themes = list_themes();
+
+  // Get the default values from the .info file.
+  $defaults = $themes[$theme]->info['settings'];
+
+  // Get the theme settings saved in the database.
+  $settings = theme_get_settings($theme);
+  // Don't save the toggle_node_info_ variables.
+  if (module_exists('node')) {
+    foreach (node_get_types() as $type => $name) {
+      unset($settings['toggle_node_info_' . $type]);
+    }
+  }
+  // Save default theme settings.
+  variable_set(
+    str_replace('/', '_', 'theme_' . $theme . '_settings'),
+    array_merge($defaults, $settings)
+  );
+  // Force refresh of Drupal internals.
+  theme_get_setting('', TRUE);
+}
+
+/*
+ * In addition to initializing the theme settings during HOOK_theme(), init them
+ * when viewing/resetting the admin/build/themes/settings/THEME forms.
+ */
+if (arg(0) == 'admin' && arg(2) == 'themes' && arg(4)) {
+  global $theme_key;
+  zen_settings_init($theme_key);
 }
