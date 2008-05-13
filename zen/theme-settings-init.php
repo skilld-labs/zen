@@ -8,7 +8,7 @@ if (is_null(theme_get_setting('zen_breadcrumb_title'))) {
    * template.php. So we need to ensure that the sub-themes' theme settings init
    * are loaded first.
    *
-   * @FIXME: Implement a default theme settings mechanism that isn't gawd awful: #245832
+   * @FIXME: Implement a default theme settings mechanism that isn't gawd awful: #248103
    */
   global $theme;
   if ($theme != 'zen') {
