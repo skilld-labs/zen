@@ -84,28 +84,6 @@ function zen_breadcrumb($breadcrumb) {
 
 
 /**
- * Override or insert PHPTemplate variables into all templates.
- *
- * @param $vars
- *   A sequential array of variables to pass to the theme template.
- * @param $hook
- *   The name of the theme function being called (name of the .tpl.php file.)
- */
-function zen_preprocess(&$vars, $hook) {
-  global $user;
-
-  // Set a new $is_admin variable. This is determined by looking at the
-  // currently logged in user and seeing if they are in the role 'admin'. The
-  // 'admin' role will need to have been created manually for this to work this
-  // variable is available to all templates.
-  $vars['is_admin'] = in_array('admin', $user->roles);
-
-  // Send a new variable, $logged_in, to tell us if the current user is
-  // logged in or out. An anonymous user has a user id of 0.
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
-}
-
-/**
  * Override or insert PHPTemplate variables into the page templates.
  *
  * @param $vars
