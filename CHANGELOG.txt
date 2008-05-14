@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #258123: Rearrange placement of #site-name strong
   #248103: Allow themes to set defaults for settings in their .info files
   #249532: Allow subthemes to have preprocess hooks without tpl files
   #223518: Option to show page title in breadcrumbs
@@ -23,6 +24,7 @@ Zen 6.x-1.x-dev
 
 Zen 5.x-1.2
   #223518: Option to show page title in breadcrumbs
+  #255263: Don't call preprocess functions twice when Zen is active theme
   #253249: zen_id_safe fails when first character is extended latin
 
 Zen 5.x-1.1

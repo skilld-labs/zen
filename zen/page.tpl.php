@@ -37,11 +37,11 @@
               // Use an H1 only on the homepage
               $tag = $is_front ? 'h1' : 'div';
             ?>
-            <<?php print $tag; ?> id='site-name'><strong>
+            <<?php print $tag; ?> id='site-name'>
               <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
-                <?php print $site_name; ?>
+                <strong><?php print $site_name; ?></strong>
               </a>
-            </strong></<?php print $tag; ?>>
+            </<?php print $tag; ?>>
           <?php endif; ?>
 
           <?php if ($site_slogan): ?>
