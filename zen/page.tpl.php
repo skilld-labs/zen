@@ -52,7 +52,7 @@
       <?php endif; ?>
 
       <?php if ($header): ?>
-        <div id="header-blocks">
+        <div id="header-blocks" class="region region-header">
           <?php print $header; ?>
         </div> <!-- /#header-blocks -->
       <?php endif; ?>
@@ -68,7 +68,7 @@
         <?php endif; ?>
 
         <?php if ($content_top): ?>
-          <div id="content-top">
+          <div id="content-top" class="region region-content_top">
             <?php print $content_top; ?>
           </div> <!-- /#content-top -->
         <?php endif; ?>
@@ -96,7 +96,7 @@
         <?php endif; ?>
 
         <?php if ($content_bottom): ?>
-          <div id="content-bottom">
+          <div id="content-bottom" class="region region-content_bottom">
             <?php print $content_bottom; ?>
           </div> <!-- /#content-bottom -->
         <?php endif; ?>
@@ -104,7 +104,7 @@
       </div></div> <!-- /#content-inner, /#content -->
 
       <?php if ($search_box || $primary_links || $secondary_links || $navbar): ?>
-        <div id="navbar"><div id="navbar-inner">
+        <div id="navbar"><div id="navbar-inner" class="region region-navbar">
 
           <a name="navigation" id="navigation"></a>
 
@@ -132,20 +132,20 @@
       <?php endif; ?>
 
       <?php if ($left): ?>
-        <div id="sidebar-left"><div id="sidebar-left-inner">
+        <div id="sidebar-left"><div id="sidebar-left-inner" class="region region-left">
           <?php print $left; ?>
         </div></div> <!-- /#sidebar-left-inner, /#sidebar-left -->
       <?php endif; ?>
 
       <?php if ($right): ?>
-        <div id="sidebar-right"><div id="sidebar-right-inner">
+        <div id="sidebar-right"><div id="sidebar-right-inner" class="region region-right">
           <?php print $right; ?>
         </div></div> <!-- /#sidebar-right-inner, /#sidebar-right -->
       <?php endif; ?>
 
     </div></div> <!-- /#main-inner, /#main -->
 
-    <div id="footer"><div id="footer-inner">
+    <div id="footer"><div id="footer-inner" class="region region-footer">
 
       <div id="footer-message"><?php print $footer_message; ?></div>
 
@@ -156,7 +156,7 @@
   </div></div> <!-- /#page-inner, /#page -->
 
   <?php if ($closure_region): ?>
-    <div id="closure-blocks"><?php print $closure_region; ?></div>
+    <div id="closure-blocks" class="region region-closure"><?php print $closure_region; ?></div>
   <?php endif; ?>
 
   <?php print $closure; ?>

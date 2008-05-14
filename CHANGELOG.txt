@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
-  #258123: Rearrange placement of #site-name strong
+  #253609 by jjeff: Add 'region' class to regions
+  #258123 by jjeff: Rearrange placement of #site-name strong
   #248103: Allow themes to set defaults for settings in their .info files
   #249532: Allow subthemes to have preprocess hooks without tpl files
   #223518: Option to show page title in breadcrumbs
