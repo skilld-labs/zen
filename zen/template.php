@@ -388,14 +388,14 @@ function path_to_zentheme() {
  *   The directory path of the theme or module, so that it doesn't need to be looked up.
  */
 function zen_theme(&$existing, $type, $theme, $path) {
-  // Inspect the preprocess functions for each of Zen's tpl files.
-  $default_hooks = array('page', 'node', 'comment', 'block');
-  foreach ($default_hooks AS $hook) {
+  // Each theme has two possible preprocess functions that can act on a hook.
+  // This function applies to every hook.
+  $functions[0] = $theme . '_preprocess';
+  // Inspect the preprocess functions for every hook in the theme registry.
+  foreach ($existing AS $hook => &$value) {
     // Each theme has two possible preprocess functions that can act on a hook.
-    $functions = array(
-      $theme . '_preprocess',
-      $theme . '_preprocess_' . $hook,
-    );
+    // This function only applies to this hook.
+    $functions[1] = $theme . '_preprocess_' . $hook;
     foreach ($functions AS $key => $function) {
       // Add any functions that are not already in the registry.
       if (function_exists($function) && !in_array($function, $existing[$hook]['preprocess functions'])) {
