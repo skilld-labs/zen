@@ -1,4 +1,4 @@
-Zen 6.x-1.x-dev
+Zen 6.x-1.0-beta1
   #253609 by jjeff: Add 'region' class to regions
   #258123 by jjeff: Rearrange placement of #site-name strong
   #248103: Allow themes to set defaults for settings in their .info files
