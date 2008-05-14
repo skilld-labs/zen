@@ -27,6 +27,12 @@ Installation:
 
 Build your own sub-theme:
 
+  IMPORTANT: In Drupal 6, the theme system caches template files and which theme
+  functions should be called. What that means is if you add a new theme or
+  preprocess fuction to your template.php file or add a new template (.tpl.php)
+  file to your sub-theme, you will need to rebuild the "theme registry."
+  See http://drupal.org/node/173880#theme-registry
+
   The base Zen theme is designed to be easily extended by its sub-themes. You
   shouldn't modify any of the CSS or PHP files in the zen/ folder; but instead
   you should create a sub-theme of zen which is located in a folder outside of
@@ -120,9 +126,14 @@ Build your own sub-theme:
      For example, copy zen/page.tpl.php to zen/foo/page.tpl.php.
 
   10. THEMEING DRUPAL'S SEARCH FORM:
-     Copy the search-theme-form.tpl.php template file from the zen folder and
-     place it in your sub-theme's folder. In your sub-theme's template.php file,
-     un-comment the STARTERKIT_search_theme_form() function.
+     Copy the search-theme-form.tpl.php template file from the modules/search/
+     folder and place it in your sub-theme's folder.
+
+       Why? In Drupal 6 theming, if you want to modify a template included
+       by a module, you should copy the template file from the module's
+       directory to your sub-theme's directory and then rebuild the theme
+       registry. See the Drupal 6 Theme Guide for more info:
+       http://drupal.org/node/173880
 
   11. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
