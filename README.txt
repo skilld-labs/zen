@@ -2,7 +2,7 @@ Full documentation on the Zen theme can be found in Drupal's Handbook:
   http://drupal.org/node/193318
 
 Excellent documentation on Drupal theming can be found in the Theme Guide:
-  http://drupal.org/node/171205
+  http://drupal.org/theme-guide
 
 
 Installation:
@@ -113,7 +113,7 @@ Build your own sub-theme:
      folder, copy them to your sub-theme's folder before making any changes.
      Also, be sure the new stylesheet is included in your .info file.
 
-     For example, copy zen/html-elements.css and rename it as
+     For example, copy zen/zen/html-elements.css and rename it as
      foo/html-elements.css. Then edit foo/foo.info and change:
        ;stylesheets[all][]  = html-elements.css
      to:
@@ -123,7 +123,7 @@ Build your own sub-theme:
      If you decide you want to modify any of the .tpl.php template files in the
      zen folder, copy them to your sub-theme's folder before making any changes.
 
-     For example, copy zen/page.tpl.php to zen/foo/page.tpl.php.
+     For example, copy zen/zen/page.tpl.php to foo/page.tpl.php.
 
   10. THEMEING DRUPAL'S SEARCH FORM:
      Copy the search-theme-form.tpl.php template file from the modules/search/
@@ -140,4 +140,4 @@ Build your own sub-theme:
      documentation online at:
        http://drupal.org/node/193318
      and Drupal 6's Theme Guide online at:
-       http://drupal.org/handbooks
+       http://drupal.org/theme-guide
