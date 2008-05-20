@@ -1,3 +1,6 @@
+Zen 6.x-1.0-beta2
+  #260016: PHP 4 Parse error: syntax error, unexpected '&'
+
 Zen 6.x-1.0-beta1
   #253609 by jjeff: Add 'region' class to regions
   #258123 by jjeff: Rearrange placement of #site-name strong
