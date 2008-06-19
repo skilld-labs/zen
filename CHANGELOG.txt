@@ -1,3 +1,6 @@
+Zen 6.x-1.x-dev
+  #272655: Make STARTERKIT_theme easier to extend
+
 Zen 6.x-1.0-beta2
   #260016: PHP 4 Parse error: syntax error, unexpected '&'
 
