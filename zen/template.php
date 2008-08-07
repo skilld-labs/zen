@@ -425,7 +425,7 @@ function zen_settings_init($theme) {
   $themes = list_themes();
 
   // Get the default values from the .info file.
-  $defaults = $themes[$theme]->info['settings'];
+  $defaults = !empty($themes[$theme]->info['settings']) ? $themes[$theme]->info['settings'] : array();
 
   // Get the theme settings saved in the database.
   $settings = theme_get_settings($theme);
