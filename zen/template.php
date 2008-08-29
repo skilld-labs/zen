@@ -372,7 +372,7 @@ function path_to_zentheme() {
  * Implementation of HOOK_theme().
  *
  * The Zen base theme uses this function as a work-around for a bug in Drupal
- * 6.0-6.2: #252430 (Allow BASETHEME_ prefix in preprocessor function names).
+ * 6.0-6.4: #252430 (Allow BASETHEME_ prefix in preprocessor function names).
  *
  * Sub-themes Also use this function by calling it from their HOOK_theme() in
  * order to get around a design limitation in Drupal 6: #249532 (Allow subthemes
