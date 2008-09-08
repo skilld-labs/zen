@@ -13,18 +13,18 @@
  * Many of these styles are over-riding Drupal's core stylesheets, so if you
  * remove a declaration from here, the styles may still not be what you want
  * since Drupal's core stylesheets are still styling the element. See the
- * drupal5-reference.css file for a list of all Drupal 5.x core styles.
+ * drupal6-reference.css file for a list of all Drupal 5.x core styles.
  *
  * In addition to the style declarations in this file, other Drupal styles that
  * you might want to override or augment are those for:
  *
- *   Book Navigation  See line 74  of Zen's drupal5-reference.css file
- *   Forum            See line 197 of Zen's drupal5-reference.css file
- *   Menus            See line 667 of Zen's drupal5-reference.css file
- *   News Aggregator  See line 20  of Zen's drupal5-reference.css file
- *   Polls            See line 287 of Zen's drupal5-reference.css file
- *   Search           See line 320 of Zen's drupal5-reference.css file
- *   User Profiles    See line 945 of Zen's drupal5-reference.css file
+ *   Book Navigation  See line 74  of Zen's drupal6-reference.css file
+ *   Forum            See line 197 of Zen's drupal6-reference.css file
+ *   Menus            See line 667 of Zen's drupal6-reference.css file
+ *   News Aggregator  See line 20  of Zen's drupal6-reference.css file
+ *   Polls            See line 287 of Zen's drupal6-reference.css file
+ *   Search           See line 320 of Zen's drupal6-reference.css file
+ *   User Profiles    See line 945 of Zen's drupal6-reference.css file
  */
 
 

@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #305311: CSS files makes reference to to drupal5-reference.css
   #299419: Remove empty zen.css in sub-themes
   #284798: PHP warning when settings section of .info file is missing
   #272655: Make STARTERKIT_theme easier to extend
