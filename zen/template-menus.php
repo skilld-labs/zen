@@ -2,31 +2,20 @@
 // $Id$
 
 /**
- * Generate the HTML representing a given menu item ID.
- *
- * An implementation of theme_menu_item_link()
- *
- * @param $link
- *   array The menu item to render.
- * @return
- *   string The rendered menu item.
+ * Implements theme_menu_item_link()
  */
 function zen_menu_item_link($link) {
-  if (empty($link['options'])) {
-    $link['options'] = array();
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
   }
 
   // If an item is a LOCAL TASK, render it as a tab
   if ($link['type'] & MENU_IS_LOCAL_TASK) {
     $link['title'] = '<span class="tab">' . check_plain($link['title']) . '</span>';
-    $link['options']['html'] = TRUE;
+    $link['localized_options']['html'] = TRUE;
   }
 
-  if (empty($link['type'])) {
-    $true = TRUE;
-  }
-
-  return l($link['title'], $link['href'], $link['options']);
+  return l($link['title'], $link['href'], $link['localized_options']);
 }
 
 /**
