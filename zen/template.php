@@ -357,13 +357,7 @@ function zen_id_safe($string) {
 function path_to_zentheme() {
   static $theme_path;
   if (!isset($theme_path)) {
-    global $theme;
-    if ($theme == 'zen') {
-      $theme_path = path_to_theme();
-    }
-    else {
-      $theme_path = drupal_get_path('theme', 'zen');
-    }
+    $theme_path = drupal_get_path('theme', 'zen');
   }
   return $theme_path;
 }
