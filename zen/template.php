@@ -3,18 +3,9 @@
 
 /**
  * @file
- * File which contains theme overrides for the Zen theme.
+ * Contains theme override functions and preprocess functions for the Zen theme.
  *
- * ABOUT
- *
- * The template.php file is one of the most useful files when creating or
- * modifying Drupal themes. You can add new regions for block content, modify or
- * override Drupal's theme functions, intercept or make additional variables
- * available to your theme, and create custom PHP logic. For more information,
- * please visit the Theme Developer's Guide on Drupal.org:
- * http://drupal.org/theme-guide
- *
- * NOTE ABOUT ZEN'S TEMPLATE.PHP FILE
+ * IMPORTANT WARNING: DO NOT MODIFY THIS FILE.
  *
  * The base Zen theme is designed to be easily extended by its sub-themes. You
  * shouldn't modify this or any of the CSS or PHP files in the root zen/ folder.
@@ -93,33 +84,14 @@ function zen_menu_local_tasks() {
   return $output;
 }
 
-/*
- * CREATE OR MODIFY VARIABLES FOR YOUR THEME
- *
- * The most powerful functions available to themers are the
- * THEME_preprocess_HOOK() functions. They allow you to pass newly created
- * variables to different template (tpl.php) files in your theme. Or even unset
- * ones you don't want to use.
- *
- * It works by switching on the hook, or name of the theme function, such as:
- *   - page
- *   - node
- *   - comment
- *   - block
- *
- * By switching on this hook you can send different variables to page.tpl.php
- * file, node.tpl.php (and any other derivative node template file, like
- * node-forum.tpl.php), comment.tpl.php, and block.tpl.php.
- */
-
 
 /**
- * Override or insert PHPTemplate variables into the page templates.
+ * Override or insert variables into the page templates.
  *
  * @param $vars
- *   A sequential array of variables to pass to the theme template.
+ *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the theme function being called ("page" in this case.)
+ *   The name of the template being rendered ("page" in this case.)
  */
 function zen_preprocess_page(&$vars, $hook) {
   global $theme;
@@ -188,12 +160,12 @@ function zen_preprocess_page(&$vars, $hook) {
 }
 
 /**
- * Override or insert PHPTemplate variables into the node templates.
+ * Override or insert variables into the node templates.
  *
  * @param $vars
- *   A sequential array of variables to pass to the theme template.
+ *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the theme function being called ("node" in this case.)
+ *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
   global $user;
@@ -224,12 +196,12 @@ function zen_preprocess_node(&$vars, $hook) {
 }
 
 /**
- * Override or insert PHPTemplate variables into the comment templates.
+ * Override or insert variables into the comment templates.
  *
  * @param $vars
- *   A sequential array of variables to pass to the theme template.
+ *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the theme function being called ("comment" in this case.)
+ *   The name of the template being rendered ("comment" in this case.)
  */
 function zen_preprocess_comment(&$vars, $hook) {
   global $user;
@@ -275,12 +247,12 @@ function zen_preprocess_comment(&$vars, $hook) {
 }
 
 /**
- * Override or insert PHPTemplate variables into the block templates.
+ * Override or insert variables into the block templates.
  *
  * @param $vars
- *   A sequential array of variables to pass to the theme template.
+ *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the theme function being called ("block" in this case.)
+ *   The name of the template being rendered ("block" in this case.)
  */
 function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
