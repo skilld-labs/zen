@@ -18,6 +18,7 @@
  * Implements HOOK_theme().
  */
 function zen_theme(&$existing, $type, $theme, $path) {
+  include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.inc';
   return _zen_theme($existing, $type, $theme, $path);
 }
 
