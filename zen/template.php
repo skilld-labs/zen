@@ -39,19 +39,20 @@ function zen_theme(&$existing, $type, $theme, $path) {
  *   A string containing the breadcrumb output.
  */
 function zen_breadcrumb($breadcrumb) {
-  $show_breadcrumb = theme_get_setting('zen_breadcrumb');
-  $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
-  $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
-  $trailing_separator = (theme_get_setting('zen_breadcrumb_trailing') || theme_get_setting('zen_breadcrumb_title')) ? $breadcrumb_separator : '';
-
   // Determine if we are to display the breadcrumb
+  $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
+
+    // Optionally get rid of the homepage link
+    $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
     if (!$show_breadcrumb_home) {
-      // Optionally get rid of the homepage link
       array_shift($breadcrumb);
     }
+
+    // Return the breadcrumb with separators
     if (!empty($breadcrumb)) {
-      // Return the breadcrumb with separators
+      $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
+      $trailing_separator = (theme_get_setting('zen_breadcrumb_trailing') || theme_get_setting('zen_breadcrumb_title')) ? $breadcrumb_separator : '';
       return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator</div>";
     }
   }
