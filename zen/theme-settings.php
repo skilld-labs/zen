@@ -1,6 +1,10 @@
 <?php
 // $Id$
 
+// Include the definition of zen_theme_get_default_settings().
+include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.inc';
+
+
 /**
  * Implementation of THEMEHOOK_settings() function.
  *
@@ -20,8 +24,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
   drupal_add_js(drupal_get_path('theme', 'zen') . '/theme-settings.js', 'theme');
 
   // Get the default values from the .info file.
-  $themes = list_themes();
-  $defaults = $themes['zen']->info['settings'];
+  $defaults = zen_theme_get_default_settings('zen');
 
   // Allow a subtheme to override the default values.
   $defaults = array_merge($defaults, $subtheme_defaults);

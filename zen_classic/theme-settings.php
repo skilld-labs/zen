@@ -1,6 +1,10 @@
 <?php
 // $Id$
 
+// Include the definition of zen_settings() and zen_theme_get_default_settings().
+include_once './' . drupal_get_path('theme', 'zen') . '/theme-settings.php';
+
+
 /**
  * Implementation of THEMEHOOK_settings() function.
  *
@@ -12,8 +16,7 @@
 function zen_classic_settings($saved_settings) {
 
   // Get the default values from the .info file.
-  $themes = list_themes();
-  $defaults = $themes['zen_classic']->info['settings'];
+  $defaults = zen_theme_get_default_settings('zen_classic');
 
   // Merge the saved variables and their default values.
   $settings = array_merge($defaults, $saved_settings);
@@ -30,7 +33,6 @@ function zen_classic_settings($saved_settings) {
   );
 
   // Add the base theme's settings.
-  include_once './' . drupal_get_path('theme', 'zen') . '/theme-settings.php';
   $form += zen_settings($saved_settings, $defaults);
 
   // Remove some of the base theme's settings.
