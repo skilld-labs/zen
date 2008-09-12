@@ -134,13 +134,13 @@
   }
 
 /** content **/
-  #content,
-  .two-sidebars #content
+  #content
+  .no-sidebars #content
   {
     float: left;
-    width: 560px;
-    margin-left: 200px; /* The width of #sidebar-left */
-    margin-right: -760px; /* Negative value of #content's width + left margin. */
+    width: 960px;
+    margin-left: 0;
+    margin-right: -960px; /* Negative value of #content's width + left margin. */
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
   }
 
@@ -158,11 +158,11 @@
     margin-right: -760px; /* Negative value of #content's width + left margin. */
   }
 
-  .no-sidebars #content
+  .two-sidebars #content
   {
-    width: 960px;
-    margin-left: 0;
-    margin-right: -960px; /* Negative value of #content's width + left margin. */
+    width: 560px;
+    margin-left: 200px; /* The width of #sidebar-left */
+    margin-right: -760px; /* Negative value of #content's width + left margin. */
   }
 
   #content-inner

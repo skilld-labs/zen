@@ -134,10 +134,11 @@
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
   }
 
-  .two-sidebars #content-inner
+  #content-inner,
+  .no-sidebars #content-inner
   {
-    padding-left: 200px; /* The width + left margin of #sidebar-left. */
-    padding-right: 200px; /* The width + right margin of #sidebar-right. */
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar-left #content-inner
@@ -152,10 +153,10 @@
     padding-right: 200px; /* The width + right margin of #sidebar-right. */
   }
 
-  #content-inner
+  .two-sidebars #content-inner
   {
-    margin: 0;
-    padding: 0;
+    padding-left: 200px; /* The width + left margin of #sidebar-left. */
+    padding-right: 200px; /* The width + right margin of #sidebar-right. */
   }
 
 /** navbar **/
