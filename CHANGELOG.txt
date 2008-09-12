@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #255265: Don't "skip to nav" if there's no nav
   #306856: Optimize code by adding conditional includes
   #305311: CSS files makes reference to to drupal5-reference.css
   #299419: Remove empty zen.css in sub-themes
