@@ -3,7 +3,7 @@
 
 /**
  * @file
- * File which contains infrequently used theme registry build functions.
+ * Contains infrequently used theme registry build functions.
  */
 
 /**
