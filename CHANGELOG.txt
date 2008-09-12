@@ -337,7 +337,7 @@ Zen 6.x-1.0-beta3, 2008-09-15
 - Changed "||" to "or" in template files since its more intuitive to PHP newbies
 - #279896: Help prevent double H1 tags on homepage that is not /node
 - #279896: Moved styles to zen.css that should never have been in layout.css
-- #255265 by : Don't "skip to nav" if there's no nav
+- #255265 by kmonty: Don't "skip to nav" if there's no nav
 - Re-arranged sidebar classes so they are in no-sidebars -> two-sidebars order in the layout CSS files
 - #306856: Optimize code by adding conditional includes
 - Moved some comments from zen to STARTERKIT where they belong
