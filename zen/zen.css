@@ -31,6 +31,8 @@
 /** body **/
   body
   {
+    margin: 0;
+    padding: 10px;
   }
 
   #page
@@ -56,14 +58,19 @@
 
   #logo /* Wrapper for logo */
   {
+    margin: 0 10px 0 0;
+    padding: 0;
   }
 
   #logo-image /* The actual logo image */
   {
   }
 
-  #site-name /* The name of the website */
+  h1#site-name, div#site-name /* The name of the website */
   {
+    margin: 0;
+    font-size: 2em;
+    line-height: 1.3em;
   }
 
   #site-name a:link,

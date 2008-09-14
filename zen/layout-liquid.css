@@ -20,8 +20,6 @@
 /** body **/
   body
   {
-    margin: 0;
-    padding: 10px;
   }
 
   #page
@@ -93,16 +91,11 @@
 
   #logo
   {
-    margin: 0 10px 0 0;
-    padding: 0;
     float: left;
   }
 
-  h1#site-name, div#site-name
+  #site-name
   {
-    margin: 0;
-    font-size: 2em;
-    line-height: 1.3em;
   }
 
   #site-slogan
