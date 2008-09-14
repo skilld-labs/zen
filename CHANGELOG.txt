@@ -330,7 +330,7 @@ Zen 6.x-1.0-beta3, 2008-09-15
 - #260605: Can't override block-editing.css
 - #308266: Don't display footer if no footer message or footer blocks
 - Changed $block_classes to $classes and $comment_classes to $classes and $node_classes to $classes
-- #290838 by : Only display comments block when comments content is not empty
+- #290838 by thehong: Only display comments block when comments content is not empty
 - Don't display comment wrapper title on forums
 - #299397: Synchronize Zen's tpl files with core's tpl files
 - #281106 by kmonty: Erroneous whitespace when div.clear-block touches bottom edge of viewport
