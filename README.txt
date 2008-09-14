@@ -83,51 +83,63 @@ Build your own sub-theme:
        add the stylesheet to your .info file. See the Drupal 6 Theme Guide for
        more info: http://drupal.org/node/171209
 
-  4. Copy the print stylesheet from the zen folder and place it in your
-     sub-theme's folder.
-
-     For example, copy zen/zen/print.css to foo/print.css. Note that the .info
-     file already has an entry for your print.css file.
-
-  5. Copy the zen stylesheet from the zen folder and place it in your
+  4. Copy the zen stylesheet from the zen folder and place it in your
      sub-theme's folder. Rename it to be the name of your sub-theme.
 
      For example, copy zen/zen/zen.css and rename it as foo/foo.css. Note that
      the .info file already has an entry for your foo.css file and that your
      .info file removes the base theme's zen.css file.
 
-  6. Edit the template.php and theme-settings.php files in your sub-theme's
+  5. Copy the print stylesheet from the zen folder and place it in your
+     sub-theme's folder.
+
+     For example, copy zen/zen/print.css to foo/print.css. Note that the .info
+     file already has an entry for your print.css file.
+
+  6. Copy the html-elements stylesheet from the zen folder and place it in your
+     sub-theme's folder.
+
+     For example, copy zen/zen/html-elements.css to foo/html-elements.css. Note
+     that the .info file already has an entry for your html-elements.css file.
+
+  7. Edit the template.php and theme-settings.php files in your sub-theme's
      folder; replace ALL occurances of "STARTERKIT" with the name of your
      sub-theme.
 
      For example, edit foo/template.php and foo/theme-settings.php and replace
      "STARTERKIT" with "foo".
 
-  7. Log in as an administrator on your Drupal site and go to Administer > Site
+  8. Log in as an administrator on your Drupal site and go to Administer > Site
      building > Themes (admin/build/themes) and enable your new sub-theme.
 
   Optional:
 
-  8. MODIFYING ZEN CORE STYLESHEETS:
+  9. MODIFYING ZEN CORE STYLESHEETS:
      If you decide you want to modify any of the other stylesheets in the zen
      folder, copy them to your sub-theme's folder before making any changes.
-     Also, be sure the new stylesheet is included in your .info file.
+     Also, be sure the new stylesheet is included in your .info file and that
+     you have rebuilt the theme registry.
 
-     For example, copy zen/zen/html-elements.css and rename it as
-     foo/html-elements.css. Then edit foo/foo.info and change:
-       ;stylesheets[all][]  = html-elements.css
+     For example, copy zen/zen/wireframes.css to foo/wireframes.css. Then edit
+     foo/foo.info and uncomment this line to activate it:
+       ;stylesheets[all][]  = block-editing.css
      to:
-       stylesheets[all][]   = html-elements.css
+       stylesheets[all][]   = block-editing.css
 
-  9. MODIFYING ZEN CORE TEMPLATE FILES:
+  10. MODIFYING ZEN CORE TEMPLATE FILES:
      If you decide you want to modify any of the .tpl.php template files in the
      zen folder, copy them to your sub-theme's folder before making any changes.
+     And then rebuild the theme registry.
 
      For example, copy zen/zen/page.tpl.php to foo/page.tpl.php.
 
-  10. THEMEING DRUPAL'S SEARCH FORM:
+  11. THEMEING DRUPAL'S SEARCH FORM:
      Copy the search-theme-form.tpl.php template file from the modules/search/
-     folder and place it in your sub-theme's folder.
+     folder and place it in your sub-theme's folder. And then rebuild the theme
+     registry.
+
+     You can find a full list of Drupal templates that you can override on:
+     http://drupal.org/node/190815
 
        Why? In Drupal 6 theming, if you want to modify a template included
        by a module, you should copy the template file from the module's
@@ -135,7 +147,7 @@ Build your own sub-theme:
        registry. See the Drupal 6 Theme Guide for more info:
        http://drupal.org/node/173880
 
-  11. FURTHER EXTENSIONS OF YOUR SUB-THEME:
+  12. FURTHER EXTENSIONS OF YOUR SUB-THEME:
      Discover further ways to extend your sub-theme by reading Zen's
      documentation online at:
        http://drupal.org/node/193318
