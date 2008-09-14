@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  * Changed "||" to "or" in template files since its more intuitive to PHP newbies
   #279896: Help prevent double H1 tags on homepage that is not /node
   #279896: Moved styles to zen.css that should never have been in layout.css
   #255265 by kmonty: Don't "skip to nav" if there's no nav
@@ -44,6 +45,8 @@ Zen 6.x-1.0-beta1
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.2
+  #279896: Help prevent double H1 tags on homepage that is not /node
+  #279896: Moved styles to zen.css that should never have been in layout.css
   #255265 by kmonty: Don't "skip to nav" if there's no nav
   #263228: Allow sub-themes to override wireframes.css
   * Added sample override template file for search block's form
