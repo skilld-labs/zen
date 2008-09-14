@@ -390,9 +390,13 @@
   }
 
 /** Drupal comments **/
-  #comments /* Wrapper for all comments */
+  #comments /* Wrapper for the list of comments and its title */
   {
     margin: 1em 0;
+  }
+
+  #comments-title /* Heading for the list of comments */
+  {
   }
 
   .comment /* Wrapper for a single comment */
