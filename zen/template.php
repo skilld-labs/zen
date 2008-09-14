@@ -220,7 +220,7 @@ function zen_preprocess_comment(&$vars, $hook) {
 function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
-  // Special classes for blocks
+  // Special classes for blocks.
   $block_classes = array();
   $block_classes[] = 'block-' . $block->module;
   $block_classes[] = 'region-' . $vars['block_zebra'];
