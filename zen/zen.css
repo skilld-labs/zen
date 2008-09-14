@@ -799,7 +799,3 @@
     border-bottom: 1px solid #ccc;
     padding: 0.1em 0.6em;
   }
-
-body { padding: 0; background-color: #f00; }
-#page { background-color: #00f; }
-#header, #main { background-color: #ccc; }
