@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
-  #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
+  #299397: Synchronize Zen's tpl files with core's tpl files
+  #281106 by kmonty: Erroneous whitespace when div.clear-block touches bottom edge of viewport
   * Changed "||" to "or" in template files since its more intuitive to PHP newbies
   #279896: Help prevent double H1 tags on homepage that is not /node
   #279896: Moved styles to zen.css that should never have been in layout.css
@@ -46,6 +47,8 @@ Zen 6.x-1.0-beta1
   #222299: Block editing link in Zen Classic footer is white on white
 
 Zen 5.x-1.2
+  * Changed "||" to "or" in template files since its more intuitive to PHP newbies
+  #281106 by kmonty: Erroneous whitespace when div.clear-block touches bottom edge of viewport
   #279896: Help prevent double H1 tags on homepage that is not /node
   #279896: Moved styles to zen.css that should never have been in layout.css
   #255265 by kmonty: Don't "skip to nav" if there's no nav

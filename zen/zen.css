@@ -403,11 +403,27 @@
   {
   }
 
+  .comment-preview /* Preview of the comment before submitting new or updated comment */
+  {
+  }
+
+  .comment.new /* A new comment since the user last viewed the page. */
+  {
+  }
+
   .comment.odd /* An odd-numbered comment in the list of comments */
   {
   }
 
   .comment.even /* An even-numbered comment in the list of comments */
+  {
+  }
+
+  .comment.first /* The first comment in the list of comments */
+  {
+  }
+
+  .comment.last /* The last comment in the list of comments */
   {
   }
 
@@ -420,11 +436,15 @@
   {
   }
 
-  .comment-by-author /* A comment created by the node's author */
+  .comment-published /* Published comments */
   {
   }
 
   .comment-by-anon /* A comment created by an anonymous user */
+  {
+  }
+
+  .comment-by-author /* A comment created by the node's author */
   {
   }
 
@@ -450,6 +470,10 @@
   }
 
   .comment .content /* Comment's content wrapper */
+  {
+  }
+
+  .comment .user-signature /* The user's signature */
   {
   }
 
@@ -771,3 +795,7 @@
     border-bottom: 1px solid #ccc;
     padding: 0.1em 0.6em;
   }
+
+body { padding: 0; background-color: #f00; }
+#page { background-color: #00f; }
+#header, #main { background-color: #ccc; }
