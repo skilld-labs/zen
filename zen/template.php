@@ -221,13 +221,13 @@ function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
   // Special classes for blocks.
-  $block_classes = array();
-  $block_classes[] = 'block-' . $block->module;
-  $block_classes[] = 'region-' . $vars['block_zebra'];
-  $block_classes[] = $vars['zebra'];
-  $block_classes[] = 'region-count-' . $vars['block_id'];
-  $block_classes[] = 'count-' . $vars['id'];
-  $vars['block_classes'] = implode(' ', $block_classes);
+  $classes = array('block');
+  $classes[] = 'block-' . $block->module;
+  $classes[] = 'region-' . $vars['block_zebra'];
+  $classes[] = $vars['zebra'];
+  $classes[] = 'region-count-' . $vars['block_id'];
+  $classes[] = 'count-' . $vars['id'];
+  $vars['classes'] = implode(' ', $classes);
 
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';

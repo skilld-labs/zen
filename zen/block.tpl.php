@@ -12,6 +12,9 @@
  * - $block->module: Module that generated the block.
  * - $block->delta: This is a numeric id connected to each module.
  * - $block->region: The block region embedding the current block.
+ * - $classes: A set of CSS classes for the DIV wrapping the block.
+     Possible values are: block-MODULE, region-odd, region-even, odd, even,
+     region-count-X, and count-X.
  *
  * Helper variables:
  * - $block_zebra: Outputs 'odd' and 'even' dependent on each block region.
@@ -26,7 +29,7 @@
  * @see template_preprocess_block()
  */
 ?>
-<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="block <?php print $block_classes; ?>"><div class="block-inner">
+<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"><div class="block-inner">
 
   <?php if ($block->subject): ?>
     <h2 class="title"><?php print $block->subject; ?></h2>

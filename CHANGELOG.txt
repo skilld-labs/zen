@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  * Changed $block_classes to $classes and $comment_classes to $classes.
   * Don't display comment wrapper when no comments and don't display wrapper title on forums.
   #299397: Synchronize Zen's tpl files with core's tpl files
   #281106 by kmonty: Erroneous whitespace when div.clear-block touches bottom edge of viewport
