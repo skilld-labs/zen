@@ -34,15 +34,19 @@
           <?php endif; ?>
 
           <?php if ($site_name): ?>
-            <?php
-              // Use an H1 only on the homepage
-              $tag = $is_front ? 'h1' : 'div';
-            ?>
-            <<?php print $tag; ?> id='site-name'>
-              <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
-                <strong><?php print $site_name; ?></strong>
-              </a>
-            </<?php print $tag; ?>>
+            <?php if ($is_front): ?>
+              <h1 id="site-name">
+                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <?php print $site_name; ?>
+                </a>
+              </h1>
+            <?php else: ?>
+              <div id="site-name"><strong>
+                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <?php print $site_name; ?>
+                </a>
+              </strong></div>
+            <?php endif; ?>
           <?php endif; ?>
 
           <?php if ($site_slogan): ?>

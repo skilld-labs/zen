@@ -1,6 +1,15 @@
 Zen 6.x-1.x-dev
+  #279896: Help prevent double H1 tags on homepage that is not /node
+  #279896: Moved styles to zen.css that should never have been in layout.css
   #255265 by kmonty: Don't "skip to nav" if there's no nav
+  * Re-arranged sidebar classes so they are in no-sidebars -> two-sidebars order in the layout CSS files
   #306856: Optimize code by adding conditional includes
+  * Moved some comments from zen to STARTERKIT where they belong
+  * Optimized zen_breadcrumb()
+  * Folded template-menus.php back into template.php since its not conditionally included
+  * Removed theme_username from STARTERKIT and zen_classic since it was fixed in Drupal 6.3
+  * Optimized zen_menu_item_link()
+  * Optimized path_to_zentheme()
   #305311: CSS files makes reference to to drupal5-reference.css
   #299419: Remove empty zen.css in sub-themes
   #284798: PHP warning when settings section of .info file is missing
