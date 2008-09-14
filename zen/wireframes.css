@@ -7,20 +7,20 @@
  */
 
 
-  #header-inner,
-  #content-inner,
-  #content-inner>*,
-  #navbar-inner,
-  #sidebar-left-inner,
-  #sidebar-right-inner,
-  #footer-inner
+  .with-wireframes #header-inner,
+  .with-wireframes #content-inner,
+  .with-wireframes #content-inner>*,
+  .with-wireframes #navbar-inner,
+  .with-wireframes #sidebar-left-inner,
+  .with-wireframes #sidebar-right-inner,
+  .with-wireframes #footer-inner
   {
     margin: 1px;
     padding: 2px;
     border: 1px solid #ccc;
   }
 
-  #closure-blocks
+  .with-wireframes #closure-blocks
   {
     margin-top: 1px;
     padding: 2px;

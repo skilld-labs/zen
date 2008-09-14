@@ -108,13 +108,9 @@ function zen_preprocess_page(&$vars, $hook) {
     else {
       drupal_add_css($vars['directory'] . '/layout-fixed.css', 'theme', 'all');
     }
+    $vars['css'] = drupal_add_css();
+    $vars['styles'] = drupal_get_css();
   }
-  // Optionally add the wireframes style.
-  if (theme_get_setting('zen_wireframes')) {
-    drupal_add_css(path_to_zentheme() . '/wireframes.css', 'theme', 'all');
-  }
-  $vars['css'] = drupal_add_css();
-  $vars['styles'] = drupal_get_css();
 
   // Allow sub-themes to have an ie.css file
   $vars['zentheme_directory'] = path_to_zentheme();
@@ -152,6 +148,9 @@ function zen_preprocess_page(&$vars, $hook) {
         $body_classes[] = 'section-node-' . arg(2); // Add 'section-node-edit' or 'section-node-delete'
       }
     }
+  }
+  if (theme_get_setting('zen_wireframes')) {
+    $body_classes[] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
 }
