@@ -79,8 +79,10 @@ function zen_theme_get_default_settings($theme) {
       str_replace('/', '_', 'theme_' . $theme . '_settings'),
       array_merge($defaults, $settings)
     );
-    // Force refresh of Drupal internals.
-    theme_get_setting('', TRUE);
+    // If the active theme has been loaded, force refresh of Drupal internals.
+    if (!empty($GLOBALS['theme_key'])) {
+      theme_get_setting('', TRUE);
+    }
   }
 
   // Return the default settings.
