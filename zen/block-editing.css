@@ -1,13 +1,15 @@
+/* $Id$ */
+
 /*
  * Rollover edit links for blocks
  */
 
-  div.block
+  div.block.with-block-editing
   {
     position: relative;
   }
 
-  div.block div.edit
+  div.block.with-block-editing div.edit
   {
     display: none;
     position: absolute;
@@ -20,7 +22,7 @@
     background-color: #fff;
   }
 
-  div.block:hover div.edit
+  div.block.with-block-editing:hover div.edit
   {
     display: block;
   }

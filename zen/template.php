@@ -109,10 +109,6 @@ function zen_preprocess_page(&$vars, $hook) {
       drupal_add_css($vars['directory'] . '/layout-fixed.css', 'theme', 'all');
     }
   }
-  // Optionally add the block editing styles.
-  if (theme_get_setting('zen_block_editing')) {
-    drupal_add_css(path_to_zentheme() . '/block-editing.css', 'theme', 'all');
-  }
   // Optionally add the wireframes style.
   if (theme_get_setting('zen_wireframes')) {
     drupal_add_css(path_to_zentheme() . '/wireframes.css', 'theme', 'all');
@@ -227,14 +223,17 @@ function zen_preprocess_block(&$vars, $hook) {
   $classes[] = $vars['zebra'];
   $classes[] = 'region-count-' . $vars['block_id'];
   $classes[] = 'count-' . $vars['id'];
-  $vars['classes'] = implode(' ', $classes);
 
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     include_once './' . drupal_get_path('theme', 'zen') . '/template.block-editing.inc';
     zen_preprocess_block_editing($vars, $hook);
+    $classes[] = 'with-block-editing';
   }
+
+  // Render block classes.
+  $vars['classes'] = implode(' ', $classes);
 }
 
 /**

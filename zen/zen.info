@@ -26,6 +26,7 @@ engine = phptemplate
 stylesheets[all][]   = html-elements.css
 stylesheets[all][]   = tabs.css
 stylesheets[all][]   = zen.css
+stylesheets[all][]   = block-editing.css
 stylesheets[print][] = print.css
 
   ; The layout CSS files are added by Zen's template.php file (based on its
