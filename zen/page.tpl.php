@@ -150,13 +150,17 @@
 
     </div></div> <!-- /#main-inner, /#main -->
 
-    <div id="footer"><div id="footer-inner" class="region region-footer">
+    <?php if ($footer or $footer_message): ?>
+      <div id="footer"><div id="footer-inner" class="region region-footer">
 
-      <div id="footer-message"><?php print $footer_message; ?></div>
+        <?php if ($footer_message): ?>
+          <div id="footer-message"><?php print $footer_message; ?></div>
+        <?php endif; ?>
 
-      <?php print $footer; ?>
+        <?php print $footer; ?>
 
-    </div></div> <!-- /#footer-inner, /#footer -->
+      </div></div> <!-- /#footer-inner, /#footer -->
+    <?php endif; ?>
 
   </div></div> <!-- /#page-inner, /#page -->
 
