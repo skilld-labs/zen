@@ -258,14 +258,3 @@ function zen_id_safe($string) {
   }
   return $string;
 }
-
-/**
- * Return the path to the main zen theme directory.
- */
-function path_to_zentheme() {
-  static $theme_path;
-  if (!isset($theme_path)) {
-    $theme_path = drupal_get_path('theme', 'zen');
-  }
-  return $theme_path;
-}
