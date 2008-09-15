@@ -94,7 +94,14 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#title'         => t('Theme development settings'),
     '#attributes'    => array('id' => 'zen-themedev'),
   );
-  // drupal_rebuild_theme_registry()
+  $form['themedev']['zen_rebuild_registry'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Rebuild theme registry on every page.'),
+    '#default_value' => $settings['zen_rebuild_registry'],
+    '#description'   => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
+    '#prefix'        => '<div id="div-zen-registry"><strong>' . t('Theme registry:') . '</strong>',
+    '#suffix'        => '</div>',
+  );
   $form['themedev']['zen_layout'] = array(
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
@@ -108,7 +115,7 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'checkbox',
     '#title'         => t('Display borders around main layout elements'),
     '#default_value' => $settings['zen_wireframes'],
-    '#description'   => l(t('Wireframes'), 'http://www.boxesandarrows.com/view/html_wireframes_and_prototypes_all_gain_and_no_pain') . t(' are useful when prototyping a website.'),
+    '#description'   => t('<a href="!link">Wireframes</a> are useful when prototyping a website.', array('!link' => 'http://www.boxesandarrows.com/view/html_wireframes_and_prototypes_all_gain_and_no_pain')),
     '#prefix'        => '<div id="div-zen-wireframes"><strong>' . t('Wireframes:') . '</strong>',
     '#suffix'        => '</div>',
   );

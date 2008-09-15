@@ -37,11 +37,13 @@
     text-align: left;
   }
 
+  #div-zen-registry,
   #div-zen-wireframes
   {
     margin: 1em 0;
   }
 
+  #div-zen-registry strong,
   #div-zen-wireframes strong
   {
     float: left;
@@ -51,6 +53,7 @@
     text-align: right;
   }
 
+  #div-zen-registry fieldset .form-item,
   #div-zen-wireframes fieldset .form-item
   {
     display: inline;
@@ -58,6 +61,7 @@
     padding-left: 0;
   }
 
+  #div-zen-registry fieldset .form-item .description,
   #div-zen-wireframes fieldset .form-item .description
   {
     display: block;

@@ -13,6 +13,10 @@
  *   http://drupal.org/node/193318
  */
 
+// Auto-rebuild the theme registry during theme development.
+if (theme_get_setting('zen_rebuild_registry')) {
+  drupal_rebuild_theme_registry();
+}
 
 /*
  * Add stylesheets only needed when Zen is the active theme. Don't do something
@@ -26,7 +30,6 @@ if ($GLOBALS['theme'] == 'zen') { // If we're in the main theme
     drupal_add_css(drupal_get_path('theme', 'zen') . '/layout-liquid.css', 'theme', 'all');
   }
 }
-
 
 /**
  * Implements HOOK_theme().

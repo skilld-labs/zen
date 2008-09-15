@@ -1,4 +1,6 @@
 Zen 6.x-1.x-dev
+  #307309: Add feature to rebuild theme registry during theme development
+  * Removed path_to_zentheme() since we're not conditionally including wireframes.css or block-editing.css
   #245832: Add IE conditional stylesheets to .info file
   #263228: Allow sub-themes to override wireframes.css
   #260605: Can't override block-editing.css
@@ -19,7 +21,6 @@ Zen 6.x-1.x-dev
   * Folded template-menus.php back into template.php since its not conditionally included
   * Removed theme_username from STARTERKIT and zen_classic since it was fixed in Drupal 6.3
   * Optimized zen_menu_item_link()
-  * Optimized path_to_zentheme()
   #305311: CSS files makes reference to to drupal5-reference.css
   #299419: Remove empty zen.css in sub-themes
   #284798: PHP warning when settings section of .info file is missing

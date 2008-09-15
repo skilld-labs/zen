@@ -58,6 +58,11 @@ function _zen_theme(&$existing, $type, $theme, $path) {
   // values may have changed, make sure they are saved in the database properly.
   zen_theme_get_default_settings($theme);
 
+  // If we are auto-rebuilding the theme registry, warn about feature.
+  if (theme_get_setting('zen_rebuild_registry')) {
+    drupal_set_message(t('The theme registry has been rebuilt. <a href="!link">Turn off</a> this feature on production websites.', array('!link' => base_path() . 'admin/build/themes/settings/' . $GLOBALS['theme'])), 'warning');
+  }
+
   // Since we modify the $existing cache directly, return nothing.
   return array();
 }
