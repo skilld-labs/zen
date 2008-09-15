@@ -114,11 +114,6 @@ function zen_preprocess_page(&$vars, $hook) {
     $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] . '</div>';
   }
 
-  // Don't display empty help from node_help().
-  if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
-    $vars['help'] = '';
-  }
-
   // Add conditional stylesheets.
   if (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
