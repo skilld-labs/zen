@@ -168,23 +168,21 @@ function zen_preprocess_node(&$vars, $hook) {
   if ($vars['sticky']) {
     $classes[] = 'sticky';
   }
-  if (!$vars['node']->status) {
+  if (!$vars['status']) {
     $classes[] = 'node-unpublished';
     $vars['unpublished'] = TRUE;
   }
   else {
     $vars['unpublished'] = FALSE;
   }
-  if ($vars['node']->uid && $vars['node']->uid == $GLOBALS['user']->uid) {
-    // Node is authored by current user
-    $classes[] = 'node-mine';
+  if ($vars['uid'] && $vars['uid'] == $GLOBALS['user']->uid) {
+    $classes[] = 'node-mine'; // Node is authored by current user.
   }
   if ($vars['teaser']) {
-    // Node is displayed as teaser
-    $classes[] = 'node-teaser';
+    $classes[] = 'node-teaser'; // Node is displayed as teaser.
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $classes[] = 'node-type-' . $vars['node']->type;
+  $classes[] = 'node-type-' . $vars['type'];
   $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
 

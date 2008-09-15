@@ -3,7 +3,7 @@ Zen 6.x-1.x-dev
   #263228: Allow sub-themes to override wireframes.css
   #260605: Can't override block-editing.css
   #308266: Don't display footer if no footer message or footer blocks
-  * Changed $block_classes to $classes and $comment_classes to $classes
+  * Changed $block_classes to $classes and $comment_classes to $classes and $node_classes to $classes
   #290838 by thehong: Only display comments block when comments content is not empty
   * Don't display comment wrapper title on forums
   #299397: Synchronize Zen's tpl files with core's tpl files
