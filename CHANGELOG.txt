@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #245832: Add IE conditional stylesheets to .info file
   #263228: Allow sub-themes to override wireframes.css
   #260605: Can't override block-editing.css
   #308266: Don't display footer if no footer message or footer blocks

@@ -14,6 +14,20 @@
  */
 
 
+/*
+ * Add stylesheets only needed when Zen is the active theme. Don't do something
+ * this dumb in your sub-theme; see how wireframes.css is handled instead.
+ */
+if ($GLOBALS['theme'] == 'zen') { // If we're in the main theme
+  if (theme_get_setting('zen_layout') == 'border-politics-fixed') {
+    drupal_add_css(drupal_get_path('theme', 'zen') . '/layout-fixed.css', 'theme', 'all');
+  }
+  else {
+    drupal_add_css(drupal_get_path('theme', 'zen') . '/layout-liquid.css', 'theme', 'all');
+  }
+}
+
+
 /**
  * Implements HOOK_theme().
  */
@@ -95,26 +109,6 @@ function zen_menu_local_tasks() {
  *   The name of the template being rendered ("page" in this case.)
  */
 function zen_preprocess_page(&$vars, $hook) {
-  global $theme;
-
-  // These next lines add additional CSS files and redefine
-  // the $css and $styles variables available to your page template
-  if ($theme == 'zen') { // If we're in the main theme
-    // Load the stylesheet for a liquid layout
-    if (theme_get_setting('zen_layout') == 'border-politics-liquid') {
-      drupal_add_css($vars['directory'] . '/layout-liquid.css', 'theme', 'all');
-    }
-    // Or load the stylesheet for a fixed width layout
-    else {
-      drupal_add_css($vars['directory'] . '/layout-fixed.css', 'theme', 'all');
-    }
-    $vars['css'] = drupal_add_css();
-    $vars['styles'] = drupal_get_css();
-  }
-
-  // Allow sub-themes to have an ie.css file
-  $vars['zentheme_directory'] = path_to_zentheme();
-
   // Add an optional title to the end of the breadcrumb.
   if (theme_get_setting('zen_breadcrumb_title') && $vars['breadcrumb']) {
     $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] . '</div>';
@@ -123,6 +117,11 @@ function zen_preprocess_page(&$vars, $hook) {
   // Don't display empty help from node_help().
   if ($vars['help'] == "<div class=\"help\"><p></p>\n</div>") {
     $vars['help'] = '';
+  }
+
+  // Add conditional stylesheets.
+  if (!module_exists('conditional_styles')) {
+    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
 
   // Classes for body element. Allows advanced theming based on context

@@ -45,6 +45,15 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     }
   }
 
+  // Compute the conditional stylesheets.
+  if (!module_exists('conditional_styles')) {
+    include_once './' . drupal_get_path('theme', 'zen') . '/template.conditional-styles.inc';
+    // _conditional_styles_theme() only needs to be run once.
+    if ($theme == 'zen') {
+      _conditional_styles_theme($existing, $type, $theme, $path);
+    }
+  }
+
   // Since we are rebuilding the theme registry and the theme settings' default
   // values may have changed, make sure they are saved in the database properly.
   zen_theme_get_default_settings($theme);
