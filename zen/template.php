@@ -163,31 +163,29 @@ function zen_preprocess_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
-  global $user;
-
   // Special classes for nodes
-  $node_classes = array();
+  $classes = array('node');
   if ($vars['sticky']) {
-    $node_classes[] = 'sticky';
+    $classes[] = 'sticky';
   }
   if (!$vars['node']->status) {
-    $node_classes[] = 'node-unpublished';
+    $classes[] = 'node-unpublished';
     $vars['unpublished'] = TRUE;
   }
   else {
     $vars['unpublished'] = FALSE;
   }
-  if ($vars['node']->uid && $vars['node']->uid == $user->uid) {
+  if ($vars['node']->uid && $vars['node']->uid == $GLOBALS['user']->uid) {
     // Node is authored by current user
-    $node_classes[] = 'node-mine';
+    $classes[] = 'node-mine';
   }
   if ($vars['teaser']) {
     // Node is displayed as teaser
-    $node_classes[] = 'node-teaser';
+    $classes[] = 'node-teaser';
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $node_classes[] = 'node-type-' . $vars['node']->type;
-  $vars['node_classes'] = implode(' ', $node_classes); // Concatenate with spaces
+  $classes[] = 'node-type-' . $vars['node']->type;
+  $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
 
 /**
