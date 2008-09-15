@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #308251: Add useful styling for status, warning, and error messages
   #307309: Add feature to rebuild theme registry during theme development
   * Removed path_to_zentheme() since we're not conditionally including wireframes.css or block-editing.css
   #245832: Add IE conditional stylesheets to .info file

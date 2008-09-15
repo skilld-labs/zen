@@ -26,6 +26,7 @@ engine = phptemplate
 stylesheets[all][]   = html-elements.css
 stylesheets[all][]   = tabs.css
 stylesheets[all][]   = zen.css
+stylesheets[all][]   = messages.css
 stylesheets[all][]   = block-editing.css
 stylesheets[all][]   = wireframes.css
 stylesheets[print][] = print.css

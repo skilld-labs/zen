@@ -36,6 +36,7 @@ stylesheets[print][] = print.css
   ; stylesheet in our sub-theme with that name.) For example, we prevent the
   ; zen.css file in the base theme from being included by specifying it here.
 stylesheets[all][]   = zen.css
+stylesheets[all][]   = messages.css
 stylesheets[all][]   = wireframes.css
 
   ; Set the conditional stylesheets that are processed by IE.
