@@ -1,4 +1,7 @@
 Zen 6.x-1.x-dev
+  #310818: Auto theme-registry rebuild warns themer multiple times
+
+Zen 6.x-1.0-beta3
   #308251: Add useful styling for status, warning, and error messages
   #307309: Add feature to rebuild theme registry during theme development
   * Removed path_to_zentheme() since we're not conditionally including wireframes.css or block-editing.css
