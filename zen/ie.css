@@ -55,6 +55,7 @@
   {
     _display: inline; /* Otherwise the blocks mistakenly get 100% width in IE5 */
     _di\splay: inline-block; /* Otherwise the blocks mistakenly get 100% width in IE6 */
+    cursor: pointer;
   }
 
   ul.primary,
