@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  * Fixed message styling in Zen Classic.
   #308957: html-elements.css not enabled in STARTERKIT
   #288213 by budda: Tabs in IE have a text select cursor rather than hand pointer
   #310818: Auto theme-registry rebuild warns themer multiple times

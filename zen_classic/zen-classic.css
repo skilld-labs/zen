@@ -410,20 +410,20 @@
  * ALERTS, STATUS, HELP MESSAGE STYLES
  */
 
-  .messages
+  div.messages
   {
     padding: 1.3em 1em .3em 52px;
-    border: 2px solid #ddd;
-    background: #eee;
+    border-width: 2px;
     margin: 10px 0;
   }
 
-  div.error
+  div.status
   {
-    border: 2px solid #F00;
+    border: 2px solid #ddd;
+    background-color: #eee;
   }
 
-  .messages ul
+  div.messages ul
   {
     padding: 0 0 0 20px;
     margin: 0;
