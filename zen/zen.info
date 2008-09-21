@@ -25,10 +25,10 @@ engine = phptemplate
   ; http://drupal.org/node/171209 for more details.
 stylesheets[all][]   = html-elements.css
 stylesheets[all][]   = tabs.css
-stylesheets[all][]   = zen.css
 stylesheets[all][]   = messages.css
 stylesheets[all][]   = block-editing.css
 stylesheets[all][]   = wireframes.css
+stylesheets[all][]   = zen.css
 stylesheets[print][] = print.css
 
   ; The layout CSS files are added by Zen's template.php file (based on its

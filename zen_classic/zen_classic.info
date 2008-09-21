@@ -28,16 +28,16 @@ stylesheets[all][]   = layout-garland.css
 stylesheets[all][]   = html-elements.css
 ;stylesheets[all][]  = tabs.css
 stylesheets[all][]   = icons.css
-stylesheets[all][]   = zen-classic.css
 ;stylesheets[all][]  = block-editing.css
+stylesheets[all][]   = zen-classic.css
 stylesheets[print][] = print.css
   ; To prevent stylesheets of a base theme or of a module from being included in
   ; our sub-theme, we specify it in our .info file (and we don't need to have a
   ; stylesheet in our sub-theme with that name.) For example, we prevent the
   ; zen.css file in the base theme from being included by specifying it here.
-stylesheets[all][]   = zen.css
 stylesheets[all][]   = messages.css
 stylesheets[all][]   = wireframes.css
+stylesheets[all][]   = zen.css
 
   ; Set the conditional stylesheets that are processed by IE.
 conditional-stylesheets[if IE][all][] = ie.css

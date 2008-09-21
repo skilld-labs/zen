@@ -1,5 +1,6 @@
 Zen 6.x-1.x-dev
-  * Fixed message styling in Zen Classic.
+  * Allow easier CSS rule overriding by including THEMENAME.css file last
+  * Fixed message styling in Zen Classic
   #308957: html-elements.css not enabled in STARTERKIT
   #288213 by budda: Tabs in IE have a text select cursor rather than hand pointer
   #310818: Auto theme-registry rebuild warns themer multiple times
@@ -71,7 +72,7 @@ Zen 5.x-1.2
   #255265 by kmonty: Don't "skip to nav" if there's no nav
   #263228: Allow sub-themes to override wireframes.css
   * Added sample override template file for search block's form
-  * Fixed _zen_hook() to look in sub-theme directory when $hook is not valid PHP function name.
+  * Fixed _zen_hook() to look in sub-theme directory when $hook is not valid PHP function name
   #223518: Option to show page title in breadcrumbs
   #255263: Don't call preprocess functions twice when Zen is active theme
   #253249: zen_id_safe fails when first character is extended latin
@@ -163,7 +164,7 @@ Zen 5.x-0.7
   #110810: change .submitted span to div
   #100899: don't use sidebar class for widths
   #182130 by joachim: links in h2 and h3 different sizes
-  #182556: Added CHANGELOG.
+  #182556: Added CHANGELOG
 
 Zen 5.x-0.6
-  * Initial pre-release.
+  * Initial pre-release
