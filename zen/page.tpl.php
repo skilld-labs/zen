@@ -93,6 +93,7 @@
     <?php if ($primary_links or $secondary_links or $navbar): ?>
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
+
     <div id="header"><div id="header-inner" class="clear-block">
 
       <?php if ($logo or $site_name or $site_slogan): ?>
