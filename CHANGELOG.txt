@@ -289,7 +289,7 @@ Zen 6.x-1.0, 2009-02-14
 -----------------------
 - #342004 by : Add css hint to prevent cramped-looking tables
 - #290657: Liquid layout does not have min-width enforced
-- #329769 by : Update zen_id_safe to remove underscores
+- #329769 by kmonty: Update zen_id_safe to remove underscores
 - #275832: hook_theme implementation breaks maintenance page when database is down
 - #362104: layout breaks on Zen-themed maintenance page
 - Changed "or" back to "||" in template files since themers do need to learn a little PHP
