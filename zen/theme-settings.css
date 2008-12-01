@@ -26,6 +26,7 @@
     margin-left: -200px;
     margin-right: 10px;
     text-align: right;
+    _display: inline-block; /* IE6 is dumb. */
   }
 
   #zen-settings fieldset .form-item label.option
