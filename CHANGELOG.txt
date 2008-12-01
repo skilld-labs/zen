@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
   * Fixed theme settings CSS for IE6 users
   * Added Photoshop file for STARTERKIT screenshot
   * Added Photoshop file for messages
