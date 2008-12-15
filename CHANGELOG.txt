@@ -305,7 +305,7 @@ Zen 6.x-1.0, 2009-02-14
 - Added $body_classes_array variable to page template
 - #343945: Fix zen_breadcrumb_title setting to use proper menu_get_active_item()
 - #279896 by lutegrass: Help prevent double H1 tags on homepage that is not /node
-- #310507 by : Footer region not output in Zen Classic
+- #310507 by MikeyLikesIt: Footer region not output in Zen Classic
 - #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
 - #346706 by jsaints: Content clipped after page one when printing in Firefox
 - #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
