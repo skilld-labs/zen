@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #310507 by MikeyLikesIt: Footer region not output in Zen Classic
   #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
   #346706 by jsaints: Content clipped after page one when printing in Firefox
   #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
