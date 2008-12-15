@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #346706: Content clipped after page one when printing in Firefox.
   #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH.
   #334956 by hansrossel: Remove no-longer-needed fix for "Flash of Unstyled Content in IE".
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks

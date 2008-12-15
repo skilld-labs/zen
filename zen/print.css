@@ -51,3 +51,9 @@
     visibility: hidden;
     display: none;
   }
+
+/* Otherwise, Firefox clips the content after the first page. */
+  #page
+  {
+    overflow-y: visible;
+  }
