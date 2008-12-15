@@ -124,32 +124,27 @@ function zen_preprocess_page(&$vars, $hook) {
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  $body_classes = array($vars['body_classes']);
+  $classes = split(' ', $vars['body_classes']);
   if (!$vars['is_front']) {
-    // Add unique classes for each page and website section
+    // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
+    $classes[] = zen_id_safe('page-' . $path);
+    // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
-    $body_classes[] = zen_id_safe('page-' . $path);
-    $body_classes[] = zen_id_safe('section-' . $section);
     if (arg(0) == 'node') {
       if (arg(1) == 'add') {
-        if ($section == 'node') {
-          array_pop($body_classes); // Remove 'section-node'
-        }
-        $body_classes[] = 'section-node-add'; // Add 'section-node-add'
+        $section = 'node-add';
       }
       elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-        if ($section == 'node') {
-          array_pop($body_classes); // Remove 'section-node'
-        }
-        $body_classes[] = 'section-node-' . arg(2); // Add 'section-node-edit' or 'section-node-delete'
+        $section = 'node-' . arg(2);
       }
     }
+    $classes[] = zen_id_safe('section-' . $section);
   }
   if (theme_get_setting('zen_wireframes')) {
-    $body_classes[] = 'with-wireframes'; // Optionally add the wireframes style.
+    $classes[] = 'with-wireframes'; // Optionally add the wireframes style.
   }
-  $vars['body_classes'] = implode(' ', $body_classes); // Concatenate with spaces
+  $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
 }
 
 /**
