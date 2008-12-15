@@ -6,9 +6,13 @@
  * Any CSS in this file will apply to all versions of IE. You can target
  * specific versions of IE by using conditional comments. See your sub-theme's
  * .info file for an easy way to use them.
+ *
+ * While building your theme, you should be aware of the work-around for the bug
+ * in IE that limits Drupal to 31 stylesheets total:
+ * http://drupal.org/node/256802
  */
 
-/* Tabs */
+/** Tabs **/
 
   ul.primary li a,
   ul.primary li a .tab,
