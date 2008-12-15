@@ -20,8 +20,7 @@
     background-color: #ffc;
     background-image: url(images/messages-status.png);
     background-repeat: no-repeat;
-    background-position: 5px center;
-    font-style: italic;
+    background-position: 5px 5px;
   }
 
   div.status /* Normal priority messages */
