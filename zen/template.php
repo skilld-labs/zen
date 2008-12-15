@@ -48,24 +48,31 @@ function zen_theme(&$existing, $type, $theme, $path) {
  *   A string containing the breadcrumb output.
  */
 function zen_breadcrumb($breadcrumb) {
-  // Determine if we are to display the breadcrumb
+  // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('zen_breadcrumb');
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
 
-    // Optionally get rid of the homepage link
+    // Optionally get rid of the homepage link.
     $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
     if (!$show_breadcrumb_home) {
       array_shift($breadcrumb);
     }
 
-    // Return the breadcrumb with separators
+    // Return the breadcrumb with separators.
     if (!empty($breadcrumb)) {
       $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
-      $trailing_separator = (theme_get_setting('zen_breadcrumb_trailing') || theme_get_setting('zen_breadcrumb_title')) ? $breadcrumb_separator : '';
-      return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator</div>";
+      $trailing_separator = $title = '';
+      if (theme_get_setting('zen_breadcrumb_title')) {
+        $trailing_separator = $breadcrumb_separator;
+        $title = menu_get_active_title();
+      }
+      elseif (theme_get_setting('zen_breadcrumb_trailing')) {
+        $trailing_separator = $breadcrumb_separator;
+      }
+      return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator$title</div>";
     }
   }
-  // Otherwise, return an empty string
+  // Otherwise, return an empty string.
   return '';
 }
 
@@ -112,11 +119,6 @@ function zen_menu_local_tasks() {
  *   The name of the template being rendered ("page" in this case.)
  */
 function zen_preprocess_page(&$vars, $hook) {
-  // Add an optional title to the end of the breadcrumb.
-  if (theme_get_setting('zen_breadcrumb_title') && $vars['breadcrumb']) {
-    $vars['breadcrumb'] = substr($vars['breadcrumb'], 0, -6) . $vars['title'] . '</div>';
-  }
-
   // Add conditional stylesheets.
   if (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
