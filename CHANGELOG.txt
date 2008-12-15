@@ -307,7 +307,7 @@ Zen 6.x-1.0, 2009-02-14
 - #279896 by lutegrass: Help prevent double H1 tags on homepage that is not /node
 - #310507 by : Footer region not output in Zen Classic
 - #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
-- #346706 by : Content clipped after page one when printing in Firefox
+- #346706 by jsaints: Content clipped after page one when printing in Firefox
 - #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
 - Simplified body class generation code
 - #334956 by : Remove no-longer-needed fix for "Flash of Unstyled Content in IE"
@@ -385,7 +385,7 @@ Zen 5.x-1.2, 2009-02-15
 - #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
 - #290657: Liquid layout does not have min-width enforced
 - #279896 by lutegrass: Help prevent double H1 tags on homepage that is not /node
-- #346706 by : Content clipped after page one when printing in Firefox
+- #346706 by jsaints: Content clipped after page one when printing in Firefox
 - Added $body_classes_array variable to page template
 - Simplified body class generation code
 - Fixed theme settings CSS for IE6 users
