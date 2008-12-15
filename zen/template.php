@@ -125,6 +125,10 @@ function zen_preprocess_page(&$vars, $hook) {
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
   $classes = split(' ', $vars['body_classes']);
+  // Remove the mostly useless page-ARG0 class.
+  if ($index = array_search(preg_replace('![^abcdefghijklmnopqrstuvwxyz0-9-_]+!s', '', 'page-'. drupal_strtolower(arg(0))), $classes)) {
+    unset($classes[$index]);
+  }
   if (!$vars['is_front']) {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
