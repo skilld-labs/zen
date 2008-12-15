@@ -1,7 +1,8 @@
 Zen 6.x-1.x-dev
-  #346706 by jsaints: Content clipped after page one when printing in Firefox.
-  #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH.
-  #334956 by hansrossel: Remove no-longer-needed fix for "Flash of Unstyled Content in IE".
+  #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
+  #346706 by jsaints: Content clipped after page one when printing in Firefox
+  #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
+  #334956 by hansrossel: Remove no-longer-needed fix for "Flash of Unstyled Content in IE"
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
   * Fixed theme settings CSS for IE6 users
   * Added Photoshop file for STARTERKIT screenshot
@@ -57,7 +58,7 @@ Zen 6.x-1.0-beta1
   #248780: admin table styles override update_status styling
   #232840: OpenID login block displaying incorrectly
   #246110 by jjeff: zen.css breaks .container-inline
-  #229661: earch Box doesn't return any results or warnings
+  #229661: Search Box doesn't return any results or warnings
   #244023 by jjeff: Make block editing links go to actual menu edit pages
   #245968 by jjeff: Put the word "Comments" above comments
   #238387: Update README on how to edit the .info file
