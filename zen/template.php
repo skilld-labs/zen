@@ -150,6 +150,7 @@ function zen_preprocess_page(&$vars, $hook) {
   if (theme_get_setting('zen_wireframes')) {
     $classes[] = 'with-wireframes'; // Optionally add the wireframes style.
   }
+  $vars['body_classes_array'] = $classes;
   $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
 }
 

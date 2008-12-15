@@ -31,6 +31,8 @@
  * - $body_classes: A set of CSS classes for the BODY tag. This contains flags
  *   indicating the current layout (multiple columns, single column), the current
  *   path, whether the user is logged in, and so on.
+ * - $body_classes_array: An array of the body classes. This is easier to
+ *   manipulate then the string in $body_classes.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,
