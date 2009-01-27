@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #365205: block editing link doesn't work with Menu Block 6.x-2.1 and later
   #308251 by Garrett Albright: Improve icon placement on status, warning, and error messages
   * Added $body_classes_array variable to page template
   #343945: Fix zen_breadcrumb_title setting to use proper menu_get_active_item()

@@ -74,7 +74,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   }
   // Display 'edit menu' for Menu block blocks.
   elseif ($block->module == 'menu_block' && user_access('administer menu')) {
-    $menu_name = variable_get('menu_block_' . $block->delta . '_menu_name', 'navigation');
+    list($menu_name, ) = split(':', variable_get("menu_block_{$block->delta}_parent", 'navigation:0'));
     $edit_links[] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
       array(
         'attributes' => array(
