@@ -27,7 +27,7 @@ function _zen_theme(&$existing, $type, $theme, $path) {
 
   // If we are auto-rebuilding the theme registry, warn about feature.
   if (theme_get_setting('zen_rebuild_registry') && $theme == $GLOBALS['theme']) {
-    drupal_set_message(t('The theme registry has been rebuilt. <a href="!link">Turn off</a> this feature on production websites.', array('!link' => base_path() . 'admin/build/themes/settings/' . $GLOBALS['theme'])), 'warning');
+    drupal_set_message(t('The theme registry has been rebuilt. <a href="!link">Turn off</a> this feature on production websites.', array('!link' => url('admin/build/themes/settings/' . $GLOBALS['theme']))), 'warning');
   }
 
   // Return nothing.
