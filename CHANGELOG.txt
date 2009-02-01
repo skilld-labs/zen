@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
   #365631: Zen's table-styling-fix breaks update module's styling
   #322480 by grendzy, mr.baileys, Bevan, and JohnAlbin: Make registry rebuild warning less obtrusive
   #325630: Broken link in "Theme registry rebuilt" warning when Clean URLs is off
