@@ -46,14 +46,15 @@ function zen_preprocess_block_editing(&$vars, $hook) {
 
   // Display 'edit view' for Views blocks.
   if ($block->module == 'views' && user_access('administer views')) {
-    $edit_links[] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/' . $block->delta . '/edit',
+    list($view_name, $view_block) = explode('-block', $block->delta);
+    $edit_links[] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/edit/' . $view_name,
       array(
         'attributes' => array(
           'title' => t('edit the view that defines this block'),
           'class' => 'block-edit-view',
         ),
         'query' => drupal_get_destination(),
-        'fragment' => 'edit-block',
+        'fragment' => 'views-tab-block' . $view_block,
         'html' => TRUE,
       )
     );
