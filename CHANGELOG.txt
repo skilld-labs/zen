@@ -1,4 +1,5 @@
 Zen 6.x-1.x-dev
+  #365631: Zen's table-styling-fix breaks update module's styling
   #322480 by grendzy, mr.baileys, Bevan, and JohnAlbin: Make registry rebuild warning less obtrusive
   #325630: Broken link in "Theme registry rebuilt" warning when Clean URLs is off
   #324104 by JohnAlbin and dalin: Broken block editing link for Views 2

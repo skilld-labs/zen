@@ -34,8 +34,7 @@
   }
 
   div.warning,
-  tr.warning,
-  body.section-admin tr.warning
+  tr.warning
   {
     color: #000; /* Drupal core uses #220 */
     background-color: #ffc;
@@ -49,8 +48,7 @@
   }
 
   div.error,
-  tr.error,
-  body.section-admin tr.error
+  tr.error
   {
     color: #900; /* Drupal core uses #200 */
     background-color: #fee;

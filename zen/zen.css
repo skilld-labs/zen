@@ -633,13 +633,7 @@
     text-align: left;
   }
 
-  tr.even, tr.odd /* Some tables have rows marked even or odd. See also the ".section-admin tr.even" declaration below. */
-  {
-    border-bottom: none;
-    padding: 0;
-  }
-
-  tr.even
+  tr.even /* Some tables have rows marked even or odd. */
   {
     /* background-color: #eee; */ /* Drupal core uses a #eee background */
   }
@@ -748,36 +742,28 @@
 
 /** Drupal admin tables **/
   /* We overrode these styles in html-elements.css, but restore them for the
-   * admin section of the site.
+   * forms on the site.
    */
-  .section-admin tbody
+  form tbody
   {
     border-top: 1px solid #ccc;
   }
 
-  .section-admin th
+  form th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
   }
 
-  .section-admin tbody th
+  form tbody th
   {
     border-bottom: 1px solid #ccc;
   }
 
-  .section-admin thead th
+  form thead th
   {
     text-align: left;
     padding-right: 1em;
     border-bottom: 3px solid #ccc;
-  }
-
-  .section-admin tr.even,
-  .section-admin tr.odd
-  {
-    background-color: #eee;
-    border-bottom: 1px solid #ccc;
-    padding: 0.1em 0.6em;
   }

@@ -216,7 +216,7 @@
   thead th,
   tbody th
   {
-    text-align: center;
+    text-align: left;
     padding-right: 0;
     border-bottom: none;
   }
