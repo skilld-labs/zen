@@ -297,7 +297,7 @@ Zen 6.x-1.0, 2009-02-14
 - #325610 by Garrett Albright: Site name and logo don't link to frontpage on multilingual site
 - #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
 - #365631: Zen's table-styling-fix breaks update module's styling
-- #322480 by , , , and JohnAlbin: Make registry rebuild warning less obtrusive
+- #322480 by , , Bevan, and JohnAlbin: Make registry rebuild warning less obtrusive
 - #325630: Broken link in "Theme registry rebuilt" warning when Clean URLs is off
 - #324104 by JohnAlbin and dalin: Broken block editing link for Views 2
 - #365205: block editing link doesn't work with Menu Block 6.x-2.1 and later
