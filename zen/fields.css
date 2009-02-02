@@ -1,0 +1,62 @@
+/* $Id$ */
+
+/**
+ * @file
+ * Field Styling
+ *
+ * First field-type styling. Then named-field styling.
+ */
+
+
+/*
+ * Field types
+ */
+
+.field /* Any CCK field. */
+{
+}
+
+.field-type-datetime /* Always use "datetime" when creating new CCK date fields. "date" and "datestamp" are legacy types. */
+{
+}
+
+.field-type-filefield
+{
+}
+
+.field-type-image
+{
+}
+
+.field-type-nodereference
+{
+}
+
+.field-type-number-decimal
+{
+}
+
+.field-type-number-float
+{
+}
+
+.field-type-number-integer
+{
+}
+
+.field-type-text
+{
+}
+
+.field-type-userreference
+{
+}
+
+
+/*
+ * Named fields
+ */
+
+.field-field-FIELDNAME /* Underscores are replaced with dashes. */
+{
+}
