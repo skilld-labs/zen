@@ -256,7 +256,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
 - Added optional node-type-specific preprocess functions
 - Added notes about mobile stylesheets to STARTERKIT.info
-- #200495 by JohnAlbin, , and Toe: Split up monolithic zen.css into smaller, logical stylesheets
+- #200495 by JohnAlbin, caroltron, and Toe: Split up monolithic zen.css into smaller, logical stylesheets
 - #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.2, 2011-02-26
