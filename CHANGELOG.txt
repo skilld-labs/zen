@@ -1,6 +1,9 @@
 Zen 6.x-2.x-dev
   * Added notes about mobile stylesheets to STARTERKIT.info
   #200495 by JohnAlbin, caroltron, and Toe: Split up monolithic zen.css into smaller, logical stylesheets
+  #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
+
+Zen 6.x-1.x-dev
   #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
   #365631: Zen's table-styling-fix breaks update module's styling
   #322480 by grendzy, mr.baileys, Bevan, and JohnAlbin: Make registry rebuild warning less obtrusive
@@ -15,8 +18,8 @@ Zen 6.x-2.x-dev
   #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
   #346706 by jsaints: Content clipped after page one when printing in Firefox
   #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
+  * Simplified body class generation code.
   #334956 by hansrossel: Remove no-longer-needed fix for "Flash of Unstyled Content in IE"
-  #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
   * Fixed theme settings CSS for IE6 users
   * Added Photoshop file for STARTERKIT screenshot
   * Added Photoshop file for messages
