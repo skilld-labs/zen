@@ -4,7 +4,7 @@ Zen 6.x-2.x-dev
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.x-dev
-  #342004: Add css hint to prevent cramped-looking tables
+  #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
   #290657: Liquid layout does not have min-width enforced
   #329769 by kmonty: Update zen_id_safe to remove underscores
   #275832: hook_theme implementation breaks maintenance page when database is down
