@@ -3,7 +3,7 @@ Zen 6.x-2.x-dev
   #200495 by JohnAlbin, caroltron, and Toe: Split up monolithic zen.css into smaller, logical stylesheets
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
-Zen 6.x-1.x-dev
+Zen 6.x-1.0
   #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
   #290657: Liquid layout does not have min-width enforced
   #329769 by kmonty: Update zen_id_safe to remove underscores
