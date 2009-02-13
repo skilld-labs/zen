@@ -293,7 +293,7 @@ Zen 6.x-1.0, 2009-02-14
 - #275832: hook_theme implementation breaks maintenance page when database is down
 - #362104: layout breaks on Zen-themed maintenance page
 - Changed "or" back to "||" in template files since themers do need to learn a little PHP
-- #346867 by : navbar-inner is missing the "clear-block" class
+- #346867 by debonator: navbar-inner is missing the "clear-block" class
 - #325610 by Garrett Albright: Site name and logo don't link to frontpage on multilingual site
 - #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
 - #365631: Zen's table-styling-fix breaks update module's styling
