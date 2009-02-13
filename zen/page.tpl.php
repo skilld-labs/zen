@@ -91,13 +91,13 @@
   <div id="page"><div id="page-inner">
 
     <a name="top" id="navigation-top"></a>
-    <?php if ($primary_links or $secondary_links or $navbar): ?>
+    <?php if ($primary_links || $secondary_links || $navbar): ?>
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
 
     <div id="header"><div id="header-inner" class="clear-block">
 
-      <?php if ($logo or $site_name or $site_slogan): ?>
+      <?php if ($logo || $site_name || $site_slogan): ?>
         <div id="logo-title">
 
           <?php if ($logo): ?>
@@ -135,7 +135,7 @@
 
     </div></div> <!-- /#header-inner, /#header -->
 
-    <div id="main"><div id="main-inner" class="clear-block<?php if ($search_box or $primary_links or $secondary_links or $navbar) { print ' with-navbar'; } ?>">
+    <div id="main"><div id="main-inner" class="clear-block<?php if ($search_box || $primary_links || $secondary_links || $navbar) { print ' with-navbar'; } ?>">
 
       <div id="content"><div id="content-inner">
 
@@ -149,7 +149,7 @@
           </div> <!-- /#content-top -->
         <?php endif; ?>
 
-        <?php if ($breadcrumb or $title or $tabs or $help or $messages): ?>
+        <?php if ($breadcrumb || $title || $tabs || $help || $messages): ?>
           <div id="content-header">
             <?php print $breadcrumb; ?>
             <?php if ($title): ?>
@@ -179,7 +179,7 @@
 
       </div></div> <!-- /#content-inner, /#content -->
 
-      <?php if ($search_box or $primary_links or $secondary_links or $navbar): ?>
+      <?php if ($search_box || $primary_links || $secondary_links || $navbar): ?>
         <div id="navbar"><div id="navbar-inner" class="clear-block region region-navbar">
 
           <a name="navigation" id="navigation"></a>
@@ -221,7 +221,7 @@
 
     </div></div> <!-- /#main-inner, /#main -->
 
-    <?php if ($footer or $footer_message): ?>
+    <?php if ($footer || $footer_message): ?>
       <div id="footer"><div id="footer-inner" class="region region-footer">
 
         <?php if ($footer_message): ?>

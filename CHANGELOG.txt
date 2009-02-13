@@ -4,6 +4,7 @@ Zen 6.x-2.x-dev
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.x-dev
+  * Changed "or" back to "||" in template files since themers do need to learn a little PHP
   #346867 by debonator: navbar-inner is missing the "clear-block" class
   #325610 by Garrett Albright: Site name and logo don't link to frontpage on multilingual site
   #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
