@@ -4,6 +4,7 @@ Zen 6.x-2.x-dev
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.x-dev
+  #275832: hook_theme implementation breaks maintenance page when database is down
   #362104: layout breaks on Zen-themed maintenance page
   * Changed "or" back to "||" in template files since themers do need to learn a little PHP
   #346867 by debonator: navbar-inner is missing the "clear-block" class
@@ -22,7 +23,7 @@ Zen 6.x-1.x-dev
   #347195: Remove theme registry fix that was needed for broken Drupal 6.0 - 6.6
   #346706 by jsaints: Content clipped after page one when printing in Firefox
   #311529: Remove core's page-ARG0 body class, leaving zen's page-PATH
-  * Simplified body class generation code.
+  * Simplified body class generation code
   #334956 by hansrossel: Remove no-longer-needed fix for "Flash of Unstyled Content in IE"
   * Fixed theme settings CSS for IE6 users
   * Added Photoshop file for STARTERKIT screenshot

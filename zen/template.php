@@ -35,6 +35,9 @@ if ($GLOBALS['theme'] == 'zen') { // If we're in the main theme
  * Implements HOOK_theme().
  */
 function zen_theme(&$existing, $type, $theme, $path) {
+  if (!db_is_active()) {
+    return array();
+  }
   include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.inc';
   return _zen_theme($existing, $type, $theme, $path);
 }
