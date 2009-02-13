@@ -4,6 +4,7 @@ Zen 6.x-2.x-dev
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.x-dev
+  #362104: layout breaks on Zen-themed maintenance page
   * Changed "or" back to "||" in template files since themers do need to learn a little PHP
   #346867 by debonator: navbar-inner is missing the "clear-block" class
   #325610 by Garrett Albright: Site name and logo don't link to frontpage on multilingual site
