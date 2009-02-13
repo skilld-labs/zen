@@ -228,6 +228,7 @@ a:active
 table
 {
   border-collapse: collapse;
+  /* width: 100%; */ /* Prevent cramped-looking tables */
 }
 
 th,
