@@ -287,7 +287,7 @@ Zen 6.x-1.1, 2009-11-10
 
 Zen 6.x-1.0, 2009-02-14
 -----------------------
-- #342004 by : Add css hint to prevent cramped-looking tables
+- #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
 - #290657: Liquid layout does not have min-width enforced
 - #329769 by kmonty: Update zen_id_safe to remove underscores
 - #275832: hook_theme implementation breaks maintenance page when database is down
@@ -382,7 +382,7 @@ Zen 6.x-1.0-beta1, 2008-05-15
 
 Zen 5.x-1.2, 2009-02-15
 -----------------------
-- #342004 by : Add css hint to prevent cramped-looking tables
+- #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
 - #290657: Liquid layout does not have min-width enforced
 - #279896 by : Help prevent double H1 tags on homepage that is not /node
 - #346706 by : Content clipped after page one when printing in Firefox
