@@ -184,7 +184,7 @@
 
     </div> <!-- /container -->
 
-    <?php if ($footer or $footer_message): ?>
+    <?php if ($footer || $footer_message): ?>
       <div id="footer-wrapper"><div id="footer">
 
         <?php if ($footer_message): ?>
