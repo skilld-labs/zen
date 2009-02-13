@@ -1,4 +1,4 @@
-Zen 6.x-1.x-dev
+Zen 6.x-2.x-dev
   * Added notes about mobile stylesheets to STARTERKIT.info
   #200495 by JohnAlbin, caroltron, and Toe: Split up monolithic zen.css into smaller, logical stylesheets
   #281106: Erroneous whitespace when div.clear-block touches bottom edge of viewport
