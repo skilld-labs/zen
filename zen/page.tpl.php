@@ -101,19 +101,19 @@
         <div id="logo-title">
 
           <?php if ($logo): ?>
-            <div id="logo"><a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo-image" /></a></div>
+            <div id="logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo-image" /></a></div>
           <?php endif; ?>
 
           <?php if ($site_name): ?>
             <?php if ($title): ?>
               <div id="site-name"><strong>
-                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
                 <?php print $site_name; ?>
                 </a>
               </strong></div>
             <?php else: ?>
               <h1 id="site-name">
-                <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
                 <?php print $site_name; ?>
                 </a>
               </h1>

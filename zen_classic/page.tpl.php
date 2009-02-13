@@ -94,7 +94,7 @@
 
         <?php print $search_box; ?>
         <?php if (!empty($logo)): ?>
-          <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo" />
           </a>
         <?php endif; ?>
@@ -103,7 +103,7 @@
 
         <?php if (!empty($site_name)): ?>
           <div id="site-name"><strong>
-            <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
               <?php print $site_name; ?>
             </a>
           </strong></div>
