@@ -185,7 +185,7 @@ function zen_preprocess_node(&$vars, $hook) {
     $classes[] = 'node-teaser'; // Node is displayed as teaser.
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $classes[] = 'node-type-' . $vars['type'];
+  $classes[] = zen_id_safe('node-type-' . $vars['type']);
   $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
 
@@ -240,7 +240,7 @@ function zen_preprocess_block(&$vars, $hook) {
  * valid ID attribute in HTML. This function:
  *
  * - Ensure an ID starts with an alpha character by optionally adding an 'id'.
- * - Replaces any character except A-Z, numbers, and underscores with dashes.
+ * - Replaces any character except alphanumeric characters with dashes.
  * - Converts entire string to lowercase.
  *
  * @param $string
@@ -250,8 +250,8 @@ function zen_preprocess_block(&$vars, $hook) {
  */
 function zen_id_safe($string) {
   // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
-  $string = strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '-', $string));
-  // If the first character is not a-z, add 'n' in front.
+  $string = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
+  // If the first character is not a-z, add 'id' in front.
   if (!ctype_lower($string{0})) { // Don't use ctype_alpha since its locale aware.
     $string = 'id' . $string;
   }

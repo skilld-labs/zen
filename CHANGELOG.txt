@@ -4,6 +4,7 @@ Zen 6.x-2.x-dev
   #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.x-dev
+  #329769 by kmonty: Update zen_id_safe to remove underscores
   #275832: hook_theme implementation breaks maintenance page when database is down
   #362104: layout breaks on Zen-themed maintenance page
   * Changed "or" back to "||" in template files since themers do need to learn a little PHP
