@@ -180,7 +180,7 @@
       </div></div> <!-- /#content-inner, /#content -->
 
       <?php if ($search_box or $primary_links or $secondary_links or $navbar): ?>
-        <div id="navbar"><div id="navbar-inner" class="region region-navbar">
+        <div id="navbar"><div id="navbar-inner" class="clear-block region region-navbar">
 
           <a name="navigation" id="navigation"></a>
 
