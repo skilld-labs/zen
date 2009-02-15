@@ -10,7 +10,7 @@
  * Field types
  */
 
-.field /* Any CCK field. */
+.field /* Wrapper for any CCK field. */
 {
 }
 
@@ -18,11 +18,11 @@
 {
 }
 
-.field-type-filefield
+.field-type-filefield /* Field from filefield module */
 {
 }
 
-.field-type-image
+.field-type-image /* Field from imagefield module */
 {
 }
 
@@ -55,6 +55,6 @@
  * Named fields
  */
 
-.field-field-FIELDNAME /* Underscores are replaced with dashes. */
+.field-field-FIELDNAME /* Underscores in field name are replaced with dashes. */
 {
 }
