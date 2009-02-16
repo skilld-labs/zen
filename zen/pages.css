@@ -131,7 +131,7 @@ tr.odd
   /* background-color: #eee; */ /* Drupal core uses a #eee background */
 }
 
-div.messages /* Important messages (status, warning, and error) for the user */
+div.messages /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
 {
 }
 

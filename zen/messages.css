@@ -41,7 +41,7 @@ tr.warning
   background-color: #ffc;
 }
 
-div.error /* High priority messages. See also the .error declaration below. */
+div.error /* High priority messages. See also the .error declaration in pages.css. */
 {
   /* border: 1px solid #d77; */ /* Drupal core uses: 1px solid #d77 */
   border-color: #c00;
