@@ -184,7 +184,7 @@ div.tabs /* See also the tabs.css file. */
   text-align: center;
 }
 
-.pager a, .pager strong.pager-current
+.pager a, .pager strong.pager-current /* Each page number in the pager list */
 {
   padding: 0.5em;
 }
