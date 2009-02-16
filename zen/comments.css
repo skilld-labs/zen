@@ -52,7 +52,7 @@
   /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
 }
 
-.comment-unpublished div.unpublished /* The word "Unpublished" displayed beneath the content. See also the div.unpublished declaration in the nodes.css. */
+.comment-unpublished div.unpublished /* The word "Unpublished" displayed underneath the content. See also the div.unpublished declaration in the nodes.css. */
 {
 }
 
