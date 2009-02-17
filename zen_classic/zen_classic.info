@@ -33,11 +33,18 @@ stylesheets[all][]   = zen-classic.css
 stylesheets[print][] = print.css
   ; To prevent stylesheets of a base theme or of a module from being included in
   ; our sub-theme, we specify it in our .info file (and we don't need to have a
-  ; stylesheet in our sub-theme with that name.) For example, we prevent the
-  ; zen.css file in the base theme from being included by specifying it here.
-stylesheets[all][]   = messages.css
+  ; stylesheet in our sub-theme with that name.)
 stylesheets[all][]   = wireframes.css
-stylesheets[all][]   = zen.css
+stylesheets[all][]   = backgrounds.css
+stylesheets[all][]   = messages.css
+stylesheets[all][]   = pages.css
+stylesheets[all][]   = blocks.css
+stylesheets[all][]   = navigation.css
+stylesheets[all][]   = views-styles.css
+stylesheets[all][]   = nodes.css
+stylesheets[all][]   = comments.css
+stylesheets[all][]   = forms.css
+stylesheets[all][]   = fields.css
 
   ; Set the conditional stylesheets that are processed by IE.
 ;conditional-stylesheets[if IE][all][] = ie.css
