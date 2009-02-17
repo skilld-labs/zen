@@ -76,6 +76,19 @@
 
 
 /*
+ * Search (search-block-form.tpl.php)
+ */
+#search-block-form /* Wrapper for the search form */
+{
+}
+
+#edit-search-block-form-1-wrapper label /* Label that says "Search this site:" */
+{
+  display: none;
+}
+
+
+/*
  * Drupal's default login form block
  */
 #user-login-form
