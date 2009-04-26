@@ -205,6 +205,9 @@ div.tabs /* See also the tabs.css file. */
 
 /*
  * Left sidebar
+ *
+ * Remember to NOT add padding or margin to your #sidebar-left
+ * (see the layout.css file.)
  */
 #sidebar-left
 {
@@ -216,6 +219,9 @@ div.tabs /* See also the tabs.css file. */
 
 /*
  * Right sidebar
+ *
+ * Remember to NOT add padding or margin to your #sidebar-right
+ * (see the layout.css file.)
  */
 #sidebar-right
 {
