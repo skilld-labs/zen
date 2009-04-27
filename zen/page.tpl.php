@@ -12,8 +12,10 @@
  * - $base_path: The base URL path of the Drupal installation. At the very
  *   least, this will always default to /.
  * - $css: An array of CSS files for the current page.
- * - $directory: The directory the theme is located in, e.g. themes/garland or
- *   themes/garland/minelli.
+ * - $directory: The directory the template is located in, e.g. modules/system
+ *   or themes/garland.
+ * - $body_classes_array: Array of the body classes. It is flattened
+ *   into a string within the variable $classes.
  * - $is_front: TRUE if the current page is the front page. Used to toggle the mission statement.
  * - $logged_in: TRUE if the user is registered and signed in.
  * - $is_admin: TRUE if the user has permission to access administration pages.
@@ -28,11 +30,23 @@
  * - $styles: Style tags necessary to import all CSS files for the page.
  * - $scripts: Script tags necessary to load the JavaScript files and settings
  *   for the page.
- * - $body_classes: A set of CSS classes for the BODY tag. This contains flags
- *   indicating the current layout (multiple columns, single column), the current
- *   path, whether the user is logged in, and so on.
- * - $body_classes_array: An array of the body classes. This is easier to
- *   manipulate then the string in $body_classes.
+ * - $body_classes: String of classes that can be used to style contextually through
+ *   CSS. It should be placed within the <body> tag. When selecting through CSS
+ *   it's recommended that you use the body tag, e.g., "body.front". It can be
+ *   manipulated through the variable $classes_array from preprocess functions.
+ *   The default values can be one or more of the following:
+ *   - front: Page is the home page.
+ *   - not-front: Page is not the home page.
+ *   - logged-in: The current viewer is logged in.
+ *   - not-logged-in: The current viewer is not logged in.
+ *   - node-type-[node type]: When viewing a single node, the type of that node.
+ *     For example, if the node is a "Blog entry" it would result in "node-type-blog".
+ *     Note that the machine name will often be in a short form of the human readable label.
+ *   The following only apply with the default 'left' and 'right' block regions:
+ *     - two-sidebars: When both sidebars have content.
+ *     - no-sidebars: When no sidebar content exists.
+ *     - one-sidebar and sidebar-left or sidebar-right: A combination of the two classes
+ *       when only one of the two sidebars have content.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,
@@ -47,15 +61,15 @@
  *
  * Navigation:
  * - $search_box: HTML to display the search box, empty if search has been disabled.
- * - $primary_links (array): An array containing primary navigation links for the
+ * - $primary_links (array): An array containing the Primary menu links for the
  *   site, if they have been configured.
- * - $secondary_links (array): An array containing secondary navigation links for
+ * - $secondary_links (array): An array containing the Secondary menu links for
  *   the site, if they have been configured.
+ * - $breadcrumb: The breadcrumb trail for the current page.
  *
- * Page content (in order of occurrance in the default page.tpl.php):
+ * Page content (in order of occurrence in the default page.tpl.php):
  * - $left: The HTML for the left sidebar.
  *
- * - $breadcrumb: The breadcrumb trail for the current page.
  * - $title: The page title, for use in the actual HTML content.
  * - $help: Dynamic help text, mostly for admin pages.
  * - $messages: HTML for status and error messages. Should be displayed prominently.
@@ -111,7 +125,7 @@
                 <?php print $site_name; ?>
                 </a>
               </strong></div>
-            <?php else: ?>
+            <?php else: /* Use h1 when the content title is empty */ ?>
               <h1 id="site-name">
                 <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
                 <?php print $site_name; ?>
