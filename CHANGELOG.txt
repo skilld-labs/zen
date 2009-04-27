@@ -1,4 +1,6 @@
 Zen 6.x-2.x-dev
+  #445830: Rename clear-block CSS class to clearfix
+  #445790: Move search box to header
   #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
   * Added optional node-type-specific preprocess functions
   * Added notes about mobile stylesheets to STARTERKIT.info

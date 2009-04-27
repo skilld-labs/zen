@@ -31,7 +31,7 @@
  * @see theme_comment()
  */
 ?>
-<div class="<?php print $classes; ?>"><div class="comment-inner clear-block">
+<div class="<?php print $classes; ?>"><div class="comment-inner clearfix">
 
   <?php if ($title): ?>
     <h3 class="title">
@@ -57,7 +57,7 @@
   <div class="content">
     <?php print $content; ?>
     <?php if ($signature): ?>
-    <div class="user-signature clear-block">
+    <div class="user-signature clearfix">
       <?php print $signature; ?>
     </div>
     <?php endif; ?>

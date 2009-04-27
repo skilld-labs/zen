@@ -105,7 +105,7 @@
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
 
-    <div id="header"><div id="header-inner" class="clear-block">
+    <div id="header"><div id="header-inner" class="clearfix">
 
       <?php if ($logo || $site_name || $site_slogan): ?>
         <div id="logo-title">
@@ -149,7 +149,7 @@
 
     </div></div> <!-- /#header-inner, /#header -->
 
-    <div id="main"><div id="main-inner" class="clear-block<?php if ($primary_links || $secondary_links || $navbar) { print ' with-navbar'; } ?>">
+    <div id="main"><div id="main-inner" class="clearfix<?php if ($primary_links || $secondary_links || $navbar) { print ' with-navbar'; } ?>">
 
       <div id="content"><div id="content-inner">
 
@@ -194,7 +194,7 @@
       </div></div> <!-- /#content-inner, /#content -->
 
       <?php if ($primary_links || $secondary_links || $navbar): ?>
-        <div id="navbar"><div id="navbar-inner" class="clear-block region region-navbar">
+        <div id="navbar"><div id="navbar-inner" class="clearfix region region-navbar">
 
           <a name="navigation" id="navigation"></a>
 
