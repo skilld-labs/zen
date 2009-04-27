@@ -1,4 +1,5 @@
 Zen 6.x-2.x-dev
+  #426750: Removed Zen Classic sub theme
   #445830: Rename clear-block CSS class to clearfix
   #445790: Move search box to header
   #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
