@@ -116,6 +116,10 @@ body
 {
 }
 
+#search-box
+{
+}
+
 #header-blocks
 {
   clear: both; /* Clear the logo */
@@ -199,21 +203,12 @@ body
 {
 }
 
-#search-box
-{
-  width: 200px;
-  margin-right: -200px; /* Negative value of #search-box's width. */
-  float: left;
-}
-
 #primary
 {
-  margin-left: 200px; /* Width of search-box */
 }
 
 #secondary
 {
-  margin-left: 200px; /* Width of search-box */
 }
 
 #navbar ul /* Primary and secondary links */
