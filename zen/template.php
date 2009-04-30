@@ -67,7 +67,7 @@ function zen_breadcrumb($breadcrumb) {
       $trailing_separator = $title = '';
       if (theme_get_setting('zen_breadcrumb_title')) {
         $trailing_separator = $breadcrumb_separator;
-        $title = menu_get_active_title();
+        $title = drupal_get_title();
       }
       elseif (theme_get_setting('zen_breadcrumb_trailing')) {
         $trailing_separator = $breadcrumb_separator;
