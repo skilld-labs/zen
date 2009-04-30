@@ -29,7 +29,7 @@ Build your own sub-theme:
 
   IMPORTANT: In Drupal 6, the theme system caches template files and which theme
   functions should be called. What that means is if you add a new theme or
-  preprocess fuction to your template.php file or add a new template (.tpl.php)
+  preprocess function to your template.php file or add a new template (.tpl.php)
   file to your sub-theme, you will need to rebuild the "theme registry."
   See http://drupal.org/node/173880#theme-registry
 
@@ -64,7 +64,7 @@ Build your own sub-theme:
      to "description = A Zen sub-theme".
 
        Why? The .info file describes the basic things about your theme: its
-       name, description, features, template regions, CSS files, and javascript
+       name, description, features, template regions, CSS files, and JavaScript
        files. See the Drupal 6 Theme Guide for more info:
        http://drupal.org/node/171205
 
@@ -78,7 +78,7 @@ Build your own sub-theme:
      Note that the .info file already has an entry for your layout.css file.
 
        Why? In Drupal 6 theming, if you want to modify a stylesheet included
-       by the base theme or by a module, you should copy the stylsheet from the
+       by the base theme or by a module, you should copy the stylesheet from the
        base theme or module's directory to your sub-theme's directory and then
        add the stylesheet to your .info file. See the Drupal 6 Theme Guide for
        more info: http://drupal.org/node/171209
@@ -103,7 +103,7 @@ Build your own sub-theme:
      that the .info file already has an entry for your html-elements.css file.
 
   7. Edit the template.php and theme-settings.php files in your sub-theme's
-     folder; replace ALL occurances of "STARTERKIT" with the name of your
+     folder; replace ALL occurrences of "STARTERKIT" with the name of your
      sub-theme.
 
      For example, edit foo/template.php and foo/theme-settings.php and replace
@@ -120,8 +120,8 @@ Build your own sub-theme:
      Also, be sure the new stylesheet is included in your .info file and that
      you have rebuilt the theme registry.
 
-     For example, copy zen/zen/wireframes.css to foo/wireframes.css. Then edit
-     foo/foo.info and uncomment this line to activate it:
+     For example, copy zen/zen/block-editing.css to foo/block-editing.css. Then
+     edit foo/foo.info and uncomment this line to activate it:
        ;stylesheets[all][]  = block-editing.css
      to:
        stylesheets[all][]   = block-editing.css
