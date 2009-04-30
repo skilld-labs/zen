@@ -1,5 +1,5 @@
 Zen 6.x-2.x-dev
-  #382480: #block-menu-2 should be #block-menu-primary-links
+  #382480 by Ognyan Kulev: #block-menu-2 should be #block-menu-primary-links
   #374349: breadcrumb often broken when zen_breadcrumb_title is on
   #426750: Removed Zen Classic sub theme
   #445830: Rename clear-block CSS class to clearfix
