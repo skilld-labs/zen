@@ -248,7 +248,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - Removed navigation-top named anchor from page templates
 - #382598: .node div.links ruleset doesn't match html in node template
 - #452118: Removed redundant wrapper div around comment links
-- #382480 by : #block-menu-2 should be #block-menu-primary-links
+- #382480 by Ognyan Kulev: #block-menu-2 should be #block-menu-primary-links
 - #374349: breadcrumb often broken when zen_breadcrumb_title is on
 - #426750: Removed Zen Classic sub theme
 - #445830: Rename clear-block CSS class to clearfix
@@ -280,7 +280,7 @@ Zen 6.x-1.1, 2009-11-10
 - #254821: Sub-theme's .info file triggers incorrect "out of date" flag in update module
 - #327455 by grendzy and erifneerg: name and id mismatch in named anchor causing validation error
 - #382598: .node div.links ruleset doesn't match html in node template
-- #382480 by : #block-menu-2 should be #block-menu-primary-links
+- #382480 by Ognyan Kulev: #block-menu-2 should be #block-menu-primary-links
 - #374349: breadcrumb often broken when zen_breadcrumb_title is on
 - #426750: Removed Zen Classic sub theme
 - #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
