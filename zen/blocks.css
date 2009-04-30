@@ -79,7 +79,11 @@
 {
 }
 
-#block-menu-2 /* "Primary links" block */
+#block-menu-primary-links /* "Primary links" block */
+{
+}
+
+#block-menu-secondary-links /* "Secondary links" block */
 {
 }
 
