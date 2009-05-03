@@ -3,6 +3,10 @@
 /**
  * @file
  * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
  */
 
 
@@ -175,6 +179,24 @@ div.tabs /* See also the tabs.css file. */
 
 #content-area /* Wrapper for the actual page content */
 {
+}
+
+ul.links /* List of links */
+{
+  margin: 1em 0;
+  padding: 0;
+}
+
+ul.links.inline
+{
+  display: inline;
+}
+
+ul.links li
+{
+  display: inline;
+  list-style-type: none;
+  padding: 0 0.5em;
 }
 
 .pager /* A list of page numbers when more than 1 page of content is available */
