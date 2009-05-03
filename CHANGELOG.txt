@@ -1,4 +1,5 @@
 Zen 6.x-2.x-dev
+  * Added blockquote indent stlying
   * Removed navigation-top named anchor from page templates
   #382598: .node div.links ruleset doesn't match html in node template
   #452118: Removed redundant wrapper div around comment links

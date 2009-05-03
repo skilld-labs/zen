@@ -121,9 +121,14 @@ h4, h5, h6
 /*
  * Block-level elements
  */
-p, ul, ol, dl, pre, table, fieldset, blockquote
+p, ul, ol, dl, pre, table, fieldset
 {
   margin: 1em 0;
+}
+
+blockquote
+{
+  margin: 1em 2em;
 }
 
 /*
