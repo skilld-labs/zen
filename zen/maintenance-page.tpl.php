@@ -27,7 +27,6 @@
 
   <div id="page"><div id="page-inner">
 
-    <a name="top" id="navigation-top"></a>
     <?php if ($navbar): ?>
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
