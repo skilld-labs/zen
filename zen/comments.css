@@ -97,9 +97,8 @@
 {
 }
 
-.comment div.links /* Wrapper for comment links. See also the ul.links declaration in the nodes.css. */
+.comment ul.links /* Comment links. See also the ul.links declaration in the pages.css. */
 {
-  margin: 1em 0;
 }
 
 .indented /* Nested comments are indented */

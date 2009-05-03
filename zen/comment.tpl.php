@@ -64,9 +64,7 @@
   </div>
 
   <?php if ($links): ?>
-    <div class="links">
-      <?php print $links; ?>
-    </div>
+    <?php print $links; ?>
   <?php endif; ?>
 
 </div></div> <!-- /comment-inner, /comment -->
