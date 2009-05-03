@@ -189,6 +189,7 @@ ul.links /* List of links */
 
 ul.links.inline
 {
+  margin: 0;
   display: inline;
 }
 
