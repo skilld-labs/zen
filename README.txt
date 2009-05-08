@@ -27,17 +27,23 @@ Installation:
 
 Build your own sub-theme:
 
-  IMPORTANT: In Drupal 6, the theme system caches template files and which theme
-  functions should be called. What that means is if you add a new theme or
-  preprocess function to your template.php file or add a new template (.tpl.php)
-  file to your sub-theme, you will need to rebuild the "theme registry."
-  See http://drupal.org/node/173880#theme-registry
+  *** IMPORTANT ***:
+    In Drupal 6, the theme system caches template files and which theme
+    functions should be called. What that means is if you add a new theme or
+    preprocess function to your template.php file or add a new template
+    (.tpl.php) file to your sub-theme, you will need to rebuild the "theme
+    registry." See http://drupal.org/node/173880#theme-registry
+
+    Drupal 6 also stores a cache of the data in .info files. If you modify any
+    lines in your sub-theme's .info file, you MUST refresh Drupal 6's cache by
+    simply visiting the admin/build/themes page.
 
   The base Zen theme is designed to be easily extended by its sub-themes. You
   shouldn't modify any of the CSS or PHP files in the zen/ folder; but instead
   you should create a sub-theme of zen which is located in a folder outside of
   the root zen/ folder. The examples below assume zen and your sub-theme will be
-  installed in sites/all/themes/.
+  installed in sites/all/themes/, but any valid theme directory is acceptable
+  (read the sites/default/default.settings.php for more info.)
 
     Why? To learn why you shouldn't modify any of the files in the zen/ folder,
     see http://drupal.org/node/245802
@@ -67,6 +73,9 @@ Build your own sub-theme:
        name, description, features, template regions, CSS files, and JavaScript
        files. See the Drupal 6 Theme Guide for more info:
        http://drupal.org/node/171205
+
+     Then, visit your site's admin/build/themes to refresh Drupal 6's cache of
+     .info file data.
 
   3. If you want a liquid layout for your theme, copy the layout-liquid.css from
      the zen/zen folder and place it in your sub-theme's folder. If you want a
@@ -117,14 +126,17 @@ Build your own sub-theme:
   9. MODIFYING ZEN CORE STYLESHEETS:
      If you decide you want to modify any of the other stylesheets in the zen
      folder, copy them to your sub-theme's folder before making any changes.
-     Also, be sure the new stylesheet is included in your .info file and that
-     you have rebuilt the theme registry.
+     Also, be sure the new stylesheet is included in your .info file, that
+     you have rebuilt the theme registry, and that you have refreshed the .info
+     cache.
 
      For example, copy zen/zen/block-editing.css to foo/block-editing.css. Then
      edit foo/foo.info and uncomment this line to activate it:
        ;stylesheets[all][]  = block-editing.css
      to:
        stylesheets[all][]   = block-editing.css
+     Then, visit your site's admin/build/themes to refresh Drupal 6's cache of
+     .info file data.
 
   10. MODIFYING ZEN CORE TEMPLATE FILES:
      If you decide you want to modify any of the .tpl.php template files in the
