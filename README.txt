@@ -53,10 +53,10 @@ Build your own sub-theme:
        sub-themes can (and should) reside in a folder separate from their base
        theme.
 
-  2. In your new sub-theme folder, rename the STARTERKIT.info file to the name
-     of your new sub-theme. Then edit the .info file by changing any occurrence
-     of STARTERKIT with the name of your sub-theme and editing the name and
-     description field.
+  2. In your new sub-theme folder, rename the STARTERKIT.info.txt file to
+     include the name of your new sub-theme and remove the ".txt" extension.
+     Then edit the .info file by changing any occurrence of STARTERKIT with the
+     name of your sub-theme and editing the name and description field.
 
      For example, rename the foo/STARTERKIT.info file to foo/foo.info. Edit the
      foo.info file and change "STARTERKIT.css" to "foo.css", change "name = Zen
