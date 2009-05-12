@@ -62,7 +62,7 @@
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
-  <?php if ($submitted or $terms): ?>
+  <?php if ($submitted || $terms): ?>
     <div class="meta">
       <?php if ($submitted): ?>
         <div class="submitted">
