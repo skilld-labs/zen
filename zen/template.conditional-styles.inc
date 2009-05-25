@@ -3,7 +3,7 @@
 // it has been spun out to its own separate module, It would be nice to prevent
 // code drift between the Zen implementation and the conditional_styles.module,
 // so Zen now includes an exact copy of conditonal_style module's:
-// conditional_styles.theme.inc,v 1.4 2008/09/14 23:26:47 johnalbin Exp
+// conditional_styles.theme.inc,v 1.5 2009/05/25 14:33:03 johnalbin Exp
 
 /**
  * @file
@@ -43,6 +43,7 @@ function _conditional_styles_theme($existing, $type, $theme, $path) {
   // implementation: foreach ($array AS $key => &$value) {}
 
   // Process the conditional stylesheets for every active theme.
+  global $language;
   $themes = list_themes();
   foreach (array_keys($themes) AS $theme) {
     // We only need to process active themes.
@@ -78,6 +79,12 @@ function _conditional_styles_theme($existing, $type, $theme, $path) {
               // Don't allow non-existent stylesheets to clutter the logs with 404.
               if (file_exists("./$path/$file")) {
                 $output .= "<link type=\"text/css\" rel=\"stylesheet\" media=\"$media\" href=\"$base_path$path/$file$query_string\" />\n";
+                if ($language->direction == LANGUAGE_RTL){
+                  $file_rtl = str_replace('.css', '-rtl.css', $file);
+                  if (file_exists("./$path/$file_rtl")) {
+                    $output .= "<link type=\"text/css\" rel=\"stylesheet\" media=\"$media\" href=\"$base_path$path/$file_rtl$query_string\" />\n";
+                  }
+                }
               }
             }
           }
