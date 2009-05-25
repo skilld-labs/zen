@@ -19,7 +19,7 @@ div.tabs
 ul.primary
 {
   margin: 0;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 10px; /* LTR */
   border-width: 0;
   list-style: none;
   white-space: nowrap;
@@ -29,7 +29,7 @@ ul.primary
 
 ul.primary li
 {
-  float: left;
+  float: left; /* LTR */
   margin: 0;
   padding: 0;
 }
@@ -89,7 +89,7 @@ ul.primary li.active a:hover .tab
 ul.secondary
 {
   margin: 0;
-  padding: 0 0 0 5px;
+  padding: 0 0 0 5px; /* LTR */
   border-bottom: 1px solid #c0c0c0;
   list-style: none;
   white-space: nowrap;
@@ -98,10 +98,10 @@ ul.secondary
 
 ul.secondary li
 {
-  float: left;
+  float: left; /* LTR */
   margin: 0 5px 0 0;
   padding: 5px 0;
-  border-right: none;
+  border-right: none; /* LTR */
 }
 
 ul.secondary a
