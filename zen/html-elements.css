@@ -139,14 +139,14 @@ blockquote
 ul, ol
 {
   margin-left: 0;
-  padding-left: 2em;
+  padding-left: 2em; /* LTR */
 }
 
 .block ul, /* Drupal overrides */
 .item-list ul
 {
   margin: 1em 0;
-  padding: 0 0 0 2em;
+  padding: 0 0 0 2em; /* LTR */
 }
 
 ul ul, ul ol,
@@ -240,7 +240,7 @@ th,
 thead th,
 tbody th
 {
-  text-align: left;
+  text-align: left; /* LTR */
   padding-right: 0;
   border-bottom: none;
 }
