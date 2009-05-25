@@ -239,7 +239,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - Add layout.css in Zen's .info file to properly position sub-theme's layout.css
 - #379902: Make all stylesheets RTL compatible
 - #472694: Drupal 6.11 broke Zen's OpenID overrides
-- #375976 by JohnAlbin and : Flip sidebar positioning on RTL
+- #375976 by JohnAlbin and Amitaibu: Flip sidebar positioning on RTL
 - #375953 by Amitaibu and JohnAlbin: Change sidebar names to be RTL friendly
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
 - Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
