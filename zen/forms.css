@@ -145,7 +145,8 @@ form tbody
   border-top: 1px solid #ccc;
 }
 
-form th
+form th,
+form thead th
 {
   text-align: left;
   padding-right: 1em;
@@ -155,11 +156,4 @@ form th
 form tbody th
 {
   border-bottom: 1px solid #ccc;
-}
-
-form thead th
-{
-  text-align: left;
-  padding-right: 1em;
-  border-bottom: 3px solid #ccc;
 }
