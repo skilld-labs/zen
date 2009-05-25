@@ -1,0 +1,103 @@
+/* $Id$ */
+
+/**
+ * @file
+ * RTL companion for the layout-fixed.css file.
+ */
+
+
+/*
+ * Body
+ */
+#skip-to-nav
+{
+  float: left;
+}
+
+/*
+ * Header
+ */
+#logo
+{
+  float: right;
+}
+
+/*
+ * Content
+ */
+#content,
+.no-sidebars #content
+{
+  float: right;
+  margin-left: -960px;
+  margin-right: 0; /* Negative value of #content's width + left margin. */
+}
+
+.sidebar-primary #content
+{
+  margin-left: -960px; /* The width of #sidebar-primary. */
+  margin-right: 200px; /* Negative value of #content's width + left margin. */
+}
+
+.sidebar-secondary #content
+{
+  margin-left: -760px;
+  margin-right: 0; /* Negative value of #content's width + left margin. */
+}
+
+.two-sidebars #content
+{
+  margin-left: -760px; /* The width of #sidebar-primary */
+  margin-right: 200px; /* Negative value of #content's width + left margin. */
+}
+
+/*
+ * Navbar
+ */
+#navbar
+{
+  float: right;
+  margin-left: -100%;
+  margin-right: 0; /* Negative value of #navbar's width + left margin. */
+}
+
+#navbar ul /* Primary and secondary links */
+{
+  text-align: right;
+}
+
+#navbar li /* A simple method to get navbar links to appear in one line. */
+{
+  float: right;
+  padding: 0 0 0 10px;
+}
+
+/*
+ * Sidebar-primary
+ */
+#sidebar-primary
+{
+  float: right;
+  margin-left: -200px;
+  margin-right: 0; /* Negative value of #sidebar-primary's width + left margin. */
+}
+
+#sidebar-primary-inner
+{
+  margin: 0 0 0 20px;
+}
+
+/*
+ * Sidebar-secondary
+ */
+#sidebar-secondary
+{
+  float: right;
+  margin-left: -960px; /* Width of content + sidebar-primary. */
+  margin-right: 760px; /* Negative value of #sidebar-secondary's width + left margin. */
+}
+
+#sidebar-secondary-inner
+{
+  margin: 0 20px 0 0;
+}

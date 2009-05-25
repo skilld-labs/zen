@@ -51,7 +51,7 @@ body
 
 #skip-to-nav
 {
-  float: right;
+  float: right; /* LTR */
   margin: 0 !important;
   font-size: 0.8em;
 }
@@ -105,7 +105,7 @@ body
 
 #logo
 {
-  float: left;
+  float: left; /* LTR */
 }
 
 #site-name
@@ -143,32 +143,32 @@ body
 #content,
 .no-sidebars #content
 {
-  float: left;
+  float: left; /* LTR */
   width: 960px;
-  margin-left: 0;
-  margin-right: -960px; /* Negative value of #content's width + left margin. */
+  margin-left: 0; /* LTR */
+  margin-right: -960px; /* LTR */ /* Negative value of #content's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
 }
 
 .sidebar-primary #content
 {
   width: 760px;
-  margin-left: 200px; /* The width of #sidebar-primary. */
-  margin-right: -960px; /* Negative value of #content's width + left margin. */
+  margin-left: 200px; /* LTR */ /* The width of #sidebar-primary. */
+  margin-right: -960px; /* LTR */ /* Negative value of #content's width + left margin. */
 }
 
 .sidebar-secondary #content
 {
   width: 760px;
-  margin-left: 0;
-  margin-right: -760px; /* Negative value of #content's width + left margin. */
+  margin-left: 0; /* LTR */
+  margin-right: -760px; /* LTR */ /* Negative value of #content's width + left margin. */
 }
 
 .two-sidebars #content
 {
   width: 560px;
-  margin-left: 200px; /* The width of #sidebar-primary */
-  margin-right: -760px; /* Negative value of #content's width + left margin. */
+  margin-left: 200px; /* LTR */ /* The width of #sidebar-primary */
+  margin-right: -760px; /* LTR */ /* Negative value of #content's width + left margin. */
 }
 
 #content-inner
@@ -182,10 +182,10 @@ body
  */
 #navbar
 {
-  float: left;
+  float: left; /* LTR */
   width: 100%;
-  margin-left: 0;
-  margin-right: -100%; /* Negative value of #navbar's width + left margin. */
+  margin-left: 0; /* LTR */
+  margin-right: -100%; /* LTR */ /* Negative value of #navbar's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
   height: 3.6em; /* The navbar can have any arbritrary height. We picked one
                     that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
@@ -215,40 +215,30 @@ body
 {
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: left; /* LTR */
 }
 
 #navbar li /* A simple method to get navbar links to appear in one line. */
 {
-  float: left;
-  padding: 0 10px 0 0;
+  float: left; /* LTR */
+  padding: 0 10px 0 0; /* LTR */
 }
-
-/* There are many methods to get navbar links to appear in one line.
- * Here's an alternate method: */
-/*
-#navbar li
-{
-  display: inline;
-  padding: 0 10px 0 0;
-}
-*/
 
 /*
  * Sidebar-primary
  */
 #sidebar-primary
 {
-  float: left;
+  float: left; /* LTR */
   width: 200px;
-  margin-left: 0;
-  margin-right: -200px; /* Negative value of #sidebar-primary's width + left margin. */
+  margin-left: 0; /* LTR */
+  margin-right: -200px; /* LTR */ /* Negative value of #sidebar-primary's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-primary-inner. */
 }
 
 #sidebar-primary-inner
 {
-  margin: 0 20px 0 0;
+  margin: 0 20px 0 0; /* LTR */
   padding: 0;
 }
 
@@ -257,16 +247,16 @@ body
  */
 #sidebar-secondary
 {
-  float: left;
+  float: left; /* LTR */
   width: 200px;
-  margin-left: 760px; /* Width of content + sidebar-primary. */
-  margin-right: -960px; /* Negative value of #sidebar-secondary's width + left margin. */
+  margin-left: 760px; /* LTR */ /* Width of content + sidebar-primary. */
+  margin-right: -960px; /* LTR */ /* Negative value of #sidebar-secondary's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-secondary-inner. */
 }
 
 #sidebar-secondary-inner
 {
-  margin: 0 0 0 20px;
+  margin: 0 0 0 20px; /* LTR */
   padding: 0;
 }
 

@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #375976 by JohnAlbin and Amitaibu: Flip sidebar positioning on RTL
 - #375953 by Amitaibu and JohnAlbin: Change sidebar names to be RTL friendly
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
 - Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
