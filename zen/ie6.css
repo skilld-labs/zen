@@ -29,8 +29,8 @@ body
 
 #content,
 #navbar,
-#sidebar-left,
-#sidebar-right /* Floating divs */
+#sidebar-primary,
+#sidebar-secondary /* Floating divs */
 {
   display: inline; /* display inline or double your floated margin! [1] */
   overflow: hidden; /* in ie6, overflow auto is broken [2] and so is overflow visible [3] */

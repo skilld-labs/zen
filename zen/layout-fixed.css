@@ -150,14 +150,14 @@ body
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #content-inner. */
 }
 
-.sidebar-left #content
+.sidebar-primary #content
 {
   width: 760px;
-  margin-left: 200px; /* The width of #sidebar-left. */
+  margin-left: 200px; /* The width of #sidebar-primary. */
   margin-right: -960px; /* Negative value of #content's width + left margin. */
 }
 
-.sidebar-right #content
+.sidebar-secondary #content
 {
   width: 760px;
   margin-left: 0;
@@ -167,7 +167,7 @@ body
 .two-sidebars #content
 {
   width: 560px;
-  margin-left: 200px; /* The width of #sidebar-left */
+  margin-left: 200px; /* The width of #sidebar-primary */
   margin-right: -760px; /* Negative value of #content's width + left margin. */
 }
 
@@ -193,8 +193,8 @@ body
 }
 
 .with-navbar #content,
-.with-navbar #sidebar-left,
-.with-navbar #sidebar-right
+.with-navbar #sidebar-primary,
+.with-navbar #sidebar-secondary
 {
   margin-top: 3.6em; /* Set this to the same value as the navbar height above. */
 }
@@ -235,36 +235,36 @@ body
 */
 
 /*
- * Sidebar-left
+ * Sidebar-primary
  */
-#sidebar-left
+#sidebar-primary
 {
   float: left;
   width: 200px;
   margin-left: 0;
-  margin-right: -200px; /* Negative value of #sidebar-left's width + left margin. */
-  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-left-inner. */
+  margin-right: -200px; /* Negative value of #sidebar-primary's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-primary-inner. */
 }
 
-#sidebar-left-inner
+#sidebar-primary-inner
 {
   margin: 0 20px 0 0;
   padding: 0;
 }
 
 /*
- * Sidebar-right
+ * Sidebar-secondary
  */
-#sidebar-right
+#sidebar-secondary
 {
   float: left;
   width: 200px;
-  margin-left: 760px; /* Width of content + sidebar-left. */
-  margin-right: -960px; /* Negative value of #sidebar-right's width + left margin. */
-  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
+  margin-left: 760px; /* Width of content + sidebar-primary. */
+  margin-right: -960px; /* Negative value of #sidebar-secondary's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-secondary-inner. */
 }
 
-#sidebar-right-inner
+#sidebar-secondary-inner
 {
   margin: 0 0 0 20px;
   padding: 0;
@@ -306,8 +306,8 @@ body
 #header,
 #content,
 #navbar,
-#sidebar-left,
-#sidebar-right,
+#sidebar-primary,
+#sidebar-secondary,
 #footer,
 #closure-blocks
 {

@@ -52,7 +52,7 @@ body,
 }
 
 /* Hide sidebars and nav elements */
-#skip-to-nav, #navbar, #sidebar-left, #sidebar-right, #footer,
+#skip-to-nav, #navbar, #sidebar-primary, #sidebar-secondary, #footer,
 .breadcrumb, div.tabs, .links, .taxonomy,
 .book-navigation, .forum-topic-navigation, .pager, .feed-icons
 {
