@@ -241,7 +241,7 @@ thead th,
 tbody th
 {
   text-align: left; /* LTR */
-  padding-right: 0;
+  padding: 0;
   border-bottom: none;
 }
 

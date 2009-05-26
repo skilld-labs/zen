@@ -15,7 +15,7 @@ div.block.with-block-editing div.edit
 {
   display: none;
   position: absolute;
-  right: 0;
+  right: 0; /* LTR */
   top: 0;
   z-index: 40;
   border: 1px solid #eee;

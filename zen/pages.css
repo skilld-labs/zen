@@ -44,7 +44,7 @@ body
 
 #logo /* Wrapper for logo */
 {
-  margin: 0 10px 0 0;
+  margin: 0 10px 0 0; /* LTR */
   padding: 0;
 }
 
@@ -219,7 +219,7 @@ ul.links li
 
 .more-link /* Aggregator, blog, and forum more link */
 {
-  text-align: right;
+  text-align: right; /* LTR */
 }
 
 #content-bottom /* Wrapper for any blocks placed in the "content bottom" region */
