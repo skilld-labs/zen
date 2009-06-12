@@ -33,13 +33,13 @@
   margin-right: 0; /* Negative value of #content's width + left margin. */
 }
 
-.sidebar-primary #content
+.sidebar-first #content
 {
-  margin-left: -960px; /* The width of #sidebar-primary. */
+  margin-left: -960px; /* The width of #sidebar-first. */
   margin-right: 200px; /* Negative value of #content's width + left margin. */
 }
 
-.sidebar-secondary #content
+.sidebar-second #content
 {
   margin-left: -760px;
   margin-right: 0; /* Negative value of #content's width + left margin. */
@@ -47,7 +47,7 @@
 
 .two-sidebars #content
 {
-  margin-left: -760px; /* The width of #sidebar-primary */
+  margin-left: -760px; /* The width of #sidebar-first */
   margin-right: 200px; /* Negative value of #content's width + left margin. */
 }
 
@@ -73,31 +73,31 @@
 }
 
 /*
- * Sidebar-primary
+ * First sidebar
  */
-#sidebar-primary
+#sidebar-first
 {
   float: right;
   margin-left: -200px;
-  margin-right: 0; /* Negative value of #sidebar-primary's width + left margin. */
+  margin-right: 0; /* Negative value of #sidebar-first's width + left margin. */
 }
 
-#sidebar-primary-inner
+#sidebar-first-inner
 {
   margin: 0 0 0 20px;
 }
 
 /*
- * Sidebar-secondary
+ * Second sidebar
  */
-#sidebar-secondary
+#sidebar-second
 {
   float: right;
-  margin-left: -960px; /* Width of content + sidebar-primary. */
-  margin-right: 760px; /* Negative value of #sidebar-secondary's width + left margin. */
+  margin-left: -960px; /* Width of content + sidebar-first. */
+  margin-right: 760px; /* Negative value of #sidebar-second's width + left margin. */
 }
 
-#sidebar-secondary-inner
+#sidebar-second-inner
 {
   margin: 0 20px 0 0;
 }

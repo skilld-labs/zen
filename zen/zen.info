@@ -55,8 +55,8 @@ conditional-stylesheets[if lte IE 5][all][] = ie5.css
   ; "[content_top]" in the .info file means there should be a $content_top
   ; variable in the page.tpl.php file.) The text after the equals sign is a
   ; descriptive text used on the admin/build/blocks page.
-regions[left]           = primary sidebar
-regions[right]          = secondary sidebar
+regions[left]           = first sidebar
+regions[right]          = second sidebar
 regions[navbar]         = navigation bar
 regions[content_top]    = content top
 regions[content_bottom] = content bottom
@@ -91,3 +91,10 @@ settings[zen_breadcrumb_title]     = 0
 settings[zen_layout]               = border-politics-liquid
 settings[zen_rebuild_registry]     = 0
 settings[zen_wireframes]           = 0
+
+; Information added by drupal.org packaging script on 2008-09-15
+version = "6.x-1.0-beta3"
+core = "6.x"
+project = "zen"
+datestamp = "1221475935"
+

@@ -41,10 +41,10 @@
  *   - node-type-[node type]: When viewing a single node, the type of that node.
  *     For example, if the node is a "Blog entry" it would result in "node-type-blog".
  *     Note that the machine name will often be in a short form of the human readable label.
- *   The following only apply with the default 'primary' and 'secondary' block regions:
+ *   The following only apply with the default 'first sidebar' and 'second sidebar' block regions:
  *     - two-sidebars: When both sidebars have content.
  *     - no-sidebars: When no sidebar content exists.
- *     - one-sidebar and sidebar-primary or sidebar-secondary: A combination of
+ *     - one-sidebar and sidebar-first or sidebar-second: A combination of
  *       the two classes when only one of the two sidebars have content.
  *
  * Site identity:
@@ -74,8 +74,8 @@
  * - $help: Dynamic help text, mostly for admin pages.
  * - $content: The main content of the current Drupal page.
  * - $feed_icons: A string of all feed icons for the current page.
- * - $left: The HTML for the primary sidebar.
- * - $right: The HTML for the secondary sidebar.
+ * - $left: The HTML for the first sidebar.
+ * - $right: The HTML for the second sidebar.
  *
  * Footer/closing data:
  * - $footer_message: The footer message as defined in the admin settings.
@@ -215,15 +215,15 @@
       <?php endif; ?>
 
       <?php if ($left): ?>
-        <div id="sidebar-primary"><div id="sidebar-primary-inner" class="region region-left">
+        <div id="sidebar-first"><div id="sidebar-first-inner" class="region region-sidebar-first">
           <?php print $left; ?>
-        </div></div> <!-- /#sidebar-primary-inner, /#sidebar-primary -->
+        </div></div> <!-- /#sidebar-first-inner, /#sidebar-first -->
       <?php endif; ?>
 
       <?php if ($right): ?>
-        <div id="sidebar-secondary"><div id="sidebar-secondary-inner" class="region region-right">
+        <div id="sidebar-second"><div id="sidebar-second-inner" class="region region-sidebar-second">
           <?php print $right; ?>
-        </div></div> <!-- /#sidebar-secondary-inner, /#sidebar-secondary -->
+        </div></div> <!-- /#sidebar-second-inner, /#sidebar-second -->
       <?php endif; ?>
 
     </div></div> <!-- /#main-inner, /#main -->

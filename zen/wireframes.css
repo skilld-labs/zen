@@ -12,8 +12,8 @@
 .with-wireframes #content-inner,
 .with-wireframes #content-inner>*,
 .with-wireframes #navbar-inner,
-.with-wireframes #sidebar-primary-inner,
-.with-wireframes #sidebar-secondary-inner,
+.with-wireframes #sidebar-first-inner,
+.with-wireframes #sidebar-second-inner,
 .with-wireframes #footer-inner
 {
   margin: 1px;

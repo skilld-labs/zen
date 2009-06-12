@@ -227,30 +227,30 @@ ul.links li
 }
 
 /*
- * Primary sidebar (on left in LTR languages, on right in RTL)
+ * First sidebar (on left in LTR languages, on right in RTL)
  *
- * Remember to NOT add padding or margin to your #sidebar-primary
+ * Remember to NOT add padding or margin to your #sidebar-first
  * (see the layout.css file.)
  */
-#sidebar-primary
+#sidebar-first
 {
 }
 
-#sidebar-primary-inner
+#sidebar-first-inner
 {
 }
 
 /*
- * Secondary sidebar (on right in LTR languages, on left in RTL)
+ * Second sidebar (on right in LTR languages, on left in RTL)
  *
- * Remember to NOT add padding or margin to your #sidebar-secondary
+ * Remember to NOT add padding or margin to your #sidebar-second
  * (see the layout.css file.)
  */
-#sidebar-secondary
+#sidebar-second
 {
 }
 
-#sidebar-secondary-inner
+#sidebar-second-inner
 {
 }
 

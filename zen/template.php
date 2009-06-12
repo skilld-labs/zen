@@ -154,11 +154,12 @@ function zen_preprocess_page(&$vars, $hook) {
     $classes[] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Rename Drupal core's sidebar-* classes to match the names of our sidebars.
-  if ($pos = array_search('sidebar-left', $classes)) {
-    $classes[$pos] = 'sidebar-primary';
-  }
-  elseif ($pos = array_search('sidebar-right', $classes)) {
-    $classes[$pos] = 'sidebar-secondary';
+  if ($vars['layout'] != 'both') {
+    $new_layout = ($vars['layout'] == 'left') ? 'first' : 'second';
+    if ($pos = array_search('sidebar-' . $vars['layout'], $classes)) {
+      $classes[$pos] = 'sidebar-' . $new_layout;
+    }
+    $vars['layout'] = $new_layout;
   }
   $vars['body_classes_array'] = $classes;
   $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
