@@ -106,8 +106,8 @@ function zen_settings($saved_settings, $subtheme_defaults = array()) {
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'border-politics-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
-                          'border-politics-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
+                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
+                          'zen-columns-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
                         ),
     '#default_value' => $settings['zen_layout'],
   );
