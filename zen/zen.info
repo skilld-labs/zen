@@ -25,6 +25,7 @@ engine = phptemplate
   ; http://drupal.org/node/171209 for more details.
 stylesheets[all][]   = html-elements.css
 stylesheets[all][]   = wireframes.css
+stylesheets[all][]   = layout.css
 stylesheets[all][]   = backgrounds.css
 stylesheets[all][]   = tabs.css
 stylesheets[all][]   = messages.css
