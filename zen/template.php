@@ -153,12 +153,14 @@ function zen_preprocess_page(&$vars, $hook) {
   if (theme_get_setting('zen_wireframes')) {
     $classes[] = 'with-wireframes'; // Optionally add the wireframes style.
   }
-  // Rename Drupal core's sidebar-* classes to match the names of our sidebars.
+  // Add new sidebar classes in addition to Drupal core's sidebar-* classes.
+  // This provides some backwards compatibility with Zen 6.x-1.x themes.
   if ($vars['layout'] != 'both') {
     $new_layout = ($vars['layout'] == 'left') ? 'first' : 'second';
-    if ($pos = array_search('sidebar-' . $vars['layout'], $classes)) {
-      $classes[$pos] = 'sidebar-' . $new_layout;
+    if (array_search('sidebar-' . $vars['layout'], $classes)) {
+      $classes[] = 'sidebar-' . $new_layout;
     }
+    // Replace core's $layout variable with our naming of sidebars.
     $vars['layout'] = $new_layout;
   }
   $vars['body_classes_array'] = $classes;
