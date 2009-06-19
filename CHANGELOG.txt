@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- Added $classes_array variable to node, block and comment templates
 - Add layout.css in Zen's .info file to properly position sub-theme's layout.css
 - #379902: Make all stylesheets RTL compatible
 - #472694: Drupal 6.11 broke Zen's OpenID overrides

@@ -196,6 +196,7 @@ function zen_preprocess_node(&$vars, $hook) {
   }
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
   $classes[] = zen_id_safe('node-type-' . $vars['type']);
+  $vars['classes_array'] = $classes;
   $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
 
@@ -240,6 +241,7 @@ function zen_preprocess_block(&$vars, $hook) {
   }
 
   // Render block classes.
+  $vars['classes_array'] = $classes;
   $vars['classes'] = implode(' ', $classes);
 }
 

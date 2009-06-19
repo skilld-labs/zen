@@ -50,5 +50,6 @@ function _zen_preprocess_comment(&$vars, $hook) {
       $classes[] = 'comment-mine';
     }
   }
+  $vars['classes_array'] = $classes;
   $vars['classes'] = implode(' ', $classes);
 }
