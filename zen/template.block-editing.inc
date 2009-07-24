@@ -19,7 +19,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
 
   // Display 'edit block' for custom blocks.
   if ($block->module == 'block') {
-    $vars['edit_links_array'][] = l('<span>' . t('edit block') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
+    $vars['edit_links_array']['block-edit'] = l('<span>' . t('edit block') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
       array(
         'attributes' => array(
           'title' => t('edit the content of this block'),
@@ -32,7 +32,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   }
   // Display 'configure' for other blocks.
   else {
-    $vars['edit_links_array'][] = l('<span>' . t('configure') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
+    $vars['edit_links_array']['block-config'] = l('<span>' . t('configure') . '</span>', 'admin/build/block/configure/' . $block->module . '/' . $block->delta,
       array(
         'attributes' => array(
           'title' => t('configure this block'),
@@ -47,7 +47,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   // Display 'edit view' for Views blocks.
   if ($block->module == 'views' && user_access('administer views')) {
     list($view_name, $view_block) = explode('-block', $block->delta);
-    $vars['edit_links_array'][] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/edit/' . $view_name,
+    $vars['edit_links_array']['block-edit-view'] = l('<span>' . t('edit view') . '</span>', 'admin/build/views/edit/' . $view_name,
       array(
         'attributes' => array(
           'title' => t('edit the view that defines this block'),
@@ -62,7 +62,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   // Display 'edit menu' for Menu blocks.
   elseif (($block->module == 'menu' || ($block->module == 'user' && $block->delta == 1)) && user_access('administer menu')) {
     $menu_name = ($block->module == 'user') ? 'navigation' : $block->delta;
-    $vars['edit_links_array'][] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
+    $vars['edit_links_array']['block-edit-menu'] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
       array(
         'attributes' => array(
           'title' => t('edit the menu that defines this block'),
@@ -76,7 +76,7 @@ function zen_preprocess_block_editing(&$vars, $hook) {
   // Display 'edit menu' for Menu block blocks.
   elseif ($block->module == 'menu_block' && user_access('administer menu')) {
     list($menu_name, ) = split(':', variable_get("menu_block_{$block->delta}_parent", 'navigation:0'));
-    $vars['edit_links_array'][] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
+    $vars['edit_links_array']['block-edit-menu'] = l('<span>' . t('edit menu') . '</span>', 'admin/build/menu-customize/' . $menu_name,
       array(
         'attributes' => array(
           'title' => t('edit the menu that defines this block'),
