@@ -1,7 +1,7 @@
 -n /* $
 Id$ */
 
-/* Id: html-elements.css,v 1.3 2009/08/12 08:37:42 johnalbin Exp */
+/* Id: html-reset.css,v 1.1 2009/08/12 17:49:26 johnalbin Exp */
 
 /**
  * @file
@@ -316,7 +316,7 @@ fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-liquid.css,v 1.4 2009/08/12 08:37:42 johnalbin Exp */
+/* Id: layout-liquid.css,v 1.5 2009/08/12 21:41:11 johnalbin Exp */
 
 /**
  * @file
@@ -401,19 +401,6 @@ body {
 }
 
 #header-inner {
-}
-
-#logo-title {
-}
-
-#logo {
-  float: left; /* LTR */
-}
-
-#site-name {
-}
-
-#site-slogan {
 }
 
 #search-box {
@@ -802,7 +789,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.4 2009/08/12 08:37:42 johnalbin Exp */
+/* Id: pages.css,v 1.6 2009/08/12 21:41:11 johnalbin Exp */
 
 /**
  * @file
@@ -837,15 +824,13 @@ body {
 #header-inner {
 }
 
-#logo-title /* Wrapper for logo, website name, and slogan */ {
-}
-
-#logo /* Wrapper for logo */ {
+#logo /* Wrapping link for logo */ {
+  float: left; /* LTR */
   margin: 0 10px 0 0; /* LTR */
   padding: 0;
 }
 
-#logo-image /* The actual logo image */ {
+#name-and-slogan /* Wrapper for website name and slogan */ {
 }
 
 h1#site-name,
@@ -1059,6 +1044,33 @@ ul.links li {
   height: 0;
   clear: both;
   visibility: hidden;
+}
+
+/**
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be a collapsible fieldset that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions.
+ */
+.element-hidden {
+  display: none;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen-readers.
+ *
+ * Used for information required for screen-reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user. Must
+ * not be used for focusable elements (such as links and form elements) as this
+ * causes issues for keyboard only or voice recognition users.
+ */
+.element-invisible {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
 }
 /* Id: block-editing.css,v 1.2 2009/08/12 08:03:52 johnalbin Exp */
 
