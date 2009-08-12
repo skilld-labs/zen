@@ -18,18 +18,6 @@ if (theme_get_setting('zen_rebuild_registry')) {
   drupal_rebuild_theme_registry();
 }
 
-/*
- * Add stylesheets only needed when Zen is the active theme. Don't do something
- * this dumb in your sub-theme; see how wireframes.css is handled instead.
- */
-if ($GLOBALS['theme'] == 'zen') { // If we're in the main theme
-  if (theme_get_setting('zen_layout') == 'border-politics-fixed') {
-    drupal_add_css(drupal_get_path('theme', 'zen') . '/layout-fixed.css', 'theme', 'all');
-  }
-  else {
-    drupal_add_css(drupal_get_path('theme', 'zen') . '/layout-liquid.css', 'theme', 'all');
-  }
-}
 
 /**
  * Implements HOOK_theme().
@@ -122,8 +110,13 @@ function zen_menu_local_tasks() {
  *   The name of the template being rendered ("page" in this case.)
  */
 function zen_preprocess_page(&$vars, $hook) {
+  // If the user is silly and enables Zen as the theme, add some styles.
+  if ($GLOBALS['theme'] == 'zen') {
+    include_once './' . drupal_get_path('theme', 'zen') . '/template.zen.inc';
+    _zen_preprocess_page($vars, $hook);
+  }
   // Add conditional stylesheets.
-  if (!module_exists('conditional_styles')) {
+  elseif (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
 

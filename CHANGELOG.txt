@@ -2,7 +2,8 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
-- 
+- #513926: Sub-themes cannot reorder the stylesheets of the base theme
+- #456136: Move zen stylesheets into STARTERKIT/css
 
 Zen 6.x-2.0-alpha1, 2009-08-11
 ------------------------------
