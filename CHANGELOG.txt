@@ -233,7 +233,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - #546792: Remove box.tpl.php
 - #513926: Sub-themes cannot reorder the stylesheets of the base theme
 - #456136: Move zen stylesheets into STARTERKIT/css
-- #544750 by : Wrong sidebar class naming in maintenance-page.tpl.php
+- #544750 by kdebaas: Wrong sidebar class naming in maintenance-page.tpl.php
 - #529796: Make block edit links easier to edit/turn off individually
 - Added $classes_array variable to node, block and comment templates
 - Add layout.css in Zen's .info file to properly position sub-theme's layout.css
