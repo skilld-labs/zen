@@ -2,7 +2,7 @@
 // $Id$
 
 // Include the definition of zen_theme_get_default_settings().
-include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.inc';
+include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
 
 
 /**
@@ -18,10 +18,10 @@ include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.
 function zen_settings($saved_settings, $subtheme_defaults = array()) {
 
   // Add the form's CSS
-  drupal_add_css(drupal_get_path('theme', 'zen') . '/css/theme-settings.css', 'theme');
+  drupal_add_css(drupal_get_path('theme', 'zen') . '/zen-internals/css/theme-settings.css', 'theme');
 
   // Add javascript to show/hide optional settings
-  drupal_add_js(drupal_get_path('theme', 'zen') . '/js/theme-settings.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'zen') . '/zen-internals/js/theme-settings.js', 'theme');
 
   // Get the default values from the .info file.
   $defaults = zen_theme_get_default_settings('zen');

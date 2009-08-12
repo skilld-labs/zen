@@ -26,7 +26,7 @@ function zen_theme(&$existing, $type, $theme, $path) {
   if (!db_is_active()) {
     return array();
   }
-  include_once './' . drupal_get_path('theme', 'zen') . '/template.theme-registry.inc';
+  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
   return _zen_theme($existing, $type, $theme, $path);
 }
 
@@ -112,7 +112,7 @@ function zen_menu_local_tasks() {
 function zen_preprocess_page(&$vars, $hook) {
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/template.zen.inc';
+    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
     _zen_preprocess_page($vars, $hook);
   }
   // Add conditional stylesheets.
@@ -202,7 +202,7 @@ function zen_preprocess_node(&$vars, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 function zen_preprocess_comment(&$vars, $hook) {
-  include_once './' . drupal_get_path('theme', 'zen') . '/template.comment.inc';
+  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.comment.inc';
   _zen_preprocess_comment($vars, $hook);
 }
 
@@ -228,7 +228,7 @@ function zen_preprocess_block(&$vars, $hook) {
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
-    include_once './' . drupal_get_path('theme', 'zen') . '/template.block-editing.inc';
+    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.block-editing.inc';
     zen_preprocess_block_editing($vars, $hook);
     $classes[] = 'with-block-editing';
   }

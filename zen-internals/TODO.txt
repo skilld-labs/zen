@@ -1,0 +1,7 @@
+Zen 6.x-2.0 @TODO
+  #: Add fix to auto-correct tabs broken by contrib modules
+  #: Display "edit menu" only when Menu block is displaying menu.module links
+  #308254: Make "skip to nav" styling more useful and less intrusive
+  #308376: Make "skip to nav" links configurable instead of hard-coded
+  * fix maintanence page
+  * confirm all the variables of every tpl are documented.
