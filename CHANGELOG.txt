@@ -1,5 +1,9 @@
 // $Id$
 
+Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
+------------------------
+- 
+
 Zen 6.x-2.0-alpha1, 2009-08-11
 ------------------------------
 - #544750 by kdebaas: Wrong sidebar class naming in maintenance-page.tpl.php
