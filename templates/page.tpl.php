@@ -41,7 +41,7 @@
  *   - node-type-[node type]: When viewing a single node, the type of that node.
  *     For example, if the node is a "Blog entry" it would result in "node-type-blog".
  *     Note that the machine name will often be in a short form of the human readable label.
- *   The following only apply with the default 'first sidebar' and 'second sidebar' block regions:
+ *   The following only apply with the default 'sidebar_first' and 'sidebar_second' block regions:
  *     - two-sidebars: When both sidebars have content.
  *     - no-sidebars: When no sidebar content exists.
  *     - one-sidebar and sidebar-first or sidebar-second: A combination of
@@ -72,7 +72,7 @@
  * - $tabs: Tabs linking to any sub-pages beneath the current page (e.g., the view
  *   and edit tabs when displaying a node).
  * - $help: Dynamic help text, mostly for admin pages.
- * - $content: The main content of the current Drupal page.
+ * - $content: The main content of the current page.
  * - $feed_icons: A string of all feed icons for the current page.
  * - $left: The HTML for the first sidebar.
  * - $right: The HTML for the second sidebar.
@@ -106,13 +106,12 @@
 
     <div id="header"><div id="header-inner" class="clearfix">
 
-      <?php if ($logo || $site_name || $site_slogan): ?>
-        <div id="logo-title">
+      <?php if ($logo): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+      <?php endif; ?>
 
-          <?php if ($logo): ?>
-            <div id="logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo-image" /></a></div>
-          <?php endif; ?>
-
+      <?php if ($site_name || $site_slogan): ?>
+        <div id="name-and-slogan">
           <?php if ($site_name): ?>
             <?php if ($title): ?>
               <div id="site-name"><strong>
@@ -132,8 +131,7 @@
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-
-        </div> <!-- /#logo-title -->
+        </div> <!-- /#name-and-slogan -->
       <?php endif; ?>
 
       <?php if ($search_box): ?>
