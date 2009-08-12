@@ -227,7 +227,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - #547382: Rename Zen's reset stylesheet to html-reset.css from html-elements.css
 - #527494: Follow Drupal's proposed CSS coding standards
 - #480610 by kdebaas: css class .field-type-image does not exist anymore in 6.x version of the module
-- #545320 by : Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
+- #545320 by Deslack: Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
 - #542818: Using alternate layout method causes .clearfix class to disappear
 - #546828: Move tpl.php files to a templates folder in the root zen directory
 - #546792: Remove box.tpl.php
@@ -273,7 +273,7 @@ Zen 6.x-1.1, 2009-11-10
 - #600920 by : Fix incorrect comment block class name
 - #297084: Remove ctype_lower() from zen_id_safe() to prevent WSOD/Fatal error on some systems
 - #317417 by JohnAlbin and : Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
-- #545320 by : Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
+- #545320 by Deslack: Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
 - #472694: Drupal 6.11 broke Zen's OpenID overrides
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
 - Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
