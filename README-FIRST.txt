@@ -7,9 +7,36 @@ Yay! You opened the correct file first. The first thing that people notice when
 they download the Zen theme is that there are A LOT of files -- way more than
 other themes.
 
+Don't worry! You don't need to learn everything all at once in order to make a
+drupal theme. Zen will do the bits you haven't learned and patiently wait for
+you to discover the documentation and inline comments about them.
 
 
+SUGGESTED READING
+-----------------
 
+Installation
+  If you don't know how to install a Drupal theme, there is a quick primer later
+  in this document.
+
+Building a sub-theme
+  See the STARTERKIT/README.txt file for full instructions.
+
+Theme .info file
+  Your sub-theme's .info file describes the basic things about your theme: its
+  name, description, features, template regions, CSS files, and JavaScript.
+  Don't worry about all these lines just yet.
+
+CSS
+  Once you have created your sub-theme, look at the README.txt in your
+  sub-theme's css folder.
+
+Templates
+  Now take a look at the README.txt in your sub-theme's templates folder.
+
+
+ONLINE READING
+--------------
 
 Full documentation on the Zen theme can be found in Drupal's Handbook:
   http://drupal.org/node/193318
@@ -43,8 +70,4 @@ INSTALLATION
     with links on how to create your own sub-theme. You can optionally make Zen
     the default theme.
 
-
-BUILD YOUR OWN SUB-THEME
-------------------------
-
-See the STARTERKIT/README.txt file.
+ 4. Now build your own sub-theme by reading the STARTERKIT/README.txt file.
