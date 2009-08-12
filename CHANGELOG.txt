@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #547382: Rename Zen's reset stylesheet to html-reset.css from html-elements.css
 - #527494: Follow Drupal's proposed CSS coding standards
 - #480610 by kdebaas: css class .field-type-image does not exist anymore in 6.x version of the module
 - #545320 by Deslack: Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
