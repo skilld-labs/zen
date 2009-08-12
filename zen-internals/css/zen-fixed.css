@@ -316,7 +316,7 @@ fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-fixed.css,v 1.5 2009/08/12 21:41:11 johnalbin Exp */
+/* Id: layout-fixed.css,v 1.6 2009/08/12 22:17:26 johnalbin Exp */
 
 /**
  * @file
@@ -471,24 +471,18 @@ body {
   margin-left: 0; /* LTR */
   margin-right: -100%; /* LTR */ /* Negative value of #navbar's width + left margin. */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
-  height: 3.6em; /* The navbar can have any arbritrary height. We picked one
-                    that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
+  height: 2.3em; /* The navbar can have any arbritrary height. We picked one
+                    that is the line-height plus 1em: 1.3 + 1 = 2.3
                     Set this to the same value as the margin-top below. */
 }
 
 .with-navbar #content,
 .with-navbar #sidebar-first,
 .with-navbar #sidebar-second {
-  margin-top: 3.6em; /* Set this to the same value as the navbar height above. */
+  margin-top: 2.3em; /* Set this to the same value as the navbar height above. */
 }
 
 #navbar-inner {
-}
-
-#primary {
-}
-
-#secondary {
 }
 
 #navbar ul /* Primary and secondary links */ {
@@ -1204,7 +1198,7 @@ div.block.with-block-editing:hover div.edit {
 
 #block-user-3 /* "Who's online" block for a list of the online users */ {
 }
-/* Id: navigation.css,v 1.2 2009/08/12 08:03:53 johnalbin Exp */
+/* Id: navigation.css,v 1.3 2009/08/12 22:17:26 johnalbin Exp */
 
 /**
  * @file
@@ -1229,12 +1223,12 @@ li a.active {
 }
 
 /*
- * Primary and Secondary links
+ * Primary and Secondary menu links
  */
-#primary {
+#main-menu {
 }
 
-#secondary {
+#secondary-menu {
 }
 
 /*
