@@ -100,7 +100,7 @@
 
   <div id="page"><div id="page-inner">
 
-    <?php if ($primary_links || $secondary_links || $navbar): ?>
+    <?php if ($primary_links || $navbar): ?>
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
 
@@ -146,7 +146,7 @@
 
     </div></div> <!-- /#header-inner, /#header -->
 
-    <div id="main"><div id="main-inner" class="clearfix<?php if ($primary_links || $secondary_links || $navbar) { print ' with-navbar'; } ?>">
+    <div id="main"><div id="main-inner" class="clearfix<?php if ($primary_links || $navbar) { print ' with-navbar'; } ?>">
 
       <div id="content"><div id="content-inner">
 
@@ -190,22 +190,12 @@
 
       </div></div> <!-- /#content-inner, /#content -->
 
-      <?php if ($primary_links || $secondary_links || $navbar): ?>
+      <?php if ($primary_links || $navbar): ?>
         <div id="navbar"><div id="navbar-inner" class="clearfix region region-navbar">
 
           <a name="navigation" id="navigation"></a>
 
-          <?php if ($primary_links): ?>
-            <div id="primary">
-              <?php print theme('links', $primary_links); ?>
-            </div> <!-- /#primary -->
-          <?php endif; ?>
-
-          <?php if ($secondary_links): ?>
-            <div id="secondary">
-              <?php print theme('links', $secondary_links); ?>
-            </div> <!-- /#secondary -->
-          <?php endif; ?>
+          <?php print theme('links', $primary_links, array('id' => 'main-menu', 'class' => 'links clearfix')); ?>
 
           <?php print $navbar; ?>
 
@@ -226,8 +216,10 @@
 
     </div></div> <!-- /#main-inner, /#main -->
 
-    <?php if ($footer || $footer_message): ?>
+    <?php if ($footer || $footer_message || $secondary_links): ?>
       <div id="footer"><div id="footer-inner" class="region region-footer">
+
+        <?php print theme('links', $secondary_links, array('id' => 'secondary-menu', 'class' => 'links clearfix')); ?>
 
         <?php if ($footer_message): ?>
           <div id="footer-message"><?php print $footer_message; ?></div>
