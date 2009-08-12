@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #544750 by kdebaas: Wrong sidebar class naming in maintenance-page.tpl.php
 - #529796: Make block edit links easier to edit/turn off individually
 - Added $classes_array variable to node, block and comment templates
 - Add layout.css in Zen's .info file to properly position sub-theme's layout.css

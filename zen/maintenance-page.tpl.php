@@ -104,15 +104,15 @@
       <?php endif; ?>
 
       <?php if ($left): ?>
-        <div id="sidebar-primary"><div id="sidebar-primary-inner" class="region region-left">
+        <div id="sidebar-first"><div id="sidebar-first-inner" class="region region-sidebar-first">
           <?php print $left; ?>
-        </div></div> <!-- /#sidebar-primary-inner, /#sidebar-primary -->
+        </div></div> <!-- /#sidebar-first-inner, /#sidebar-first -->
       <?php endif; ?>
 
       <?php if ($right): ?>
-        <div id="sidebar-secondary"><div id="sidebar-secondary-inner" class="region region-right">
+        <div id="sidebar-second"><div id="sidebar-second-inner" class="region region-sidebar-second">
           <?php print $right; ?>
-        </div></div> <!-- /#sidebar-secondary-inner, /#sidebar-secondary -->
+        </div></div> <!-- /#sidebar-second-inner, /#sidebar-second -->
       <?php endif; ?>
 
     </div></div> <!-- /#main-inner, /#main -->
