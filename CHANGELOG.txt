@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #546792: Remove box.tpl.php
 - #513926: Sub-themes cannot reorder the stylesheets of the base theme
 - #456136: Move zen stylesheets into STARTERKIT/css
 
