@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #542818: Using alternate layout method causes .clearfix class to disappear
 - #546828: Move tpl.php files to a templates folder in the root zen directory
 - #546792: Remove box.tpl.php
 - #513926: Sub-themes cannot reorder the stylesheets of the base theme
