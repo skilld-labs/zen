@@ -5,7 +5,8 @@
 # This script is used by the MAINTAINER to generate composite stylesheets for
 # the base Zen theme from the stylesheets in the STARTERKIT.
 
-echo '/* $Id$ */' > header.txt;
+echo -n '/* $' > header.txt;
+echo 'Id$ */' >> header.txt;
 echo >> header.txt;
 
 cat header.txt ../../STARTERKIT/css/html-elements.css ../../STARTERKIT/css/wireframes.css ../../STARTERKIT/css/layout-fixed.css ../../STARTERKIT/css/page-backgrounds.css ../../STARTERKIT/css/tabs.css ../../STARTERKIT/css/messages.css ../../STARTERKIT/css/pages.css ../../STARTERKIT/css/block-editing.css ../../STARTERKIT/css/blocks.css ../../STARTERKIT/css/navigation.css ../../STARTERKIT/css/views-styles.css ../../STARTERKIT/css/nodes.css ../../STARTERKIT/css/comments.css ../../STARTERKIT/css/forms.css ../../STARTERKIT/css/fields.css | perl -e 'while(<>) { $_ =~ s|^\/\* \$(Id: [^\$]+) \$|\/* \1|; print $_; }' - > zen-fixed.css;
