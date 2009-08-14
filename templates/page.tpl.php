@@ -44,8 +44,8 @@
  *   The following only apply with the default 'sidebar_first' and 'sidebar_second' block regions:
  *     - two-sidebars: When both sidebars have content.
  *     - no-sidebars: When no sidebar content exists.
- *     - one-sidebar and sidebar-first or sidebar-second: A combination of
- *       the two classes when only one of the two sidebars have content.
+ *     - one-sidebar and sidebar-first or sidebar-second: A combination of the
+ *       two classes when only one of the two sidebars have content.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,
