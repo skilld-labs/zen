@@ -191,10 +191,18 @@ function zen_preprocess_node(&$vars, $hook) {
       break;
   }
 
+  // Create the user_picture variable.
+  $vars['user_picture'] = $vars['picture'];
+
   // Special classes for nodes.
   $classes = array('node');
+  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
+  $classes[] = zen_id_safe('node-type-' . $vars['type']);
+  if ($variables['promote']) {
+    $variables['classes_array'][] = 'node-promoted';
+  }
   if ($vars['sticky']) {
-    $classes[] = 'sticky';
+    $classes[] = 'node-sticky';
   }
   if (!$vars['status']) {
     $classes[] = 'node-unpublished';
@@ -209,8 +217,9 @@ function zen_preprocess_node(&$vars, $hook) {
   if ($vars['teaser']) {
     $classes[] = 'node-teaser'; // Node is displayed as teaser.
   }
-  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $classes[] = zen_id_safe('node-type-' . $vars['type']);
+  if (isset($variables['preview'])) {
+    $variables['classes_array'][] = 'node-preview';
+  }
   $vars['classes_array'] = $classes;
   $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
