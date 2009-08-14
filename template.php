@@ -169,7 +169,29 @@ function zen_preprocess_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
-  // Special classes for nodes
+  // Create the build_mode variable.
+  switch ($vars['node']->build_mode) {
+    case NODE_BUILD_NORMAL:
+      $vars['build_mode'] = $vars['teaser'] ? 'teaser' : 'full';
+      break;
+    case NODE_BUILD_PREVIEW:
+      $vars['build_mode'] = 'preview';
+      break;
+    case NODE_BUILD_SEARCH_INDEX:
+      $vars['build_mode'] = 'search_index';
+      break;
+    case NODE_BUILD_SEARCH_RESULT:
+      $vars['build_mode'] = 'search_result';
+      break;
+    case NODE_BUILD_RSS:
+      $vars['build_mode'] = 'rss';
+      break;
+    case NODE_BUILD_PRINT:
+      $vars['build_mode'] = 'print';
+      break;
+  }
+
+  // Special classes for nodes.
   $classes = array('node');
   if ($vars['sticky']) {
     $classes[] = 'sticky';

@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- Added $build_mode variable to node.tpl.php
 - #445814: Change primary/secondary link rendering and move secondary menu to footer
 - #445822: Simplify wrapper divs around logo, site name, slogan
 - #546862: Add D7's element-hidden and element-invisible for accessibility features
