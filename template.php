@@ -198,8 +198,8 @@ function zen_preprocess_node(&$vars, $hook) {
   $classes = array('node');
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
   $classes[] = zen_id_safe('node-type-' . $vars['type']);
-  if ($variables['promote']) {
-    $variables['classes_array'][] = 'node-promoted';
+  if ($vars['promote']) {
+    $vars['classes_array'][] = 'node-promoted';
   }
   if ($vars['sticky']) {
     $classes[] = 'node-sticky';
@@ -217,8 +217,8 @@ function zen_preprocess_node(&$vars, $hook) {
   if ($vars['teaser']) {
     $classes[] = 'node-teaser'; // Node is displayed as teaser.
   }
-  if (isset($variables['preview'])) {
-    $variables['classes_array'][] = 'node-preview';
+  if (isset($vars['preview'])) {
+    $vars['classes_array'][] = 'node-preview';
   }
   $vars['classes_array'] = $classes;
   $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
