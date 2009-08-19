@@ -215,7 +215,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - Render $edit_links_array in zen_process_block
 - #546858: Add THEME_process_HOOK functions to Zen
 - #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
-- #549798 by : page-backgrounds.css missing from .info file
+- #549798 by caroltron: page-backgrounds.css missing from .info file
 - Remove ie5.css from STARTERKIT and deprecate support for IE5
 - #547696: Update node.tpl to use ideas from D7
 - Renamed $picture to $user_picture in node.tpl.php
