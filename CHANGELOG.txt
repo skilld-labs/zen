@@ -214,7 +214,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - Add region.tpl.php template
 - Render $edit_links_array in zen_process_block
 - #546858: Add THEME_process_HOOK functions to Zen
-- #317417 by JohnAlbin and : Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
+- #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
 - #549798 by : page-backgrounds.css missing from .info file
 - Remove ie5.css from STARTERKIT and deprecate support for IE5
 - #547696: Update node.tpl to use ideas from D7
@@ -272,7 +272,7 @@ Zen 6.x-1.1, 2009-11-10
 - #583716 by : Empty title can cause breadcrumbs to display incorrectly
 - #600920 by : Fix incorrect comment block class name
 - #297084: Remove ctype_lower() from zen_id_safe() to prevent WSOD/Fatal error on some systems
-- #317417 by JohnAlbin and : Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
+- #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
 - #545320 by Deslack: Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
 - #472694: Drupal 6.11 broke Zen's OpenID overrides
 - Updated screenshot.png to use Zen logo since an actual screenshot is boring
