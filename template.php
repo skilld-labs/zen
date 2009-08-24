@@ -164,7 +164,7 @@ function zen_preprocess_page(&$vars, $hook) {
  * @param $vars
  *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the template being rendered ("page" in this case.)
+ *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_preprocess_maintenance_page(&$vars, $hook) {
   // If Zen is the maintenance theme, add some styles.
