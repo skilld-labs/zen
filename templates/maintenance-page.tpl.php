@@ -33,13 +33,12 @@
 
     <div id="header"><div id="header-inner" class="clearfix">
 
-      <?php if ($logo || $site_name || $site_slogan): ?>
-        <div id="logo-title">
+      <?php if ($logo): ?>
+        <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+      <?php endif; ?>
 
-          <?php if ($logo): ?>
-            <div id="logo"><a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" id="logo-image" /></a></div>
-          <?php endif; ?>
-
+      <?php if ($site_name || $site_slogan): ?>
+        <div id="name-and-slogan">
           <?php if ($site_name): ?>
             <div id="site-name"><strong>
               <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home">
@@ -47,12 +46,10 @@
               </a>
             </strong></div>
           <?php endif; ?>
-
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-
-        </div> <!-- /#logo-title -->
+        </div> <!-- /#name-and-slogan -->
       <?php endif; ?>
 
       <?php if ($header): ?>
