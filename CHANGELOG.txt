@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
 - #549798 by caroltron: page-backgrounds.css missing from .info file
 - Remove ie5.css from STARTERKIT and deprecate support for IE5
 - #547696: Update node.tpl to use ideas from D7

@@ -3,7 +3,7 @@
 // it has been spun out to its own separate module, It would be nice to prevent
 // code drift between the Zen implementation and the conditional_styles.module,
 // so Zen now includes an exact copy of conditonal_style module's:
-// conditional_styles.theme.inc,v 1.5 2009/05/25 14:33:03 johnalbin Exp
+// conditional_styles.theme.inc,v 1.6 2009/08/24 08:57:32 johnalbin Exp
 
 /**
  * @file
@@ -47,7 +47,7 @@ function _conditional_styles_theme($existing, $type, $theme, $path) {
   $themes = list_themes();
   foreach (array_keys($themes) AS $theme) {
     // We only need to process active themes.
-    if ($themes[$theme]->status) {
+    if ($themes[$theme]->status || $GLOBALS['theme'] == $theme) {
       $paths = conditional_styles_paths_to_basetheme($theme);
 
       // Grab all the conditional stylesheets.

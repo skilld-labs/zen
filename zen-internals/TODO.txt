@@ -6,10 +6,9 @@ Zen 6.x-2.0 @TODO
 - #: Display "edit menu" only when Menu block is displaying menu.module links
 - #308254: Make "skip to nav" styling more useful and less intrusive
 - #308376: Make "skip to nav" links configurable instead of hard-coded
-- * fix maintanence page
 - * confirm all the variables of every tpl are documented.
 - #: Update comment.tpl and comment-wrapper.tpl to use ideas from D7
 - #: Add D7-style process functions
 - #: Rename zen_id_safe to zen_clean_css?
-- #341140: drupal_get_filename() in Drupal 6. When thta is fixed, replace the
-  awkward dirname(__FILE__) with drupal_get_path('theme', 'zen').
+- #341140: drupal_get_filename() is broken in Drupal 6. When that is fixed,
+  replace _zen_path() with drupal_get_path('theme', 'zen').

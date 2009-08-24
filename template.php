@@ -23,10 +23,8 @@ if (theme_get_setting('zen_rebuild_registry')) {
  * Implements HOOK_theme().
  */
 function zen_theme(&$existing, $type, $theme, $path) {
-  if (!db_is_active()) {
-    return array();
-  }
-  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
+  // When #341140 is fixed, replace _zen_path() with drupal_get_path().
+  include_once './' . _zen_path() . '/zen-internals/template.theme-registry.inc';
   return _zen_theme($existing, $type, $theme, $path);
 }
 
@@ -112,7 +110,7 @@ function zen_menu_local_tasks() {
 function zen_preprocess_page(&$vars, $hook) {
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
+    include_once './' . _zen_path() . '/zen-internals/template.zen.inc';
     _zen_preprocess_page($vars, $hook);
   }
   // Add conditional stylesheets.
@@ -158,6 +156,30 @@ function zen_preprocess_page(&$vars, $hook) {
   }
   $vars['body_classes_array'] = $classes;
   $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
+}
+
+/**
+ * Override or insert variables into the maintenance page template.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+function zen_preprocess_maintenance_page(&$vars, $hook) {
+  // If Zen is the maintenance theme, add some styles.
+  if ($GLOBALS['theme'] == 'zen') {
+    include_once './' . _zen_path() . '/zen-internals/template.zen.inc';
+    _zen_preprocess_page($vars, $hook);
+  }
+  // Add conditional stylesheets.
+  elseif (!module_exists('conditional_styles')) {
+    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
+  }
+
+  // Classes for body element. Allows advanced theming based on context
+  // (home page, node of certain type, etc.)
+  $vars['body_classes_array'] = explode(' ', $vars['body_classes']);
 }
 
 /**
@@ -233,7 +255,7 @@ function zen_preprocess_node(&$vars, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 function zen_preprocess_comment(&$vars, $hook) {
-  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.comment.inc';
+  include_once './' . _zen_path() . '/zen-internals/template.comment.inc';
   _zen_preprocess_comment($vars, $hook);
 }
 
@@ -259,7 +281,7 @@ function zen_preprocess_block(&$vars, $hook) {
   $vars['edit_links_array'] = array();
   $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.block-editing.inc';
+    include_once './' . _zen_path() . '/zen-internals/template.block-editing.inc';
     zen_preprocess_block_editing($vars, $hook);
     $classes[] = 'with-block-editing';
   }
@@ -292,4 +314,21 @@ function zen_id_safe($string) {
     $string = 'id' . $string;
   }
   return $string;
+}
+
+/**
+ * Returns the path to the Zen theme.
+ *
+ * drupal_get_filename() is broken; see #341140. When that is fixed in Drupal 6,
+ * replace _zen_path() with drupal_get_path('theme', 'zen').
+ */
+function _zen_path() {
+  static $path = FALSE;
+  if (!$path) {
+    $matches = drupal_system_listing('zen\.info$', 'themes', 'name', 0);
+    if (!empty($matches['zen']->filename)) {
+      $path = dirname($matches['zen']->filename);
+    }
+  }
+  return $path;
 }
