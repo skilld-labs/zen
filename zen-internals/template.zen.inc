@@ -38,7 +38,6 @@ function _zen_preprocess_page(&$vars, $hook) {
   $vars['styles'] .= <<< IE_STYLES
 <!--[if IE]><link type="text/css" rel="stylesheet" media="all" href="$base_path/ie.css$query_string" /><![endif]-->
 <!--[if lte IE 6]><link type="text/css" rel="stylesheet" media="all" href="$base_path/ie6.css$query_string" /><![endif]-->
-<!--[if lte IE 5]><link type="text/css" rel="stylesheet" media="all" href="$base_path/ie5.css$query_string" /><![endif]-->
 
 IE_STYLES;
 }
