@@ -243,7 +243,6 @@ function zen_preprocess_node(&$vars, $hook) {
     $vars['classes_array'][] = 'node-preview';
   }
   $vars['classes_array'] = $classes;
-  $vars['classes'] = implode(' ', $classes); // Concatenate with spaces
 }
 
 /**
@@ -288,7 +287,26 @@ function zen_preprocess_block(&$vars, $hook) {
 
   // Render block classes.
   $vars['classes_array'] = $classes;
-  $vars['classes'] = implode(' ', $classes);
+}
+
+/**
+ * Override or insert variables into templates after preprocess functions have run.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered.
+ */
+function zen_process(&$vars, $hook) {
+  switch ($hook) {
+    case 'page':
+    case 'maintenance_page':
+      $vars['body_classes'] = !empty($vars['body_classes_array']) ? implode(' ', $vars['body_classes_array']) : '';
+      break;
+    default:
+      $vars['classes'] = !empty($vars['classes_array']) ? implode(' ', $vars['classes_array']) : '';
+      break;
+  }
 }
 
 /**

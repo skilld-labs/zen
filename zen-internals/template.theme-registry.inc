@@ -33,6 +33,33 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     drupal_set_message(t('For easier theme development, the theme registry is being rebuilt on every page request. It is <em>extremely</em> important to <a href="!link">turn off this feature</a> on production websites.', array('!link' => url('admin/build/themes/settings/' . $GLOBALS['theme']))), 'warning', FALSE);
   }
 
+  // Keep track of all the base themes.
+  static $base_themes = array();
+  $base_themes[] = $theme;
+
+  // Add a "process" phase to come after the "preprocess" functions.
+  if ($type == 'theme') {
+    foreach (array_keys($existing) as $hook) {
+      // Normally, preprocess functions are added to the registry after
+      // HOOK_theme() returns, but if we add them first, they won't be re-added.
+      if (function_exists($theme . '_preprocess')) {
+        $existing[$hook]['preprocess functions'][] = $theme . '_preprocess';
+      }
+      if (function_exists($theme . '_preprocess_' . $hook)) {
+        $existing[$hook]['preprocess functions'][] = $theme . '_preprocess_' . $hook;
+      }
+      // Now add the process functions.
+      foreach ($base_themes as $base_theme) {
+        if (function_exists($base_theme . '_process')) {
+          $existing[$hook]['preprocess functions'][] = $base_theme . '_process';
+        }
+        if (function_exists($base_theme . '_process_' . $hook)) {
+          $existing[$hook]['preprocess functions'][] = $base_theme . '_process_' . $hook;
+        }
+      }
+    }
+  }
+
   // Return nothing.
   return array();
 }
