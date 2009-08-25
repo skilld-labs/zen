@@ -32,7 +32,7 @@
  * - $body_classes: String of classes that can be used to style contextually through
  *   CSS. It should be placed within the <body> tag. When selecting through CSS
  *   it's recommended that you use the body tag, e.g., "body.front". It can be
- *   manipulated through the variable $classes_array from preprocess functions.
+ *   manipulated through the variable $body_classes_array from preprocess functions.
  *   The default values can be one or more of the following:
  *   - front: Page is the home page.
  *   - not-front: Page is not the home page.
