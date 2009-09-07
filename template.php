@@ -278,7 +278,6 @@ function zen_preprocess_block(&$vars, $hook) {
   $classes[] = 'count-' . $vars['id'];
 
   $vars['edit_links_array'] = array();
-  $vars['edit_links'] = '';
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     include_once './' . _zen_path() . '/zen-internals/template.block-editing.inc';
     zen_preprocess_block_editing($vars, $hook);
@@ -307,6 +306,18 @@ function zen_process(&$vars, $hook) {
       $vars['classes'] = !empty($vars['classes_array']) ? implode(' ', $vars['classes_array']) : '';
       break;
   }
+}
+
+/**
+ * Override or insert variables into the block templates after preprocess functions have run.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+function zen_process_block(&$vars, $hook) {
+  $vars['edit_links'] = !empty($vars['edit_links_array']) ? '<div class="edit">' . implode(' ', $vars['edit_links_array']) . '</div>' : '';
 }
 
 /**

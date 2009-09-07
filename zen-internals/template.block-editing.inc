@@ -87,6 +87,4 @@ function zen_preprocess_block_editing(&$vars, $hook) {
       )
     );
   }
-
-  $vars['edit_links'] = '<div class="edit">' . implode(' ', $vars['edit_links_array']) . '</div>';
 }

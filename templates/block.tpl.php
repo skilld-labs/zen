@@ -12,9 +12,15 @@
  * - $block->module: Module that generated the block.
  * - $block->delta: This is a numeric id connected to each module.
  * - $block->region: The block region embedding the current block.
+ * - $classes_array: 
+ *   ...
  * - $classes: A set of CSS classes for the DIV wrapping the block.
      Possible values are: block-MODULE, region-odd, region-even, odd, even,
      region-count-X, and count-X.
+ * - $edit_links_array: 
+ *   ...
+ * - $edit_links: 
+ *   ...
  *
  * Helper variables:
  * - $block_zebra: Outputs 'odd' and 'even' dependent on each block region.
