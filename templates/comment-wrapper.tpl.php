@@ -2,12 +2,16 @@
 // $Id$
 
 /**
- * @file comment-wrapper.tpl.php
+ * @file
  * Default theme implementation to wrap comments.
  *
  * Available variables:
  * - $content: All comments for a given page. Also contains sorting controls
  *   and comment forms if the site is configured for it.
+ * - $classes: String of classes that can be used to style contextually through
+ *   CSS. It can be manipulated through the variable $classes_array from
+ *   preprocess functions. The default value has the following:
+ *   - comment-wrapper: The current template type, i.e., "theming hook".
  *
  * The following variables are provided for contextual information.
  * - $node: Node object the comments are attached to.
@@ -27,15 +31,18 @@
  *   - COMMENT_CONTROLS_ABOVE_BELOW
  *   - COMMENT_CONTROLS_HIDDEN
  *
+ * Other variables:
+ * - $classes_array: Array of html class attribute values. It is flattened
+ *   into a string within the variable $classes.
+ *
  * @see template_preprocess_comment_wrapper()
  * @see theme_comment_wrapper()
  */
 ?>
-<?php if ($content): ?>
-  <div id="comments">
-    <?php if ($node->type != 'forum'): ?>
-      <h2 id="comments-title"><?php print t('Comments'); ?></h2>
-    <?php endif; ?>
-    <?php print $content; ?>
-  </div>
-<?php endif; ?>
+<div id="comments" class="<?php print $classes; ?>">
+  <?php if ($node->type != 'forum'): ?>
+    <h2 id="comments-title"><?php print t('Comments'); ?></h2>
+  <?php endif; ?>
+
+  <?php print $content; ?>
+</div>
