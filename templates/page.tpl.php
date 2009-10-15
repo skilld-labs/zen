@@ -13,8 +13,8 @@
  * - $css: An array of CSS files for the current page.
  * - $directory: The directory the template is located in, e.g. modules/system
  *   or themes/garland.
- * - $body_classes_array: Array of the body classes. It is flattened
- *   into a string within the variable $classes.
+ * - $classes_array: Array of the body classes. It is flattened into a string
+ *   within the variable $classes.
  * - $is_front: TRUE if the current page is the front page. Used to toggle the mission statement.
  * - $logged_in: TRUE if the user is registered and signed in.
  * - $is_admin: TRUE if the user has permission to access administration pages.
@@ -29,10 +29,10 @@
  * - $styles: Style tags necessary to import all CSS files for the page.
  * - $scripts: Script tags necessary to load the JavaScript files and settings
  *   for the page.
- * - $body_classes: String of classes that can be used to style contextually through
+ * - $classes: String of classes that can be used to style contextually through
  *   CSS. It should be placed within the <body> tag. When selecting through CSS
  *   it's recommended that you use the body tag, e.g., "body.front". It can be
- *   manipulated through the variable $body_classes_array from preprocess functions.
+ *   manipulated through the variable $classes_array from preprocess functions.
  *   The default values can be one or more of the following:
  *   - front: Page is the home page.
  *   - not-front: Page is not the home page.
@@ -96,7 +96,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $body_classes; ?>">
+<body class="<?php print $classes; ?>">
 
   <div id="page"><div id="page-inner">
 

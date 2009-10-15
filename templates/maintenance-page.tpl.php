@@ -23,7 +23,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $body_classes; ?>">
+<body class="<?php print $classes; ?>">
 
   <div id="page"><div id="page-inner">
 

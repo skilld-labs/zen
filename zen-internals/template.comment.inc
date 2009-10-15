@@ -24,32 +24,29 @@ function _zen_preprocess_comment(&$vars, $hook) {
   }
 
   // Special classes for comments.
-  $classes = array('comment');
   if ($vars['comment']->new) {
-    $classes[] = 'comment-new';
+    $vars['classes_array'][] = 'comment-new';
   }
-  $classes[] = $vars['status'];
-  $classes[] = $vars['zebra'];
+  $vars['classes_array'][] = $vars['status'];
+  $vars['classes_array'][] = $vars['zebra'];
   if ($vars['id'] == 1) {
-    $classes[] = 'first';
+    $vars['classes_array'][] = 'first';
   }
   if ($vars['id'] == $vars['node']->comment_count) {
-    $classes[] = 'last';
+    $vars['classes_array'][] = 'last';
   }
   if ($vars['comment']->uid == 0) {
     // Comment is by an anonymous user.
-    $classes[] = 'comment-by-anon';
+    $vars['classes_array'][] = 'comment-by-anon';
   }
   else {
     if ($vars['comment']->uid == $vars['node']->uid) {
       // Comment is by the node author.
-      $classes[] = 'comment-by-author';
+      $vars['classes_array'][] = 'comment-by-author';
     }
     if ($vars['comment']->uid == $GLOBALS['user']->uid) {
       // Comment was posted by current user.
-      $classes[] = 'comment-mine';
+      $vars['classes_array'][] = 'comment-mine';
     }
   }
-  $vars['classes_array'] = $classes;
-  $vars['classes'] = implode(' ', $classes);
 }

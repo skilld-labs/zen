@@ -126,6 +126,28 @@ function zen_blocks($region) {
 }
 
 /**
+ * Override or insert variables into templates before other preprocess functions have run.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered.
+ */
+function zen_preprocess(&$vars, $hook) {
+  // In D6, the page.tpl uses a different variable name to hold the classes.
+  $key = ($hook == 'page' || $hook == 'maintenance_page') ? 'body_classes' : 'classes';
+
+  // Create a D7-standard classes_array variable.
+  if (array_key_exists($key, $vars)) {
+    $vars['classes_array'] = explode(' ', $vars[$key]);
+    unset($vars[$key]);
+  }
+  else {
+    $vars['classes_array'] = array($hook);
+  }
+}
+
+/**
  * Override or insert variables into the page templates.
  *
  * @param $vars
@@ -146,15 +168,14 @@ function zen_preprocess_page(&$vars, $hook) {
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  $classes = explode(' ', $vars['body_classes']);
   // Remove the mostly useless page-ARG0 class.
-  if ($index = array_search(preg_replace('![^abcdefghijklmnopqrstuvwxyz0-9-_]+!s', '', 'page-'. drupal_strtolower(arg(0))), $classes)) {
-    unset($classes[$index]);
+  if ($index = array_search(preg_replace('![^abcdefghijklmnopqrstuvwxyz0-9-_]+!s', '', 'page-'. drupal_strtolower(arg(0))), $vars['classes_array'])) {
+    unset($vars['classes_array'][$index]);
   }
   if (!$vars['is_front']) {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
-    $classes[] = zen_id_safe('page-' . $path);
+    $vars['classes_array'][] = zen_id_safe('page-' . $path);
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
     if (arg(0) == 'node') {
@@ -165,23 +186,21 @@ function zen_preprocess_page(&$vars, $hook) {
         $section = 'node-' . arg(2);
       }
     }
-    $classes[] = zen_id_safe('section-' . $section);
+    $vars['classes_array'][] = zen_id_safe('section-' . $section);
   }
   if (theme_get_setting('zen_wireframes')) {
-    $classes[] = 'with-wireframes'; // Optionally add the wireframes style.
+    $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Add new sidebar classes in addition to Drupal core's sidebar-* classes.
   // This provides some backwards compatibility with Zen 6.x-1.x themes.
   if ($vars['layout'] != 'both') {
     $new_layout = ($vars['layout'] == 'left') ? 'first' : 'second';
-    if (array_search('sidebar-' . $vars['layout'], $classes)) {
-      $classes[] = 'sidebar-' . $new_layout;
+    if (array_search('sidebar-' . $vars['layout'], $vars['classes_array'])) {
+      $vars['classes_array'][] = 'sidebar-' . $new_layout;
     }
     // Replace core's $layout variable with our naming of sidebars.
     $vars['layout'] = $new_layout;
   }
-  $vars['body_classes_array'] = $classes;
-  $vars['body_classes'] = implode(' ', $classes); // Concatenate with spaces.
 }
 
 /**
@@ -243,32 +262,30 @@ function zen_preprocess_node(&$vars, $hook) {
   $vars['user_picture'] = $vars['picture'];
 
   // Special classes for nodes.
-  $classes = array('node');
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $classes[] = zen_id_safe('node-type-' . $vars['type']);
+  $vars['classes_array'][] = zen_id_safe('node-type-' . $vars['type']);
   if ($vars['promote']) {
     $vars['classes_array'][] = 'node-promoted';
   }
   if ($vars['sticky']) {
-    $classes[] = 'node-sticky';
+    $vars['classes_array'][] = 'node-sticky';
   }
   if (!$vars['status']) {
-    $classes[] = 'node-unpublished';
+    $vars['classes_array'][] = 'node-unpublished';
     $vars['unpublished'] = TRUE;
   }
   else {
     $vars['unpublished'] = FALSE;
   }
   if ($vars['uid'] && $vars['uid'] == $GLOBALS['user']->uid) {
-    $classes[] = 'node-mine'; // Node is authored by current user.
+    $vars['classes_array'][] = 'node-mine'; // Node is authored by current user.
   }
   if ($vars['teaser']) {
-    $classes[] = 'node-teaser'; // Node is displayed as teaser.
+    $vars['classes_array'][] = 'node-teaser'; // Node is displayed as teaser.
   }
   if (isset($vars['preview'])) {
     $vars['classes_array'][] = 'node-preview';
   }
-  $vars['classes_array'] = $classes;
 }
 
 /**
@@ -318,22 +335,18 @@ function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
   // Special classes for blocks.
-  $classes = array('block');
-  $classes[] = 'block-' . $block->module;
-  $classes[] = 'region-' . $vars['block_zebra'];
-  $classes[] = $vars['zebra'];
-  $classes[] = 'region-count-' . $vars['block_id'];
-  $classes[] = 'count-' . $vars['id'];
+  $vars['classes_array'][] = 'block-' . $block->module;
+  $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
+  $vars['classes_array'][] = $vars['zebra'];
+  $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
+  $vars['classes_array'][] = 'count-' . $vars['id'];
 
   $vars['edit_links_array'] = array();
   if (theme_get_setting('zen_block_editing') && user_access('administer blocks')) {
     include_once './' . _zen_path() . '/zen-internals/template.block-editing.inc';
     zen_preprocess_block_editing($vars, $hook);
-    $classes[] = 'with-block-editing';
+    $vars['classes_array'][] = 'with-block-editing';
   }
-
-  // Render block classes.
-  $vars['classes_array'] = $classes;
 }
 
 /**
@@ -345,15 +358,7 @@ function zen_preprocess_block(&$vars, $hook) {
  *   The name of the template being rendered.
  */
 function zen_process(&$vars, $hook) {
-  switch ($hook) {
-    case 'page':
-    case 'maintenance_page':
-      $vars['body_classes'] = !empty($vars['body_classes_array']) ? implode(' ', $vars['body_classes_array']) : '';
-      break;
-    default:
-      $vars['classes'] = !empty($vars['classes_array']) ? implode(' ', $vars['classes_array']) : '';
-      break;
-  }
+  $vars['classes'] = implode(' ', $vars['classes_array']);
 }
 
 /**
