@@ -98,6 +98,32 @@ function zen_menu_local_tasks() {
   return $output;
 }
 
+/**
+ * Return a set of blocks available for the current user.
+ *
+ * @param $region
+ *   Which set of blocks to retrieve.
+ * @return
+ *   A string containing the themed blocks for this region.
+ */
+function zen_blocks($region) {
+  $output = '';
+
+  if ($list = block_list($region)) {
+    foreach ($list as $key => $block) {
+      // $key == module_delta
+      $output .= theme('block', $block);
+    }
+  }
+
+  // Add any content assigned to this region through drupal_set_content() calls.
+  $output .= drupal_get_content($region);
+
+  $elements['#children'] = $output;
+  $elements['#region'] = $region;
+
+  return $output ? theme('region', $elements) : '';
+}
 
 /**
  * Override or insert variables into the page templates.
@@ -256,6 +282,28 @@ function zen_preprocess_node(&$vars, $hook) {
 function zen_preprocess_comment(&$vars, $hook) {
   include_once './' . _zen_path() . '/zen-internals/template.comment.inc';
   _zen_preprocess_comment($vars, $hook);
+}
+
+/**
+ * Preprocess variables for region.tpl.php
+ *
+ * Prepare the values passed to the theme_region function to be passed into a
+ * pluggable template engine. Uses the region name to generate a template file
+ * suggestions. If none are found, the default region.tpl.php is used.
+ *
+ * @see region.tpl.php
+ */
+function zen_preprocess_region(&$vars, $hook) {
+  // Create the $content variable that templates expect.
+  $vars['content'] = $vars['elements']['#children'];
+  $vars['region'] = $vars['elements']['#region'];
+
+  $region = 'region-' . str_replace('_', '-', $vars['region']);
+  $vars['classes_array'] = array('region', $region);
+  if ($vars['region'] == 'navbar') {
+    $vars['classes_array'][] = 'clearfix';
+  }
+  $vars['template_files'][] = $region;
 }
 
 /**

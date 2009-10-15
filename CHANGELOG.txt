@@ -2,7 +2,8 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
-- * Render $edit_links_array in zen_process_block
+- Add region.tpl.php template
+- Render $edit_links_array in zen_process_block
 - #546858: Add THEME_process_HOOK functions to Zen
 - #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
 - #549798 by caroltron: page-backgrounds.css missing from .info file

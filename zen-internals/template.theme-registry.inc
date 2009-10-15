@@ -60,7 +60,19 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     }
   }
 
-  // Return nothing.
+  // The base theme registers region.tpl.php
+  if ($theme == 'zen') {
+    return array(
+      'region' => array(
+        'arguments' => array('elements' => NULL),
+        //'pattern' => 'region_',
+        'path' => drupal_get_path('theme', 'zen') . '/templates',
+        'template' => 'region',
+      ),
+    );
+  }
+
+  // Else return nothing.
   return array();
 }
 
