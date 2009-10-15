@@ -52,11 +52,7 @@
         </div> <!-- /#name-and-slogan -->
       <?php endif; ?>
 
-      <?php if ($header): ?>
-        <div id="header-blocks" class="region region-header">
-          <?php print $header; ?>
-        </div> <!-- /#header-blocks -->
-      <?php endif; ?>
+      <?php print $header; ?>
 
     </div></div> <!-- /#header-inner, /#header -->
 
@@ -64,11 +60,7 @@
 
       <div id="content"><div id="content-inner">
 
-        <?php if ($content_top): ?>
-          <div id="content-top" class="region region-content_top">
-            <?php print $content_top; ?>
-          </div> <!-- /#content-top -->
-        <?php endif; ?>
+        <?php print $content_top; ?>
 
         <?php if ($title || $messages): ?>
           <div id="content-header">
@@ -83,21 +75,17 @@
           <?php print $content; ?>
         </div>
 
-        <?php if ($content_bottom): ?>
-          <div id="content-bottom" class="region region-content_bottom">
-            <?php print $content_bottom; ?>
-          </div> <!-- /#content-bottom -->
-        <?php endif; ?>
+        <?php print $content_bottom; ?>
 
       </div></div> <!-- /#content-inner, /#content -->
 
       <?php if ($navbar): ?>
-        <div id="navbar"><div id="navbar-inner" class="clearfix region region-navbar">
+        <div id="navbar">
 
           <a name="navigation" id="navigation"></a>
           <?php print $navbar; ?>
 
-        </div></div> <!-- /#navbar-inner, /#navbar -->
+        </div> <!-- /#navbar -->
       <?php endif; ?>
 
       <?php if ($left): ?>
@@ -115,7 +103,7 @@
     </div></div> <!-- /#main-inner, /#main -->
 
     <?php if ($footer || $footer_message): ?>
-      <div id="footer"><div id="footer-inner" class="region region-footer">
+      <div id="footer">
 
         <?php if ($footer_message): ?>
           <div id="footer-message"><?php print $footer_message; ?></div>
@@ -123,7 +111,7 @@
 
         <?php print $footer; ?>
 
-      </div></div> <!-- /#footer-inner, /#footer -->
+      </div> <!-- /#footer -->
     <?php endif; ?>
 
   </div></div> <!-- /#page-inner, /#page -->

@@ -138,11 +138,7 @@
         <div id="search-box"><?php print $search_box; ?></div>
       <?php endif; ?>
 
-      <?php if ($header): ?>
-        <div id="header-blocks" class="region region-header">
-          <?php print $header; ?>
-        </div> <!-- /#header-blocks -->
-      <?php endif; ?>
+      <?php print $header; ?>
 
     </div></div> <!-- /#header-inner, /#header -->
 
@@ -154,11 +150,7 @@
           <div id="mission"><?php print $mission; ?></div>
         <?php endif; ?>
 
-        <?php if ($content_top): ?>
-          <div id="content-top" class="region region-content_top">
-            <?php print $content_top; ?>
-          </div> <!-- /#content-top -->
-        <?php endif; ?>
+        <?php print $content_top; ?>
 
         <?php if ($breadcrumb || $title || $tabs || $help || $messages): ?>
           <div id="content-header">
@@ -182,16 +174,12 @@
           <div class="feed-icons"><?php print $feed_icons; ?></div>
         <?php endif; ?>
 
-        <?php if ($content_bottom): ?>
-          <div id="content-bottom" class="region region-content_bottom">
-            <?php print $content_bottom; ?>
-          </div> <!-- /#content-bottom -->
-        <?php endif; ?>
+        <?php print $content_bottom; ?>
 
       </div></div> <!-- /#content-inner, /#content -->
 
       <?php if ($primary_links || $navbar): ?>
-        <div id="navbar"><div id="navbar-inner" class="clearfix region region-navbar">
+        <div id="navbar">
 
           <a name="navigation" id="navigation"></a>
 
@@ -199,7 +187,7 @@
 
           <?php print $navbar; ?>
 
-        </div></div> <!-- /#navbar-inner, /#navbar -->
+        </div> <!-- /#navbar -->
       <?php endif; ?>
 
       <?php if ($left): ?>
@@ -217,7 +205,7 @@
     </div></div> <!-- /#main-inner, /#main -->
 
     <?php if ($footer || $footer_message || $secondary_links): ?>
-      <div id="footer"><div id="footer-inner" class="region region-footer">
+      <div id="footer">
 
         <?php print theme('links', $secondary_links, array('id' => 'secondary-menu', 'class' => 'links clearfix')); ?>
 
@@ -227,7 +215,7 @@
 
         <?php print $footer; ?>
 
-      </div></div> <!-- /#footer-inner, /#footer -->
+      </div> <!-- /#footer -->
     <?php endif; ?>
 
   </div></div> <!-- /#page-inner, /#page -->
