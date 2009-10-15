@@ -139,8 +139,12 @@ function zen_preprocess(&$vars, $hook) {
 
   // Create a D7-standard classes_array variable.
   if (array_key_exists($key, $vars)) {
-    $vars['classes_array'] = explode(' ', $vars[$key]);
-    unset($vars[$key]);
+    // Views (and possibly other modules) have templates with a $classes
+    // variable that isn't a string, so we leave those variables alone.
+    if (is_string($vars[$key])) {
+      $vars['classes_array'] = explode(' ', $vars[$key]);
+      unset($vars[$key]);
+    }
   }
   else {
     $vars['classes_array'] = array($hook);
@@ -358,7 +362,9 @@ function zen_preprocess_block(&$vars, $hook) {
  *   The name of the template being rendered.
  */
 function zen_process(&$vars, $hook) {
-  $vars['classes'] = implode(' ', $vars['classes_array']);
+  if (array_key_exists('classes_array', $vars)) {
+    $vars['classes'] = implode(' ', $vars['classes_array']);
+  }
 }
 
 /**
