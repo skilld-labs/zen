@@ -7,7 +7,7 @@
  *
  * Available variables:
  * - $author: Comment author. Can be link or plain text.
- * - $content: Body of the post.
+ * - $content: Body of the comment.
  * - $created: Formatted date and time for when the comment was created.
  *   Preprocess functions can reformat it by calling format_date() with the
  *   desired parameters on the $comment->timestamp variable.
@@ -18,21 +18,20 @@
  * - $status: Comment status. Possible values are:
  *   comment-unpublished, comment-published or comment-preview.
  * - $title: Linked title.
- * - $unpublished: Is the comment unpublished?
+ * - $unpublished: An unpublished comment visible only to administrators.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default values can be one or more of the following:
  *   - comment: The current template type, i.e., "theming hook".
- *   - comment-by-anon: Comment by an unregistered user.
- *   - comment-by-author: Comment by the author of the parent node.
+ *   - comment-by-anonymous: Comment by an unregistered user.
+ *   - comment-by-node-author: Comment by the author of the parent node.
  *   - comment-preview: When previewing a new or edited comment.
- *   - odd: 
- *   - even
- *   - first: 
- *   - last: 
+ *   - first: The first comment in the list of displayed comments.
+ *   - last: The last comment in the list of displayed comments.
+ *   - odd: An odd-numbered comment in the list of displayed comments.
+ *   - even: An even-numbered comment in the list of displayed comments.
  *   The following applies only to viewers who are registered users:
- *   - comment-mine: Comment by the user currently viewing the page.
- *   - comment-published
+ *   - comment-by-viewer: Comment by the user currently viewing the page.
  *   - comment-unpublished: An unpublished comment visible only to administrators.
  *   - comment-new: New comment since the last visit.
  *
@@ -57,6 +56,8 @@
 ?>
 <div class="<?php print $classes; ?>"><div class="comment-inner clearfix">
 
+  <?php print $picture; ?>
+
   <?php if ($title): ?>
     <h3 class="title">
       <?php print $title; ?>
@@ -71,8 +72,6 @@
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
-
-  <?php if ($picture) print $picture; ?>
 
   <div class="submitted">
     <?php
