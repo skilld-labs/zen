@@ -54,7 +54,7 @@
  * @see theme_comment()
  */
 ?>
-<div class="<?php print $classes; ?>"><div class="comment-inner clearfix">
+<div class="<?php print $classes; ?> clearfix">
 
   <?php print $picture; ?>
 
@@ -91,4 +91,4 @@
 
   <?php print $links; ?>
 
-</div></div> <!-- /comment-inner, /comment -->
+</div> <!-- /comment -->
