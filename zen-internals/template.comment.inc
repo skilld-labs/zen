@@ -18,6 +18,9 @@ function _zen_preprocess_comment(&$vars, $hook) {
   // Add an "unpublished" flag.
   $vars['unpublished'] = ($vars['comment']->status == COMMENT_NOT_PUBLISHED);
 
+  // In Drupal 7, $date has been renamed to $created.
+  $vars['created'] = $vars['date'];
+
   // If comment subjects are disabled, don't display them.
   if (variable_get('comment_subject_field_' . $vars['node']->type, 1) == 0) {
     $vars['title'] = '';

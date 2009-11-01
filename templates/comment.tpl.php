@@ -8,6 +8,9 @@
  * Available variables:
  * - $author: Comment author. Can be link or plain text.
  * - $content: Body of the post.
+ * - $created: Formatted date and time for when the comment was created.
+ *   Preprocess functions can reformat it by calling format_date() with the
+ *   desired parameters on the $comment->timestamp variable.
  * - $new: New comment marker.
  * - $links: Various operational links.
  * - $picture: Authors picture.
@@ -23,10 +26,10 @@
  *   - comment-by-anon: Comment by an unregistered user.
  *   - comment-by-author: Comment by the author of the parent node.
  *   - comment-preview: When previewing a new or edited comment.
- *   - odd
+ *   - odd: 
  *   - even
- *   - first
- *   - last
+ *   - first: 
+ *   - last: 
  *   The following applies only to viewers who are registered users:
  *   - comment-mine: Comment by the user currently viewing the page.
  *   - comment-published
@@ -42,7 +45,7 @@
  *   into a string within the variable $classes.
  *
  * The following variables are deprecated in Drupal 7:
- * - $date: Date and time of posting.
+ * - $date: Formatted date and time for when the comment was created.
  * - $submitted: By line with date and time.
  *
  * @see template_preprocess()
@@ -72,7 +75,10 @@
   <?php if ($picture) print $picture; ?>
 
   <div class="submitted">
-    <?php print $submitted; ?>
+    <?php
+      print t('Submitted by !username on !datetime.',
+        array('!username' => $author, '!datetime' => $created));
+    ?>
   </div>
 
   <div class="content">
@@ -84,8 +90,6 @@
     <?php endif; ?>
   </div>
 
-  <?php if ($links): ?>
-    <?php print $links; ?>
-  <?php endif; ?>
+  <?php print $links; ?>
 
 </div></div> <!-- /comment-inner, /comment -->
