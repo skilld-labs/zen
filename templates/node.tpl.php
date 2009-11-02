@@ -33,7 +33,7 @@
  *     listings.
  *   - node-unpublished: Unpublished nodes visible only to administrators.
  *   The following applies only to viewers who are registered users:
- *   - node-by-viewer: Comment by the user currently viewing the page.
+ *   - node-by-viewer: Node is authored by the user currently viewing the page.
  *
  * Other variables:
  * - $node: Full node object. Contains data that may not be safe.
