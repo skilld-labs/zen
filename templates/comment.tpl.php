@@ -60,11 +60,11 @@
   <?php if ($title): ?>
     <h3 class="title">
       <?php print $title; ?>
-      <?php if ($comment->new): ?>
+      <?php if ($new): ?>
         <span class="new"><?php print $new; ?></span>
       <?php endif; ?>
     </h3>
-  <?php elseif ($comment->new): ?>
+  <?php elseif ($new): ?>
     <div class="new"><?php print $new; ?></div>
   <?php endif; ?>
 
