@@ -338,6 +338,11 @@ function zen_preprocess_region(&$vars, $hook) {
 function zen_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
 
+  // Drupal 7 uses a $content variable instead of $block->content.
+  $vars['content'] = $block->content;
+  // Drupal 7 should use a $title variable instead of $block->subject.
+  $vars['title'] = $block->subject;
+
   // Special classes for blocks.
   $vars['classes_array'][] = 'block-' . $block->module;
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
