@@ -74,7 +74,6 @@
  */
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix">
-
   <?php print $user_picture; ?>
 
   <?php if (!$page): ?>
@@ -107,5 +106,4 @@
   </div>
 
   <?php print $links; ?>
-
 </div> <!-- /.node -->

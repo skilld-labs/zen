@@ -53,7 +53,6 @@
  */
 ?>
 <div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>">
-
   <?php if ($title): ?>
     <h2 class="title"><?php print $title; ?></h2>
   <?php endif; ?>
@@ -63,5 +62,4 @@
   </div>
 
   <?php print $edit_links; ?>
-
 </div> <!-- /.block -->

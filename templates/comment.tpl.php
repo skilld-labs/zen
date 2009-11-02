@@ -55,7 +55,6 @@
  */
 ?>
 <div class="<?php print $classes; ?> clearfix">
-
   <?php print $picture; ?>
 
   <?php if ($title): ?>
@@ -90,5 +89,4 @@
   </div>
 
   <?php print $links; ?>
-
-</div> <!-- /comment -->
+</div> <!-- /.comment -->
