@@ -2,27 +2,41 @@
 // $Id$
 
 /**
- * @file block.tpl.php
- *
+ * @file
  * Theme implementation to display a block.
  *
  * Available variables:
  * - $block->subject: Block title.
  * - $block->content: Block content.
  * - $block->module: Module that generated the block.
- * - $block->delta: This is a numeric id connected to each module.
+ * - $block->delta: An ID for the block, unique within each module.
  * - $block->region: The block region embedding the current block.
- * - $classes_array: 
- *   ...
- * - $classes: A set of CSS classes for the DIV wrapping the block.
-     Possible values are: block-MODULE, region-odd, region-even, odd, even,
-     region-count-X, and count-X.
- * - $edit_links_array: 
- *   ...
- * - $edit_links: 
- *   ...
+ * - $edit_links: A list of contextual links for the block. It can be
+ *   manipulated through the variable $edit_links_array from preprocess
+ *   functions.
+ * - $classes: String of classes that can be used to style contextually through
+ *   CSS. It can be manipulated through the variable $classes_array from
+ *   preprocess functions. The default values can be one or more of the
+ *   following:
+ *   - block: The current template type, i.e., "theming hook".
+ *   - block-[module]: The module generating the block. For example, the user
+ *     module is responsible for handling the default user navigation block. In
+ *     that case the class would be "block-user".
+ *   - region-count-[x]: The position of the block in the list of blocks in the
+ *     current region.
+ *   - region-odd: An odd-numbered block of the list of blocks in the current
+ *     region.
+ *   - region-even: An even-numbered block of the list of blocks in the current
+ *     region.
+ *   - count-[x]: The position of the block in the list of blocks on the current
+ *     page.
+ *   - odd: An odd-numbered block of the list of blocks on the current page.
+ *   - even: An even-numbered block of the list of blocks on the current page.
  *
  * Helper variables:
+ * - $classes_array: Array of html class attribute values. It is flattened
+ *   into a string within the variable $classes.
+ * - $edit_links_array: An array of contextual links for the block.
  * - $block_zebra: Outputs 'odd' and 'even' dependent on each block region.
  * - $zebra: Same output as $block_zebra but independent of any block region.
  * - $block_id: Counter dependent on each block region.
@@ -32,7 +46,10 @@
  * - $is_admin: Flags true when the current user is an administrator.
  *
  * @see template_preprocess()
+ * @see zen_preprocess()
  * @see template_preprocess_block()
+ * @see zen_preprocess_block()
+ * @see zen_process()
  */
 ?>
 <div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"><div class="block-inner">
