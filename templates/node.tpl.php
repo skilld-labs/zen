@@ -14,6 +14,7 @@
  * - $name: Themed username of node author output from theme_username().
  * - $node_url: Direct url of the current node.
  * - $terms: the themed list of taxonomy term links output from theme_links().
+ * - $display_submitted: whether submission information should be displayed.
  * - $links: Themed links like "Read more", "Add new comment", etc. output
  *   from theme_links().
  * - $classes: String of classes that can be used to style contextually through
@@ -60,7 +61,7 @@
  *
  * The following variables are deprecated in Drupal 7:
  * - $picture: This variable has been renamed $user_picture in Drupal 7.
- * - $submitted: themed submission information output from
+ * - $submitted: Themed submission information output from
  *   theme_node_submitted().
  *
  * @see template_preprocess()
@@ -70,7 +71,7 @@
  * @see zen_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix">
 
   <?php print $user_picture; ?>
 
@@ -82,10 +83,15 @@
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
-  <?php if ($submitted || $terms): ?>
+  <?php if ($display_submitted || $terms): ?>
     <div class="meta">
-      <?php if ($submitted): ?>
-        <span class="submitted"><?php print $submitted; ?></span>
+      <?php if ($display_submitted): ?>
+        <span class="submitted">
+          <?php
+            print t('Submitted by !username on !datetime',
+              array('!username' => $name, '!datetime' => $date));
+          ?>
+        </span>
       <?php endif; ?>
 
       <?php if ($terms): ?>

@@ -265,6 +265,9 @@ function zen_preprocess_node(&$vars, $hook) {
   // Create the user_picture variable.
   $vars['user_picture'] = $vars['picture'];
 
+  // Create the Drupal 7 $display_submitted variable.
+  $vars['display_submitted'] = theme_get_setting('toggle_node_info_' . $vars['node']->type);
+
   // Special classes for nodes.
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
   $vars['classes_array'][] = zen_id_safe('node-type-' . $vars['type']);
