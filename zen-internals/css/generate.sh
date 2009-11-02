@@ -19,4 +19,3 @@ cp ../../STARTERKIT/css/print.css .;
 
 cp ../../STARTERKIT/css/ie.css .;
 cp ../../STARTERKIT/css/ie6.css .;
-cp ../../STARTERKIT/css/ie5.css .;
