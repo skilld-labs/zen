@@ -51,7 +51,6 @@
  * @see template_preprocess_comment()
  * @see zen_preprocess()
  * @see zen_process()
- * @see theme_comment()
  */
 ?>
 <div class="<?php print $classes; ?> clearfix">

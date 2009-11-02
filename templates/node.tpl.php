@@ -61,7 +61,7 @@
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
  *
- * The following variables are deprecated in Drupal 7:
+ * The following variables are deprecated and will be removed in Drupal 7:
  * - $picture: This variable has been renamed $user_picture in Drupal 7.
  * - $submitted: Themed submission information output from
  *   theme_node_submitted().
