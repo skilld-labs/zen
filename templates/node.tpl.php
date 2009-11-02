@@ -9,19 +9,17 @@
  * - $title: the (sanitized) title of the node.
  * - $content: Node body or teaser depending on $teaser flag.
  * - $user_picture: The node author's picture from user-picture.tpl.php.
- * - $picture: DEPRECATED. This variable has been renamed $user_picture in Drupal 7.
- * - $date: Formatted creation date (use $created to reformat with
- *   format_date()).
- * - $links: Themed links like "Read more", "Add new comment", etc. output
- *   from theme_links().
+ * - $date: Formatted creation date. Preprocess functions can reformat it by
+ *   calling format_date() with the desired parameters on the $created variable.
  * - $name: Themed username of node author output from theme_username().
  * - $node_url: Direct url of the current node.
  * - $terms: the themed list of taxonomy term links output from theme_links().
- * - $submitted: themed submission information output from
- *   theme_node_submitted().
+ * - $links: Themed links like "Read more", "Add new comment", etc. output
+ *   from theme_links().
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
- *   preprocess functions. The default values can be one or more of the following:
+ *   preprocess functions. The default values can be one or more of the
+ *   following:
  *   - node: The current template type, i.e., "theming hook".
  *   - node-[type]: The current node type. For example, if the node is a
  *     "Blog entry" it would result in "node-blog". Note that the machine
@@ -30,7 +28,8 @@
  *   - node-preview: Nodes in preview mode.
  *   The following are controlled through the node publishing options.
  *   - node-promoted: Nodes promoted to the front page.
- *   - node-sticky: Nodes ordered above other non-sticky nodes in teaser listings.
+ *   - node-sticky: Nodes ordered above other non-sticky nodes in teaser
+ *     listings.
  *   - node-unpublished: Unpublished nodes visible only to administrators.
  *
  * Other variables:
@@ -59,8 +58,16 @@
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
  *
+ * The following variables are deprecated in Drupal 7:
+ * - $picture: This variable has been renamed $user_picture in Drupal 7.
+ * - $submitted: themed submission information output from
+ *   theme_node_submitted().
+ *
  * @see template_preprocess()
  * @see template_preprocess_node()
+ * @see zen_preprocess()
+ * @see zen_preprocess_node()
+ * @see zen_process()
  */
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"><div class="node-inner">
