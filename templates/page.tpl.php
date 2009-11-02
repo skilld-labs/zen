@@ -13,8 +13,6 @@
  * - $css: An array of CSS files for the current page.
  * - $directory: The directory the template is located in, e.g. modules/system
  *   or themes/garland.
- * - $classes_array: Array of the body classes. It is flattened into a string
- *   within the variable $classes.
  * - $is_front: TRUE if the current page is the front page. Used to toggle the mission statement.
  * - $logged_in: TRUE if the user is registered and signed in.
  * - $is_admin: TRUE if the user has permission to access administration pages.
@@ -82,6 +80,13 @@
  * - $footer : The footer region.
  * - $closure: Final closing markup from any modules that have altered the page.
  *   This variable should always be output last, after all other dynamic content.
+ *
+ * Helper variables:
+ * - $classes_array: Array of html class attribute values. It is flattened
+ *   into a string within the variable $classes.
+ *
+ * The following variables are deprecated and will be removed in Drupal 7:
+ * - $body_classes: This variable has been renamed $classes in Drupal 7.
  *
  * @see template_preprocess()
  * @see template_preprocess_page()
