@@ -70,7 +70,7 @@
  * @see zen_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"><div class="node-inner">
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 
   <?php print $user_picture; ?>
 
@@ -100,4 +100,4 @@
 
   <?php print $links; ?>
 
-</div></div> <!-- /node-inner, /node -->
+</div> <!-- /.node -->
