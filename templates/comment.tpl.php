@@ -12,12 +12,12 @@
  *   Preprocess functions can reformat it by calling format_date() with the
  *   desired parameters on the $comment->timestamp variable.
  * - $new: New comment marker.
- * - $links: Various operational links.
  * - $picture: Authors picture.
  * - $signature: Authors signature.
  * - $status: Comment status. Possible values are:
  *   comment-unpublished, comment-published or comment-preview.
  * - $title: Linked title.
+ * - $links: Various operational links.
  * - $unpublished: An unpublished comment visible only to administrators.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
@@ -43,7 +43,7 @@
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
  *
- * The following variables are deprecated in Drupal 7:
+ * The following variables are deprecated and will be removed in Drupal 7:
  * - $date: Formatted date and time for when the comment was created.
  * - $submitted: By line with date and time.
  *
