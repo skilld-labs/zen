@@ -52,7 +52,7 @@
  * @see zen_process()
  */
 ?>
-<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"><div class="block-inner">
+<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>">
 
   <?php if ($block->subject): ?>
     <h2 class="title"><?php print $block->subject; ?></h2>
@@ -64,4 +64,4 @@
 
   <?php print $edit_links; ?>
 
-</div></div> <!-- /block-inner, /block -->
+</div> <!-- /.block -->
