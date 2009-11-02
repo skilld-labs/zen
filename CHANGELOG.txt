@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #548994: Update comment.tpl and comment-wrapper.tpl to use ideas from D7
 - #311458: Search box gets disabled after arbitrary amount of time
 - Added $classes and $classes_array to all templates, not just Zen's templates
 - Renamed page.tpl's $body_classes and $body_classes_array to $classes and $classes_array
