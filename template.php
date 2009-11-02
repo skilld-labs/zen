@@ -285,7 +285,7 @@ function zen_preprocess_node(&$vars, $hook) {
     $vars['unpublished'] = FALSE;
   }
   if ($vars['uid'] && $vars['uid'] == $GLOBALS['user']->uid) {
-    $vars['classes_array'][] = 'node-mine'; // Node is authored by current user.
+    $vars['classes_array'][] = 'node-by-viewer'; // Node is authored by current user.
   }
   if ($vars['teaser']) {
     $vars['classes_array'][] = 'node-teaser'; // Node is displayed as teaser.
