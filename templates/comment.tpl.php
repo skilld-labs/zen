@@ -50,6 +50,7 @@
  * @see template_preprocess()
  * @see template_preprocess_comment()
  * @see zen_preprocess()
+ * @see zen_preprocess_comment()
  * @see zen_process()
  */
 ?>
