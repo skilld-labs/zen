@@ -72,8 +72,6 @@
  * - $help: Dynamic help text, mostly for admin pages.
  * - $content: The main content of the current page.
  * - $feed_icons: A string of all feed icons for the current page.
- * - $sidebar_first: The HTML for the first sidebar.
- * - $sidebar_second: The HTML for the second sidebar.
  *
  * Footer/closing data:
  * - $footer_message: The footer message as defined in the admin settings.
@@ -84,6 +82,16 @@
  * Helper variables:
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
+ *
+ * Regions:
+ * - $content_top: Items to appear above the main content of the current page.
+ * - $content_bottom: Items to appear below the main content of the current page.
+ * - $navbar: Items for the navigation bar.
+ * - $sidebar_first: Items for the first sidebar.
+ * - $sidebar_second: Items for the second sidebar.
+ * - $header: Items for the header region.
+ * - $footer: Items for the footer region.
+ * - $closure_region: Items to appear below the footer.
  *
  * The following variables are deprecated and will be removed in Drupal 7:
  * - $body_classes: This variable has been renamed $classes in Drupal 7.
