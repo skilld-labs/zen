@@ -316,7 +316,7 @@ fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-fixed.css,v 1.7 2009/10/15 15:48:20 johnalbin Exp */
+/* Id: layout-fixed.css,v 1.8 2009/11/03 19:35:03 johnalbin Exp */
 
 /**
  * @file
@@ -342,7 +342,7 @@ fieldset {
 body {
 }
 
-#page,
+#page-wrapper,
 #closure-blocks {
   /*
    * If you want to make the page a fixed width and centered in the viewport,
@@ -354,7 +354,7 @@ body {
   width: 960px;
 }
 
-#page-inner {
+#page {
 }
 
 #navigation-top,
@@ -540,7 +540,7 @@ body {
 /*
  * Closure
  */
-#closure-blocks /* See also the #page declaration above that this div shares. */ {
+#closure-blocks /* See also the #page-wrapper declaration above that this div shares. */ {
 }
 
 /*
@@ -567,14 +567,14 @@ body {
  * place several pixels worth of space between the bottom of the div and the
  * bottom of the viewport. Uncomment this CSS property to fix this.
  * Note: with some over-large content, this property might cause scrollbars
- * to appear on the #page div.
+ * to appear on the #page-wrapper div.
  */
 /*
-#page {
+#page-wrapper {
   overflow-y: hidden;
 }
 */
-/* Id: page-backgrounds.css,v 1.4 2009/10/15 15:48:20 johnalbin Exp */
+/* Id: page-backgrounds.css,v 1.5 2009/11/03 19:35:03 johnalbin Exp */
 
 /**
  * @file
@@ -591,10 +591,10 @@ body {
 body {
 }
 
-#page {
+#page-wrapper {
 }
 
-#page-inner {
+#page {
 }
 
 #header {
@@ -793,7 +793,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.7 2009/10/15 15:48:20 johnalbin Exp */
+/* Id: pages.css,v 1.8 2009/11/03 19:35:03 johnalbin Exp */
 
 /**
  * @file
@@ -813,10 +813,10 @@ body {
   padding: 10px;
 }
 
-#page {
+#page-wrapper {
 }
 
-#page-inner {
+#page {
 }
 
 /*
