@@ -103,26 +103,61 @@ function zen_menu_local_tasks() {
  *
  * @param $region
  *   Which set of blocks to retrieve.
+ * @param $show_blocks
+ *   A boolean to determine whether to render sidebar regions or not. Should be
+ *   the same value as passed to theme_page.
  * @return
  *   A string containing the themed blocks for this region.
+ *
+ * @see zen_show_blocks_discovery()
  */
-function zen_blocks($region) {
-  $output = '';
-
-  if ($list = block_list($region)) {
-    foreach ($list as $key => $block) {
-      // $key == module_delta
-      $output .= theme('block', $block);
-    }
+function zen_blocks($region, $show_blocks = NULL) {
+  // Since Drupal 6 doesn't pass $show_blocks to theme_blocks, we manually call
+  // theme('blocks', NULL, $show_blocks) so that this function can remember the
+  // value on later calls.
+  static $render_sidebars = TRUE;
+  if (!is_null($show_blocks)) {
+    $render_sidebars = $show_blocks;
   }
 
-  // Add any content assigned to this region through drupal_set_content() calls.
-  $output .= drupal_get_content($region);
+  // If zen_blocks was called with a NULL region, its likely we were just
+  // setting the $render_sidebars static variable.
+  if ($region) {
+    $output = '';
 
-  $elements['#children'] = $output;
-  $elements['#region'] = $region;
+    // If $renders_sidebars is FALSE, don't render any region whose name begins
+    // with "sidebar_".
+    if (($render_sidebars || (strpos($region, 'sidebar_') !== 0)) && ($list = block_list($region))) {
+      foreach ($list as $key => $block) {
+        // $key == module_delta
+        $output .= theme('block', $block);
+      }
+    }
 
-  return $output ? theme('region', $elements) : '';
+    // Add any content assigned to this region through drupal_set_content() calls.
+    $output .= drupal_get_content($region);
+
+    $elements['#children'] = $output;
+    $elements['#region'] = $region;
+
+    return $output ? theme('region', $elements) : '';
+  }
+}
+
+/**
+ * Examine the $show_blocks variable before template_preprocess_page() is called.
+ *
+ * @param $vars
+ *   An array of variables to pass to the page template.
+ *
+ * @see zen_blocks()
+ */
+function zen_show_blocks_discovery(&$vars) {
+  if ($vars['show_blocks'] == FALSE) {
+    // Allow zen_blocks() to statically cache the $show_blocks variable. A TRUE
+    // value is assumed, so we only need to override when $show_blocks is FALSE.
+    theme('blocks', NULL, FALSE);
+  }
 }
 
 /**
@@ -195,15 +230,30 @@ function zen_preprocess_page(&$vars, $hook) {
   if (theme_get_setting('zen_wireframes')) {
     $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
-  // Add new sidebar classes in addition to Drupal core's sidebar-* classes.
-  // This provides some backwards compatibility with Zen 6.x-1.x themes.
-  if ($vars['layout'] != 'both') {
-    $new_layout = ($vars['layout'] == 'left') ? 'first' : 'second';
-    if (array_search('sidebar-' . $vars['layout'], $vars['classes_array'])) {
-      $vars['classes_array'][] = 'sidebar-' . $new_layout;
+  // We need to re-do the $layout and body classes because
+  // template_preprocess_page() assumes sidebars are named 'left' and 'right'.
+  $vars['layout'] = 'none';
+  if (!empty($vars['sidebar_first'])) {
+    $vars['layout'] = 'first';
+  }
+  if (!empty($vars['sidebar_second'])) {
+    $vars['layout'] = ($vars['layout'] == 'first') ? 'both' : 'second';
+  }
+  // If the layout is 'none', then template_preprocess_page() will already have
+  // set a 'no-sidebars' class since it won't find a 'left' or 'right' sidebar.
+  if ($vars['layout'] != 'none') {
+    // Remove the incorrect 'no-sidebars' class.
+    if ($index = array_search('no-sidebars', $vars['classes_array'])) {
+      unset($vars['classes_array'][$index]);
     }
-    // Replace core's $layout variable with our naming of sidebars.
-    $vars['layout'] = $new_layout;
+    // Set the proper layout body classes.
+    if ($vars['layout'] == 'both') {
+      $vars['classes_array'][] = 'two-sidebars';
+    }
+    else {
+      $vars['classes_array'][] = 'one-sidebar';
+      $vars['classes_array'][] = 'sidebar-' . $vars['layout'];
+    }
   }
 }
 

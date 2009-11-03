@@ -60,8 +60,12 @@ function _zen_theme(&$existing, $type, $theme, $path) {
     }
   }
 
-  // The base theme registers region.tpl.php
+  // Manipulations only to be done by the base theme.
   if ($theme == 'zen') {
+    // Insert zen_show_blocks_discovery() before template_preprocess_page().
+    $existing['page']['preprocess functions'] = array_merge(array('zen_show_blocks_discovery'), $existing['page']['preprocess functions']);
+
+    // The base theme registers region.tpl.php.
     return array(
       'region' => array(
         'arguments' => array('elements' => NULL),

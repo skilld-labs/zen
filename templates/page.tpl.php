@@ -72,8 +72,8 @@
  * - $help: Dynamic help text, mostly for admin pages.
  * - $content: The main content of the current page.
  * - $feed_icons: A string of all feed icons for the current page.
- * - $left: The HTML for the first sidebar.
- * - $right: The HTML for the second sidebar.
+ * - $sidebar_first: The HTML for the first sidebar.
+ * - $sidebar_second: The HTML for the second sidebar.
  *
  * Footer/closing data:
  * - $footer_message: The footer message as defined in the admin settings.
@@ -195,15 +195,15 @@
         </div> <!-- /#navbar -->
       <?php endif; ?>
 
-      <?php if ($left): ?>
+      <?php if ($sidebar_first): ?>
         <div id="sidebar-first"><div id="sidebar-first-inner" class="region region-sidebar-first">
-          <?php print $left; ?>
+          <?php print $sidebar_first; ?>
         </div></div> <!-- /#sidebar-first-inner, /#sidebar-first -->
       <?php endif; ?>
 
-      <?php if ($right): ?>
+      <?php if ($sidebar_second): ?>
         <div id="sidebar-second"><div id="sidebar-second-inner" class="region region-sidebar-second">
-          <?php print $right; ?>
+          <?php print $sidebar_second; ?>
         </div></div> <!-- /#sidebar-second-inner, /#sidebar-second -->
       <?php endif; ?>
 
