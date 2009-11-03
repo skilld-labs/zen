@@ -103,7 +103,7 @@
 </head>
 <body class="<?php print $classes; ?>">
 
-  <div id="page"><div id="page-inner">
+  <div id="page-wrapper"><div id="page">
 
     <?php if ($primary_links || $navbar): ?>
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
@@ -223,7 +223,7 @@
       </div> <!-- /#footer -->
     <?php endif; ?>
 
-  </div></div> <!-- /#page-inner, /#page -->
+  </div></div> <!-- /#page, /#page-wrapper -->
 
   <?php if ($closure_region): ?>
     <div id="closure-blocks" class="region region-closure"><?php print $closure_region; ?></div>
