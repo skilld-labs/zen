@@ -68,6 +68,14 @@ function _zen_theme(&$existing, $type, $theme, $path) {
         //'pattern' => 'region_',
         'path' => drupal_get_path('theme', 'zen') . '/templates',
         'template' => 'region',
+        // We manually register the preprocess and process functions, since
+        // Drupal won't auto-register template_preprocess or process functions.
+        'preprocess functions' => array(
+          'template_preprocess',
+          'zen_preprocess',
+          'zen_preprocess_region',
+          'zen_process',
+        ),
       ),
     );
   }
