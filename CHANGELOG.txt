@@ -4,12 +4,43 @@ Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
 - Renamed $closure_region region to $page_closure
 - #622324: Update page.tpl to use ideas from D7
+  - Renamed #page and #page-inner to #page-wrapper and #page
+  - Added <span> around site name
+  - Moved #skip-to-nav styling to pages.css
+  - Removed #navigation link anchor
+  - Renamed div#header-inner to div.section which can be themed with #header .section
+  - Renamed #main and #main-inner to #main-wrapper and #main
+  - Renamed div#content-inner to div.section which can be themed with #content .section
+  - Removed #content-header div
+  - Added $highlight region
+  - Renamed #navbar div to #navigation
+  - Renamed $navbar region to $navigation
+  - Renamed .with-navbar class to .with-navigation
+  - Added #navigation .section div
+  - Removed #sidebar-first, #sidebar-first-inner, #sidebar-second, #sidebar-second-inner and moved styles to .region-sidebar-first, .region-sidebar-first .section, .region-sidebar-second, .region-sidebar-second .section
+  - Added #footer .section div
 - Added region-sidebar.tpl.php template suggestion
 - #308254: Make "skip to nav" styling more useful and less intrusive
 - #621798: Change sidebar variables to be RTL friendly and $shows_blocks compatible
-- #547696: Follow-up to Update node.tpl to use ideas from D7
+- #547696: Update node.tpl to use ideas from D7
+  - Renamed $picture to $user_picture in node.tpl.php
+  - Renamed .sticky class to .node-sticky in node.tpl.php
+  - Removed #node-inner div
+  - Added $display_submitted variable and deprecated $submitted variable
+  - Renamed the .node-mine class to .node-by-viewer
 - #620794: Update block.tpl to use ideas from D7
+  - Removed .block-inner div
+  - Renamed $block->subject variable to $title
+  - Renamed $block->content variable to $content
 - #548994: Update comment.tpl and comment-wrapper.tpl to use ideas from D7
+  - Renamed comment-wrapper's h2#comments-title to #comments h2.title
+  - Added $created to comment.tpl and deprecated $submitted
+  - Removed #comment-inner div
+  - comment div classes changed:
+    - .comment-by-anon changed to .comment-by-anonymous
+    - .comment-by-author changed to .comment-by-node-author
+    - .comment-mine changed to .comment-by-viewer
+    - .comment-published was removed
 - #311458: Search box gets disabled after arbitrary amount of time
 - Added $classes and $classes_array to all templates, not just Zen's templates
 - Renamed page.tpl's $body_classes and $body_classes_array to $classes and $classes_array
