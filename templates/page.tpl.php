@@ -154,7 +154,7 @@
 
     <div id="main-wrapper"><div id="main" class="clearfix<?php if ($primary_links || $navbar) { print ' with-navbar'; } ?>">
 
-      <div id="content"><div id="content-inner">
+      <div id="content" class="column"><div class="section">
 
         <?php if ($mission): ?>
           <div id="mission"><?php print $mission; ?></div>
@@ -186,7 +186,7 @@
 
         <?php print $content_bottom; ?>
 
-      </div></div> <!-- /#content-inner, /#content -->
+      </div></div> <!-- /.section, /#content -->
 
       <?php if ($primary_links || $navbar): ?>
         <div id="navbar">

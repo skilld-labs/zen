@@ -54,7 +54,7 @@
 
     <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navbar) { print ' with-navbar'; } ?>">
 
-      <div id="content"><div id="content-inner">
+      <div id="content" class="column"><div class="section">
 
         <?php print $content_top; ?>
 
@@ -73,7 +73,7 @@
 
         <?php print $content_bottom; ?>
 
-      </div></div> <!-- /#content-inner, /#content -->
+      </div></div> <!-- /.section, /#content -->
 
       <?php if ($navbar): ?>
         <div id="navbar">
