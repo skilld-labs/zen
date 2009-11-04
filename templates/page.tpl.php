@@ -203,7 +203,7 @@
     </div></div> <!-- /#main, /#main-wrapper -->
 
     <?php if ($footer || $footer_message || $secondary_links): ?>
-      <div id="footer">
+      <div id="footer"><div class="section">
 
         <?php print theme('links', $secondary_links, array('id' => 'secondary-menu', 'class' => 'links clearfix')); ?>
 
@@ -213,7 +213,7 @@
 
         <?php print $footer; ?>
 
-      </div> <!-- /#footer -->
+      </div></div> <!-- /.section, /#footer -->
     <?php endif; ?>
 
   </div></div> <!-- /#page, /#page-wrapper -->

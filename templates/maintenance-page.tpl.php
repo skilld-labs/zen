@@ -88,7 +88,7 @@
     </div></div> <!-- /#main, /#main-wrapper -->
 
     <?php if ($footer || $footer_message): ?>
-      <div id="footer">
+      <div id="footer"><div class="section">
 
         <?php if ($footer_message): ?>
           <div id="footer-message"><?php print $footer_message; ?></div>
@@ -96,7 +96,7 @@
 
         <?php print $footer; ?>
 
-      </div> <!-- /#footer -->
+      </div></div> <!-- /.section, /#footer -->
     <?php endif; ?>
 
   </div></div> <!-- /#page, /#page-wrapper -->
