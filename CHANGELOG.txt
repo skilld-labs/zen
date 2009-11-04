@@ -4,7 +4,7 @@ Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
 - #308254: Make "skip to nav" styling more useful and less intrusive
 - #621798: Change sidebar variables to be RTL friendly and $shows_blocks compatible
-- #547696: Update node.tpl to use ideas from D7
+- #547696: Follow-up to Update node.tpl to use ideas from D7
 - #620794: Update block.tpl to use ideas from D7
 - #548994: Update comment.tpl and comment-wrapper.tpl to use ideas from D7
 - #311458: Search box gets disabled after arbitrary amount of time
