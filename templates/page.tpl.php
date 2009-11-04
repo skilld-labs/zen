@@ -67,15 +67,14 @@
  * Page content (in order of occurrence in the default page.tpl.php):
  * - $title: The page title, for use in the actual HTML content.
  * - $messages: HTML for status and error messages. Should be displayed prominently.
- * - $tabs: Tabs linking to any sub-pages beneath the current page (e.g., the view
- *   and edit tabs when displaying a node).
+ * - $tabs: Tabs linking to any sub-pages beneath the current page (e.g., the
+ *   view and edit tabs when displaying a node).
  * - $help: Dynamic help text, mostly for admin pages.
  * - $content: The main content of the current page.
  * - $feed_icons: A string of all feed icons for the current page.
  *
  * Footer/closing data:
  * - $footer_message: The footer message as defined in the admin settings.
- * - $footer : The footer region.
  * - $closure: Final closing markup from any modules that have altered the page.
  *   This variable should always be output last, after all other dynamic content.
  *
