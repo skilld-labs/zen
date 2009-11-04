@@ -52,7 +52,7 @@
 
     </div></div> <!-- /.section, /#header -->
 
-    <div id="main"><div id="main-inner" class="clearfix<?php if ($navbar) { print ' with-navbar'; } ?>">
+    <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navbar) { print ' with-navbar'; } ?>">
 
       <div id="content"><div id="content-inner">
 
@@ -95,7 +95,7 @@
         </div></div> <!-- /#sidebar-second-inner, /#sidebar-second -->
       <?php endif; ?>
 
-    </div></div> <!-- /#main-inner, /#main -->
+    </div></div> <!-- /#main, /#main-wrapper -->
 
     <?php if ($footer || $footer_message): ?>
       <div id="footer">
