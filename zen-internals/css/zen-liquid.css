@@ -290,7 +290,7 @@ fieldset {
   margin: 1em 0;
   padding: 0.5em;
 }
-/* Id: wireframes.css,v 1.7 2009/11/04 20:16:50 johnalbin Exp */
+/* Id: wireframes.css,v 1.8 2009/11/04 20:49:23 johnalbin Exp */
 
 /**
  * @file
@@ -311,12 +311,12 @@ fieldset {
   border: 1px solid #ccc;
 }
 
-.with-wireframes #closure-blocks {
+.with-wireframes .region-page-closure {
   margin-top: 1px;
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-liquid.css,v 1.14 2009/11/04 20:16:50 johnalbin Exp */
+/* Id: layout-liquid.css,v 1.15 2009/11/04 20:49:23 johnalbin Exp */
 
 /**
  * @file
@@ -343,7 +343,7 @@ body {
 }
 
 #page-wrapper,
-#closure-blocks {
+.region-page-closure {
   min-width: 960px; /* Don't allow the browser to make the site unreadable. */
 }
 
@@ -486,7 +486,7 @@ body {
 /*
  * Closure
  */
-#closure-blocks /* See also the #page-wrapper declaration above that this div shares. */ {
+.region-page-closure /* See also the #page-wrapper declaration above that this div shares. */ {
 }
 
 /*
@@ -498,7 +498,7 @@ body {
 .region-sidebar-first,
 .region-sidebar-second,
 #footer,
-#closure-blocks {
+.region-page-closure {
   overflow: visible;
   word-wrap: break-word; /* A very nice CSS3 property */
 }
@@ -739,7 +739,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.15 2009/11/04 20:16:50 johnalbin Exp */
+/* Id: pages.css,v 1.16 2009/11/04 20:49:23 johnalbin Exp */
 
 /**
  * @file
@@ -990,7 +990,7 @@ ul.links li {
 /*
  * Closure
  */
-#closure-blocks /* Wrapper for any blocks placed in the closure region */ {
+.region-page-closure /* Wrapper for any blocks placed in the closure region */ {
 }
 
 /*
