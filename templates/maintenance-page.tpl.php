@@ -27,7 +27,7 @@
 
   <div id="page-wrapper"><div id="page">
 
-    <div id="header"><div id="header-inner" class="clearfix">
+    <div id="header"><div class="section clearfix">
 
       <?php if ($logo): ?>
         <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
@@ -50,7 +50,7 @@
 
       <?php print $header; ?>
 
-    </div></div> <!-- /#header-inner, /#header -->
+    </div></div> <!-- /.section, /#header -->
 
     <div id="main"><div id="main-inner" class="clearfix<?php if ($navbar) { print ' with-navbar'; } ?>">
 
