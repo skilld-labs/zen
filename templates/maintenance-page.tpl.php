@@ -58,14 +58,10 @@
 
         <?php print $content_top; ?>
 
-        <?php if ($title || $messages): ?>
-          <div id="content-header">
-            <?php if ($title): ?>
-              <h1 class="title"><?php print $title; ?></h1>
-            <?php endif; ?>
-            <?php if ($messages): print $messages; endif; ?>
-          </div> <!-- /#content-header -->
+        <?php if ($title): ?>
+          <h1 class="title"><?php print $title; ?></h1>
         <?php endif; ?>
+        <?php if ($messages): print $messages; endif; ?>
 
         <div id="content-area">
           <?php print $content; ?>

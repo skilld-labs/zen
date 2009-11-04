@@ -162,19 +162,15 @@
 
         <?php print $content_top; ?>
 
-        <?php if ($breadcrumb || $title || $tabs || $help || $messages): ?>
-          <div id="content-header">
-            <?php print $breadcrumb; ?>
-            <?php if ($title): ?>
-              <h1 class="title"><?php print $title; ?></h1>
-            <?php endif; ?>
-            <?php print $messages; ?>
-            <?php if ($tabs): ?>
-              <div class="tabs"><?php print $tabs; ?></div>
-            <?php endif; ?>
-            <?php print $help; ?>
-          </div> <!-- /#content-header -->
+        <?php print $breadcrumb; ?>
+        <?php if ($title): ?>
+          <h1 class="title"><?php print $title; ?></h1>
         <?php endif; ?>
+        <?php print $messages; ?>
+        <?php if ($tabs): ?>
+          <div class="tabs"><?php print $tabs; ?></div>
+        <?php endif; ?>
+        <?php print $help; ?>
 
         <div id="content-area">
           <?php print $content; ?>
