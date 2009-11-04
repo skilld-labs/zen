@@ -1,7 +1,7 @@
 -n /* $
 Id$ */
 
-/* Id: html-reset.css,v 1.1 2009/08/12 17:49:26 johnalbin Exp */
+/* Id: html-reset.css,v 1.2 2009/11/04 15:18:21 johnalbin Exp */
 
 /**
  * @file
@@ -28,6 +28,7 @@ body {
   font-size: 100%; /* Fixes exaggerated text resizing in IE6 and IE7 */
 }
 
+#skip-to-nav,
 #page {
   /*
    * To use a 12px font size on the page, delete the 14px declarations.
@@ -316,7 +317,7 @@ fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-liquid.css,v 1.8 2009/11/03 19:35:03 johnalbin Exp */
+/* Id: layout-liquid.css,v 1.9 2009/11/04 12:23:10 johnalbin Exp */
 
 /**
  * @file
@@ -349,50 +350,6 @@ body {
 
 #page {
 }
-
-#navigation-top,
-#navigation {
-  position: absolute; /* Take the named anchors out of the doc flow    */
-  left: -10000px;     /* and prevent any anchor styles from appearing. */
-}
-
-#skip-to-nav {
-  float: right; /* LTR */
-  margin: 0 !important;
-  font-size: 0.8em;
-}
-
-#skip-to-nav a:link,
-#skip-to-nav a:visited {
-  color: #fff; /* Same as background color of page */
-}
-
-#skip-to-nav a:hover {
-  color: #000;
-  text-decoration: none;
-}
-
-/* Alternatively, the skip-to-nav link can be completely hidden until a user tabs
-   to the link. Un-comment the following CSS to use this technique. */
-/*
-#skip-to-nav a,
-#skip-to-nav a:hover,
-#skip-to-nav a:visited {
-  position: absolute;
-  left: 0;
-  top: -500px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-#skip-to-nav a:active,
-#skip-to-nav a:focus {
-  position: static;
-  width: auto;
-  height: auto;
-}
-*/
 
 /*
  * Header
@@ -783,7 +740,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.8 2009/11/03 19:35:03 johnalbin Exp */
+/* Id: pages.css,v 1.10 2009/11/04 15:18:21 johnalbin Exp */
 
 /**
  * @file
@@ -800,13 +757,39 @@ div.messages ul {
  */
 body {
   margin: 0;
-  padding: 10px;
+  padding: 0;
 }
 
 #page-wrapper {
 }
 
 #page {
+}
+
+/*
+ * The skip-to-nav link will be completely hidden until a user tabs to the link.
+ */
+#skip-to-nav a,
+#skip-to-nav a:visited {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: -500px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+#skip-to-nav a:hover,
+#skip-to-nav a:active,
+#skip-to-nav a:focus {
+  position: static;
+  width: 100%;
+  height: auto;
+  padding: 2px 0 3px 0;
 }
 
 /*
