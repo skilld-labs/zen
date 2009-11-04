@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #622324: Update page.tpl to use ideas from D7
 - Added region-sidebar.tpl.php template suggestion
 - #308254: Make "skip to nav" styling more useful and less intrusive
 - #621798: Change sidebar variables to be RTL friendly and $shows_blocks compatible
