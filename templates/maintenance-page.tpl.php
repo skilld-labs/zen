@@ -101,9 +101,7 @@
 
   </div></div> <!-- /#page, /#page-wrapper -->
 
-  <?php if ($closure_region): ?>
-    <div id="closure-blocks" class="region region-closure"><?php print $closure_region; ?></div>
-  <?php endif; ?>
+  <?php print $page_closure; ?>
 
   <?php print $closure; ?>
 

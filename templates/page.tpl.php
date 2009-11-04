@@ -90,7 +90,7 @@
  * - $sidebar_second: Items for the second sidebar.
  * - $header: Items for the header region.
  * - $footer: Items for the footer region.
- * - $closure_region: Items to appear below the footer.
+ * - $page_closure: Items to appear below the footer.
  *
  * The following variables are deprecated and will be removed in Drupal 7:
  * - $body_classes: This variable has been renamed $classes in Drupal 7.
@@ -218,9 +218,7 @@
 
   </div></div> <!-- /#page, /#page-wrapper -->
 
-  <?php if ($closure_region): ?>
-    <div id="closure-blocks" class="region region-closure"><?php print $closure_region; ?></div>
-  <?php endif; ?>
+  <?php print $page_closure; ?>
 
   <?php print $closure; ?>
 

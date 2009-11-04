@@ -8,15 +8,15 @@ screenshot = zen-internals/screenshot.png
 core   = 6.x
 engine = phptemplate
 
-regions[sidebar_first]  = first sidebar
-regions[sidebar_second] = second sidebar
-regions[navigation]     = navigation bar
-regions[highlight]      = highlight
-regions[content_top]    = content top
-regions[content_bottom] = content bottom
-regions[header]         = header
-regions[footer]         = footer
-regions[closure_region] = closure
+regions[sidebar_first]  = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[navigation]     = Navigation bar
+regions[highlight]      = Highlighted content
+regions[content_top]    = Content top
+regions[content_bottom] = Content bottom
+regions[header]         = Header
+regions[footer]         = Footer
+regions[page_closure]   = Page closure
 
 features[] = logo
 features[] = name
