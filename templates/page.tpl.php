@@ -196,17 +196,9 @@
         </div></div> <!-- /.section, /#navigation -->
       <?php endif; ?>
 
-      <?php if ($sidebar_first): ?>
-        <div id="sidebar-first"><div id="sidebar-first-inner" class="region region-sidebar-first">
-          <?php print $sidebar_first; ?>
-        </div></div> <!-- /#sidebar-first-inner, /#sidebar-first -->
-      <?php endif; ?>
+      <?php print $sidebar_first; ?>
 
-      <?php if ($sidebar_second): ?>
-        <div id="sidebar-second"><div id="sidebar-second-inner" class="region region-sidebar-second">
-          <?php print $sidebar_second; ?>
-        </div></div> <!-- /#sidebar-second-inner, /#sidebar-second -->
-      <?php endif; ?>
+      <?php print $sidebar_second; ?>
 
     </div></div> <!-- /#main, /#main-wrapper -->
 
