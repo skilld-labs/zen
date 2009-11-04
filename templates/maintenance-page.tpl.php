@@ -56,12 +56,14 @@
 
       <div id="content" class="column"><div class="section">
 
-        <?php print $content_top; ?>
+        <?php print $highlight; ?>
 
         <?php if ($title): ?>
           <h1 class="title"><?php print $title; ?></h1>
         <?php endif; ?>
         <?php if ($messages): print $messages; endif; ?>
+
+        <?php print $content_top; ?>
 
         <div id="content-area">
           <?php print $content; ?>

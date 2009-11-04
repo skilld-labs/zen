@@ -11,6 +11,7 @@ engine = phptemplate
 regions[sidebar_first]  = first sidebar
 regions[sidebar_second] = second sidebar
 regions[navigation]     = navigation bar
+regions[highlight]      = highlight
 regions[content_top]    = content top
 regions[content_bottom] = content bottom
 regions[header]         = header

@@ -160,7 +160,7 @@
           <div id="mission"><?php print $mission; ?></div>
         <?php endif; ?>
 
-        <?php print $content_top; ?>
+        <?php print $highlight; ?>
 
         <?php print $breadcrumb; ?>
         <?php if ($title): ?>
@@ -172,15 +172,17 @@
         <?php endif; ?>
         <?php print $help; ?>
 
+        <?php print $content_top; ?>
+
         <div id="content-area">
           <?php print $content; ?>
         </div>
 
+        <?php print $content_bottom; ?>
+
         <?php if ($feed_icons): ?>
           <div class="feed-icons"><?php print $feed_icons; ?></div>
         <?php endif; ?>
-
-        <?php print $content_bottom; ?>
 
       </div></div> <!-- /.section, /#content -->
 
