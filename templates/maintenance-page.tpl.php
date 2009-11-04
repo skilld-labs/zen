@@ -27,10 +27,6 @@
 
   <div id="page-wrapper"><div id="page">
 
-    <?php if ($navbar): ?>
-      <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
-    <?php endif; ?>
-
     <div id="header"><div id="header-inner" class="clearfix">
 
       <?php if ($logo): ?>
@@ -82,7 +78,6 @@
       <?php if ($navbar): ?>
         <div id="navbar">
 
-          <a name="navigation" id="navigation"></a>
           <?php print $navbar; ?>
 
         </div> <!-- /#navbar -->

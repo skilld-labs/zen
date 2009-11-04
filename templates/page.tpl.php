@@ -110,11 +110,11 @@
 </head>
 <body class="<?php print $classes; ?>">
 
-  <div id="page-wrapper"><div id="page">
+  <?php if ($primary_links): ?>
+    <div id="skip-to-nav"><a href="#main-menu"><?php print t('Jump to Navigation'); ?></a></div>
+  <?php endif; ?>
 
-    <?php if ($primary_links || $navbar): ?>
-      <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
-    <?php endif; ?>
+  <div id="page-wrapper"><div id="page">
 
     <div id="header"><div id="header-inner" class="clearfix">
 
@@ -188,8 +188,6 @@
 
       <?php if ($primary_links || $navbar): ?>
         <div id="navbar">
-
-          <a name="navigation" id="navigation"></a>
 
           <?php print theme('links', $primary_links, array('id' => 'main-menu', 'class' => 'links clearfix')); ?>
 
