@@ -372,12 +372,20 @@ function zen_preprocess_region(&$vars, $hook) {
   $vars['content'] = $vars['elements']['#children'];
   $vars['region'] = $vars['elements']['#region'];
 
+  // Sidebar regions get a common template suggestion.
+  if (strpos($vars['region'], 'sidebar_') === 0) {
+    $vars['template_files'][] = 'region-sidebar';
+  }
+
+  // Setup the default classes and template suggestions.
   $region = 'region-' . str_replace('_', '-', $vars['region']);
   $vars['classes_array'] = array('region', $region);
+  $vars['template_files'][] = $region;
+
+  // Navbar region needs a "clearfix" class.
   if ($vars['region'] == 'navbar') {
     $vars['classes_array'][] = 'clearfix';
   }
-  $vars['template_files'][] = $region;
 }
 
 /**
