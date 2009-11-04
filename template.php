@@ -381,11 +381,6 @@ function zen_preprocess_region(&$vars, $hook) {
   $region = 'region-' . str_replace('_', '-', $vars['region']);
   $vars['classes_array'] = array('region', $region);
   $vars['template_files'][] = $region;
-
-  // Navigation region needs a "clearfix" class.
-  if ($vars['region'] == 'navigation') {
-    $vars['classes_array'][] = 'clearfix';
-  }
 }
 
 /**

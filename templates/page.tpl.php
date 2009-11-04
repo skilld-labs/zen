@@ -185,7 +185,7 @@
       </div></div> <!-- /.section, /#content -->
 
       <?php if ($primary_links || $navigation): ?>
-        <div id="navigation"><div class="section">
+        <div id="navigation"><div class="section clearfix">
 
           <?php print theme('links', $primary_links, array('id' => 'main-menu', 'class' => 'links clearfix')); ?>
 

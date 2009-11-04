@@ -72,7 +72,7 @@
       </div></div> <!-- /.section, /#content -->
 
       <?php if ($navigation): ?>
-        <div id="navigation"><div class="section">
+        <div id="navigation"><div class="section clearfix">
 
           <?php print $navigation; ?>
 
