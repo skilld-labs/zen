@@ -52,7 +52,7 @@
 
     </div></div> <!-- /.section, /#header -->
 
-    <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navbar) { print ' with-navbar'; } ?>">
+    <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navigation) { print ' with-navigation'; } ?>">
 
       <div id="content" class="column"><div class="section">
 
@@ -71,12 +71,12 @@
 
       </div></div> <!-- /.section, /#content -->
 
-      <?php if ($navbar): ?>
-        <div id="navbar">
+      <?php if ($navigation): ?>
+        <div id="navigation"><div class="section">
 
-          <?php print $navbar; ?>
+          <?php print $navigation; ?>
 
-        </div> <!-- /#navbar -->
+        </div></div> <!-- /.section, /#navigation -->
       <?php endif; ?>
 
       <?php if ($sidebar_first): ?>

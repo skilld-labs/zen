@@ -382,8 +382,8 @@ function zen_preprocess_region(&$vars, $hook) {
   $vars['classes_array'] = array('region', $region);
   $vars['template_files'][] = $region;
 
-  // Navbar region needs a "clearfix" class.
-  if ($vars['region'] == 'navbar') {
+  // Navigation region needs a "clearfix" class.
+  if ($vars['region'] == 'navigation') {
     $vars['classes_array'][] = 'clearfix';
   }
 }

@@ -85,7 +85,7 @@
  * Regions:
  * - $content_top: Items to appear above the main content of the current page.
  * - $content_bottom: Items to appear below the main content of the current page.
- * - $navbar: Items for the navigation bar.
+ * - $navigation: Items for the navigation bar.
  * - $sidebar_first: Items for the first sidebar.
  * - $sidebar_second: Items for the second sidebar.
  * - $header: Items for the header region.
@@ -152,7 +152,7 @@
 
     </div></div> <!-- /.section, /#header -->
 
-    <div id="main-wrapper"><div id="main" class="clearfix<?php if ($primary_links || $navbar) { print ' with-navbar'; } ?>">
+    <div id="main-wrapper"><div id="main" class="clearfix<?php if ($primary_links || $navigation) { print ' with-navigation'; } ?>">
 
       <div id="content" class="column"><div class="section">
 
@@ -184,14 +184,14 @@
 
       </div></div> <!-- /.section, /#content -->
 
-      <?php if ($primary_links || $navbar): ?>
-        <div id="navbar">
+      <?php if ($primary_links || $navigation): ?>
+        <div id="navigation"><div class="section">
 
           <?php print theme('links', $primary_links, array('id' => 'main-menu', 'class' => 'links clearfix')); ?>
 
-          <?php print $navbar; ?>
+          <?php print $navigation; ?>
 
-        </div> <!-- /#navbar -->
+        </div></div> <!-- /.section, /#navigation -->
       <?php endif; ?>
 
       <?php if ($sidebar_first): ?>
