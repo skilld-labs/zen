@@ -28,6 +28,6 @@
  * @see zen_process()
  */
 ?>
-<div class="<?php print $classes; ?> column"><div class="section clearfix">
+<div class="<?php print $classes; ?>"><div class="section">
   <?php print $content; ?>
 </div></div> <!-- /.section, /.region -->
