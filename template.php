@@ -214,7 +214,7 @@ function zen_preprocess_page(&$vars, $hook) {
   if (!$vars['is_front']) {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
-    $vars['classes_array'][] = zen_id_safe('page-' . $path);
+    $vars['classes_array'][] = drupal_html_class('page-' . $path);
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
     if (arg(0) == 'node') {
@@ -225,7 +225,7 @@ function zen_preprocess_page(&$vars, $hook) {
         $section = 'node-' . arg(2);
       }
     }
-    $vars['classes_array'][] = zen_id_safe('section-' . $section);
+    $vars['classes_array'][] = drupal_html_class('section-' . $section);
   }
   if (theme_get_setting('zen_wireframes')) {
     $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
@@ -320,7 +320,7 @@ function zen_preprocess_node(&$vars, $hook) {
 
   // Special classes for nodes.
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $vars['classes_array'][] = zen_id_safe('node-type-' . $vars['type']);
+  $vars['classes_array'][] = drupal_html_class('node-type-' . $vars['type']);
   if ($vars['promote']) {
     $vars['classes_array'][] = 'node-promoted';
   }
@@ -444,30 +444,62 @@ function zen_process_block(&$vars, $hook) {
   $vars['edit_links'] = !empty($vars['edit_links_array']) ? '<div class="edit">' . implode(' ', $vars['edit_links_array']) . '</div>' : '';
 }
 
-/**
- * Converts a string to a suitable html ID attribute.
- *
- * http://www.w3.org/TR/html4/struct/global.html#h-7.5.2 specifies what makes a
- * valid ID attribute in HTML. This function:
- *
- * - Ensure an ID starts with an alpha character by optionally adding an 'id'.
- * - Replaces any character except alphanumeric characters with dashes.
- * - Converts entire string to lowercase.
- *
- * @param $string
- *   The string
- * @return
- *   The converted string
- */
-function zen_id_safe($string) {
-  // Replace with dashes anything that isn't A-Z, numbers, dashes, or underscores.
-  $string = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $string));
-  // If the first character is not a-z, add 'id' in front.
-  if (!ctype_lower($string{0})) { // Don't use ctype_alpha since its locale aware.
-    $string = 'id' . $string;
+if (!function_exists('drupal_html_class')) {
+  /**
+   * Prepare a string for use as a valid class name.
+   *
+   * Do not pass one string containing multiple classes as they will be
+   * incorrectly concatenated with dashes, i.e. "one two" will become "one-two".
+   *
+   * @param $class
+   *   The class name to clean.
+   * @return
+   *   The cleaned class name.
+   */
+  function drupal_html_class($class) {
+    // By default, we filter using Drupal's coding standards.
+    $class = strtr(drupal_strtolower($class), array(' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => ''));
+
+    // http://www.w3.org/TR/CSS21/syndata.html#characters shows the syntax for valid
+    // CSS identifiers (including element names, classes, and IDs in selectors.)
+    //
+    // Valid characters in a CSS identifier are:
+    // - the hyphen (U+002D)
+    // - a-z (U+0030 - U+0039)
+    // - A-Z (U+0041 - U+005A)
+    // - the underscore (U+005F)
+    // - 0-9 (U+0061 - U+007A)
+    // - ISO 10646 characters U+00A1 and higher
+    // We strip out any character not in the above list.
+    $class = preg_replace('/[^\x{002D}\x{0030}-\x{0039}\x{0041}-\x{005A}\x{005F}\x{0061}-\x{007A}\x{00A1}-\x{FFFF}]/u', '', $class);
+
+    return $class;
   }
-  return $string;
-}
+} /* End of drupal_html_class conditional definition. */
+
+if (!function_exists('drupal_html_id')) {
+  /**
+   * Prepare a string for use as a valid HTML ID and guarantee uniqueness.
+   *
+   * @param $id
+   *   The ID to clean.
+   * @return
+   *   The cleaned ID.
+   */
+  function drupal_html_id($id) {
+    $id = strtr(drupal_strtolower($id), array(' ' => '-', '_' => '-', '[' => '-', ']' => ''));
+
+    // As defined in http://www.w3.org/TR/html4/types.html#type-name, HTML IDs can
+    // only contain letters, digits ([0-9]), hyphens ("-"), underscores ("_"),
+    // colons (":"), and periods ("."). We strip out any character not in that
+    // list. Note that the CSS spec doesn't allow colons or periods in identifiers
+    // (http://www.w3.org/TR/CSS21/syndata.html#characters), so we strip those two
+    // characters as well.
+    $id = preg_replace('/[^A-Za-z0-9\-_]/', '', $id);
+
+    return $id;
+  }
+} /* End of drupal_html_id conditional definition. */
 
 /**
  * Returns the path to the Zen theme.
