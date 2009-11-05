@@ -163,7 +163,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - #626868 by : Replace Bitstream Vera with DejaVu fonts
 - #624818 by  and Garrett Albright: Tahoma shouldn't be first font pick
 - #600344 by : Use of absolute font size in block editing links breaks WCAG 2.0
-- #546904 by : List $node as available variable in page.tpl.php
+- #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
 - #600920 by kto.3decb: Fix incorrect comment block class name
 - #624046: Replace zen_id_safe() with drupal_html_class() and drupal_html_id()
@@ -268,7 +268,7 @@ Zen 6.x-1.1, 2009-11-10
 - #478134 by : Improve docs about sites/all/themes and sites/default/themes folders
 - #600758 by : Secondary links run together in one line with primary links
 - #600344 by : Use of absolute font size in block editing links breaks WCAG 2.0
-- #546904 by : List $node as available variable in page.tpl.php
+- #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
 - #600920 by kto.3decb: Fix incorrect comment block class name
 - #297084: Remove ctype_lower() from zen_id_safe() to prevent WSOD/Fatal error on some systems
