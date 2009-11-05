@@ -266,7 +266,7 @@ Zen 6.x-1.2, 2011-02-26
 Zen 6.x-1.1, 2009-11-10
 -----------------------
 - #478134 by : Improve docs about sites/all/themes and sites/default/themes folders
-- #600758 by : Secondary links run together in one line with primary links
+- #600758 by mattyoung: Secondary links run together in one line with primary links
 - #600344 by mgifford: Use of absolute font size in block editing links breaks WCAG 2.0
 - #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
