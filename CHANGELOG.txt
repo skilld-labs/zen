@@ -2,6 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
 - #600920 by kto.3decb: Fix incorrect comment block class name
 - #624046: Replace zen_id_safe() with drupal_html_class() and drupal_html_id()

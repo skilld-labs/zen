@@ -44,6 +44,8 @@
  *     - no-sidebars: When no sidebar content exists.
  *     - one-sidebar and sidebar-first or sidebar-second: A combination of the
  *       two classes when only one of the two sidebars have content.
+ * - $node: Full node object. Contains data that may not be safe. This is only
+ *   available if the current page is on the node's primary url.
  *
  * Site identity:
  * - $front_page: The URL of the front page. Use this instead of $base_path,
