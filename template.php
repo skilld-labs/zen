@@ -83,16 +83,16 @@ function zen_menu_item_link($link) {
 }
 
 /**
- * Duplicate of theme_menu_local_tasks() but adds clear-block to tabs.
+ * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 function zen_menu_local_tasks() {
   $output = '';
 
   if ($primary = menu_primary_local_tasks()) {
-    $output .= '<ul class="tabs primary clear-block">' . $primary . '</ul>';
+    $output .= '<ul class="tabs primary clearfix">' . $primary . '</ul>';
   }
   if ($secondary = menu_secondary_local_tasks()) {
-    $output .= '<ul class="tabs secondary clear-block">' . $secondary . '</ul>';
+    $output .= '<ul class="tabs secondary clearfix">' . $secondary . '</ul>';
   }
 
   return $output;
