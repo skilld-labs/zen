@@ -23,9 +23,9 @@ Building a sub-theme
   See the STARTERKIT/README.txt file for full instructions.
 
 Theme .info file
-  Your sub-theme's .info file describes the basic things about your theme: its
-  name, description, features, template regions, CSS files, and JavaScript.
-  Don't worry about all these lines just yet.
+  Your sub-theme's .info file holds the basic information about your theme that
+  Drupal needs to know: its name, description, features, template regions, CSS
+  files, and JavaScript. Don't worry about all these lines just yet.
 
 CSS
   Once you have created your sub-theme, look at the README.txt in your
@@ -50,9 +50,8 @@ INSTALLATION
 
  1. Download Zen from http://drupal.org/project/zen
 
- 2. Unpack the downloaded file, take the entire zen folder (which includes the
-    README.txt file, a STARTERKIT folder, etc.) and place it in your Drupal
-    installation under one of the following locations:
+ 2. Unpack the downloaded file, take the entire zen folder and place it in your
+    Drupal installation under one of the following locations:
       sites/all/themes
         making it available to the default Drupal site and to all Drupal sites
         in a multi-site configuration
