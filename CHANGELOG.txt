@@ -2,7 +2,7 @@
 
 Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
 ------------------------
-- #624818 by Aren Cambre: Tahoma shouldn't be first font pick
+- #624818 by Aren Cambre and Garrett Albright: Tahoma shouldn't be first font pick
 - #600344 by mgifford: Use of absolute font size in block editing links breaks WCAG 2.0
 - #546904 by Jennifer_M: List $node as available variable in page.tpl.php
 - #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
