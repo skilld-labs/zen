@@ -1,7 +1,7 @@
 // $Id$
 
-Zen 6.x-2.x-dev, xxxx-xx-xx (development release)
-------------------------
+Zen 6.x-2.0-beta1, 2009-11-10
+-----------------------------
 - #478134 by mithrill: Improve docs about sites/all/themes and sites/default/themes folders
 - #628070 by Aren Cambre: Change "jquery" to "JavaScript" in STARTERKIT.info.txt
 - #626868 by alefteris: Replace Bitstream Vera with DejaVu fonts
