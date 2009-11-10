@@ -5,7 +5,7 @@ description = Zen sub-themes are the ultimate starting themes for Drupal 6. Read
 
 screenshot = zen-internals/screenshot.png
 
-core   = 6.x
+core   = 7.x
 engine = phptemplate
 
 regions[sidebar_first]  = First sidebar

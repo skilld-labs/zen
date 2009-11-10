@@ -1,5 +1,10 @@
 // $Id$
 
+Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
+------------------------
+- Updated .info file to use core = 7.x.
+  NO OTHER PORTING WORK HAS BEEN DONE. i.e. This release is currently horribly broken. :-)
+
 Zen 6.x-2.0-beta1, 2009-11-10
 -----------------------------
 - #478134 by mithrill: Improve docs about sites/all/themes and sites/default/themes folders
