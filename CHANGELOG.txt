@@ -108,6 +108,28 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - #200495 by JohnAlbin, caroltron, and Toe: Split up monolithic zen.css into smaller, logical stylesheets
 - #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
+Zen 6.x-1.1, 2009-11-10
+-----------------------
+- #478134 by mithrill: Improve docs about sites/all/themes and sites/default/themes folders
+- #600758 by mattyoung: Secondary links run together in one line with primary links
+- #600344 by mgifford: Use of absolute font size in block editing links breaks WCAG 2.0
+- #546904 by Jennifer_M: List $node as available variable in page.tpl.php
+- #583716 by droidenator: Empty title can cause breadcrumbs to display incorrectly
+- #600920 by kto.3decb: Fix incorrect comment block class name
+- #297084: Remove ctype_lower() from zen_id_safe() to prevent WSOD/Fatal error on some systems
+- #317417 by JohnAlbin and quicksketch: Fix off-line maintenance page since drupal_get_path('theme', 'zen') won't work
+- #545320 by Deslack: Use of split() generate E_DEPRECATED warnings on PHP 5.3.0
+- #472694: Drupal 6.11 broke Zen's OpenID overrides
+- Updated screenshot.png to use Zen logo since an actual screenshot is boring
+- Changed "or" back to "||" in node.tpl.php since themers do need to learn a little PHP
+- #254821: Sub-theme's .info file triggers incorrect "out of date" flag in update module
+- #327455 by grendzy and erifneerg: name and id mismatch in named anchor causing validation error
+- #382598: .node div.links ruleset doesn't match html in node template
+- #382480 by Ognyan Kulev: #block-menu-2 should be #block-menu-primary-links
+- #374349: breadcrumb often broken when zen_breadcrumb_title is on
+- #426750: Removed Zen Classic sub theme
+- #445562: q0rban and JohnAlbin: Allow modules to declare their own block edit links
+
 Zen 6.x-1.0, 2009-02-14
 -----------------------
 - #342004 by Amitaibu: Add css hint to prevent cramped-looking tables
