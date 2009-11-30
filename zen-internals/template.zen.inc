@@ -20,19 +20,24 @@ function _zen_preprocess_html(&$vars, $hook) {
 
   // Add default styles.
   if (theme_get_setting('zen_layout') == 'zen-columns-fixed') {
-    drupal_add_css($directory . '/zen-fixed.css', 'theme', 'all');
+    drupal_add_css($directory . '/zen-fixed.css', array('media' => 'all', 'weight' => 1));
   }
   else {
-    drupal_add_css($directory . '/zen-liquid.css', 'theme', 'all');
+    drupal_add_css($directory . '/zen-liquid.css', array('media' => 'all', 'weight' => 1));
   }
   // Add print styles.
-  drupal_add_css($directory . '/print.css', 'theme', 'print');
+  drupal_add_css($directory . '/print.css', array('media' => 'print', 'weight' => 1));
 
   // Regenerate the stylesheets.
   $vars['css'] = drupal_add_css();
   $vars['styles'] = drupal_get_css();
+}
 
-  // Add IE styles.
+/**
+ * If the user is silly and enables Zen as the theme, manually add conditional stylesheets.
+ */
+function _zen_process_html(&$vars, $hook) {
+  $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css';
   $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
   $base_path = base_path() . $directory;
   $vars['styles'] .= <<< IE_STYLES

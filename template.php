@@ -113,10 +113,6 @@ function zen_preprocess_html(&$vars, $hook) {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
     _zen_preprocess_html($vars, $hook);
   }
-  // Add conditional stylesheets.
-  elseif (!module_exists('conditional_styles')) {
-    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
-  }
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
@@ -137,6 +133,24 @@ function zen_preprocess_html(&$vars, $hook) {
   }
   if (theme_get_setting('zen_wireframes')) {
     $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
+  }
+}
+
+/**
+ * Override or insert variables into the html template.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("html" in this case.)
+ */
+function zen_process_html(&$vars, $hook) {
+  // Add conditional stylesheets.
+  if ($GLOBALS['theme'] == 'zen') {
+    _zen_process_html($vars, $hook);
+  }
+  elseif (!module_exists('conditional_styles')) {
+    $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
 }
 
