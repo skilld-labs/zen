@@ -23,9 +23,9 @@
  * - $logged_in: Flags true when the current user is a logged-in member.
  *
  * @see template_preprocess()
- * @see zen_preprocess()
+ * @see template_preprocess_region()
  * @see zen_preprocess_region()
- * @see zen_process()
+ * @see template_process()
  */
 ?>
 <div class="<?php print $classes; ?>">

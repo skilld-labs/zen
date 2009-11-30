@@ -16,7 +16,7 @@
  * If the user is silly and enables Zen as the theme, manually add some stylesheets.
  */
 function _zen_preprocess_page(&$vars, $hook) {
-  $directory = _zen_path() . '/zen-internals/css';
+  $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css';
 
   // Add default styles.
   if (theme_get_setting('zen_layout') == 'zen-columns-fixed') {

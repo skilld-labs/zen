@@ -2,8 +2,7 @@
 
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ------------------------
-- Updated .info file to use core = 7.x.
-  NO OTHER PORTING WORK HAS BEEN DONE. i.e. This release is currently horribly broken. :-)
+- #563060 by seutje and JohnAlbin: Port Zen to Drupal 7 (NOT YET COMPLETE)
 
 Zen 6.x-2.0-beta1, 2009-11-10
 -----------------------------

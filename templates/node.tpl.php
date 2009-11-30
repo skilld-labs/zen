@@ -7,7 +7,10 @@
  *
  * Available variables:
  * - $title: the (sanitized) title of the node.
- * - $content: Node body or teaser depending on $teaser flag.
+ * - $content: An array of node items. Use render($content) to print them all,
+ *   or print a subset such as render($content['field_example']). Use
+ *   hide($content['field_example']) to temporarily suppress the printing of a
+ *   given element.
  * - $user_picture: The node author's picture from user-picture.tpl.php.
  * - $date: Formatted creation date. Preprocess functions can reformat it by
  *   calling format_date() with the desired parameters on the $created variable.
@@ -15,8 +18,7 @@
  * - $node_url: Direct url of the current node.
  * - $terms: the themed list of taxonomy term links output from theme_links().
  * - $display_submitted: whether submission information should be displayed.
- * - $links: Themed links like "Read more", "Add new comment", etc. output
- *   from theme_links().
+ * - $contextual_links (array): An array of contextual links for the node.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default values can be one or more of the
@@ -61,30 +63,36 @@
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
  *
- * The following variables are deprecated and will be removed in Drupal 7:
- * - $picture: This variable has been renamed $user_picture in Drupal 7.
- * - $submitted: Themed submission information output from
- *   theme_node_submitted().
+ * Field variables: for each field instance attached to the node a corresponding
+ * variable is defined, e.g. $node->body becomes $body. When needing to access
+ * a field's raw values, developers/themers are strongly encouraged to use these
+ * variables. Otherwise they will have to explicitly specify the desired field
+ * language, e.g. $node->body['en'], thus overriding any language negotiation
+ * rule that was previously applied.
  *
  * @see template_preprocess()
  * @see template_preprocess_node()
- * @see zen_preprocess()
  * @see zen_preprocess_node()
- * @see zen_process()
+ * @see template_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix">
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+
   <?php print $user_picture; ?>
 
+  <?php if (!$page && $contextual_links): ?>
+    <?php print render($contextual_links); ?>
+  <?php endif; ?>
+
   <?php if (!$page): ?>
-    <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <h2 class="title"<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
 
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
-  <?php if ($display_submitted || $terms): ?>
+  <?php if ($display_submitted || !empty($content['links']['terms'])): ?>
     <div class="meta">
       <?php if ($display_submitted): ?>
         <span class="submitted">
@@ -95,15 +103,23 @@
         </span>
       <?php endif; ?>
 
-      <?php if ($terms): ?>
-        <div class="terms terms-inline"><?php print $terms; ?></div>
+      <?php if (!empty($content['links']['terms'])): ?>
+        <div class="terms terms-inline"><?php print render($content['links']['terms']); ?></div>
       <?php endif; ?>
     </div>
   <?php endif; ?>
 
-  <div class="content">
-    <?php print $content; ?>
+  <div class="content"<?php print $content_attributes; ?>>
+    <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
   </div>
 
-  <?php print $links; ?>
+  <?php print render($content['links']); ?>
+
+  <?php print render($content['comments']); ?>
+
 </div> <!-- /.node -->

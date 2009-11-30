@@ -11,9 +11,7 @@
  * - $block->module: Module that generated the block.
  * - $block->delta: An ID for the block, unique within each module.
  * - $block->region: The block region embedding the current block.
- * - $edit_links: A list of contextual links for the block. It can be
- *   manipulated through the variable $edit_links_array from preprocess
- *   functions.
+ * - $contextual_links (array): An array of contextual links for the block.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default values can be one or more of the
@@ -36,7 +34,6 @@
  * Helper variables:
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
- * - $edit_links_array: An array of contextual links for the block.
  * - $block_zebra: Outputs 'odd' and 'even' dependent on each block region.
  * - $zebra: Same output as $block_zebra but independent of any block region.
  * - $block_id: Counter dependent on each block region.
@@ -46,20 +43,23 @@
  * - $is_admin: Flags true when the current user is an administrator.
  *
  * @see template_preprocess()
- * @see zen_preprocess()
  * @see template_preprocess_block()
  * @see zen_preprocess_block()
- * @see zen_process()
+ * @see template_process()
  */
 ?>
-<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>">
+<div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+
+  <?php if ($contextual_links): ?>
+    <?php print render($contextual_links); ?>
+  <?php endif; ?>
+ 
   <?php if ($title): ?>
-    <h2 class="title"><?php print $title; ?></h2>
+    <h2 class="title"<?php print $title_attributes; ?>><?php print $title; ?></h2>
   <?php endif; ?>
 
-  <div class="content">
+  <div class="content"<?php print $content_attributes; ?>>
     <?php print $content; ?>
   </div>
 
-  <?php print $edit_links; ?>
 </div> <!-- /.block -->

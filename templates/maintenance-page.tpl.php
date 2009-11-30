@@ -2,13 +2,11 @@
 // $Id$
 
 /**
- * @file maintenance-page.tpl.php
- *
- * Theme implementation to display a single Drupal page while off-line.
+ * @file
+ * Theme implementation to display a single Drupal page while offline.
  *
  * All the available variables are mirrored in page.tpl.php. Some may be left
  * blank but they are provided for consistency.
- *
  *
  * @see template_preprocess()
  * @see template_preprocess_maintenance_page()
@@ -61,15 +59,9 @@
         <?php if ($title): ?>
           <h1 class="title"><?php print $title; ?></h1>
         <?php endif; ?>
-        <?php if ($messages): print $messages; endif; ?>
+        <?php print $messages; ?>
 
-        <?php print $content_top; ?>
-
-        <div id="content-area">
-          <?php print $content; ?>
-        </div>
-
-        <?php print $content_bottom; ?>
+        <?php print $content; ?>
 
       </div></div> <!-- /.section, /#content -->
 
@@ -87,12 +79,8 @@
 
     </div></div> <!-- /#main, /#main-wrapper -->
 
-    <?php if ($footer || $footer_message): ?>
+    <?php if ($footer): ?>
       <div id="footer"><div class="section">
-
-        <?php if ($footer_message): ?>
-          <div id="footer-message"><?php print $footer_message; ?></div>
-        <?php endif; ?>
 
         <?php print $footer; ?>
 
@@ -101,9 +89,7 @@
 
   </div></div> <!-- /#page, /#page-wrapper -->
 
-  <?php print $page_closure; ?>
-
-  <?php print $closure; ?>
+  <?php print $bottom; ?>
 
 </body>
 </html>
