@@ -15,7 +15,7 @@
 /**
  * If the user is silly and enables Zen as the theme, manually add some stylesheets.
  */
-function _zen_preprocess_page(&$vars, $hook) {
+function _zen_preprocess_html(&$vars, $hook) {
   $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css';
 
   // Add default styles.

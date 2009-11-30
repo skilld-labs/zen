@@ -100,18 +100,18 @@ function zen_menu_local_tasks() {
 }
 
 /**
- * Override or insert variables into the page templates.
+ * Override or insert variables into the html template.
  *
  * @param $vars
  *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the template being rendered ("page" in this case.)
+ *   The name of the template being rendered ("html" in this case.)
  */
-function zen_preprocess_page(&$vars, $hook) {
+function zen_preprocess_html(&$vars, $hook) {
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_page($vars, $hook);
+    _zen_preprocess_html($vars, $hook);
   }
   // Add conditional stylesheets.
   elseif (!module_exists('conditional_styles')) {
@@ -152,7 +152,7 @@ function zen_preprocess_maintenance_page(&$vars, $hook) {
   // If Zen is the maintenance theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_page($vars, $hook);
+    _zen_preprocess_html($vars, $hook);
   }
   // Add conditional stylesheets.
   elseif (!module_exists('conditional_styles')) {
