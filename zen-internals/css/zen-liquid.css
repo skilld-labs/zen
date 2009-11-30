@@ -316,7 +316,7 @@ fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-/* Id: layout-liquid.css,v 1.17 2009/11/05 12:09:53 johnalbin Exp */
+/* Id: layout-liquid.css,v 1.18 2009/11/30 09:36:45 johnalbin Exp */
 
 /**
  * @file
@@ -343,7 +343,7 @@ body {
 }
 
 #page-wrapper,
-.region-page-closure {
+.region-bottom {
   min-width: 960px; /* Don't allow the browser to make the site unreadable. */
 }
 
@@ -484,9 +484,9 @@ body {
 }
 
 /*
- * Closure
+ * Page bottom
  */
-.region-page-closure /* See also the #page-wrapper declaration above that this div shares. */ {
+.region-bottom /* See also the #page-wrapper declaration above that this div shares. */ {
 }
 
 /*
@@ -498,7 +498,7 @@ body {
 .region-sidebar-first,
 .region-sidebar-second,
 #footer,
-.region-page-closure {
+.region-bottom {
   overflow: visible;
   word-wrap: break-word; /* A very nice CSS3 property */
 }
@@ -739,7 +739,7 @@ div.messages ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* Id: pages.css,v 1.18 2009/11/05 11:07:02 johnalbin Exp */
+/* Id: pages.css,v 1.20 2009/11/30 09:36:45 johnalbin Exp */
 
 /**
  * @file
@@ -766,10 +766,11 @@ body {
 }
 
 /*
- * The skip-to-nav link will be completely hidden until a user tabs to the link.
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See http://www.webaim.org/techniques/skipnav/
  */
-#skip-to-nav a,
-#skip-to-nav a:visited {
+#skip-link a,
+#skip-link a:visited {
   position: absolute;
   display: block;
   left: 0;
@@ -782,9 +783,9 @@ body {
   color: #fff;
 }
 
-#skip-to-nav a:hover,
-#skip-to-nav a:active,
-#skip-to-nav a:focus {
+#skip-link a:hover,
+#skip-link a:active,
+#skip-link a:focus {
   position: static;
   width: 100%;
   height: auto;
@@ -914,7 +915,7 @@ div.tabs /* See also the tabs.css file. */ {
   text-align: right;
 }
 
-#content-area /* Wrapper for the actual page content */ {
+.region-content /* Wrapper for the actual page content */ {
 }
 
 ul.links /* List of links */ {
@@ -996,9 +997,9 @@ ul.links li {
 }
 
 /*
- * Closure
+ * Page bottom
  */
-.region-page-closure /* Wrapper for any blocks placed in the closure region */ {
+.region-bottom /* Wrapper for any blocks placed in the page bottom region */ {
 }
 
 /*
