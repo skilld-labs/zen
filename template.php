@@ -15,7 +15,7 @@
 
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('zen_rebuild_registry')) {
-  drupal_rebuild_theme_registry();
+  system_rebuild_theme_data();
 }
 
 
