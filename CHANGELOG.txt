@@ -153,7 +153,7 @@ Zen 6.x-2.0, 2010-06-26
 - #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
 - #661628 by  and JohnAlbin: Integration with Skinr module
 - by : Added views-view.tpl.php with support for $classes variables
-- by caroltron, , , and JohnAlbin: Add panels 3 layouts using
+- by caroltron, gleroux02, , and JohnAlbin: Add panels 3 layouts using
   Zen layout method
 
 Zen 6.x-2.0-beta1, 2009-11-10
