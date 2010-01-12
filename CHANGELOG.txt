@@ -151,7 +151,7 @@ Zen 6.x-2.0, 2010-06-26
 - #683904: SUBTHEME_process functions do not work
 - #552156: broken clearfix class causes overlapping containers in IE7
 - #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
-- #661628 by  and JohnAlbin: Integration with Skinr module
+- #661628 by Jacine and JohnAlbin: Integration with Skinr module
 - by Jacine: Added views-view.tpl.php with support for $classes variables
 - by caroltron, gleroux02, _natron, and JohnAlbin: Add panels 3 layouts using
   Zen layout method
