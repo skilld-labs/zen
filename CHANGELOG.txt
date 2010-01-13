@@ -150,7 +150,7 @@ Zen 6.x-2.0, 2010-06-26
 - #691426: Add D7-style named implementations of theme_links in page.tpl
 - #683904: SUBTHEME_process functions do not work
 - #552156: broken clearfix class causes overlapping containers in IE7
-- #593290 by  and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
+- #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
 - #661628 by  and JohnAlbin: Integration with Skinr module
 - by : Added views-view.tpl.php with support for $classes variables
 - by , , , and JohnAlbin: Add panels 3 layouts using
@@ -261,7 +261,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 
 Zen 6.x-1.2, 2011-02-26
 -----------------------
-- #593290 by  and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
+- #593290 by sfyn and JohnAlbin: Chaos Tools/Panels edit tab not working with Zen
 
 Zen 6.x-1.1, 2009-11-10
 -----------------------
