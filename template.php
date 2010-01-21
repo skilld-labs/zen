@@ -187,9 +187,6 @@ function zen_preprocess_maintenance_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
-  // Create the build_mode variable.
-  $vars['build_mode'] = $vars['elements']['#build_mode'];
-
   // $node_title is idiotic.
   $vars['title'] = $vars['node_title'];
 
