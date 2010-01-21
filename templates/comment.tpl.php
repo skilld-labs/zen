@@ -7,11 +7,18 @@
  *
  * Available variables:
  * - $author: Comment author. Can be link or plain text.
- * - $content: Body of the comment.
+ * - $content: An array of comment items. Use render($content) to print them all, or
+ *   print a subset such as render($content['field_example']). Use
+ *   hide($content['field_example']) to temporarily suppress the printing of a
+ *   given element.
  * - $created: Formatted date and time for when the comment was created.
  *   Preprocess functions can reformat it by calling format_date() with the
- *   desired parameters on the $comment->timestamp variable.
+ *   desired parameters on the $comment->created variable.
+ * - $changed: Formatted date and time for when the comment was last changed.
+ *   Preprocess functions can reformat it by calling format_date() with the
+ *   desired parameters on the $comment->changed variable.
  * - $new: New comment marker.
+ * - $permalink: Comment permalink.
  * - $picture: Authors picture.
  * - $signature: Authors signature.
  * - $status: Comment status. Possible values are:
@@ -30,8 +37,8 @@
  *   - odd: An odd-numbered comment in the list of displayed comments.
  *   - even: An even-numbered comment in the list of displayed comments.
  *   The following applies only to viewers who are registered users:
- *   - comment-by-viewer: Comment by the user currently viewing the page.
  *   - comment-unpublished: An unpublished comment visible only to administrators.
+ *   - comment-by-viewer: Comment by the user currently viewing the page.
  *   - comment-new: New comment since the last visit.
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
@@ -54,7 +61,7 @@
  * @see template_process()
  */
 ?>
-<div class="<?php print $classes; ?> clearfix">
+<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $picture; ?>
 
   <?php print render($title_prefix); ?>
@@ -75,14 +82,19 @@
   <?php endif; ?>
 
   <div class="submitted">
+    <?php print $permalink; ?>
     <?php
       print t('Submitted by !username on !datetime.',
         array('!username' => $author, '!datetime' => $created));
     ?>
   </div>
 
-  <div class="content">
-    <?php print $content; ?>
+  <div class="content"<?php print $content_attributes; ?>>
+    <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['links']);
+      print render($content);
+    ?>
     <?php if ($signature): ?>
       <div class="user-signature clearfix">
         <?php print $signature; ?>
@@ -90,5 +102,5 @@
     <?php endif; ?>
   </div>
 
-  <?php print $links; ?>
+  <?php print render($content['links']) ?>
 </div> <!-- /.comment -->
