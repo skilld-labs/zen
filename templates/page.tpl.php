@@ -34,7 +34,13 @@
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
  * Page content (in order of occurrence in the default page.tpl.php):
+ * - $title_prefix (array): An array containing additional output populated by
+ *   modules, intended to be displayed in front of the main title tag that
+ *   appears in the template.
  * - $title: The page title, for use in the actual HTML content.
+ * - $title_suffix (array): An array containing additional output populated by
+ *   modules, intended to be displayed after the main title tag that appears in
+ *   the template.
  * - $messages: HTML for status and error messages. Should be displayed
  *   prominently.
  * - $tabs (array): Tabs linking to any sub-pages beneath the current page
@@ -117,10 +123,21 @@
         <?php print $feed_icons; ?>
       </div></div> <!-- /.section, /#content -->
 
-      <?php if ($main_menu || $page['navigation']): ?>
+      <?php if ($page['navigation'] || $main_menu): ?>
         <div id="navigation"><div class="section clearfix">
 
-          <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'clearfix')), 'heading' => t('Main menu'))); ?>
+          <?php print theme('links__system_main_menu', array(
+            'links' => $main_menu,
+            'attributes' => array(
+              'id' => 'main-menu',
+              'class' => array('links', 'clearfix'),
+            ),
+            'heading' => array(
+              'text' => t('Main menu'),
+              'level' => 'h2',
+              'class' => array('element-invisible'),
+            ),
+          )); ?>
 
           <?php print render($page['navigation']); ?>
 
@@ -136,7 +153,18 @@
     <?php if ($page['footer'] || $secondary_menu): ?>
       <div id="footer"><div class="section">
 
-        <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu', 'class' => array('links', 'clearfix')), 'heading' => t('Secondary menu'))); ?>
+        <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'id' => 'secondary-menu',
+            'class' => array('links', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => t('Secondary menu'),
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
 
         <?php print render($page['footer']); ?>
 
