@@ -17,7 +17,6 @@
  * - $status: Comment status. Possible values are:
  *   comment-unpublished, comment-published or comment-preview.
  * - $title: Linked title.
- * - $links: Various operational links.
  * - $unpublished: An unpublished comment visible only to administrators.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
@@ -34,6 +33,12 @@
  *   - comment-by-viewer: Comment by the user currently viewing the page.
  *   - comment-unpublished: An unpublished comment visible only to administrators.
  *   - comment-new: New comment since the last visit.
+ * - $title_prefix (array): An array containing additional output populated by
+ *   modules, intended to be displayed in front of the main title tag that
+ *   appears in the template.
+ * - $title_suffix (array): An array containing additional output populated by
+ *   modules, intended to be displayed after the main title tag that appears in
+ *   the template.
  *
  * These two variables are provided for context:
  * - $comment: Full comment object.
@@ -43,22 +48,18 @@
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
  *
- * The following variables are deprecated and will be removed in Drupal 7:
- * - $date: Formatted date and time for when the comment was created.
- * - $submitted: By line with date and time.
- *
  * @see template_preprocess()
  * @see template_preprocess_comment()
- * @see zen_preprocess()
  * @see zen_preprocess_comment()
- * @see zen_process()
+ * @see template_process()
  */
 ?>
 <div class="<?php print $classes; ?> clearfix">
   <?php print $picture; ?>
 
+  <?php print render($title_prefix); ?>
   <?php if ($title): ?>
-    <h3 class="title">
+    <h3<?php print $title_attributes; ?>>
       <?php print $title; ?>
       <?php if ($new): ?>
         <span class="new"><?php print $new; ?></span>
@@ -67,6 +68,7 @@
   <?php elseif ($new): ?>
     <div class="new"><?php print $new; ?></div>
   <?php endif; ?>
+  <?php print render($title_suffix); ?>
 
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
