@@ -12,6 +12,11 @@
  * We are simply using this hook as a convenient time to do some related work.
  */
 function _zen_theme(&$existing, $type, $theme, $path) {
+  // Force the region hook to search for region__ suggestions.
+  if (empty($exisiting['region']['pattern'])) {
+    $exisiting['region']['pattern'] = 'region__';
+  }
+
   // Compute the conditional stylesheets.
   if (!module_exists('conditional_styles')) {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.conditional-styles.inc';
