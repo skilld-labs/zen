@@ -87,13 +87,17 @@ function zen_menu_item_link($link) {
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 function zen_menu_local_tasks() {
-  $output = '';
+  $output = array();
 
   if ($primary = menu_primary_local_tasks()) {
-    $output .= '<ul class="tabs primary clearfix">' . render($primary) . '</ul>';
+    $primary['#prefix'] = '<ul class="tabs primary clearfix">';
+    $primary['#suffix'] = '</ul>';
+    $output[] = $primary;
   }
   if ($secondary = menu_secondary_local_tasks()) {
-    $output .= '<ul class="tabs secondary clearfix">' . render($secondary) . '</ul>';
+    $secondary['#prefix'] = '<ul class="tabs secondary clearfix">';
+    $secondary['#suffix'] = '</ul>';
+    $output[] = $secondary;
   }
 
   return $output;
