@@ -67,23 +67,6 @@ function zen_breadcrumb($variables) {
 }
 
 /**
- * Implements theme_menu_item_link()
- */
-function zen_menu_item_link($link) {
-  if (empty($link['localized_options'])) {
-    $link['localized_options'] = array();
-  }
-
-  // If an item is a LOCAL TASK, render it as a tab
-  if ($link['type'] & MENU_IS_LOCAL_TASK) {
-    $link['title'] = '<span class="tab">' . check_plain($link['title']) . '</span>';
-    $link['localized_options']['html'] = TRUE;
-  }
-
-  return l($link['title'], $link['href'], $link['localized_options']);
-}
-
-/**
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 function zen_menu_local_tasks() {
@@ -101,6 +84,21 @@ function zen_menu_local_tasks() {
   }
 
   return $output;
+}
+
+/**
+ * Override or insert variables into theme_menu_local_task().
+ */
+function zen_preprocess_menu_local_task(&$variables) {
+  $link =& $variables['element']['#link'];
+
+  // If the link does not contain HTML already, check_plain() it now.
+  // After we set 'html'=TRUE the link will not be sanitized by l().
+  if (empty($link['localized_options']['html'])) {
+    $link['title'] = check_plain($link['title']);
+  }
+  $link['localized_options']['html'] = TRUE;
+  $link['title'] = '<span class="tab">' . $link['title'] . '</span>';
 }
 
 /**
