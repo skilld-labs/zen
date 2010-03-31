@@ -244,7 +244,7 @@ function zen_preprocess_comment(&$vars, $hook) {
 function zen_preprocess_region(&$vars, $hook) {
   // Sidebar regions get a common template suggestion a couple extra classes.
   if (strpos($vars['region'], 'sidebar_') === 0) {
-    $vars['theme_hook_suggestions'][] = 'region--sidebar';
+    $vars['theme_hook_suggestions'][] = 'region__sidebar';
     $vars['classes_array'][] = 'column';
     $vars['classes_array'][] = 'sidebar';
   }
