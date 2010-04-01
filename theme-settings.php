@@ -24,13 +24,6 @@ function zen_form_system_theme_settings_alter(&$form, $form_state) {
     '#value'         => '<div id="zen-settings">',
   );
 
-  $form['zen_block_editing'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('Show block editing on hover'),
-    '#description'   => t('When hovering over a block, privileged users will see block editing links.'),
-    '#default_value' => theme_get_setting('zen_block_editing'),
-  );
-
   $form['breadcrumb'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Breadcrumb settings'),
