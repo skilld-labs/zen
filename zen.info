@@ -20,15 +20,6 @@ regions[bottom]         = Page bottom
 regions[page_top]       = Page top
 regions[page_bottom]    = Page bottom
 
-features[] = logo
-features[] = name
-features[] = slogan
-features[] = node_user_picture
-features[] = comment_user_picture
-features[] = favicon
-features[] = main_menu
-features[] = secondary_menu
-
   ; Set the default settings to be used in theme-settings.php
 settings[zen_breadcrumb]           = yes
 settings[zen_breadcrumb_separator] = ' › '
