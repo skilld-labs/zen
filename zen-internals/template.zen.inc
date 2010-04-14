@@ -27,10 +27,6 @@ function _zen_preprocess_html(&$vars, $hook) {
   }
   // Add print styles.
   drupal_add_css($directory . '/print.css', array('media' => 'print', 'weight' => 1));
-
-  // Regenerate the stylesheets.
-  $vars['css'] = drupal_add_css();
-  $vars['styles'] = drupal_get_css();
 }
 
 /**

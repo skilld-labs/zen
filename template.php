@@ -164,20 +164,17 @@ function zen_process_html(&$vars, $hook) {
  * @param $hook
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
-function zen_preprocess_maintenance_page(&$vars, $hook) {
+function zen_process_maintenance_page(&$vars, $hook) {
   // If Zen is the maintenance theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
     _zen_preprocess_html($vars, $hook);
+    _zen_process_html($vars, $hook);
   }
   // Add conditional stylesheets.
   elseif (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
-
-  // Classes for body element. Allows advanced theming based on context
-  // (home page, node of certain type, etc.)
-  $vars['body_classes_array'] = explode(' ', $vars['body_classes']);
 }
 
 /**
