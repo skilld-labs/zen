@@ -186,8 +186,10 @@ function zen_process_maintenance_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
-  // $node_title is idiotic.
-  $vars['title'] = $vars['node_title'];
+  if (isset($vars['node_title'])) {
+    // $node_title is idiotic. Fixed in Alpha 4.
+    $vars['title'] = $vars['node_title'];
+  }
 
   // Special classes for nodes.
   // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
