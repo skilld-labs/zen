@@ -217,7 +217,7 @@ function zen_preprocess_node(&$vars, $hook) {
     $vars['classes_array'][] = 'node-preview';
   }
 
-  $vars['title_attributes_array']['class'][] = 'title';
+  $vars['title_attributes_array']['class'][] = 'node-title';
 }
 
 /**
@@ -267,5 +267,5 @@ function zen_preprocess_block(&$vars, $hook) {
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
 
-  $vars['title_attributes_array']['class'][] = 'title';
+  $vars['title_attributes_array']['class'][] = 'block-title';
 }

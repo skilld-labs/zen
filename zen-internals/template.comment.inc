@@ -58,5 +58,5 @@ function _zen_preprocess_comment(&$vars, $hook) {
     }
   }
 
-  $vars['title_attributes_array']['class'][] = 'title';
+  $vars['title_attributes_array']['class'][] = 'comment-title';
 }
