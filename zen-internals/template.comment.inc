@@ -57,4 +57,6 @@ function _zen_preprocess_comment(&$vars, $hook) {
       $vars['classes_array'][] = 'comment-by-viewer';
     }
   }
+
+  $vars['title_attributes_array']['class'][] = 'title';
 }

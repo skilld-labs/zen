@@ -216,6 +216,8 @@ function zen_preprocess_node(&$vars, $hook) {
   if (isset($vars['preview'])) {
     $vars['classes_array'][] = 'node-preview';
   }
+
+  $vars['title_attributes_array']['class'][] = 'title';
 }
 
 /**
@@ -264,4 +266,6 @@ function zen_preprocess_block(&$vars, $hook) {
   // Special classes for blocks.
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
+
+  $vars['title_attributes_array']['class'][] = 'title';
 }
