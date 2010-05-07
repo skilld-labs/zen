@@ -260,12 +260,22 @@ function zen_preprocess_region(&$vars, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 function zen_preprocess_block(&$vars, $hook) {
-  // Drupal 7 should use a $title variable instead of $block->subject.
-  $vars['title'] = $vars['block']->subject;
-
   // Special classes for blocks.
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
 
   $vars['title_attributes_array']['class'][] = 'block-title';
+}
+
+/**
+ * Override or insert variables into the block templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+function zen_process_block(&$vars, $hook) {
+  // Drupal 7 should use a $title variable instead of $block->subject.
+  $vars['title'] = $vars['block']->subject;
 }
