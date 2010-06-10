@@ -144,7 +144,7 @@ Zen 6.x-2.0, 2010-06-26
 - #723514 by kmonty: Link in STARTERKIT description incorrect
 - Skip navigation's ID changed from #skip-to-nav to #skip-link
 - Added $block_html_id to block.tpl.php
-- #772488 by : Fatal error: Call to undefined function
+- #772488 by andreiashu: Fatal error: Call to undefined function
   ctools_menu_primary_local_tasks()
 - #707410 by agentrickard and JohnAlbin: Add page-views and page-panels body classes
 - #691426: Add D7-style named implementations of theme_links in page.tpl
