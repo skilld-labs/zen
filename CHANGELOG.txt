@@ -141,7 +141,7 @@ Zen 6.x-2.0, 2010-06-26
 -----------------------
 - #791056 by  and JohnAlbin: Zen clobbers Views 3 classes
 - #838338: element-invisible class doesn't fully hide elements
-- #723514 by : Link in STARTERKIT description incorrect
+- #723514 by kmonty: Link in STARTERKIT description incorrect
 - Skip navigation's ID changed from #skip-to-nav to #skip-link
 - Added $block_html_id to block.tpl.php
 - #772488 by : Fatal error: Call to undefined function
@@ -257,7 +257,7 @@ Zen 6.x-2.0-beta1, 2009-11-10
 - Added optional node-type-specific preprocess functions
 - Added notes about mobile stylesheets to STARTERKIT.info
 - #200495 by JohnAlbin, , and : Split up monolithic zen.css into smaller, logical stylesheets
-- #328221 by  and JohnAlbin: Split up ie.css to remove CSS hacks
+- #328221 by kmonty and JohnAlbin: Split up ie.css to remove CSS hacks
 
 Zen 6.x-1.2, 2011-02-26
 -----------------------
