@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #814978 by scor: The name attribute in an a tag is not valid in XHTML+RDFa 1.0
 - #875528 by linclark: Theme registry rebuilt warning not linked to admin page
 - #780690: Notice: Undefined index: date in _zen_preprocess_comment()
 - #729144 by Frank Ralf: Update STARTERKIT theme-settings.php for Drupal 7

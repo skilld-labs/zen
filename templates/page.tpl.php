@@ -105,7 +105,7 @@
     <div id="content" class="column"><div class="section">
       <?php print render($page['highlight']); ?>
       <?php print $breadcrumb; ?>
-      <a name="main-content" id="main-content"></a>
+      <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <h1 class="title" id="page-title"><?php print $title; ?></h1>
