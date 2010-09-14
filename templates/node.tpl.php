@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Theme implementation to display a node.

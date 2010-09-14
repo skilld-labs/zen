@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Add stylesheets that are only needed when Zen is the enabled theme.

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# $Id$
-#
 # This script is used by the MAINTAINER to generate composite stylesheets for
 # the base Zen theme from the stylesheets in the STARTERKIT.
 

@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Default theme implementation to wrap comments.

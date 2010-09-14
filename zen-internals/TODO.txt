@@ -1,5 +1,3 @@
-// $Id$
-
 Zen 7.x-3.0 @TODO
 -----------------
 - #: Add fix to auto-correct tabs broken by contrib modules
