@@ -104,7 +104,7 @@ Zen 7.x-3.0, 2011-04-06
 - #987916: Submitted by text doesn't use $submitted variable introduced in Drupal 7.0-rc1
 - #978810 by bellHead: Region-specific template suggestions for sidebar regions always use region--sidebar.tpl.php
 - #986290: $tabs displaying as string 'Array' due to change in theme_menu_local_tasks()
-- #814978 by : The name attribute in an a tag is not valid in XHTML+RDFa 1.0
+- #814978 by scor: The name attribute in an a tag is not valid in XHTML+RDFa 1.0
 - #875528 by linclark: Theme registry rebuilt warning not linked to admin page
 - #780690: Notice: Undefined index: date in _zen_preprocess_comment()
 - #729144 by : Update STARTERKIT theme-settings.php for Drupal 7
