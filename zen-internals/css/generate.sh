@@ -3,15 +3,57 @@
 # This script is used by the MAINTAINER to generate composite stylesheets for
 # the base Zen theme from the stylesheets in the STARTERKIT.
 
-echo -n '/* $' > header.txt;
-echo 'Id$ */' >> header.txt;
-echo >> header.txt;
+FIXED=( \
+  html-reset.css \
+  wireframes.css \
+  layout-fixed.css \
+  page-backgrounds.css \
+  tabs.css \
+  messages.css \
+  pages.css \
+  blocks.css \
+  navigation.css \
+  views-styles.css \
+  nodes.css \
+  comments.css \
+  forms.css \
+  fields.css \
+  );
 
-cat header.txt ../../STARTERKIT/css/html-reset.css ../../STARTERKIT/css/wireframes.css ../../STARTERKIT/css/layout-fixed.css ../../STARTERKIT/css/page-backgrounds.css ../../STARTERKIT/css/tabs.css ../../STARTERKIT/css/messages.css ../../STARTERKIT/css/pages.css ../../STARTERKIT/css/block-editing.css ../../STARTERKIT/css/blocks.css ../../STARTERKIT/css/navigation.css ../../STARTERKIT/css/views-styles.css ../../STARTERKIT/css/nodes.css ../../STARTERKIT/css/comments.css ../../STARTERKIT/css/forms.css ../../STARTERKIT/css/fields.css | perl -e 'while(<>) { $_ =~ s|^\/\* \$(Id: [^\$]+) \$|\/* \1|; print $_; }' - > zen-fixed.css;
+STYLESHEET='zen-fixed.css';
+echo > $STYLESHEET;
+for FILENAME in ${FIXED[*]}; do
+  echo >> $STYLESHEET;
+  echo "/* $FILENAME */" >> $STYLESHEET;
+  echo >> $STYLESHEET;
+  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
+done
 
-cat header.txt ../../STARTERKIT/css/html-reset.css ../../STARTERKIT/css/wireframes.css ../../STARTERKIT/css/layout-liquid.css ../../STARTERKIT/css/page-backgrounds.css ../../STARTERKIT/css/tabs.css ../../STARTERKIT/css/messages.css ../../STARTERKIT/css/pages.css ../../STARTERKIT/css/block-editing.css ../../STARTERKIT/css/blocks.css ../../STARTERKIT/css/navigation.css ../../STARTERKIT/css/views-styles.css ../../STARTERKIT/css/nodes.css ../../STARTERKIT/css/comments.css ../../STARTERKIT/css/forms.css ../../STARTERKIT/css/fields.css | perl -e 'while(<>) { $_ =~ s|^\/\* \$(Id: [^\$]+) \$|\/* \1|; print $_; }' - > zen-liquid.css
+LIQUID=( \
+  html-reset.css \
+  wireframes.css \
+  layout-liquid.css \
+  page-backgrounds.css \
+  tabs.css \
+  messages.css \
+  pages.css \
+  blocks.css \
+  navigation.css \
+  views-styles.css \
+  nodes.css \
+  comments.css \
+  forms.css \
+  fields.css \
+  );
 
-rm header.txt;
+STYLESHEET='zen-liquid.css';
+echo > $STYLESHEET;
+for FILENAME in ${FIXED[*]}; do
+  echo >> $STYLESHEET;
+  echo "/* $FILENAME */" >> $STYLESHEET;
+  echo >> $STYLESHEET;
+  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
+done
 
 cp ../../STARTERKIT/css/print.css .;
 
