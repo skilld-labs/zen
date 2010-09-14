@@ -105,7 +105,7 @@ Zen 7.x-3.0, 2011-04-06
 - #978810 by : Region-specific template suggestions for sidebar regions always use region--sidebar.tpl.php
 - #986290: $tabs displaying as string 'Array' due to change in theme_menu_local_tasks()
 - #814978 by : The name attribute in an a tag is not valid in XHTML+RDFa 1.0
-- #875528 by : Theme registry rebuilt warning not linked to admin page
+- #875528 by linclark: Theme registry rebuilt warning not linked to admin page
 - #780690: Notice: Undefined index: date in _zen_preprocess_comment()
 - #729144 by : Update STARTERKIT theme-settings.php for Drupal 7
 - #563060 by seutje and JohnAlbin: Port Zen to Drupal 7
