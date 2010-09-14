@@ -24,7 +24,6 @@
  * - $status: Comment status. Possible values are:
  *   comment-unpublished, comment-published or comment-preview.
  * - $title: Linked title.
- * - $unpublished: An unpublished comment visible only to administrators.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default values can be one or more of the following:
@@ -77,7 +76,7 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
-  <?php if ($unpublished): ?>
+  <?php if ($status == 'comment-unpublished'): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
