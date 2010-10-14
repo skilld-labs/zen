@@ -131,7 +131,7 @@ Zen 6.x-2.1, 2011-04-05
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #870080 by : Correction to README.TXT for STARTERKIT
 - #707410 by : improve detection of Panels pages
-- #634552 by JohnAlbin and : Conflict with context module
+- #634552 by JohnAlbin and tim.plunkett: Conflict with context module
 - #941714: Modules setting $classes in preprocess functions breaks expected Zen classes
 - #932826: mytheme_links__system_main_menu() doesn't work as expected
 - Fix PHP warning on maintenance page
