@@ -134,6 +134,20 @@ function zen_preprocess_html(&$vars, $hook) {
   if (theme_get_setting('zen_wireframes')) {
     $vars['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
+  // Store the menu item since it has some useful information.
+  $vars['menu_item'] = menu_get_item();
+  switch ($vars['menu_item']['page_callback']) {
+    case 'views_page':
+      // Is this a Views page?
+      $vars['classes_array'][] = 'page-views';
+      break;
+    case 'page_manager_page_execute':
+    case 'page_manager_node_view':
+    case 'page_manager_contact_site':
+      // Is this a Panels page?
+      $vars['classes_array'][] = 'page-panels';
+      break;
+  }
 }
 
 /**
