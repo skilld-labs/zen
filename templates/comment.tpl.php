@@ -80,10 +80,7 @@
 
   <div class="submitted">
     <?php print $permalink; ?>
-    <?php
-      print t('Submitted by !username on !datetime.',
-        array('!username' => $author, '!datetime' => $created));
-    ?>
+    <?php print $submitted; ?>
   </div>
 
   <div class="content"<?php print $content_attributes; ?>>
