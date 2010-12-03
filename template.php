@@ -67,18 +67,20 @@ function zen_breadcrumb($variables) {
 /**
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
-function zen_menu_local_tasks() {
-  $output = array();
+function zen_menu_local_tasks(&$variables) {
+  $output = '';
 
-  if ($primary = menu_primary_local_tasks()) {
-    $primary['#prefix'] = '<ul class="tabs primary clearfix">';
-    $primary['#suffix'] = '</ul>';
-    $output[] = $primary;
+  if (!empty($variables['primary'])) {
+    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
+    $variables['primary']['#suffix'] = '</ul>';
+    $output .= drupal_render($variables['primary']);
   }
-  if ($secondary = menu_secondary_local_tasks()) {
-    $secondary['#prefix'] = '<ul class="tabs secondary clearfix">';
-    $secondary['#suffix'] = '</ul>';
-    $output[] = $secondary;
+  if (!empty($variables['secondary'])) {
+    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
+    $variables['secondary']['#suffix'] = '</ul>';
+    $output .= drupal_render($variables['secondary']);
   }
 
   return $output;
