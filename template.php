@@ -270,11 +270,13 @@ function zen_preprocess_comment(&$vars, $hook) {
  * @see region.tpl.php
  */
 function zen_preprocess_region(&$vars, $hook) {
-  // Sidebar regions get a common template suggestion a couple extra classes.
+  // Sidebar regions get some extra classes and a common template suggestion.
   if (strpos($vars['region'], 'sidebar_') === 0) {
-    $vars['theme_hook_suggestions'][] = 'region__sidebar';
     $vars['classes_array'][] = 'column';
     $vars['classes_array'][] = 'sidebar';
+    $vars['theme_hook_suggestions'][] = 'region__sidebar';
+    // Allow a region-specific template to override Zen's region--sidebar.
+    $vars['theme_hook_suggestions'][] = 'region__' . $vars['region'];
   }
 }
 
