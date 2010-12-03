@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ------------------------
+- #978810 by bellHead: Region-specific template suggestions for sidebar regions always use region--sidebar.tpl.php
 - #986290: $tabs displaying as string 'Array' due to change in theme_menu_local_tasks()
 - #814978 by scor: The name attribute in an a tag is not valid in XHTML+RDFa 1.0
 - #875528 by linclark: Theme registry rebuilt warning not linked to admin page
