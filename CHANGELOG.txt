@@ -1,5 +1,5 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
-------------------------
+---------------------------
 - #1044586: Fix "Rebuild theme registry" feature
 - #923382: Conditional stylesheets should use drupal_add_css()
 - #987916: Submitted by text doesn't use $submitted variable introduced in Drupal 7.0-rc1
