@@ -53,7 +53,15 @@ function zen_breadcrumb($variables) {
       $breadcrumb_separator = theme_get_setting('zen_breadcrumb_separator');
       $trailing_separator = $title = '';
       if (theme_get_setting('zen_breadcrumb_title')) {
-        if ($title = drupal_get_title()) {
+        // Check if we are on a non-default tab.
+        $item = menu_get_item();
+        if (!empty($item['tab_parent'])) {
+          $title = check_plain($item['title']);
+        }
+        else {
+          $title = drupal_get_title();
+        }
+        if ($title) {
           $trailing_separator = $breadcrumb_separator;
         }
       }
