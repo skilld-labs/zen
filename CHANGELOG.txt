@@ -96,7 +96,7 @@ Zen 7.x-3.0, 2011-04-06
 - #1063814: Remove count-X and region-* classes from block.tpl.php
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #1060122: Add missing $block_html_id to block.tpl.php
-- #948666 by  and JohnAlbin: Update block classes in blocks.css
+- #948666 by danillonunes and JohnAlbin: Update block classes in blocks.css
 - #1045116: Add accessible title text to theme_breadcrumbs to match markup in D7
 - #555910: "Append title to breadcrumbs" option shows doubled titles on non-default tabs
 - #1044586: Fix "Rebuild theme registry" feature
