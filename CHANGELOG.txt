@@ -129,7 +129,7 @@ Zen 6.x-2.1, 2011-04-05
 - #962356: Convert region template suggestions into theme hook suggestions
 - #978640 by : Whitespace before comment causes jQuery error
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
-- #870080 by : Correction to README.TXT for STARTERKIT
+- #870080 by mverbaar: Correction to README.TXT for STARTERKIT
 - #707410 by AdrianB: improve detection of Panels pages
 - #634552 by JohnAlbin and tim.plunkett: Conflict with context module
 - #941714: Modules setting $classes in preprocess functions breaks expected Zen classes
