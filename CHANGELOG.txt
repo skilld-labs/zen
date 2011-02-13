@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #1060122: Add missing $block_html_id to block.tpl.php
 - #948666 by danillonunes and JohnAlbin: Update block classes in blocks.css
 - #1045116: Add accessible title text to theme_breadcrumbs to match markup in D7

@@ -322,7 +322,14 @@ function zen_preprocess_region(&$vars, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 function zen_preprocess_block(&$vars, $hook) {
-  // Special classes for blocks.
+  // Classes describing the position of the block within the region.
+  if ($vars['block_id'] == 1) {
+    $vars['classes_array'][] = 'first';
+  }
+  // The last_in_region property is set in zen_page_alter().
+  if (isset($vars['block']->last_in_region)) {
+    $vars['classes_array'][] = 'last';
+  }
   $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
   $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
 
@@ -340,4 +347,29 @@ function zen_preprocess_block(&$vars, $hook) {
 function zen_process_block(&$vars, $hook) {
   // Drupal 7 should use a $title variable instead of $block->subject.
   $vars['title'] = $vars['block']->subject;
+}
+
+/**
+ * Implements hook_page_alter().
+ *
+ * Look for the last block in the region. This is impossible to determine from
+ * within a preprocess_block function.
+ *
+ * @param $page
+ *   Nested array of renderable elements that make up the page.
+ */
+function zen_page_alter(&$page) {
+  // Look in each visible region for blocks.
+  foreach (system_region_list($GLOBALS['theme'], REGIONS_VISIBLE) as $region => $name) {
+    if (!empty($page[$region])) {
+      // Find the last block in the region.
+      $blocks = array_reverse(element_children($page[$region]));
+      while ($blocks && !isset($page[$region][$blocks[0]]['#block'])) {
+        array_shift($blocks);
+      }
+      if ($blocks) {
+        $page[$region][$blocks[0]]['#block']->last_in_region = TRUE;
+      }
+    }
+  }
 }
