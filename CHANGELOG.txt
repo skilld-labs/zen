@@ -127,7 +127,7 @@ Zen 6.x-2.1, 2011-04-05
 - #742208: Conflict with domain theme module
 - #1063226 by ,  and barraponto: Unpublished comment style is not applied
 - #962356: Convert region template suggestions into theme hook suggestions
-- #978640 by : Whitespace before comment causes jQuery error
+- #978640 by marcvangend: Whitespace before comment causes jQuery error
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #870080 by mverbaar: Correction to README.TXT for STARTERKIT
 - #707410 by AdrianB: improve detection of Panels pages
