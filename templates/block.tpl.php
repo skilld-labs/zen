@@ -19,16 +19,8 @@
  *     that case the class would be "block-user".
  *   - first: The first block in the region.
  *   - last: The last block in the region.
- *   - region-count-[x]: The position of the block in the list of blocks in the
- *     current region.
- *   - region-odd: An odd-numbered block of the list of blocks in the current
- *     region.
- *   - region-even: An even-numbered block of the list of blocks in the current
- *     region.
- *   - count-[x]: The position of the block in the list of blocks on the current
- *     page.
- *   - odd: An odd-numbered block of the list of blocks on the current page.
- *   - even: An even-numbered block of the list of blocks on the current page.
+ *   - odd: An odd-numbered block in the region's list of blocks.
+ *   - even: An even-numbered block in the region's list of blocks.
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.

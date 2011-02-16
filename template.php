@@ -330,8 +330,7 @@ function zen_preprocess_block(&$vars, $hook) {
   if (isset($vars['block']->last_in_region)) {
     $vars['classes_array'][] = 'last';
   }
-  $vars['classes_array'][] = 'region-' . $vars['block_zebra'];
-  $vars['classes_array'][] = 'region-count-' . $vars['block_id'];
+  $vars['classes_array'][] = $vars['block_zebra'];
 
   $vars['title_attributes_array']['class'][] = 'block-title';
 }
