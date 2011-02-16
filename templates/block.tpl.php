@@ -58,4 +58,4 @@
     <?php print $content; ?>
   </div>
 
-</div> <!-- /.block -->
+</div><!-- /.block -->

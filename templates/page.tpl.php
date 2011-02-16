@@ -93,12 +93,12 @@
         <?php if ($site_slogan): ?>
           <div id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
-      </div> <!-- /#name-and-slogan -->
+      </div><!-- /#name-and-slogan -->
     <?php endif; ?>
 
     <?php print render($page['header']); ?>
 
-  </div></div> <!-- /.section, /#header -->
+  </div></div><!-- /.section, /#header -->
 
   <div id="main-wrapper"><div id="main" class="clearfix<?php if ($main_menu || $page['navigation']) { print ' with-navigation'; } ?>">
 
@@ -121,7 +121,7 @@
       <?php endif; ?>
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
-    </div></div> <!-- /.section, /#content -->
+    </div></div><!-- /.section, /#content -->
 
     <?php if ($page['navigation'] || $main_menu): ?>
       <div id="navigation"><div class="section clearfix">
@@ -141,14 +141,14 @@
 
         <?php print render($page['navigation']); ?>
 
-      </div></div> <!-- /.section, /#navigation -->
+      </div></div><!-- /.section, /#navigation -->
     <?php endif; ?>
 
     <?php print render($page['sidebar_first']); ?>
 
     <?php print render($page['sidebar_second']); ?>
 
-  </div></div> <!-- /#main, /#main-wrapper -->
+  </div></div><!-- /#main, /#main-wrapper -->
 
   <?php if ($page['footer'] || $secondary_menu): ?>
     <div id="footer"><div class="section">
@@ -168,9 +168,9 @@
 
       <?php print render($page['footer']); ?>
 
-    </div></div> <!-- /.section, /#footer -->
+    </div></div><!-- /.section, /#footer -->
   <?php endif; ?>
 
-</div></div> <!-- /#page, /#page-wrapper -->
+</div></div><!-- /#page, /#page-wrapper -->
 
 <?php print render($page['bottom']); ?>

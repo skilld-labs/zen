@@ -41,12 +41,12 @@
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-        </div> <!-- /#name-and-slogan -->
+        </div><!-- /#name-and-slogan -->
       <?php endif; ?>
 
       <?php print $header; ?>
 
-    </div></div> <!-- /.section, /#header -->
+    </div></div><!-- /.section, /#header -->
 
     <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navigation) { print ' with-navigation'; } ?>">
 
@@ -61,31 +61,31 @@
 
         <?php print $content; ?>
 
-      </div></div> <!-- /.section, /#content -->
+      </div></div><!-- /.section, /#content -->
 
       <?php if ($navigation): ?>
         <div id="navigation"><div class="section clearfix">
 
           <?php print $navigation; ?>
 
-        </div></div> <!-- /.section, /#navigation -->
+        </div></div><!-- /.section, /#navigation -->
       <?php endif; ?>
 
       <?php print $sidebar_first; ?>
 
       <?php print $sidebar_second; ?>
 
-    </div></div> <!-- /#main, /#main-wrapper -->
+    </div></div><!-- /#main, /#main-wrapper -->
 
     <?php if ($footer): ?>
       <div id="footer"><div class="section">
 
         <?php print $footer; ?>
 
-      </div></div> <!-- /.section, /#footer -->
+      </div></div><!-- /.section, /#footer -->
     <?php endif; ?>
 
-  </div></div> <!-- /#page, /#page-wrapper -->
+  </div></div><!-- /#page, /#page-wrapper -->
 
   <?php print $bottom; ?>
 

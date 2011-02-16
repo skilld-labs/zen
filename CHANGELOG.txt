@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #978640 by marcvangend: Whitespace before comment causes jQuery error
 - #1063814: Remove count-X and region-* classes from block.tpl.php
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
 - #1060122: Add missing $block_html_id to block.tpl.php

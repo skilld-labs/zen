@@ -120,4 +120,4 @@
 
   <?php print render($content['comments']); ?>
 
-</div> <!-- /.node -->
+</div><!-- /.node -->

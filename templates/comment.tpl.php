@@ -97,4 +97,4 @@
   </div>
 
   <?php print render($content['links']) ?>
-</div> <!-- /.comment -->
+</div><!-- /.comment -->
