@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1053036: Update screenshot.psd source image
 - #1061794 by Scott J and JohnAlbin: taxonomy terms no longer get special treatment in node.tpl
 - #936912 by n8tron and JohnAlbin: feed icon has wrong css class
 - #841988 by linclark and JohnAlbin: #navigation .content rule not targeting anything
