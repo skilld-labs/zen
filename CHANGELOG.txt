@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #936912 by n8tron and JohnAlbin: feed icon has wrong css class
 - #841988 by linclark and JohnAlbin: #navigation .content rule not targeting anything
 - #978640 by marcvangend: Whitespace before comment causes jQuery error
 - #1063814: Remove count-X and region-* classes from block.tpl.php
