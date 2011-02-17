@@ -14,7 +14,6 @@
  *   calling format_date() with the desired parameters on the $created variable.
  * - $name: Themed username of node author output from theme_username().
  * - $node_url: Direct url of the current node.
- * - $terms: the themed list of taxonomy term links output from theme_links().
  * - $display_submitted: whether submission information should be displayed.
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
@@ -93,17 +92,9 @@
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
-  <?php if ($display_submitted || !empty($content['links']['terms'])): ?>
-    <div class="meta">
-      <?php if ($display_submitted): ?>
-        <span class="submitted">
-          <?php print $submitted; ?>
-        </span>
-      <?php endif; ?>
-
-      <?php if (!empty($content['links']['terms'])): ?>
-        <div class="terms terms-inline"><?php print render($content['links']['terms']); ?></div>
-      <?php endif; ?>
+  <?php if ($display_submitted): ?>
+    <div class="submitted">
+      <?php print $submitted; ?>
     </div>
   <?php endif; ?>
 
