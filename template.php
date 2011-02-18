@@ -31,8 +31,12 @@ function zen_theme(&$existing, $type, $theme, $path) {
 /**
  * Return a themed breadcrumb trail.
  *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
+ * @param $variables
+ *   - title: An optional string to be used as a navigational heading to give
+ *     context for breadcrumb links to screen-reader users.
+ *   - title_attributes_array: Array of HTML attributes for the title. It is
+ *     flattened into a string within the theme function.
+ *   - breadcrumb: An array containing the breadcrumb links.
  * @return
  *   A string containing the breadcrumb output.
  */
@@ -70,10 +74,17 @@ function zen_breadcrumb($variables) {
       }
 
       // Provide a navigational heading to give context for breadcrumb links to
-      // screen-reader users. Make the heading invisible with .element-invisible.
-      $heading = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+      // screen-reader users.
+      if (empty($variables['title'])) {
+        $variables['title'] = t('You are here');
+      }
+      // Unless overridden by a preprocess function, make the heading invisible.
+      if (!isset($variables['title_attributes_array']['class'])) {
+        $variables['title_attributes_array']['class'][] = 'element-invisible';
+      }
+      $heading = '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
 
-      return $heading . '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . $trailing_separator . $title . '</div>';
+      return '<div class="breadcrumb">' . $heading . implode($breadcrumb_separator, $breadcrumb) . $trailing_separator . $title . '</div>';
     }
   }
   // Otherwise, return an empty string.
