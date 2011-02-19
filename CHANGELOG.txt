@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #950538 by hswong3i: User pictures should use .user-picture class
 - #1066478: Add missing title prefix/suffix variables to comment-wrapper.tpl
 - #1066472: Render comments and form to see if headings are needed
 - #1066452: Remove STARTERKIT_preprocess() placeholder since it's expensive and rarely needed
