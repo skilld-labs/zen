@@ -112,8 +112,8 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
-      <?php if ($tabs): ?>
-        <div class="tabs"><?php print render($tabs); ?></div>
+      <?php if ($tabs = render($tabs)): ?>
+        <div class="tabs"><?php print $tabs; ?></div>
       <?php endif; ?>
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?>

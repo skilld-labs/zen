@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1046030: Tabs div is always rendered
 - #1064390: Allow easier modification of breadcrumb's header
 - #1053036: Update screenshot.psd source image
 - #1061794 by Scott J and JohnAlbin: taxonomy terms no longer get special treatment in node.tpl

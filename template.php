@@ -97,17 +97,13 @@ function zen_breadcrumb($variables) {
 function zen_menu_local_tasks(&$variables) {
   $output = '';
 
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
+  if ($primary = drupal_render($variables['primary'])) {
+    $output .= '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $output .= '<ul class="tabs primary clearfix">' . $primary . '</ul>';
   }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary clearfix">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
+  if ($secondary = drupal_render($variables['secondary'])) {
+    $output .= '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $output .= '<ul class="tabs secondary clearfix">' . $secondary . '</ul>';
   }
 
   return $output;
