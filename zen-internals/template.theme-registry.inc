@@ -10,11 +10,6 @@
  * We are simply using this hook as a convenient time to do some related work.
  */
 function _zen_theme(&$existing, $type, $theme, $path) {
-  // Force the region hook to search for region__ suggestions.
-  if (empty($exisiting['region']['pattern'])) {
-    $exisiting['region']['pattern'] = 'region__';
-  }
-
   // If we are auto-rebuilding the theme registry, warn about the feature.
   // Always display the warning in the admin section, otherwise limit to three
   // warnings per hour.
