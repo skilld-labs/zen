@@ -11,6 +11,12 @@
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default value has the following:
  *   - comment-wrapper: The current template type, i.e., "theming hook".
+ * - $title_prefix (array): An array containing additional output populated by
+ *   modules, intended to be displayed in front of the main title tag that
+ *   appears in the template.
+ * - $title_suffix (array): An array containing additional output populated by
+ *   modules, intended to be displayed after the main title tag that appears in
+ *   the template.
  *
  * The following variables are provided for contextual information.
  * - $node: Node object the comments are attached to.
@@ -33,7 +39,9 @@ $comment_form = render($content['comment_form']);
 ?>
 <div id="comments" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if ($comments && $node->type != 'forum'): ?>
+    <?php print render($title_prefix); ?>
     <h2 class="title"><?php print t('Comments'); ?></h2>
+    <?php print render($title_suffix); ?>
   <?php endif; ?>
 
   <?php print $comments; ?>
