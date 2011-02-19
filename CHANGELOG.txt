@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1066472: Render comments and form to see if headings are needed
 - #1066452: Remove STARTERKIT_preprocess() placeholder since it's expensive and rarely needed
 - #1066436: STARTERKIT_theme() no longer needs to call zen_theme()
 - #1066426: No longer need to force the search for region__ suggestions
