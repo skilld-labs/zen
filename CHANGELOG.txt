@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1066386: Region tpls need to check for $content before printing wrapper
 - #1046030: Tabs div is always rendered
 - #1064390: Allow easier modification of breadcrumb's header
 - #1053036: Update screenshot.psd source image
