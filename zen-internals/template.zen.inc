@@ -20,13 +20,13 @@ function _zen_preprocess_html(&$variables, $hook) {
   // want the stylesheets to be inherited from Zen since it becomes impossible
   // to re-order the stylesheets in the sub-theme.
   if (theme_get_setting('zen_layout') == 'zen-columns-fixed') {
-    drupal_add_css($directory . 'zen-fixed.css', array('media' => 'all', 'weight' => 1));
+    drupal_add_css($directory . 'zen-fixed.css', array('group' => CSS_THEME, 'every_page' => TRUE));
   }
   else {
-    drupal_add_css($directory . 'zen-liquid.css', array('media' => 'all', 'weight' => 1));
+    drupal_add_css($directory . 'zen-liquid.css', array('group' => CSS_THEME, 'every_page' => TRUE));
   }
   // Add print styles.
-  drupal_add_css($directory . 'print.css', array('media' => 'print', 'weight' => 1));
+  drupal_add_css($directory . 'print.css', array('media' => 'print', 'group' => CSS_THEME, 'every_page' => TRUE));
   // Add conditional stylesheets.
   drupal_add_css($directory . 'ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE', '!IE' => FALSE), 'every_page' => TRUE));
   drupal_add_css($directory . 'ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 6', '!IE' => FALSE), 'every_page' => TRUE));
