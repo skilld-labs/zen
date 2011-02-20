@@ -1,7 +1,7 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
 - #950206 by n8tron, Mtro and JohnAlbin: Update README in STARTERKIT
-- #1053874 by n8tron: Update README in STARTERKIT/templates
+- #1053874 by n8tron and JohnAlbin: Update README in STARTERKIT/templates
 - #1064706: Use $variables instead of $vars to match D7 code snippets
 - #1067062: Remove duplicate classes (like node-type-TYPE) from node.tpl.php
 - #940882: $readmore variable is missing from node.tpl.php
