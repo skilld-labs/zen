@@ -280,11 +280,10 @@ function zen_preprocess_comment(&$variables, $hook) {
 /**
  * Preprocess variables for region.tpl.php
  *
- * Prepare the values passed to the theme_region function to be passed into a
- * pluggable template engine. Uses the region name to generate a template file
- * suggestions. If none are found, the default region.tpl.php is used.
- *
- * @see region.tpl.php
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("region" in this case.)
  */
 function zen_preprocess_region(&$variables, $hook) {
   // Sidebar regions get some extra classes and a common template suggestion.
