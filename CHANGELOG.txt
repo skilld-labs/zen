@@ -74,7 +74,7 @@ Zen 7.x-3.0, 2011-04-06
 - #1072268: Zen theme doesn't load RTL styles
 - #929630 by  and : URL for overriding stylesheets documentation has changed
 - #1069106: Update theme-settings.php to use Form API states
-- #950206 by n8tron,  and JohnAlbin: Update README in STARTERKIT
+- #950206 by n8tron, Mtro and JohnAlbin: Update README in STARTERKIT
 - #1053874 by n8tron and JohnAlbin: Update README in STARTERKIT/templates
 - #1064706: Use $variables instead of $vars to match D7 code snippets
 - #1067062: Remove duplicate classes (like node-type-TYPE) from node.tpl.php
