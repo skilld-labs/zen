@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1064706: Use $variables instead of $vars to match D7 code snippets
 - #1067062: Remove duplicate classes (like node-type-TYPE) from node.tpl.php
 - #940882: $readmore variable is missing from node.tpl.php
 - #950538 by hswong3i: User pictures should use .user-picture class
