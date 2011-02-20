@@ -6,8 +6,8 @@
  * Don't do something this dumb in your sub-theme. Stylesheets should be added
  * using your sub-theme's .info file. If you desire styles that apply
  * conditionally, you can conditionally add a "body class" in the
- * preprocess_page function. For example, see how wireframes.css is handled in
- * zen_preprocess_page() and wireframes.css.
+ * preprocess_page function. For an example, see how wireframe styling is
+ * handled in zen_preprocess_html() and wireframes.css.
  */
 
 /**
@@ -16,7 +16,9 @@
 function _zen_preprocess_html(&$variables, $hook) {
   $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css/';
 
-  // Add default styles.
+  // Add Zen's stylesheets manually instead of via its .info file. We do not
+  // want the stylesheets to be inherited from Zen since it becomes impossible
+  // to re-order the stylesheets in the sub-theme.
   if (theme_get_setting('zen_layout') == 'zen-columns-fixed') {
     drupal_add_css($directory . 'zen-fixed.css', array('media' => 'all', 'weight' => 1));
   }
