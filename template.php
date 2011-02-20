@@ -240,10 +240,6 @@ function zen_preprocess_maintenance_page(&$vars, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function zen_preprocess_node(&$vars, $hook) {
-  if (isset($vars['node_title'])) {
-    // $node_title is idiotic. Fixed in Alpha 4.
-    $vars['title'] = $vars['node_title'];
-  }
   // Add $unpublished variable.
   $vars['unpublished'] = (!$vars['status']) ? TRUE : FALSE;
 
