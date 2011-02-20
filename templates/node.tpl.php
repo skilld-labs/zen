@@ -60,7 +60,7 @@
  * - $status: Flag for published status.
  * - $comment: State of comment settings for the node.
  * - $readmore: Flags true if the teaser content of the node cannot hold the
- *   main body content.
+ *   main body content. Currently broken; see http://drupal.org/node/823380
  * - $is_front: Flags true when presented in the front page.
  * - $logged_in: Flags true when the current user is a logged-in member.
  * - $is_admin: Flags true when the current user is an administrator.
