@@ -244,31 +244,12 @@ function zen_preprocess_node(&$vars, $hook) {
     // $node_title is idiotic. Fixed in Alpha 4.
     $vars['title'] = $vars['node_title'];
   }
+  // Add $unpublished variable.
+  $vars['unpublished'] = (!$vars['status']) ? TRUE : FALSE;
 
-  // Special classes for nodes.
-  // Class for node type: "node-type-page", "node-type-story", "node-type-my-custom-type", etc.
-  $vars['classes_array'][] = drupal_html_class('node-type-' . $vars['type']);
-  if ($vars['promote']) {
-    $vars['classes_array'][] = 'node-promoted';
-  }
-  if ($vars['sticky']) {
-    $vars['classes_array'][] = 'node-sticky';
-  }
-  if (!$vars['status']) {
-    $vars['classes_array'][] = 'node-unpublished';
-    $vars['unpublished'] = TRUE;
-  }
-  else {
-    $vars['unpublished'] = FALSE;
-  }
+  // Add a class to show node is authored by current user.
   if ($vars['uid'] && $vars['uid'] == $GLOBALS['user']->uid) {
-    $vars['classes_array'][] = 'node-by-viewer'; // Node is authored by current user.
-  }
-  if ($vars['teaser']) {
-    $vars['classes_array'][] = 'node-teaser'; // Node is displayed as teaser.
-  }
-  if (isset($vars['preview'])) {
-    $vars['classes_array'][] = 'node-preview';
+    $vars['classes_array'][] = 'node-by-viewer';
   }
 
   $vars['title_attributes_array']['class'][] = 'node-title';
