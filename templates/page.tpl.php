@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Theme implementation to display a single Drupal page.
+ * Zen theme's implementation to display a single Drupal page.
  *
  * Available variables:
  *
