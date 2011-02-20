@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Default theme implementation to wrap comments.
+ * Zen theme's implementation to provide an HTML container for comments.
  *
  * Available variables:
  * - $content: The array of content-related elements for the node. Use
@@ -31,6 +31,7 @@
  *   into a string within the variable $classes.
  *
  * @see template_preprocess_comment_wrapper()
+ * @see theme_comment_wrapper()
  */
 
 // Render the comments and form first to see if we need headings.
