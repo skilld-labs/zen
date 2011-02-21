@@ -27,7 +27,8 @@ Theme .info file
 
 CSS
   Once you have created your sub-theme, look at the README.txt in your
-  sub-theme's css folder.
+  sub-theme's css folder. Don't freak out about all the files in this directory;
+  just read the README.txt file for an explanation.
 
 Templates
   Now take a look at the README.txt in your sub-theme's templates folder.
@@ -65,9 +66,9 @@ INSTALLATION
     For more information about acceptable theme installation directories, read
     the sites/default/default.settings.php file in your Drupal installation.
 
- 3. Log in as an administrator on your Drupal site and go to Administer > Site
-    building > Themes (admin/build/themes). You will see the Zen theme there
-    with links on how to create your own sub-theme. You can optionally make Zen
-    the default theme.
+ 3. Log in as an administrator on your Drupal site and go to the Appearance page
+    at admin/appearance. You will see the Zen theme listed under the Disabled
+    Themes heading with links on how to create your own sub-theme. You can
+    optionally make Zen the default theme.
 
  4. Now build your own sub-theme by reading the STARTERKIT/README.txt file.
