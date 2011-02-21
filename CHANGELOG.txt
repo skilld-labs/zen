@@ -125,7 +125,7 @@ Zen 6.x-2.1, 2011-04-05
 - #1072268: Zen theme doesn't load RTL styles
 - #929630 by  and : URL for overriding stylesheets documentation has changed
 - #742208: Conflict with domain theme module
-- #1063226 by ,  and barraponto: Unpublished comment style is not applied
+- #1063226 by tacituseu,  and barraponto: Unpublished comment style is not applied
 - #962356: Convert region template suggestions into theme hook suggestions
 - #978640 by marcvangend: Whitespace before comment causes jQuery error
 - #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
