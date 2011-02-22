@@ -10,6 +10,32 @@ drupal theme. Zen will do the bits you haven't learned and patiently wait for
 you to discover the documentation and inline comments about them.
 
 
+WHAT ARE BASE THEMES, SUB-THEMES AND STARTER THEMES?
+----------------------------------------------------
+
+Often the best way to learn a system is to take an existing example and modify
+it to see how it works. One big disadvantage of this learning method is that if
+you break something and the original example worked before you hacked it,
+there's very little incentive for others to help you.
+
+Drupal's theming system has a solution to this problem: parent themes and
+sub-themes. A "sub-theme" will inherit all its HTML markup, CSS, and PHP code
+from its "parent theme" (also called a "base theme".) And with Drupal themes,
+it's easy for a sub-theme to override just the parts of the parent theme it
+wants to modify.
+
+A "starter theme" is a sub-theme designed specifically to be a good starting
+point for developing a custom theme for your website. It is usually paired with
+a base theme.
+
+So how do you create a theme with Zen?
+
+The Zen theme includes the Zen base theme as well as a starter theme called
+"STARTERKIT". You shouldn't modify any of the CSS or PHP files in the zen/
+folder; but instead you should create a sub-theme of zen and put it in a folder
+outside of the root zen/ folder.
+
+
 SUGGESTED READING
 -----------------
 
@@ -17,7 +43,7 @@ Installation
   If you don't know how to install a Drupal theme, there is a quick primer later
   in this document.
 
-Building a sub-theme
+Building a theme with Zen
   See the STARTERKIT/README.txt file for full instructions.
 
 Theme .info file
