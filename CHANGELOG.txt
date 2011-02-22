@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1069106: Update theme-settings.php to use Form API states
 - #950206 by n8tron, Mtro and JohnAlbin: Update README in STARTERKIT
 - #1053874 by n8tron and JohnAlbin: Update README in STARTERKIT/templates
 - #1064706: Use $variables instead of $vars to match D7 code snippets
