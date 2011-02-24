@@ -1,61 +1,11 @@
 #!/bin/sh
 
-# This script is used by the MAINTAINER to generate composite stylesheets for
+# This script is used by the MAINTAINER to make copies of the stylesheets for
 # the base Zen theme from the stylesheets in the STARTERKIT.
 
-FIXED=( \
-  html-reset.css \
-  wireframes.css \
-  layout-fixed.css \
-  page-backgrounds.css \
-  tabs.css \
-  messages.css \
-  pages.css \
-  blocks.css \
-  navigation.css \
-  views-styles.css \
-  nodes.css \
-  comments.css \
-  forms.css \
-  fields.css \
-  );
-
-STYLESHEET='zen-fixed.css';
-echo > $STYLESHEET;
-for FILENAME in ${FIXED[*]}; do
-  echo >> $STYLESHEET;
-  echo "/* $FILENAME */" >> $STYLESHEET;
-  echo >> $STYLESHEET;
-  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
+for FILENAME in ../../STARTERKIT/css/*.css; do
+  cp ../../STARTERKIT/css/$FILENAME .;
 done
 
-LIQUID=( \
-  html-reset.css \
-  wireframes.css \
-  layout-liquid.css \
-  page-backgrounds.css \
-  tabs.css \
-  messages.css \
-  pages.css \
-  blocks.css \
-  navigation.css \
-  views-styles.css \
-  nodes.css \
-  comments.css \
-  forms.css \
-  fields.css \
-  );
-
-STYLESHEET='zen-liquid.css';
-echo > $STYLESHEET;
-for FILENAME in ${FIXED[*]}; do
-  echo >> $STYLESHEET;
-  echo "/* $FILENAME */" >> $STYLESHEET;
-  echo >> $STYLESHEET;
-  cat ../../STARTERKIT/css/$FILENAME >> $STYLESHEET;
-done
-
-cp ../../STARTERKIT/css/print.css .;
-
-cp ../../STARTERKIT/css/ie.css .;
-cp ../../STARTERKIT/css/ie6.css .;
+# Don't need the core reference.
+rm drupal7-reference.css;
