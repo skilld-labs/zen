@@ -69,7 +69,7 @@
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
-    <a href="#main-menu"><?php print t('Jump to Navigation'); ?></a>
+    <a href="#main-menu" class="element-invisible element-focusable"><?php print t('Jump to Navigation'); ?></a>
   </div>
   <?php print $page_top; ?>
   <?php print $page; ?>
