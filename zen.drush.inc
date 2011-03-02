@@ -34,9 +34,9 @@ function drush_zen($name = 'My theme') {
 
   // From Zen's location, we move up one directory and construct the path where
   // our sub theme will be created.
-  $_zen_path = split('/', $zen_path);
+  $_zen_path = explode('/', $zen_path);
   array_pop($_zen_path);
-  $subtheme_path = join('/', $_zen_path) . '/' . $machine_name;
+  $subtheme_path = implode('/', $_zen_path) . '/' . $machine_name;
 
   // Make a fresh copy of the original starter kit.
   drush_op('zen_copy', "$zen_path/STARTERKIT", $subtheme_path);
