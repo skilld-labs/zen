@@ -31,7 +31,7 @@ function zen_drush_command() {
  */
 function drush_zen($name = 'My theme') {
 
-  $machine_name = drush_get_option('machine_name');
+  $machine_name = drush_get_option('machine-name');
   if (!$machine_name) {
     $machine_name = str_replace(' ', '_', strtolower($name));
     $search = array(
