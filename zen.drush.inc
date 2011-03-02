@@ -17,6 +17,10 @@ function zen_drush_command() {
     ),
     'options' => array(
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
+      // @TODO: Add these options:
+      // 'without-rtl' => 'Whether to remove all RTL stylesheets.',
+      // 'html5' => 'Use the HTML5 version of Zen',
+      // 'layout' => '[fixed,fluid,960gs] Choose the page layout method.',
     ),
     'examples' => array(
       'drush zen "My theme name" --machine-name=my_theme',
