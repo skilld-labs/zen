@@ -19,7 +19,7 @@ function zen_drush_command() {
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
     ),
     'examples' => array(
-      'drush zen "My theme name"',
+      'drush zen "My theme name" --machine-name=my_theme',
     ),
   );
 
