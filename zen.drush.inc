@@ -70,7 +70,7 @@ function drush_zen($name = 'My theme') {
 /**
  * Copy a directory recursively.
  */
-function zen_copy($source_dir, $target_dir, $ignore = '/^(\.(\.)?|CVS|SVN|\.git|\.DS_Store)$/') {
+function zen_copy($source_dir, $target_dir, $ignore = '/^(\.(\.)?|CVS|\.svn|\.git|\.DS_Store)$/') {
   if (!is_dir($source_dir)) {
     drush_die(dt('The directory "!directory" was not found.', array('!directory' => $source_dir)));
   }
