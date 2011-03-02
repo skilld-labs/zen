@@ -96,6 +96,19 @@
       </div><!-- /#name-and-slogan -->
     <?php endif; ?>
 
+    <?php print theme('links__system_secondary_menu', array(
+      'links' => $secondary_menu,
+      'attributes' => array(
+        'id' => 'secondary-menu',
+        'class' => array('links', 'clearfix'),
+      ),
+      'heading' => array(
+        'text' => t('Secondary menu'),
+        'level' => 'h2',
+        'class' => array('element-invisible'),
+      ),
+    )); ?>
+
     <?php print render($page['header']); ?>
 
   </div></div><!-- /.section, /#header -->
@@ -150,26 +163,7 @@
 
   </div></div><!-- /#main, /#main-wrapper -->
 
-  <?php if ($page['footer'] || $secondary_menu): ?>
-    <div id="footer"><div class="section">
-
-      <?php print theme('links__system_secondary_menu', array(
-        'links' => $secondary_menu,
-        'attributes' => array(
-          'id' => 'secondary-menu',
-          'class' => array('links', 'clearfix'),
-        ),
-        'heading' => array(
-          'text' => t('Secondary menu'),
-          'level' => 'h2',
-          'class' => array('element-invisible'),
-        ),
-      )); ?>
-
-      <?php print render($page['footer']); ?>
-
-    </div></div><!-- /.section, /#footer -->
-  <?php endif; ?>
+  <?php print render($page['footer']); ?>
 
 </div></div><!-- /#page, /#page-wrapper -->
 
