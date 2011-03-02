@@ -29,6 +29,7 @@
  *   site, if they have been configured.
  * - $secondary_menu (array): An array containing the Secondary menu links for
  *   the site, if they have been configured.
+ * - $secondary_menu_heading: The title of the menu used by the secondary links.
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
  * Page content (in order of occurrence in the default page.tpl.php):
@@ -103,7 +104,7 @@
         'class' => array('links', 'clearfix'),
       ),
       'heading' => array(
-        'text' => t('Secondary menu'),
+        'text' => $secondary_menu_heading,
         'level' => 'h2',
         'class' => array('element-invisible'),
       ),

@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1079010: The secondary links heading, "Secondary menu", is wrong
 - #1072302: Use element-focusable class for skip link accessibility
 - #1072268: Zen theme doesn't load RTL styles
 - #929630 by juan_g and akalata: URL for overriding stylesheets documentation has changed

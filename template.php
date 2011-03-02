@@ -213,6 +213,21 @@ function zen_preprocess_html(&$variables, $hook) {
 }
 
 /**
+ * Override or insert variables into the page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+function zen_preprocess_page(&$variables, $hook) {
+  // Find the title of the menu used by the secondary links.
+  $secondary_links = variable_get('menu_secondary_links_source', 'user-menu');
+  $menus = menu_get_menus();
+  $variables['secondary_menu_heading'] = $menus[$secondary_links];
+}
+
+/**
  * Override or insert variables into the maintenance page template.
  *
  * @param $variables
