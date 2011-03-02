@@ -78,13 +78,7 @@
 
     </div></div><!-- /#main, /#main-wrapper -->
 
-    <?php if ($footer): ?>
-      <div id="footer"><div class="section">
-
-        <?php print $footer; ?>
-
-      </div></div><!-- /.section, /#footer -->
-    <?php endif; ?>
+    <?php print $footer; ?>
 
   </div></div><!-- /#page, /#page-wrapper -->
 
