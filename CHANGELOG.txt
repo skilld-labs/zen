@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1110650: Anonymous comment class is broken in core
 - #1079010: The secondary links heading, "Secondary menu", is wrong
 - #1078994: Move secondary menu links from footer to header
 - #1072302: Use element-focusable class for skip link accessibility

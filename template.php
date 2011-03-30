@@ -280,6 +280,10 @@ function zen_preprocess_comment(&$variables, $hook) {
     $variables['title'] = '';
   }
 
+  // Anonymous class is broken in core. See #1110650
+  if ($variables['comment']->uid == 0) {
+    $variables['classes_array'][] = 'comment-by-anonymous';
+  }
   // Zebra striping.
   if ($variables['id'] == 1) {
     $variables['classes_array'][] = 'first';
