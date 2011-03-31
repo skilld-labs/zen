@@ -17,6 +17,7 @@ function zen_drush_command() {
       'machine_name' => '[optional] A machine-readable name for your theme.',
     ),
     'options' => array(
+      'name'         => 'A name for your theme.',
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
       // @TODO: Add these options:
       // 'without-rtl'  => 'Whether to remove all RTL stylesheets.',
@@ -34,7 +35,11 @@ function zen_drush_command() {
 /**
  * Create a Zen sub-theme using the starter kit.
  */
-function drush_zen($name = 'My theme', $machine_name = NULL) {
+function drush_zen($name = NULL, $machine_name = NULL) {
+  // Determine the theme name.
+  if (!isset($name)) {
+    $name = drush_get_option('name');
+  }
 
   // Determine the machine name.
   if (!isset($machine_name)) {
