@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1085422 by hswong3i: Highlighted region's machine name doesn't match core
 - #1082242 by joeyabbs: Maintenance page is missing span around site name
 - #1074822: Update fields.css to use new classes for fields in core
 - #1110842: Comment preview color is missing due to mis-targeted CSS rule
