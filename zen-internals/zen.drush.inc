@@ -13,7 +13,8 @@ function zen_drush_command() {
   $items['zen'] = array(
     'description' => 'Create a theme using Zen.',
     'arguments' => array(
-      'name' => 'A name for your theme.',
+      'name'         => 'A name for your theme.',
+      'machine_name' => '[optional] A machine-readable name for your theme.',
     ),
     'options' => array(
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
@@ -23,6 +24,7 @@ function zen_drush_command() {
     ),
     'examples' => array(
       'drush zen "My theme name"' => 'Create a sub-theme, using the default options.',
+      'drush zen "My theme name" my_theme' => 'Create a sub-theme with a specific machine name.',
     ),
   );
 
@@ -32,10 +34,12 @@ function zen_drush_command() {
 /**
  * Set up a Zen sub-theme with the starter kit.
  */
-function drush_zen($name = 'My theme') {
+function drush_zen($name = 'My theme', $machine_name = NULL) {
 
   // Determine the machine name.
-  $machine_name = drush_get_option('machine-name');
+  if (!isset($machine_name)) {
+    $machine_name = drush_get_option('machine-name');
+  }
   if (!$machine_name) {
     $machine_name = $name;
   }
