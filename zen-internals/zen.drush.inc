@@ -59,9 +59,15 @@ function drush_zen($name = 'My theme', $machine_name = NULL) {
   // Make a fresh copy of the original starter kit.
   drush_op('zen_copy', $zen_path . '/STARTERKIT', $subtheme_path);
 
-  // Rename the info file and fill in the theme name.
-  drush_op('zen_file_str_replace', $subtheme_path . '/STARTERKIT.info.txt', '= Zen Sub-theme Starter Kit', '= ' . $name);
-  drush_op('rename', $subtheme_path . '/STARTERKIT.info.txt', $subtheme_path . '/' . $machine_name . '.info');
+  // Rename the .info file.
+  $subtheme_info_file = $subtheme_path . '/' . $machine_name . '.info';
+  drush_op('rename', $subtheme_path . '/STARTERKIT.info.txt', $subtheme_info_file);
+
+  // Alter the contents of the .info file based on the command options.
+  $alterations = array(
+    '= Zen Sub-theme Starter Kit' => '= ' . $name,
+  );
+  drush_op('zen_file_str_replace', $subtheme_info_file, array_keys($alterations), $alterations);
 
   // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
   drush_op('zen_file_str_replace', $subtheme_path . '/theme-settings.php', 'STARTERKIT', $machine_name);
