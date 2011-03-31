@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1102770: Installing Zen prevents Appearance page from loading on some systems
 - #835982 by JohnAlbin, mverbaar, marcvangend: Drush support for sub-theme creation
 - #1084504 by Crossfeed, komal.savla, Network and JohnAlbin: PHP Error when secondary menu or menu module is disabled
 - #1085422 by hswong3i: Highlighted region's machine name doesn't match core
