@@ -11,19 +11,18 @@ function zen_drush_command() {
   $items = array();
 
   $items['zen'] = array(
-    'description' => 'Set up a Zen starter kit.',
+    'description' => 'Create a theme using Zen.',
     'arguments' => array(
       'name' => 'A name for your theme.',
     ),
     'options' => array(
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
       // @TODO: Add these options:
-      // 'without-rtl' => 'Whether to remove all RTL stylesheets.',
-      // 'html5' => 'Use the HTML5 version of Zen',
-      // 'layout' => '[fixed,fluid,960gs] Choose the page layout method.',
+      // 'without-rtl'  => 'Whether to remove all RTL stylesheets.',
+      // 'layout'       => '[fixed,fluid,960gs] Choose the page layout method.',
     ),
     'examples' => array(
-      'drush zen "My theme name" --machine-name=my_theme',
+      'drush zen "My theme name"' => 'Create a sub-theme, using the default options.',
     ),
   );
 
