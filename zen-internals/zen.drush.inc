@@ -35,15 +35,17 @@ function zen_drush_command() {
  */
 function drush_zen($name = 'My theme') {
 
+  // Determine the machine name.
   $machine_name = drush_get_option('machine-name');
   if (!$machine_name) {
-    $machine_name = str_replace(' ', '_', strtolower($name));
-    $search = array(
-      '/[^a-z0-9_]/', // Remove characters not valid in function names.
-      '/^[^a-z]+/',   // Functions must begin with an alpha character.
-    );
-    $machine_name = preg_replace($search, '', $machine_name);
+    $machine_name = $name;
   }
+  $machine_name = str_replace(' ', '_', strtolower($machine_name));
+  $search = array(
+    '/[^a-z0-9_]/', // Remove characters not valid in function names.
+    '/^[^a-z]+/',   // Functions must begin with an alpha character.
+  );
+  $machine_name = preg_replace($search, '', $machine_name);
 
   $zen_path = drush_locate_root() . '/' . drupal_get_path('theme', 'zen');
 
