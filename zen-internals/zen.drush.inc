@@ -32,7 +32,7 @@ function zen_drush_command() {
 }
 
 /**
- * Set up a Zen sub-theme with the starter kit.
+ * Create a Zen sub-theme using the starter kit.
  */
 function drush_zen($name = 'My theme', $machine_name = NULL) {
 
@@ -50,10 +50,8 @@ function drush_zen($name = 'My theme', $machine_name = NULL) {
   );
   $machine_name = preg_replace($search, '', $machine_name);
 
+  // Determine the path to the new subtheme by finding the path to Zen.
   $zen_path = drush_locate_root() . '/' . drupal_get_path('theme', 'zen');
-
-  // From Zen's location, we move up one directory and construct the path where
-  // our sub theme will be created.
   $subtheme_path = explode('/', $zen_path);
   array_pop($subtheme_path);
   $subtheme_path = implode('/', $subtheme_path) . '/' . str_replace('_', '-', $machine_name);
@@ -65,7 +63,7 @@ function drush_zen($name = 'My theme', $machine_name = NULL) {
   drush_op('zen_file_str_replace', $subtheme_path . '/STARTERKIT.info.txt', '= Zen Sub-theme Starter Kit', '= ' . $name);
   drush_op('rename', $subtheme_path . '/STARTERKIT.info.txt', $subtheme_path . '/' . $machine_name . '.info');
 
-  // Replace all occurences of 'STARTERKIT' with the machine name of our sub theme.
+  // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
   drush_op('zen_file_str_replace', $subtheme_path . '/theme-settings.php', 'STARTERKIT', $machine_name);
   drush_op('zen_file_str_replace', $subtheme_path . '/template.php', 'STARTERKIT', $machine_name);
 
