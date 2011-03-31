@@ -20,8 +20,8 @@ function zen_drush_command() {
       'name'         => 'A name for your theme.',
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
       'description'  => 'A description of your theme.',
+      'without-rtl'  => 'Remove all RTL stylesheets.',
       // @TODO: Add these options:
-      // 'without-rtl'  => 'Whether to remove all RTL stylesheets.',
       // 'layout'       => '[fixed,fluid,960gs] Choose the page layout method.',
     ),
     'examples' => array(
@@ -82,6 +82,15 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
   drush_op('zen_file_str_replace', $subtheme_path . '/theme-settings.php', 'STARTERKIT', $machine_name);
   drush_op('zen_file_str_replace', $subtheme_path . '/template.php', 'STARTERKIT', $machine_name);
+
+  // Remove all RTL stylesheets.
+  if ($without_rtl = drush_get_option('without-rtl')) {
+    foreach (array('forms', 'html-reset', 'ie6', 'layout-fixed', 'layout-liquid', 'messages', 'navigation', 'pages', 'tabs') as $file) {
+      // Remove the RTL stylesheet.
+      drush_op('unlink', $subtheme_path . '/css/' . $file . '-rtl.css');
+      drush_op('zen_file_str_replace', $subtheme_path . '/css/' . $file . '.css', ' /* LTR */', '');
+    }
+  }
 
   // Notify user of the newly created theme.
   drush_print(dt('Starter kit for "!name" created in: !path', array(
