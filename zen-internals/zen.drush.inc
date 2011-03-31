@@ -19,6 +19,7 @@ function zen_drush_command() {
     'options' => array(
       'name'         => 'A name for your theme.',
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
+      'description'  => 'A description of your theme.',
       // @TODO: Add these options:
       // 'without-rtl'  => 'Whether to remove all RTL stylesheets.',
       // 'layout'       => '[fixed,fluid,960gs] Choose the page layout method.',
@@ -72,6 +73,10 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   $alterations = array(
     '= Zen Sub-theme Starter Kit' => '= ' . $name,
   );
+  if ($description = drush_get_option('description')) {
+    $alterations['              or the included README.txt on how to create a theme with Zen.\''] = '';
+    $alterations['\'Read the <a href="http://drupal.org/node/873778">online docs</a>'] = $description;
+  }
   drush_op('zen_file_str_replace', $subtheme_info_file, array_keys($alterations), $alterations);
 
   // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
