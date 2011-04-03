@@ -24,29 +24,16 @@ body {
 
 /*
  * The skip-link link will be completely hidden until a user tabs to the link.
- * See http://www.webaim.org/techniques/skipnav/
+ * See the element-focusable rule in system.base.css.
  */
 #skip-link a,
 #skip-link a:visited {
-  position: absolute;
   display: block;
-  left: 0;
-  top: -500px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  width: 100%;
+  padding: 2px 0 3px 0;
   text-align: center;
   background-color: #666;
   color: #fff;
-}
-
-#skip-link a:hover,
-#skip-link a:active,
-#skip-link a:focus {
-  position: static;
-  width: 100%;
-  height: auto;
-  padding: 2px 0 3px 0;
 }
 
 /*
@@ -69,13 +56,14 @@ body {
 }
 
 #name-and-slogan /* Wrapper for website name and slogan */ {
+  float: left;
 }
 
 h1#site-name,
 div#site-name /* The name of the website */ {
   margin: 0;
   font-size: 2em;
-  line-height: 1.3em;
+  line-height: 1.5em;
 }
 
 #site-name a:link,
@@ -142,6 +130,12 @@ tr.odd {
 }
 
 div.messages /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */ {
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 div.status /* Normal priority messages */ {
@@ -168,7 +162,7 @@ div.tabs /* See also the tabs.css file. */ {
 }
 
 .help /* Help text on a page */ {
-  margin: 1em 0;
+  margin: 1.5em 0;
 }
 
 .more-help-link /* Link to more help */ {
@@ -180,7 +174,7 @@ div.tabs /* See also the tabs.css file. */ {
 }
 
 ul.links /* List of links */ {
-  margin: 1em 0;
+  margin: 1.5em 0;
   padding: 0;
 }
 
@@ -197,7 +191,7 @@ ul.links li {
 
 .pager /* A list of page numbers when more than 1 page of content is available */ {
   clear: both;
-  margin: 1em 0;
+  margin: 1.5em 0;
   text-align: center;
 }
 
@@ -207,7 +201,7 @@ ul.links li {
 }
 
 .feed-icon /* The link to the RSS or Atom feed for the current list of content */ {
-  margin: 1em 0;
+  margin: 1.5em 0;
 }
 
 .more-link /* Aggregator, blog, and forum more link */ {
@@ -244,10 +238,7 @@ ul.links li {
 /*
  * Footer
  */
-#footer {
-}
-
-#footer .section {
+.region-footer {
 }
 
 #footer-message /* Wrapper for the footer message from Drupal's "Site information"
