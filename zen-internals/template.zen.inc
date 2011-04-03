@@ -25,7 +25,6 @@ function _zen_preprocess_html(&$variables, $hook) {
     'layout-fixed.css',
     'page-backgrounds.css',
     'tabs.css',
-    'messages.css',
     'pages.css',
     'blocks.css',
     'navigation.css',
