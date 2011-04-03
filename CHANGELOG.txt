@@ -58,7 +58,7 @@ Zen 7.x-3.0, 2011-04-06
 - #822570 by JohnAlbin and : Add focus styling to tabs
 - #1092372 by JohnAlbin and : Simplify pages styling
 - #1115330: Styling in ie.css is only needed for IE7 and earlier
-- #481952 by  and JohnAlbin: Add vertical rhythm to line heights and margins
+- #481952 by kdebaas and JohnAlbin: Add vertical rhythm to line heights and margins
 - #370419: Remove messages.css in favor of core's styling
 - #1102770: Installing Zen prevents Appearance page from loading on some systems
 - #835982 by JohnAlbin, , : Drush support for sub-theme creation
