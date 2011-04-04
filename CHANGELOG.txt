@@ -116,7 +116,7 @@ Zen 6.x-2.1, 2011-04-05
 - #705264 by JohnAlbin, ,  and : Allow Zen (and subthemes) to be used without a database
 - #1046090 by  and JohnAlbin: $styles is destroyed by rare bug with APC
 - #1083700: Add $submitted variable back into node.tpl
-- #1086820 by : Views classes redundant since Views 6.x-2.9
+- #1086820 by tacituseu: Views classes redundant since Views 6.x-2.9
 - #1017062 by : Block edit links span entire block on RTL pages
 - #774838 by ,  and JohnAlbin: Add default case for build_mode
 - #919838 by ,  and JohnAlbin: Theme description links to wrong docs
