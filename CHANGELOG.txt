@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #992616 by JohnAlbin and adrinux: Comments in layout RTL stylesheets are incorrect
 - #822570 by JohnAlbin and AaronCollier: Add focus styling to tabs
 - #1092372 by JohnAlbin and davebv: Simplify pages styling
 - #1115330: Styling in ie.css is only needed for IE7 and earlier
