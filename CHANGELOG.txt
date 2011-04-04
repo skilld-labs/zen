@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1115330: Styling in ie.css is only needed for IE7 and earlier
 - #481952 by kdebaas and JohnAlbin: Add vertical rhythm to line heights and margins
 - #370419: Remove messages.css in favor of core's styling
 - #1102770: Installing Zen prevents Appearance page from loading on some systems
