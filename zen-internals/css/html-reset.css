@@ -114,8 +114,11 @@ fieldset {
 }
 
 pre,
-code {
-  font-size: 1.1em; /* Monospace fonts can be hard to read */
+code,
+kbd,
+samp,
+tt,
+var {
   font-family: "Courier New", "DejaVu Sans Mono", monospace;
 }
 
@@ -127,6 +130,12 @@ code {
  * the line heights of any larger fonts be a multiple of 1.5 ems. For more
  * information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
  */
+h1, h2, h3, h4, h5, h6
+p, blockquote, pre,
+ul, ol, dl,
+hr, table, fieldset {
+  margin: 1.5em 0;
+}
 
 /* Headings */
 h1 {
@@ -158,18 +167,25 @@ h6 {
 }
 
 /* Other block-level elements */
-p,
-ul,
-ol,
-dl,
-pre,
-table,
-fieldset {
-  margin: 1.5em 0;
+p {
 }
 
 blockquote {
-  margin: 1.5em 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+pre {
+  font-size: 1.1em; /* Monospace fonts can be hard to read */
+  margin: 1.364em 0; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.1 = 1.364 */
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #666;
+}
+
+address {
 }
 
 /*
@@ -179,11 +195,10 @@ blockquote {
  */
 ul,
 ol {
-  margin-left: 0;
+  margin-left: 0; /* LTR */
   padding-left: 2em; /* LTR */
 }
 
-.block ul,
 .item-list ul /* Drupal overrides */ {
   margin: 1.5em 0;
   padding: 0 0 0 2em; /* LTR */
@@ -191,8 +206,6 @@ ol {
 
 ul ul, ul ol,
 ol ol, ol ul,
-.block ul ul, .block ul ol,
-.block ol ol, .block ol ul,
 .item-list ul ul, .item-list ul ol,
 .item-list ol ol, .item-list ol ul {
   margin: 0;
@@ -203,12 +216,7 @@ li {
   padding: 0;
 }
 
-.item-list ul li /* Drupal override */ {
-  margin: 0;
-  padding: 0;
-  list-style: inherit;
-}
-
+.item-list ul li,
 ul.menu li,
 li.expanded,
 li.collapsed,
@@ -225,33 +233,17 @@ ol          { list-style-type: decimal; }
 ol ol       { list-style-type: lower-alpha; }
 ol ol ol    { list-style-type: decimal; }
 
+dl {
+}
+
 dt {
   margin: 0;
   padding: 0;
 }
 
 dd {
-  margin: 0 0 0 2em;
+  margin: 0 0 0 2em; /* LTR */
   padding: 0;
-}
-
-/*
- * Links
- *
- * The order of link states are based on Eric Meyer's article:
- * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
- */
-a:link {
-}
-
-a:visited {
-}
-
-a:hover,
-a:focus {
-}
-
-a:active {
 }
 
 /*
@@ -275,34 +267,25 @@ tbody {
   border-top: none;
 }
 
-/*
- * Abbreviations
- */
-abbr {
-  border-bottom: 1px dotted #666;
-  cursor: help;
-  white-space: nowrap;
+thead {
 }
 
-abbr.created /* Date-based "abbreviations" show computer-friendly timestamps which are not human-friendly. */ {
-  border: none;
-  cursor: auto;
-  white-space: normal;
+tfoot {
 }
 
-/*
- * Images
- */
-img {
-  border: 0;
+caption {
 }
 
-/*
- * Horizontal rules
- */
-hr {
-  height: 1px;
-  border: 1px solid #666;
+colgroup {
+}
+
+col {
+}
+
+tr {
+}
+
+td {
 }
 
 /*
@@ -314,6 +297,100 @@ form {
 }
 
 fieldset {
-  margin: 1.5em 0;
   padding: 0.5em;
+}
+
+legend {
+}
+
+label {
+}
+
+input {
+}
+
+select {
+}
+
+optgroup {
+}
+
+option {
+}
+
+textarea {
+}
+
+button {
+}
+
+/*
+ * Links
+ *
+ * The order of link states are based on Eric Meyer's article:
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+ */
+a:link {
+}
+
+a:visited {
+}
+
+a:hover,
+a:focus {
+}
+
+a:active {
+}
+
+/*
+ * Other inline elements
+ */
+img {
+  border: 0;
+  /* vertical-align: bottom; */ /* Suppress the space beneath the baseline */
+}
+
+abbr, /* Abbreviations */
+acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+  white-space: nowrap;
+}
+
+q {
+}
+
+cite {
+}
+
+strong, b {
+}
+
+em, i {
+}
+
+code,
+kbd,
+samp,
+tt,
+var /* Code, keyboard input, sample output, teletype, variable */ {
+}
+
+del {
+}
+
+ins {
+}
+
+big {
+}
+
+small {
+}
+
+sub {
+}
+
+sup {
 }
