@@ -2,6 +2,10 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
 - #535038: Convert to HTML 5 (not yet complete)
 
+Zen 7.x-3.x-dev, xxxx-xx-xx
+---------------------------
+- #1117372: Bullets appear next to Main menu links and Secondary menu links
+
 Zen 7.x-3.0, 2011-04-06
 -----------------------
 - #774836 by hefox: Check if node $title is set before outputting
