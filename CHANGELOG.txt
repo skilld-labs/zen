@@ -53,7 +53,7 @@ Zen 7.x-3.1, 2011-04-26
 
 Zen 7.x-3.0, 2011-04-06
 -----------------------
-- #774836 by : Check if node $title is set before outputting
+- #774836 by hefox: Check if node $title is set before outputting
 - #992616 by JohnAlbin and : Comments in layout RTL stylesheets are incorrect
 - #822570 by JohnAlbin and : Add focus styling to tabs
 - #1092372 by JohnAlbin and : Simplify pages styling
