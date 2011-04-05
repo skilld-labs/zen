@@ -14,11 +14,12 @@
 /*
  * Fonts
  *
- * Our font size and line height declarations are based on the following ALA
- * article:
- *   http://www.alistapart.com/articles/howtosizetextincss
+ * Our font size and line height declarations are based on the following
+ * articles:
+ * - http://www.alistapart.com/articles/howtosizetextincss
+ * - http://24ways.org/2006/compose-to-a-vertical-rhythm
  *
- * All modern browsrs use a 16px default font size. Specifying the font-size
+ * All modern browsers use a 16px default font size. Specifying the font-size
  * and line-height in ems (relative to the 16px default font) allows the user
  * to resize the font in the browser and produces the most consistent results
  * across different browsers.
@@ -34,14 +35,46 @@ body {
    * to use a 14px font size on the page, delete the 12px declarations.
    */
 
-  /* Use a 12px base font size with a 16px line height */
+  /* Use a 12px base font size with a 18px line height */
   font-size: 0.75em; /* 16px x .75 = 12px */
-  line-height: 1.333em; /* 12px x 1.333 = 16px */
+  line-height: 1.5em; /* 12px x 1.5 = 18px */
 
-  /* Use a 14px base font size with a 18px line height */
+  /* Use a 14px base font size with a 21px line height */
   font-size: 0.875em; /* 16px x .875 = 14px */
-  line-height: 1.286em; /* 14px x 1.286 = 18px */
+  line-height: 1.5em; /* 14px x 1.5 = 21px */
 }
+
+/*
+ * Instead of relying on the fonts that are available on a user's computer, you
+ * can use web fonts which, like images, are resources downloaded to the user's
+ * browser. Because of the bandwidth and rendering resources required, web fonts
+ * should be used with care.
+ *
+ * Numerous resources for web fonts can be found on Google. Here are a few
+ * websites where you can find Open Source fonts to download:
+ * - http://www.fontsquirrel.com/fontface
+ * - http://www.theleagueofmoveabletype.com
+ *
+ * In order to use these fonts, you will need to convert them into formats
+ * suitable for web fonts. We recommend the free-to-use Font Squirrel's
+ * Font-Face Generator:
+ *   http://www.fontsquirrel.com/fontface/generator
+ *
+ * The following is an example @font-face declaration. This font can then be
+ * used in any ruleset using a property like this:  font-family: Example, serif;
+
+@font-face {
+  font-family: 'Example';
+  src: url('../fonts/example.eot');
+  src: url('../fonts/example.eot?iefix') format('eot'),
+    url('../fonts/example.woff') format('woff'),
+    url('../fonts/example.ttf') format('truetype'),
+    url('../fonts/example.svg#webfontOkOndcij') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ */
 
 body,
 caption,
@@ -55,14 +88,14 @@ legend,
 fieldset {
   /* The following font family declarations are based on the Microsoft core web
    * fonts which are common fonts available on most computer systems. The DejaVu
-   * fonts are commonly available on Linux systems where the MS fonts are less
-   * common. Tahoma and Helvetica are also widely available.
+   * and Nimbus Sans fonts are commonly available on Linux systems where the MS
+   * fonts are less common. Tahoma and Helvetica are also widely available.
    *
    * A user's web browser will look at the comma-separated list and will
    * attempt to use each font in turn until it finds one that is available
-   * on the user's computer. The final "generic" font (sans-serif or serif)
-   * hints at what type of font to use if the web browser doesn't find any
-   * of the fonts in the list.
+   * on the user's computer. The final "generic" font (sans-serif, serif or
+   * monospace) hints at what type of font to use if the web browser doesn't
+   * find any of the fonts in the list.
 
   font-family: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
   font-family: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
@@ -81,65 +114,78 @@ fieldset {
 }
 
 pre,
-code {
-  font-size: 1.1em; /* Monospace fonts can be hard to read */
+code,
+kbd,
+samp,
+tt,
+var {
   font-family: "Courier New", "DejaVu Sans Mono", monospace;
 }
 
 /*
- * Headings
+ * Block-level elements
+ *
+ * To achieve a pleasant vertical rhythm, we use the 1.5em line height of our
+ * base font as the top and bottom margins for our block level elements and make
+ * the line heights of any larger fonts be a multiple of 1.5 ems. For more
+ * information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
  */
+h1, h2, h3, h4, h5, h6
+p, blockquote, pre,
+ul, ol, dl,
+hr, table, fieldset {
+  margin: 1.5em 0;
+}
+
+/* Headings */
 h1 {
   font-size: 2em;
-  line-height: 1.3em;
-  margin-top: 0;
-  margin-bottom: 0.5em; /* 0.5em is equavalent to 1em in the page's base font.
-                           Remember, a margin specified in ems is relative to
-                           the element's font-size, not to the pages' base
-                           font size. So, for example, if we want a 1em margin
-                           (relative to the base font), we have to divide that
-                           length by the element's font-size:
-                           1em / 2em = 0.5em */
+  line-height: 1.5em;
+  margin: 0.75em 0;
+  /* 0.75em is equivalent to 1.5em in the page's base font. font. Remember, a
+     margin specified in ems is relative to the element's font-size, not to the
+     pages' base font size. So, for example, if we want a 1.5em margin (relative
+     to the base font), we have to divide that length by the element's
+     font-size:  1.5em / 2em = 0.5em  */
 }
 
 h2 {
   font-size: 1.5em;
-  line-height: 1.3em;
-  margin-top: 0.667em; /* Equivalent to 1em in the page's base font: 1 / 1.5 = 0.667em */
-  margin-bottom: 0.667em;
+  margin: 1em 0; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.5 = 1em */
 }
 
 h3 {
   font-size: 1.3em;
-  line-height: 1.3em;
-  margin-top: 0.769em; /* Equivalent to 1em in the page's base font: 1 / 1.3 = 0.769 */
-  margin-bottom: 0.769em;
+  margin: 1.154em 0; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.3 = 1.154 */
 }
 
 h4,
 h5,
 h6 {
   font-size: 1.1em;
-  line-height: 1.3em;
-  margin-top: 0.909em; /* Equivalent to 1em in the page's base font: 1 / 1.1 = 0.909 */
-  margin-bottom: 0.909em;
+  margin: 1.364em 0; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.1 = 1.364 */
 }
 
-/*
- * Block-level elements
- */
-p,
-ul,
-ol,
-dl,
-pre,
-table,
-fieldset {
-  margin: 1em 0;
+/* Other block-level elements */
+p {
 }
 
 blockquote {
-  margin: 1em 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+pre {
+  font-size: 1.1em; /* Monospace fonts can be hard to read */
+  margin: 1.364em 0; /* Equivalent to 1.5em in the page's base font: 1.5 / 1.1 = 1.364 */
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #666;
+}
+
+address {
 }
 
 /*
@@ -149,20 +195,17 @@ blockquote {
  */
 ul,
 ol {
-  margin-left: 0;
+  margin-left: 0; /* LTR */
   padding-left: 2em; /* LTR */
 }
 
-.block ul,
 .item-list ul /* Drupal overrides */ {
-  margin: 1em 0;
+  margin: 1.5em 0;
   padding: 0 0 0 2em; /* LTR */
 }
 
 ul ul, ul ol,
 ol ol, ol ul,
-.block ul ul, .block ul ol,
-.block ol ol, .block ol ul,
 .item-list ul ul, .item-list ul ol,
 .item-list ol ol, .item-list ol ul {
   margin: 0;
@@ -173,12 +216,7 @@ li {
   padding: 0;
 }
 
-.item-list ul li /* Drupal override */ {
-  margin: 0;
-  padding: 0;
-  list-style: inherit;
-}
-
+.item-list ul li,
 ul.menu li,
 li.expanded,
 li.collapsed,
@@ -195,14 +233,95 @@ ol          { list-style-type: decimal; }
 ol ol       { list-style-type: lower-alpha; }
 ol ol ol    { list-style-type: decimal; }
 
+dl {
+}
+
 dt {
   margin: 0;
   padding: 0;
 }
 
 dd {
-  margin: 0 0 0 2em;
+  margin: 0 0 0 2em; /* LTR */
   padding: 0;
+}
+
+/*
+ * Tables
+ *
+ * Drupal provides table styling which is only useful for its admin section
+ * forms, so we override this default CSS. (We set it back in forms.css.)
+ */
+table {
+  border-collapse: collapse;
+  /* width: 100%; */ /* Prevent cramped-looking tables */
+}
+
+th {
+  text-align: left; /* LTR */
+  padding: 0;
+  border-bottom: none;
+}
+
+tbody {
+  border-top: none;
+}
+
+thead {
+}
+
+tfoot {
+}
+
+caption {
+}
+
+colgroup {
+}
+
+col {
+}
+
+tr {
+}
+
+td {
+}
+
+/*
+ * Forms
+ */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  padding: 0.5em;
+}
+
+legend {
+}
+
+label {
+}
+
+input {
+}
+
+select {
+}
+
+optgroup {
+}
+
+option {
+}
+
+textarea {
+}
+
+button {
 }
 
 /*
@@ -225,67 +344,53 @@ a:active {
 }
 
 /*
- * Tables
- *
- * Drupal provides table styling which is only useful for its admin section
- * forms, so we override this default CSS. (We set it back in forms.css.)
+ * Other inline elements
  */
-table {
-  border-collapse: collapse;
-  /* width: 100%; */ /* Prevent cramped-looking tables */
+img {
+  border: 0;
+  /* vertical-align: bottom; */ /* Suppress the space beneath the baseline */
 }
 
-th,
-thead th,
-tbody th {
-  text-align: left; /* LTR */
-  padding: 0;
-  border-bottom: none;
-}
-
-tbody {
-  border-top: none;
-}
-
-/*
- * Abbreviations
- */
-abbr {
+abbr, /* Abbreviations */
+acronym {
   border-bottom: 1px dotted #666;
   cursor: help;
   white-space: nowrap;
 }
 
-abbr.created /* Date-based "abbreviations" show computer-friendly timestamps which are not human-friendly. */ {
-  border: none;
-  cursor: auto;
-  white-space: normal;
+q {
 }
 
-/*
- * Images
- */
-img {
-  border: 0;
+cite {
 }
 
-/*
- * Horizontal rules
- */
-hr {
-  height: 1px;
-  border: 1px solid #666;
+strong, b {
 }
 
-/*
- * Forms
- */
-form {
-  margin: 0;
-  padding: 0;
+em, i {
 }
 
-fieldset {
-  margin: 1em 0;
-  padding: 0.5em;
+code,
+kbd,
+samp,
+tt,
+var /* Code, keyboard input, sample output, teletype, variable */ {
+}
+
+del {
+}
+
+ins {
+}
+
+big {
+}
+
+small {
+}
+
+sub {
+}
+
+sup {
 }

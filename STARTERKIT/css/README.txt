@@ -3,10 +3,10 @@ ZEN'S STYLESHEETS
 
 Don't panic!
 
-There are 28 CSS files in this sub-theme, but its not as bad as it first seems:
+There are 25 CSS files in this sub-theme, but its not as bad as it first seems:
 - The drupal7-reference.css is just a reference file and isn't used directly by
   your sub-theme. See below.
-- There are 9 CSS files whose names end in "-rtl.css". Those are CSS files
+- There are 7 CSS files whose names end in "-rtl.css". Those are CSS files
   needed to style content written in Right-to-Left languages, such as Arabic and
   Hebrew. If your website doesn't use such languages, you can safely delete all
   of those CSS files.
@@ -14,7 +14,7 @@ There are 28 CSS files in this sub-theme, but its not as bad as it first seems:
   your sub-theme, you can remove wireframes.css from your sub-theme's .info file
   and delete the file as well.
 
-That leaves just 17 CSS files. (Okay, still quite a few, but better than 28.)
+That leaves just 16 CSS files. (Okay, still quite a few, but better than 25.)
 
 - Instead of one monolithic stylesheet, your sub-theme's CSS files are organized
   into several smaller stylesheets that are grouped to allow cascading across
@@ -49,12 +49,11 @@ theming Drupal websites.
   centralized in one location.
 
 - tabs.css:
-- messages.css:
   While most of the CSS rulesets in your sub-theme are guidelines without any
-  actual properties, the tabs and messages stylesheets contain actual styling
-  for Drupal tabs and Drupal status messages; two common Drupal elements that
-  are often neglected by site desiners. Zen provides some basic styling which
-  you are free to use or to rip out and replace.
+  actual properties, the tabs stylesheet contains actual styling for Drupal
+  tabs, a common Drupal element that is often neglected by site desiners. Zen
+  provides some basic styling which you are free to use or to rip out and
+  replace.
 
 - pages.css:
   Page styling for the markup in the page.tpl.php template.
@@ -88,12 +87,14 @@ theming Drupal websites.
 - print.css:
   The print styles for all markup.
 
-- ie.css:
+- ie7.css:
 - ie6.css:
   The Internet Explorer stylesheets are added via conditional comments. Many CSS
   authors find using IE "conditional stylesheets" much easier then writing
   rulesets with CSS hacks that are known to only apply to various versions of
-  IE. An alternative method presented by Paul Irish can be found at
+  IE. The full conditional comment syntax can be found on Microsoft's website:
+  http://msdn.microsoft.com/en-us/library/ms537512.aspx
+  An alternative method presented by Paul Irish can be found at
   http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
 
 In these stylesheets, we have included all of the classes and IDs from this

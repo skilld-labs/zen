@@ -25,7 +25,6 @@ function _zen_preprocess_html(&$variables, $hook) {
     'layout-fixed.css',
     'page-backgrounds.css',
     'tabs.css',
-    'messages.css',
     'pages.css',
     'blocks.css',
     'navigation.css',
@@ -47,6 +46,6 @@ function _zen_preprocess_html(&$variables, $hook) {
   drupal_add_css($directory . 'print.css', array('media' => 'print', 'group' => CSS_THEME, 'every_page' => TRUE));
 
   // Add conditional stylesheets.
-  drupal_add_css($directory . 'ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE', '!IE' => FALSE), 'every_page' => TRUE));
+  drupal_add_css($directory . 'ie7.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'every_page' => TRUE));
   drupal_add_css($directory . 'ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 6', '!IE' => FALSE), 'every_page' => TRUE));
 }

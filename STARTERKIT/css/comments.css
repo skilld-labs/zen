@@ -5,7 +5,7 @@
 
 
 #comments /* Wrapper for the list of comments and its title */ {
-  margin: 1em 0;
+  margin: 1.5em 0;
 }
 
 #comments h2.title /* Heading for the list of comments */ {
@@ -18,6 +18,7 @@
 }
 
 .comment-preview /* Preview of the comment before submitting new or updated comment */ {
+  background-color: #ffffea; /* Drupal core will use a #ffffea background. See #1110842 */
 }
 
 .comment.new /* A new comment since the user last viewed the page. */ {
@@ -51,7 +52,7 @@
 .comment-by-viewer /* A comment created by the current user */ {
 }
 
-.comment h3.comment-title /* Comment title */ {
+h3.comment-title /* Comment title */ {
 }
 
 .new /* "New" marker for comments that are new for the current user */ {
@@ -75,8 +76,4 @@
 
 .indented /* Nested comments are indented */ {
   /* margin-left: 25px; */ /* Drupal core uses a 25px left margin */
-}
-
-.preview .comment /* Preview of the comment before submitting new or updated comment */ {
-  /* background-color: #ffffea; */ /* Drupal core uses a #ffffea background */
 }

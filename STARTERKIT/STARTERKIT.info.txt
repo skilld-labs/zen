@@ -13,8 +13,7 @@
 
 screenshot  = screenshot.png
 name        = Zen Sub-theme Starter Kit
-description = 'Read the <a href="http://drupal.org/node/873778">online docs</a>
-              or the included README.txt on how to create a theme with Zen.'
+description = Read the <a href="http://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.
 
 
 
@@ -39,7 +38,6 @@ stylesheets[all][]        = css/wireframes.css
 stylesheets[all][]        = css/layout-fixed.css
 stylesheets[all][]        = css/page-backgrounds.css
 stylesheets[all][]        = css/tabs.css
-stylesheets[all][]        = css/messages.css
 stylesheets[all][]        = css/pages.css
 stylesheets[all][]        = css/blocks.css
 stylesheets[all][]        = css/navigation.css
@@ -56,9 +54,11 @@ stylesheets[print][]      = css/print.css
 ;stylesheets[handheld][]  = css/mobile.css
 ;stylesheets[only screen and (max-device-width: 480px)][] = css/iphone.css
 
-; Add conditional stylesheets that are processed by IE.
+; Add conditional stylesheets that are processed by IE. See the css/README.txt.
 
-stylesheets-conditional[IE][all][]        = css/ie.css
+; To target all versions of IE with an ie.css, uncomment the following line:
+;stylesheets-conditional[IE][all][]       = css/ie.css
+stylesheets-conditional[lte IE 7][all][]  = css/ie7.css
 stylesheets-conditional[lte IE 6][all][]  = css/ie6.css
 
 
@@ -83,7 +83,7 @@ regions[help]           = Help
 regions[sidebar_first]  = First sidebar
 regions[sidebar_second] = Second sidebar
 regions[navigation]     = Navigation bar
-regions[highlight]      = Highlighted content
+regions[highlighted]    = Highlighted
 regions[content]        = Content
 regions[header]         = Header
 regions[footer]         = Footer
