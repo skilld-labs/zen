@@ -44,7 +44,7 @@ Zen 7.x-3.1, 2011-04-26
 -----------------------
 - #812480 by Garrett Albright and JohnAlbin: Make "Jump to Nav" link configurable
 - #1135120: PHP notice about undefined $highlight variable on maintenance-page.tpl
-- #705264 by : Allow Zen (and subthemes) to be used without a database
+- #705264 by grendzy: Allow Zen (and subthemes) to be used without a database
 - #774838: Add view_mode class to node.tpl
 - #1126206 by : Typo in print.css; should be .region-footer
 - #1118168 by : Remove toolbar from printed pages
