@@ -1,5 +1,5 @@
-Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
----------------------------
+Zen 7.x-3.0, 2011-04-06
+-----------------------
 - #774836 by hefox: Check if node $title is set before outputting
 - #992616 by JohnAlbin and adrinux: Comments in layout RTL stylesheets are incorrect
 - #822570 by JohnAlbin and AaronCollier: Add focus styling to tabs
