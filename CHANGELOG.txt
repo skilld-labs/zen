@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1126206 by mahfiaz: Typo in print.css; should be .region-footer
 - #1118168 by kristofer: Remove toolbar from printed pages
 - #1118182: Block-level vertical rhythm CSS rule is broken
 - #1117372: Bullets appear next to Main menu links and Secondary menu links
