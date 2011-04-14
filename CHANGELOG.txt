@@ -17,7 +17,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 - #1249790 by KrisBulman and JohnAlbin: Convert tabs from old sliding-door CSS technique to CSS3
 - #1279236: Override core's system.menus.css since we already override the styles
 - #1154358 by mverbaar, barraponto and JohnAlbin: Rename theme setting variables for skip link
-- #1239390 by JohnAlbin and : Add conditionally-classed HTML tag and remove IE conditional stylesheets
+- #1239390 by JohnAlbin and KrisBulman: Add conditionally-classed HTML tag and remove IE conditional stylesheets
 - #1249314: Add Respond.js to Zen
 - #1249326: Add HTML5 shim and innerShiv to Zen
 - #1245900: Strip wrapping divs from "main page content" block and content region
@@ -46,7 +46,7 @@ Zen 7.x-3.1, 2011-04-26
 - #1135120: PHP notice about undefined $highlight variable on maintenance-page.tpl
 - #705264 by grendzy: Allow Zen (and subthemes) to be used without a database
 - #774838: Add view_mode class to node.tpl
-- #1126206 by : Typo in print.css; should be .region-footer
+- #1126206 by mahfiaz: Typo in print.css; should be .region-footer
 - #1118168 by : Remove toolbar from printed pages
 - #1118182: Block-level vertical rhythm CSS rule is broken
 - #1117372: Bullets appear next to Main menu links and Secondary menu links
