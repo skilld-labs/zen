@@ -263,6 +263,11 @@ function zen_preprocess_node(&$variables, $hook) {
   // Add $unpublished variable.
   $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
 
+  // Add a class for the view mode.
+  if (!$variables['teaser']) {
+    $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
+  }
+
   // Add a class to show node is authored by current user.
   if ($variables['uid'] && $variables['uid'] == $GLOBALS['user']->uid) {
     $variables['classes_array'][] = 'node-by-viewer';
