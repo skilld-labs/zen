@@ -1,5 +1,6 @@
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1135120: PHP notice about undefined $highlight variable on maintenance-page.tpl
 - #705264 by grendzy: Allow Zen (and subthemes) to be used without a database
 - #774838: Add view_mode class to node.tpl
 - #1126206 by mahfiaz: Typo in print.css; should be .region-footer
