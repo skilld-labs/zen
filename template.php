@@ -210,6 +210,7 @@ function zen_preprocess_html(&$variables, $hook) {
       $variables['classes_array'][] = 'page-panels';
       break;
   }
+  $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
 }
 
 /**
