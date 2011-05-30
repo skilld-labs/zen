@@ -65,6 +65,9 @@
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+<!--[if lt IE 9]>
+<script src="<?php print $base_path . $path_to_zen; ">/zen-internals/js/html5.js"></script>
+<![endif]-->
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
