@@ -167,7 +167,10 @@ function zen_add_conditional_styles() {
  *   The name of the template being rendered ("html" in this case.)
  */
 function zen_preprocess_html(&$variables, $hook) {
+  // Add paths needed or html5shim.
+  $variables['base_path'] = base_path();
   $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
+
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
     include_once './' . $variables['path_to_zen'] . '/zen-internals/template.zen.inc';
