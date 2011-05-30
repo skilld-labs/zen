@@ -5,6 +5,8 @@ screenshot  = zen-internals/screenshot.png
 core        = 7.x
 engine      = phptemplate
 
+scripts[] = zen-internals/js/html5.js
+
 regions[help]           = Help
 regions[sidebar_first]  = First sidebar
 regions[sidebar_second] = Second sidebar
