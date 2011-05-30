@@ -89,8 +89,8 @@ function drush_zen($name = NULL, $machine_name = NULL) {
       drush_op('unlink', $subtheme_path . '/css/' . $file . '-rtl.css');
       drush_op('zen_file_str_replace', $subtheme_path . '/css/' . $file . '.css', ' /* LTR */', '');
       // Remove the RTL sass file.
-      drush_op('unlink', $subtheme_path . '/css/sass/' . $file . '-rtl.scss');
-      drush_op('zen_file_str_replace', $subtheme_path . '/css/sass/' . $file . '.scss', ' // LTR', '');
+      drush_op('unlink', $subtheme_path . '/sass/' . $file . '-rtl.scss');
+      drush_op('zen_file_str_replace', $subtheme_path . '/sass/' . $file . '.scss', ' // LTR', '');
     }
   }
 
