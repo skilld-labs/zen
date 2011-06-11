@@ -218,6 +218,14 @@ function zen_preprocess_html(&$variables, $hook) {
 }
 
 /**
+ * Implement hook_html_head_alter().
+ */
+function zen_html_head_alter(&$head) {
+  // Simplify the meta tag for character encoding.
+  $head['system_meta_content_type']['#attributes'] = array('charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']));
+}
+
+/**
  * Override or insert variables into the page template.
  *
  * @param $variables
