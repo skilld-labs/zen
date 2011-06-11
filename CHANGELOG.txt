@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- Remove HTTP request for print stylesheet.
 - #1134622: Add Sass versions of CSS files
 - #535038: Convert to HTML 5 (not yet complete)
 
