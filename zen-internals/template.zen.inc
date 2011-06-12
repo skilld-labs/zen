@@ -33,6 +33,7 @@ function _zen_preprocess_html(&$variables, $hook) {
     'comments.css',
     'forms.css',
     'fields.css',
+    'print.css',
   );
   if (theme_get_setting('zen_layout') == 'zen-columns-liquid') {
     // Replace the layout-fixed.css file.
@@ -41,9 +42,6 @@ function _zen_preprocess_html(&$variables, $hook) {
   foreach ($stylesheets as $stylesheet) {
     drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));
   }
-
-  // Add print styles.
-  drupal_add_css($directory . 'print.css', array('media' => 'print', 'group' => CSS_THEME, 'every_page' => TRUE));
 
   // Add conditional stylesheets.
   drupal_add_css($directory . 'ie7.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'every_page' => TRUE));
