@@ -26,3 +26,5 @@ settings[zen_layout]               = zen-columns-liquid
 settings[zen_jump_link_target]     = main-menu
 settings[zen_rebuild_registry]     = 0
 settings[zen_wireframes]           = 0
+
+plugins[panels][layouts] = layouts
