@@ -192,7 +192,7 @@ function zen_preprocess_html(&$variables, $hook) {
       if ($arg[1] == 'add') {
         $section = 'node-add';
       }
-      elseif (is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
+      elseif (isset($arg[2]) && is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
         $section = 'node-' . $arg[2];
       }
     }
