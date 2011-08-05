@@ -14,8 +14,8 @@
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 
 <head>
-  <title><?php print $head_title; ?></title>
   <?php print $head; ?>
+  <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
