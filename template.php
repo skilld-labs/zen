@@ -187,12 +187,13 @@ function zen_preprocess_html(&$variables, $hook) {
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
-    if (arg(0) == 'node') {
-      if (arg(1) == 'add') {
+    $arg = explode('/', $_GET['q']);
+    if ($arg[0] == 'node') {
+      if ($arg[1] == 'add') {
         $section = 'node-add';
       }
-      elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-        $section = 'node-' . arg(2);
+      elseif (is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
+        $section = 'node-' . $arg[2];
       }
     }
     $variables['classes_array'][] = drupal_html_class('section-' . $section);
