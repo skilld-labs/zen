@@ -272,6 +272,10 @@ function zen_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_preprocess_maintenance_page(&$variables, $hook) {
+  // Add paths needed or html5shim.
+  $variables['base_path'] = base_path();
+  $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
+
   // If Zen is the maintenance theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
