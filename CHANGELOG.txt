@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1245900: Strip wrapping divs from "main page content" block and content region
 - #1239390: Add conditionally-classed HTML tag and remove IE conditional stylesheets
 - Add meta tags necessary for mobile device support
 - Remove HTTP request for print stylesheet
