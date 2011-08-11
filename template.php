@@ -358,6 +358,10 @@ function zen_preprocess_region(&$variables, $hook) {
     // Allow a region-specific template to override Zen's region--sidebar.
     $variables['theme_hook_suggestions'][] = 'region__' . $variables['region'];
   }
+  // Use a bare template for the content region.
+  elseif ($variables['region'] == 'content') {
+    $variables['theme_hook_suggestions'][] = 'region__bare';
+  }
 }
 
 /**
@@ -369,6 +373,11 @@ function zen_preprocess_region(&$variables, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 function zen_preprocess_block(&$variables, $hook) {
+  // Use a bare template for the page's main content.
+  if ($variables['block_html_id'] == 'block-system-main') {
+    $variables['theme_hook_suggestions'][] = 'block__bare';
+  }
+
   // Classes describing the position of the block within the region.
   if ($variables['block_id'] == 1) {
     $variables['classes_array'][] = 'first';
