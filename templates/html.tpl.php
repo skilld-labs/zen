@@ -84,7 +84,7 @@ $html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir .
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <!--[if lt IE 9]>
-  <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
+  <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
   <![endif]-->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
