@@ -42,7 +42,4 @@ function _zen_preprocess_html(&$variables, $hook) {
   foreach ($stylesheets as $stylesheet) {
     drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));
   }
-
-  // Add conditional stylesheets.
-  drupal_add_css($directory . 'ie7.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'every_page' => TRUE));
 }
