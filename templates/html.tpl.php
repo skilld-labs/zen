@@ -84,7 +84,7 @@ $html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir .
   <?php print $styles; ?>
 
   <!--[if lt IE 9]>
-  <script src="<?php print $base_path . $path_to_zen; ?>/zen-internals/js/html5.js"></script>
+  <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
   <![endif]-->
 
   <?php print $scripts; ?>
