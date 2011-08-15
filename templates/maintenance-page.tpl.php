@@ -23,9 +23,6 @@ $html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir .
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
-<!--[if lt IE 9]>
-<script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
-<![endif]-->
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="MobileOptimized" content="width">
@@ -33,6 +30,9 @@ $html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir .
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <!--[if lt IE 9]>
+  <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
+  <![endif]-->
 </head>
 <body class="<?php print $classes; ?>">
 

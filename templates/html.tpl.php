@@ -82,13 +82,10 @@ $html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir .
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <?php print $styles; ?>
-
+  <?php print $scripts; ?>
   <!--[if lt IE 9]>
   <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
   <![endif]-->
-
-  <?php print $scripts; ?>
-
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
