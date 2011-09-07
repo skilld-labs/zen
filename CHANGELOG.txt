@@ -16,7 +16,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 - #1179128 by JohnAlbin: Too easy to get undefined variable in maintenance-page.tpl.php
 - #1249790 by KrisBulman and JohnAlbin: Convert tabs from old sliding-door CSS technique to CSS3
 - #1279236: Override core's system.menus.css since we already override the styles
-- #1154358 by , barraponto and JohnAlbin: Rename theme setting variables for skip link
+- #1154358 by mverbaar, barraponto and JohnAlbin: Rename theme setting variables for skip link
 - #1239390 by JohnAlbin and : Add conditionally-classed HTML tag and remove IE conditional stylesheets
 - #1249314: Add Respond.js to Zen
 - #1249326: Add HTML5 shim and innerShiv to Zen
@@ -35,7 +35,7 @@ Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 - #105524 by davidhwang: Redundant label CSS overrides Webform label placement selector
 - #1241090 by KrisBulman: Incorrect calc in html-reset comment
 - #1174290 by naxoc: Fix code error in js/README.txt
-- #1154358 by , barraponto and JohnAlbin: Add theme setting for skip link text
+- #1154358 by mverbaar, barraponto and JohnAlbin: Add theme setting for skip link text
 - #1245222: Field styling bleeds into node edit forms
 - #1134622: Add Sass versions of CSS files
 - #1138744: Port panels layouts to Drupal 7
