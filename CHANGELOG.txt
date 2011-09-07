@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1154358 by mverbaar, barraponto and JohnAlbin: Add theme setting for skip link text
 - #1239390 by JohnAlbin and KrisBulman: Add conditionally-classed HTML tag and remove IE conditional stylesheets
 - #1249314: Add Respond.js to Zen
 - #1249326: Add HTML5 shim and innerShiv to Zen
