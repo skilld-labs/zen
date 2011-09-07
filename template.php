@@ -178,7 +178,8 @@ function zen_preprocess_html(&$variables, $hook) {
       $variables['classes_array'][] = 'page-panels';
       break;
   }
-  $variables['jump_link_target'] = theme_get_setting('zen_jump_link_target');
+  $variables['skip_link_anchor'] = theme_get_setting('zen_skip_link_anchor');
+  $variables['skip_link_text'] = theme_get_setting('zen_skip_link_text');
 }
 
 /**
