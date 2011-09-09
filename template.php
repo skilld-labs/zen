@@ -110,21 +110,6 @@ function zen_menu_local_tasks(&$variables) {
 }
 
 /**
- * Override or insert variables into theme_menu_local_task().
- */
-function zen_preprocess_menu_local_task(&$variables) {
-  $link =& $variables['element']['#link'];
-
-  // If the link does not contain HTML already, check_plain() it now.
-  // After we set 'html'=TRUE the link will not be sanitized by l().
-  if (empty($link['localized_options']['html'])) {
-    $link['title'] = check_plain($link['title']);
-  }
-  $link['localized_options']['html'] = TRUE;
-  $link['title'] = '<span class="tab">' . $link['title'] . '</span>';
-}
-
-/**
  * Override or insert variables into the html template.
  *
  * @param $variables
