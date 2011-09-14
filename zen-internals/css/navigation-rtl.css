@@ -4,6 +4,10 @@
  */
 
 
+ul li.collapsed {
+  list-style-image: url(../images/menu-collapsed-rtl.png);
+}
+
 #navigation ul.links, /* Main menu and secondary menu links */
 #navigation .content ul /* Menu block links */ {
   text-align: right;
@@ -13,4 +17,8 @@
 #navigation .content li {
   float: right;
   padding: 0 0 0 10px;
+}
+
+#secondary-menu {
+  float: left;
 }
