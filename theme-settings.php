@@ -77,15 +77,16 @@ function zen_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('zen_rebuild_registry'),
     '#description'   => t('During theme development, it can be very useful to continuously <a href="!link">rebuild the theme registry</a>. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('!link' => 'http://drupal.org/node/173880#theme-registry')),
   );
+  /*
   $form['themedev']['zen_layout'] = array(
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'zen-columns-liquid' => t('Liquid layout') . ' <small>(layout-liquid.css)</small>',
                           'zen-columns-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
                         ),
     '#default_value' => theme_get_setting('zen_layout'),
   );
+  */
   $form['themedev']['zen_skip_link_anchor'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Anchor ID for the “skip link”'),
