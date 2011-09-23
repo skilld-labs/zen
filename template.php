@@ -128,6 +128,12 @@ function zen_preprocess_html(&$variables, $hook) {
     _zen_preprocess_html($variables, $hook);
   }
 
+  // Attributes for html element.
+  $variables['html_attributes_array'] = array(
+    'lang' => $variables['language']->language,
+    'dir' => $variables['language']->dir,
+  );
+
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
   if (!$variables['is_front']) {
@@ -165,6 +171,19 @@ function zen_preprocess_html(&$variables, $hook) {
   }
   $variables['skip_link_anchor'] = theme_get_setting('zen_skip_link_anchor');
   $variables['skip_link_text'] = theme_get_setting('zen_skip_link_text');
+}
+
+/**
+ * Override or insert variables into the html templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("html" in this case.)
+ */
+function zen_process_html(&$variables, $hook) {
+  // Flatten out html_attributes.
+  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
 }
 
 /**
@@ -230,6 +249,25 @@ function zen_preprocess_maintenance_page(&$variables, $hook) {
     include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
     _zen_preprocess_html($variables, $hook);
   }
+
+  // Attributes for html element.
+  $variables['html_attributes_array'] = array(
+    'lang' => $variables['language']->language,
+    'dir' => $variables['language']->dir,
+  );
+}
+
+/**
+ * Override or insert variables into the maintenance page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("maintenance_page" in this case.)
+ */
+function zen_process_maintenance_page(&$variables, $hook) {
+  // Flatten out html_attributes.
+  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
 }
 
 /**

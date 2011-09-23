@@ -9,6 +9,11 @@
  * - $language: (object) The language the site is being displayed in.
  *   $language->language contains its textual representation. $language->dir
  *   contains the language direction. It will either be 'ltr' or 'rtl'.
+ * - $html_attributes: String of attributes for the html element. It can be
+ *   manipulated through the variable $html_attributes_array from preprocess
+ *   functions.
+ * - $html_attributes_array: Array of html attribute values. It is flattened
+ *   into a string within the variable $html_attributes.
  * - $rdf_namespaces: All the RDF namespace prefixes used in the HTML document.
  * - $grddl_profile: A GRDDL profile allowing agents to extract the RDF data.
  * - $head_title: A modified version of the page title, for use in the TITLE
@@ -61,10 +66,6 @@
  * @see zen_preprocess_html()
  * @see template_process()
  */
-
-// Use a helper variable, so we use less code to create the html tag below.
-$html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir . '"';
-
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->
 <!--[if lte IE 6]><html class="ie6 ie6-7 ie6-8" <?php print $html_attributes; ?>><![endif]-->

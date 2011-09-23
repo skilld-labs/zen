@@ -9,10 +9,6 @@
  * @see template_preprocess()
  * @see template_preprocess_maintenance_page()
  */
-
-// Use a helper variable, so we use less code to create the html tag below.
-$html_attributes = 'lang="' . $language->language . '" dir="' . $language->dir . '"';
-
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->
 <!--[if (lte IE 6)&(!IEMobile)]><html class="ie6 ie6-7 ie6-8" <?php print $html_attributes; ?>><![endif]-->
