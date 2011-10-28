@@ -100,9 +100,10 @@ function zen_breadcrumb($variables) {
  *   The name of the template being rendered ("html" in this case.)
  */
 function zen_preprocess_html(&$variables, $hook) {
-  // Add paths needed or html5shim.
+  // Add paths needed for html5shim.
   $variables['base_path'] = base_path();
   $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
+  $variables['add_html5_respond_js'] = theme_get_setting('zen_add_html5_respond_js');
 
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
