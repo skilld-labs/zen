@@ -5,6 +5,8 @@ screenshot  = zen-internals/screenshot.png
 core        = 7.x
 engine      = phptemplate
 
+stylesheets[all][] = system.menus.css
+
 regions[header]         = Header
 regions[navigation]     = Navigation bar
 regions[highlighted]    = Highlighted
