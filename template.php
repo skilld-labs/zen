@@ -309,6 +309,35 @@ function zen_preprocess_comment(&$variables, $hook) {
 }
 
 /**
+ * Returns HTML for a field with no wrapper markup.
+ *
+ * @see template_preprocess_field()
+ * @see zen_preprocess_field()
+ * @see template_process_field()
+ * @see theme_field
+ *
+ * @ingroup themeable
+ */
+function zen_field__no_wrapper($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if ($variables['element']['#label_display'] == 'inline') {
+    $output .= '<span class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':</span>';
+  }
+  elseif ($variables['element']['#label_display'] == 'above') {
+    $output .= '<h3 class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . '</h3>';
+  }
+
+  // Render the items.
+  foreach ($variables['items'] as $delta => $item) {
+    $output .= drupal_render($item);
+  }
+
+  return $output;
+}
+
+/**
  * Preprocess variables for region.tpl.php
  *
  * @param $variables
@@ -325,9 +354,9 @@ function zen_preprocess_region(&$variables, $hook) {
     // Allow a region-specific template to override Zen's region--sidebar.
     $variables['theme_hook_suggestions'][] = 'region__' . $variables['region'];
   }
-  // Use a bare template for the content region.
+  // Use a template with no wrapper for the content region.
   elseif ($variables['region'] == 'content') {
-    $variables['theme_hook_suggestions'][] = 'region__bare';
+    $variables['theme_hook_suggestions'][] = 'region__no_wrapper';
   }
 }
 
@@ -340,9 +369,9 @@ function zen_preprocess_region(&$variables, $hook) {
  *   The name of the template being rendered ("block" in this case.)
  */
 function zen_preprocess_block(&$variables, $hook) {
-  // Use a bare template for the page's main content.
+  // Use a template with no wrapper for the page's main content.
   if ($variables['block_html_id'] == 'block-system-main') {
-    $variables['theme_hook_suggestions'][] = 'block__bare';
+    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
   }
 
   // Classes describing the position of the block within the region.
