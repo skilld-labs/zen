@@ -1,5 +1,12 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1329530: Rename "--bare" templates to use the more descriptive "--no-wrapper"
+- #1295716 by KrisBulman: system.menu.css only overridden in starterkit, not zen
+- #1249314 by KrisBulman and JohnAlbin: Add theme setting for HTML5 shim and Respond.js
+- #1249314 by KrisBulman and JohnAlbin: Fix respond.js
+- Work-around for a core bug affecting node edit forms; see issue #943212
+- Add $html_attributes and $html_attributes_array to html.tpl
+- #1179128 by JohnAlbin: Too easy to get undefined variable in maintenance-page.tpl.php
 - #1249790 by KrisBulman and JohnAlbin: Convert tabs from old sliding-door CSS technique to CSS3
 - #1279236: Override core's system.menus.css since we already override the styles
 - #1154358 by mverbaar, barraponto and JohnAlbin: Rename theme setting variables for skip link
