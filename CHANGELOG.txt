@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1295296 by echoz and JohnAlbin: Add HTML5 display definitions from D8 and normalize.css
 - #1329530: Rename "--bare" templates to use the more descriptive "--no-wrapper"
 - #1295716 by KrisBulman: system.menu.css only overridden in starterkit, not zen
 - #1249314 by KrisBulman and JohnAlbin: Add theme setting for HTML5 shim and Respond.js
