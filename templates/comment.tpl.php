@@ -64,6 +64,7 @@
  */
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+
   <header>
     <p class="submitted">
       <?php print $picture; ?>
@@ -87,7 +88,6 @@
     <?php if ($status == 'comment-unpublished'): ?>
       <p class="unpublished"><?php print t('Unpublished'); ?></p>
     <?php endif; ?>
-
   </header>
 
   <?php
