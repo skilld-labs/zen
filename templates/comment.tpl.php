@@ -64,8 +64,6 @@
  */
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print $picture; ?>
-
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
     <h3<?php print $title_attributes; ?>>
@@ -84,8 +82,9 @@
   <?php endif; ?>
 
   <div class="submitted">
-    <?php print $permalink; ?>
+    <?php print $picture; ?>
     <?php print $submitted; ?>
+    <?php print $permalink; ?>
   </div>
 
   <div class="content"<?php print $content_attributes; ?>>
