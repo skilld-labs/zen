@@ -29,6 +29,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1110650: Remove work-around for missing anonymous class on comments (fixed by Drupal 7.9)
 - Work-around for a core bug affecting admin themes. See issue #943212.
 - #1258280 by barraponto: Document $page['navigation'] in page.tpl
 - #105524 by davidhwang: Redundant label CSS overrides Webform label placement selector
