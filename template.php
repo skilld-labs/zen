@@ -265,6 +265,12 @@ function zen_preprocess_node(&$variables, $hook) {
   // Add $unpublished variable.
   $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
 
+  // Add pubdate to submitted variable.
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . $variables['date'] . '</time>';
+  if ($variables['display_submitted']) {
+    $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['pubdate']));
+  }
+
   // Add a class for the view mode.
   if (!$variables['teaser']) {
     $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
@@ -291,6 +297,10 @@ function zen_preprocess_comment(&$variables, $hook) {
   if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
     $variables['title'] = '';
   }
+
+  // Add pubdate to submitted variable.
+  $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
+  $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
 
   // Zebra striping.
   if ($variables['id'] == 1) {

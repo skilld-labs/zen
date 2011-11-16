@@ -48,6 +48,8 @@
  * - $comment_count: Number of comments attached to the node.
  * - $uid: User ID of the node author.
  * - $created: Time the node was published formatted in Unix timestamp.
+ * - $pubdate: Formatted date and time for when the node was published wrapped
+ *   in a HTML5 time element.
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
  * - $zebra: Outputs either "even" or "odd". Useful for zebra striping in

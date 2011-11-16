@@ -12,6 +12,8 @@
  * - $created: Formatted date and time for when the comment was created.
  *   Preprocess functions can reformat it by calling format_date() with the
  *   desired parameters on the $comment->created variable.
+ * - $pubdate: Formatted date and time for when the comment was created wrapped
+ *   in a HTML5 time element.
  * - $changed: Formatted date and time for when the comment was last changed.
  *   Preprocess functions can reformat it by calling format_date() with the
  *   desired parameters on the $comment->changed variable.
