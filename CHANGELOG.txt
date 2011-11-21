@@ -27,6 +27,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1347934: region--content.tpl doesn't override region--no-wrapper.tpl
 - Work-around for a core bug affecting admin themes. See issue #943212.
 - #1258280 by barraponto: Document $page['navigation'] in page.tpl
 - #105524 by davidhwang: Redundant label CSS overrides Webform label placement selector
