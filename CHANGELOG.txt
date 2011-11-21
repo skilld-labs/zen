@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1348032: Convert breadcrumb markup to HTML5
 - #1347934: region--content.tpl doesn't override region--no-wrapper.tpl
 - #1343982: Convert node markup to HTML5
 - #1343896: Convert comment markup to HTML5
