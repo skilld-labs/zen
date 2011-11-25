@@ -83,9 +83,12 @@
         <?php print $navigation; ?>
       </div><!-- /#navigation -->
 
-      <?php print $sidebar_first; ?>
-
-      <?php print $sidebar_second; ?>
+      <?php if ($sidebar_first || $sidebar_second): ?>
+        <aside class="sidebars">
+          <?php print $sidebar_first; ?>
+          <?php print $sidebar_second; ?>
+        </aside><!-- /.sidebars -->
+      <?php endif; ?>
 
     </div></div><!-- /#main, /#main-wrapper -->
 
