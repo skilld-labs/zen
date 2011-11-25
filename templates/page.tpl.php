@@ -72,48 +72,45 @@
 
 <div id="page-wrapper"><div id="page">
 
-  <div id="header"><div class="section clearfix">
+  <header id="header"><div class="section clearfix">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
+      <hgroup id="name-and-slogan">
         <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name"><strong>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </strong></div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif; ?>
+          <h1 id="site-name">
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+          </h1>
         <?php endif; ?>
 
         <?php if ($site_slogan): ?>
-          <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>
-      </div><!-- /#name-and-slogan -->
+      </hgroup><!-- /#name-and-slogan -->
     <?php endif; ?>
 
-    <?php print theme('links__system_secondary_menu', array(
-      'links' => $secondary_menu,
-      'attributes' => array(
-        'id' => 'secondary-menu',
-        'class' => array('links', 'inline', 'clearfix'),
-      ),
-      'heading' => array(
-        'text' => $secondary_menu_heading,
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      ),
-    )); ?>
+    <?php if ($secondary_menu): ?>
+      <nav id="secondary-menu">
+        <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => $secondary_menu_heading,
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+      </nav>
+    <?php endif; ?>
 
     <?php print render($page['header']); ?>
 
-  </div></div><!-- /.section, /#header -->
+  </div></header><!-- /.section, /#header -->
 
   <div id="main-wrapper"><div id="main" class="clearfix">
 
@@ -138,26 +135,39 @@
 
     <div id="navigation"><div class="section clearfix">
 
-      <?php print theme('links__system_main_menu', array(
-        'links' => $main_menu,
-        'attributes' => array(
-          'id' => 'main-menu',
-          'class' => array('links', 'inline', 'clearfix'),
-        ),
-        'heading' => array(
-          'text' => t('Main menu'),
-          'level' => 'h2',
-          'class' => array('element-invisible'),
-        ),
-      )); ?>
+      <?php if ($main_menu): ?>
+        <nav id="main-menu">
+          <?php print theme('links__system_main_menu', array(
+            'links' => $main_menu,
+            'attributes' => array(
+              'class' => array('links', 'inline', 'clearfix'),
+            ),
+            'heading' => array(
+              'text' => t('Main menu'),
+              'level' => 'h2',
+              'class' => array('element-invisible'),
+            ),
+          )); ?>
+        </nav>
+      <?php endif; ?>
+
 
       <?php print render($page['navigation']); ?>
 
     </div></div><!-- /.section, /#navigation -->
 
-    <?php print render($page['sidebar_first']); ?>
+    <?php
+      // Render the sidebars to see if there's anything in them.
+      $sidebar_first  = render($page['sidebar_first']);
+      $sidebar_second = render($page['sidebar_second']);
+    ?>
 
-    <?php print render($page['sidebar_second']); ?>
+    <?php if ($sidebar_first || $sidebar_second): ?>
+      <aside class="sidebars">
+        <?php print $sidebar_first; ?>
+        <?php print $sidebar_second; ?>
+      </aside><!-- /.sidebars -->
+    <?php endif; ?>
 
   </div></div><!-- /#main, /#main-wrapper -->
 
