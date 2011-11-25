@@ -25,7 +25,7 @@
  * @see zen_preprocess_region()
  * @see template_process()
  */
+?>
 
-if ($content) {
-  print $content;
-}
+<?php print $content; ?>
+<!-- region--no-wrapper.tpl -->
