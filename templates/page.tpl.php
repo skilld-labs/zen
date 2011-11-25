@@ -115,7 +115,7 @@
 
   </div></div><!-- /.section, /#header -->
 
-  <div id="main-wrapper"><div id="main" class="clearfix<?php if ($main_menu || $page['navigation']) { print ' with-navigation'; } ?>">
+  <div id="main-wrapper"><div id="main" class="clearfix">
 
     <div id="content" class="column"><div class="section">
       <?php print render($page['highlighted']); ?>
@@ -136,26 +136,25 @@
       <?php print $feed_icons; ?>
     </div></div><!-- /.section, /#content -->
 
-    <?php if ($page['navigation'] || $main_menu): ?>
-      <div id="navigation"><div class="section clearfix">
+    <div id="navigation"><div class="section clearfix">
 
-        <?php print theme('links__system_main_menu', array(
-          'links' => $main_menu,
-          'attributes' => array(
-            'id' => 'main-menu',
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Main menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
+      <?php print theme('links__system_main_menu', array(
+        'links' => $main_menu,
+        'attributes' => array(
+          'id' => 'main-menu',
+          'class' => array('links', 'inline', 'clearfix'),
+        ),
+        'heading' => array(
+          'text' => t('Main menu'),
+          'level' => 'h2',
+          'class' => array('element-invisible'),
+        ),
+      )); ?>
 
         <?php print render($page['navigation']); ?>
+      <?php print render($page['navigation']); ?>
 
-      </div></div><!-- /.section, /#navigation -->
-    <?php endif; ?>
+    </div></div><!-- /.section, /#navigation -->
 
     <?php print render($page['sidebar_first']); ?>
 
