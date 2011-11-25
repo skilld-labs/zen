@@ -151,7 +151,6 @@
         ),
       )); ?>
 
-        <?php print render($page['navigation']); ?>
       <?php print render($page['navigation']); ?>
 
     </div></div><!-- /.section, /#navigation -->
