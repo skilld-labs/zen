@@ -92,18 +92,21 @@
       </hgroup><!-- /#name-and-slogan -->
     <?php endif; ?>
 
-    <?php print theme('links__system_secondary_menu', array(
-      'links' => $secondary_menu,
-      'attributes' => array(
-        'id' => 'secondary-menu',
-        'class' => array('links', 'inline', 'clearfix'),
-      ),
-      'heading' => array(
-        'text' => $secondary_menu_heading,
-        'level' => 'h2',
-        'class' => array('element-invisible'),
-      ),
-    )); ?>
+    <?php if ($secondary_menu): ?>
+      <nav id="secondary-menu">
+        <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => $secondary_menu_heading,
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+      </nav>
+    <?php endif; ?>
 
     <?php print render($page['header']); ?>
 
@@ -132,18 +135,22 @@
 
     <div id="navigation"><div class="section clearfix">
 
-      <?php print theme('links__system_main_menu', array(
-        'links' => $main_menu,
-        'attributes' => array(
-          'id' => 'main-menu',
-          'class' => array('links', 'inline', 'clearfix'),
-        ),
-        'heading' => array(
-          'text' => t('Main menu'),
-          'level' => 'h2',
-          'class' => array('element-invisible'),
-        ),
-      )); ?>
+      <?php if ($main_menu): ?>
+        <nav id="main-menu">
+          <?php print theme('links__system_main_menu', array(
+            'links' => $main_menu,
+            'attributes' => array(
+              'class' => array('links', 'inline', 'clearfix'),
+            ),
+            'heading' => array(
+              'text' => t('Main menu'),
+              'level' => 'h2',
+              'class' => array('element-invisible'),
+            ),
+          )); ?>
+        </nav>
+      <?php endif; ?>
+
 
       <?php print render($page['navigation']); ?>
 
