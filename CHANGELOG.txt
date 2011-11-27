@@ -1,6 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
-- #1246540 by EverettZ, JohnAlbin, , : Add aria landmark roles to Zen
+- #1246540 by EverettZ, JohnAlbin, KrisBulman, : Add aria landmark roles to Zen
 - #1249314: Make respond.js, HTML5 shim and mobile meta tags optional
 - #1347236: Convert page markup to HTML5
 - #1352308: Add HTML comments for region template suggestions
