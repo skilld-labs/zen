@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1249314: Make respond.js, HTML5 shim and mobile meta tags optional
 - #1347236: Convert page markup to HTML5
 - #1352308: Add HTML comments for region template suggestions
 - #1352296: Remove "with-navigation" class and make navigation bar display unconditionally
