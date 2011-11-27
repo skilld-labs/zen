@@ -20,18 +20,24 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
 
-  <meta name="viewport" content="width=device-width, target-densityDpi=160dpi, initial-scale=1">
-  <meta name="MobileOptimized" content="width">
-  <meta name="HandheldFriendly" content="true">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <?php if ($add_responsive_meta): ?>
+    <meta name="viewport" content="width=device-width, target-densityDpi=160dpi, initial-scale=1">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  <?php endif; ?>
   <meta http-equiv="cleartype" content="on">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  <?php if ($add_html5_respond_js): ?>
+  <?php if ($add_respond_js): ?>
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
+    <![endif]-->
+  <?php elseif ($add_html5_shim): ?>
+    <!--[if lt IE 9]>
+    <script src="<?php print $base_path . $path_to_zen; ?>/js/src/html5-innershiv.js"></script>
     <![endif]-->
   <?php endif; ?>
 </head>

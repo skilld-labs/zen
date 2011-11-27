@@ -104,10 +104,13 @@ function zen_breadcrumb($variables) {
  *   this function to have consistent variables.
  */
 function zen_preprocess_html(&$variables, $hook) {
-  // Add paths needed for html5shim.
+  // Add variables and paths needed for HTML5 and responsive support.
   $variables['base_path'] = base_path();
   $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
-  $variables['add_html5_respond_js'] = theme_get_setting('zen_add_html5_respond_js');
+  $html5_respond_meta = theme_get_setting('zen_html5_respond_meta');
+  $variables['add_respond_js']      = in_array('respond', $html5_respond_meta);
+  $variables['add_html5_shim']      = in_array('html5', $html5_respond_meta);
+  $variables['add_responsive_meta'] = in_array('meta', $html5_respond_meta);
 
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {
