@@ -93,7 +93,7 @@
     <?php endif; ?>
 
     <?php if ($secondary_menu): ?>
-      <nav id="secondary-menu">
+      <nav id="secondary-menu" role="navigation">
         <?php print theme('links__system_secondary_menu', array(
           'links' => $secondary_menu,
           'attributes' => array(
@@ -114,7 +114,7 @@
 
   <div id="main-wrapper"><div id="main" class="clearfix">
 
-    <div id="content" class="column"><div class="section">
+    <div id="content" class="column" role="main"><div class="section">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a id="main-content"></a>
@@ -136,7 +136,7 @@
     <div id="navigation"><div class="section clearfix">
 
       <?php if ($main_menu): ?>
-        <nav id="main-menu">
+        <nav id="main-menu" role="navigation">
           <?php print theme('links__system_main_menu', array(
             'links' => $main_menu,
             'attributes' => array(

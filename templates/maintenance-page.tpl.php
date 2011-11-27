@@ -72,7 +72,7 @@
 
     <div id="main-wrapper"><div id="main" class="clearfix">
 
-      <div id="content" class="column"><div class="section">
+      <div id="content" class="column" role="main"><div class="section">
 
         <?php print $highlighted; ?>
 
