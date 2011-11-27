@@ -99,7 +99,9 @@ function zen_breadcrumb($variables) {
  * @param $variables
  *   An array of variables to pass to the theme template.
  * @param $hook
- *   The name of the template being rendered ("html" in this case.)
+ *   The name of the template being rendered. This is usually "html", but can
+ *   also be "maintenance_page" since zen_preprocess_maintenance_page() calls
+ *   this function to have consistent variables.
  */
 function zen_preprocess_html(&$variables, $hook) {
   // Add paths needed for html5shim.
@@ -121,7 +123,7 @@ function zen_preprocess_html(&$variables, $hook) {
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  if (!$variables['is_front']) {
+  if (!$variables['is_front'] && $hook == 'html') {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
@@ -141,18 +143,22 @@ function zen_preprocess_html(&$variables, $hook) {
     $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Store the menu item since it has some useful information.
-  $variables['menu_item'] = menu_get_item();
-  switch ($variables['menu_item']['page_callback']) {
-    case 'views_page':
-      // Is this a Views page?
-      $variables['classes_array'][] = 'page-views';
-      break;
-    case 'page_manager_page_execute':
-    case 'page_manager_node_view':
-    case 'page_manager_contact_site':
-      // Is this a Panels page?
-      $variables['classes_array'][] = 'page-panels';
-      break;
+  if ($hook == 'html') {
+    $variables['menu_item'] = menu_get_item();
+    if ($variables['menu_item']) {
+      switch ($variables['menu_item']['page_callback']) {
+        case 'views_page':
+          // Is this a Views page?
+          $variables['classes_array'][] = 'page-views';
+          break;
+        case 'page_manager_page_execute':
+        case 'page_manager_node_view':
+        case 'page_manager_contact_site':
+          // Is this a Panels page?
+          $variables['classes_array'][] = 'page-panels';
+          break;
+      }
+    }
   }
   $variables['skip_link_anchor'] = theme_get_setting('zen_skip_link_anchor');
   $variables['skip_link_text'] = theme_get_setting('zen_skip_link_text');
@@ -225,21 +231,7 @@ function zen_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_preprocess_maintenance_page(&$variables, $hook) {
-  // Add paths needed or html5shim.
-  $variables['base_path'] = base_path();
-  $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
-
-  // If Zen is the maintenance theme, add some styles.
-  if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.zen.inc';
-    _zen_preprocess_html($variables, $hook);
-  }
-
-  // Attributes for html element.
-  $variables['html_attributes_array'] = array(
-    'lang' => $variables['language']->language,
-    'dir' => $variables['language']->dir,
-  );
+  zen_preprocess_html($variables, $hook);
 }
 
 /**
@@ -251,8 +243,7 @@ function zen_preprocess_maintenance_page(&$variables, $hook) {
  *   The name of the template being rendered ("maintenance_page" in this case.)
  */
 function zen_process_maintenance_page(&$variables, $hook) {
-  // Flatten out html_attributes.
-  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
+  zen_process_html($variables, $hook);
 }
 
 /**
