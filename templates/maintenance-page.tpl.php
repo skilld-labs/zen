@@ -85,9 +85,9 @@
 
       </div></div><!-- /.section, /#content -->
 
-      <div id="navigation" class="section clearfix">
+      <div id="navigation"><div class="section clearfix">
         <?php print $navigation; ?>
-      </div><!-- /#navigation -->
+      </div></div><!-- /.section, /#navigation -->
 
       <?php if ($sidebar_first || $sidebar_second): ?>
         <aside class="sidebars">
