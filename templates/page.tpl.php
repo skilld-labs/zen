@@ -70,7 +70,7 @@
  */
 ?>
 
-<div id="page-wrapper"><div id="page">
+<div id="page">
 
   <header id="header" class="clearfix">
 
@@ -112,7 +112,7 @@
 
   </header>
 
-  <div id="main-wrapper"><div id="main" class="clearfix">
+  <div id="main" class="clearfix">
 
     <div id="content" class="column" role="main">
       <?php print render($page['highlighted']); ?>
@@ -168,10 +168,10 @@
       </aside><!-- /.sidebars -->
     <?php endif; ?>
 
-  </div></div><!-- /#main, /#main-wrapper -->
+  </div><!-- /#main -->
 
   <?php print render($page['footer']); ?>
 
-</div></div><!-- /#page, /#page-wrapper -->
+</div><!-- /#page -->
 
 <?php print render($page['bottom']); ?>
