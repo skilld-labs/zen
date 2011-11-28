@@ -72,7 +72,7 @@
 
 <div id="page-wrapper"><div id="page">
 
-  <header id="header"><div class="section clearfix">
+  <header id="header" class="clearfix">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
@@ -110,11 +110,11 @@
 
     <?php print render($page['header']); ?>
 
-  </div></header><!-- /.section, /#header -->
+  </header>
 
   <div id="main-wrapper"><div id="main" class="clearfix">
 
-    <div id="content" class="column" role="main"><div class="section">
+    <div id="content" class="column" role="main">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a id="main-content"></a>
@@ -131,9 +131,9 @@
       <?php endif; ?>
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
-    </div></div><!-- /.section, /#content -->
+    </div><!-- /#content -->
 
-    <div id="navigation"><div class="section clearfix">
+    <div id="navigation" class="clearfix">
 
       <?php if ($main_menu): ?>
         <nav id="main-menu" role="navigation">
@@ -151,10 +151,9 @@
         </nav>
       <?php endif; ?>
 
-
       <?php print render($page['navigation']); ?>
 
-    </div></div><!-- /.section, /#navigation -->
+    </div><!-- /#navigation -->
 
     <?php
       // Render the sidebars to see if there's anything in them.
