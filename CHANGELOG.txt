@@ -35,6 +35,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1279838 by JohnAlbin and Bevan: Deleted regions cause PHP notices in maintenance-page.tpl.php
 - #1354356: Fix broken #skip-link styling in stylesheets
 - #1110650: Remove work-around for missing anonymous class on comments (fixed by Drupal 7.9)
 - Work-around for a core bug affecting admin themes. See issue #943212.
