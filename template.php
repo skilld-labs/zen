@@ -247,6 +247,13 @@ function zen_preprocess_maintenance_page(&$variables, $hook) {
  */
 function zen_process_maintenance_page(&$variables, $hook) {
   zen_process_html($variables, $hook);
+  // Ensure default regions get a variable. Theme authors often forget to remove
+  // a deleted region's variable in maintenance-page.tpl.
+  foreach (array('header', 'navigation', 'highlighted', 'help', 'content', 'sidebar_first', 'sidebar_second', 'footer', 'bottom') as $region) {
+    if (!isset($variables[$region])) {
+      $variables[$region] = '';
+    }
+  }
 }
 
 /**
