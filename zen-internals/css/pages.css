@@ -16,9 +16,6 @@ body {
   padding: 0;
 }
 
-#page-wrapper {
-}
-
 #page {
 }
 
@@ -43,9 +40,6 @@ body {
  * Header
  */
 #header {
-}
-
-#header .section {
 }
 
 #logo /* Wrapping link for logo */ {
@@ -91,9 +85,6 @@ body {
 /*
  * Main (container for everything else)
  */
-#main-wrapper {
-}
-
 #main {
 }
 
@@ -101,9 +92,6 @@ body {
  * Content
  */
 #content {
-}
-
-#content .section {
 }
 
 .region-highlighted {
@@ -217,9 +205,6 @@ ul.links li {
 .region-sidebar-first {
 }
 
-.region-sidebar-first .section {
-}
-
 /*
  * Second sidebar (on right in LTR languages, on left in RTL)
  *
@@ -227,9 +212,6 @@ ul.links li {
  * (see the layout.css file.)
  */
 .region-sidebar-second {
-}
-
-.region-sidebar-second .section {
 }
 
 /*
