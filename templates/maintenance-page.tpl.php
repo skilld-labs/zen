@@ -43,9 +43,9 @@
 </head>
 <body class="<?php print $classes; ?>">
 
-  <div id="page-wrapper"><div id="page">
+  <div id="page">
 
-    <header id="header"><div class="section clearfix">
+    <header id="header" class="clearfix">
 
       <?php if ($logo): ?>
         <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
@@ -66,11 +66,11 @@
 
       <?php print $header; ?>
 
-    </div></header><!-- /.section, /#header -->
+    </header>
 
-    <div id="main-wrapper"><div id="main" class="clearfix">
+    <div id="main" class="clearfix">
 
-      <div id="content" class="column" role="main"><div class="section">
+      <div id="content" class="column" role="main">
 
         <?php print $highlighted; ?>
 
@@ -81,11 +81,11 @@
 
         <?php print $content; ?>
 
-      </div></div><!-- /.section, /#content -->
+      </div><!-- /#content -->
 
-      <div id="navigation"><div class="section clearfix">
+      <div id="navigation" class="clearfix">
         <?php print $navigation; ?>
-      </div></div><!-- /.section, /#navigation -->
+      </div><!-- /#navigation -->
 
       <?php if ($sidebar_first || $sidebar_second): ?>
         <aside class="sidebars">
@@ -94,11 +94,11 @@
         </aside><!-- /.sidebars -->
       <?php endif; ?>
 
-    </div></div><!-- /#main, /#main-wrapper -->
+    </div><!-- /#main -->
 
     <?php print $footer; ?>
 
-  </div></div><!-- /#page, /#page-wrapper -->
+  </div><!-- /#page -->
 
   <?php print $bottom; ?>
 

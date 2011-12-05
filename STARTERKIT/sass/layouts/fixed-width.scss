@@ -1,12 +1,53 @@
 //
-// RTL companion for the layout-fixed.scss file.
+// Layout Styling (DIV Positioning)
 //
-// The contents of this file are just copy and pasted from the layout-fixed.scss
-// file and then edited to cange the $leading-direction to be "right" to
-// override the default left direction. Simple!
+// Define CSS classes to create a table-free, 3-column, 2-column, or single
+// column layout depending on whether blocks are enabled in the left or right
+// columns.
+//
+// This layout is based on the Zen Columns layout method.
+//   http://drupal.org/node/201428
+//
+// Only CSS that affects the layout (positioning) of major elements should be
+// listed here.  Such as:
+//   display, position, float, clear, width, height, min-width, min-height
+//   margin, border, padding, overflow
 //
 
 @import "base";
+
+
+//
+// Body
+//
+body {
+}
+
+#page,
+.region-bottom {
+  //
+  // If you want to make the page a fixed width and centered in the viewport,
+  // this is the standards-compliant way to do that.
+  //
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+
+//
+// Header
+//
+#header {
+}
+
+.region-header {
+}
+
+
+//
+// Main container and its columns and navbar
+//
 
 
 // The layout when there are no sidebars.
@@ -14,10 +55,11 @@
   @include clearfix;
 
   @include zen-columns (
+    $box-sizing: border-box,
     // These mixin parameters describe the columns.
     $selectors: ('#content'),
     $widths: (960px),
-    $leading-direction: (right),
+    $leading-direction: (),
     $leading-gutters: (0),
     $padding: (),
 
@@ -33,10 +75,11 @@
 // The layout when there is only one sidebar, the left one.
 .sidebar-first #main {
   @include zen-columns (
+    $box-sizing: border-box,
     // These mixin parameters describe the columns.
     $selectors: ('.region-sidebar-first', '#content'),
     $widths: (180px, 760px),
-    $leading-direction: (right),
+    $leading-direction: (),
     $leading-gutters: (0, 20px),
     $padding: (),
 
@@ -52,10 +95,11 @@
 // The layout when there is only one sidebar, the right one.
 .sidebar-second #main {
   @include zen-columns (
+    $box-sizing: border-box,
     // These mixin parameters describe the columns.
     $selectors: ('#content', '.region-sidebar-second'),
     $widths: (760px, 180px),
-    $leading-direction: (right),
+    $leading-direction: (),
     $leading-gutters: (0, 20px),
     $padding: (),
 
@@ -71,10 +115,11 @@
 // The layout when there are two sidebars.
 .two-sidebars #main {
   @include zen-columns (
+    $box-sizing: border-box,
     // These mixin parameters describe the columns.
     $selectors: ('.region-sidebar-first', '#content', '.region-sidebar-second'),
     $widths: (180px, 560px, 180px),
-    $leading-direction: (right),
+    $leading-direction: (),
     $leading-gutters: (0, 20px, 20px),
     $padding: (),
 
@@ -86,3 +131,31 @@
     $navbar-padding: 0
   );
 }
+
+
+//
+// Footer
+//
+#footer {
+}
+
+
+//
+// Page bottom
+//
+.region-bottom { // See also the #page-wrapper declaration above that this div shares.
+}
+
+
+//
+// If a div.clearfix doesn't have any content after it and its bottom edge
+// touches the bottom of the viewport, Firefox and Safari will mistakenly
+// place several pixels worth of space between the bottom of the div and the
+// bottom of the viewport. Uncomment this CSS property to fix this.
+// Note: with some over-large content, this property might cause scrollbars
+// to appear on the #page-wrapper div.
+//
+
+//#page {
+//  overflow-y: hidden;
+//}

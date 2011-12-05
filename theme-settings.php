@@ -79,7 +79,7 @@ function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NU
     '#type'          => 'radios',
     '#title'         => t('Layout method'),
     '#options'       => array(
-                          'zen-columns-fixed' => t('Fixed layout') . ' <small>(layout-fixed.css)</small>',
+                          'zen-columns-fixed' => t('Fixed layout') . ' <small>(layouts/fixed-width.css)</small>',
                         ),
     '#default_value' => theme_get_setting('zen_layout'),
   );

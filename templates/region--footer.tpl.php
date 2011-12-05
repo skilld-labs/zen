@@ -27,7 +27,7 @@
  */
 ?>
 <?php if ($content): ?>
-  <footer id="footer" class="section <?php print $classes; ?>">
+  <footer id="footer" class="<?php print $classes; ?>">
     <?php print $content; ?>
   </footer><!-- region--footer.tpl -->
 <?php endif; ?>

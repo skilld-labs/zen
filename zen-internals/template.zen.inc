@@ -22,7 +22,7 @@ function _zen_preprocess_html(&$variables, $hook) {
   $stylesheets = array(
     'html-reset.css',
     'wireframes.css',
-    'layout-fixed.css',
+    'layouts/fixed-width.css',
     'page-backgrounds.css',
     'tabs.css',
     'pages.css',
@@ -36,7 +36,7 @@ function _zen_preprocess_html(&$variables, $hook) {
     'print.css',
   );
   if (theme_get_setting('zen_layout') == 'zen-columns-liquid') {
-    // Replace the layout-fixed.css file.
+    // Replace the fixed-width.css file.
     $stylesheets[2] = 'layout-liquid.css';
   }
   foreach ($stylesheets as $stylesheet) {

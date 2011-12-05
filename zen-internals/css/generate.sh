@@ -7,6 +7,10 @@ rm *.css;
 for FILENAME in ../../STARTERKIT/css/*.css; do
   cp $FILENAME .;
 done
+rm layouts/*.css;
+for FILENAME in ../../STARTERKIT/css/layouts/*.css; do
+  cp $FILENAME layouts;
+done
 
 # Don't need the core reference.
 rm drupal7-reference.css;
