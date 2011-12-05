@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1348258: Add box-sizing: border-box to the Zen Columns layout method
 - #1355444: $rdf_namespaces variable incorrectly printed in maintenance-page.tpl
 - #1246540 by EverettZ, JohnAlbin, KrisBulman, mgifford: Add aria landmark roles to Zen
 - #1249314: Make respond.js, HTML5 shim and mobile meta tags optional
