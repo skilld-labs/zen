@@ -94,7 +94,7 @@
     <![endif]-->
   <?php elseif ($add_html5_shim): ?>
     <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/src/html5-innershiv.js"></script>
+    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
   <?php endif; ?>
 </head>
