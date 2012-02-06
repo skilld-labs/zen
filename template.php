@@ -132,8 +132,8 @@ function zen_preprocess_html(&$variables, $hook) {
     // Add unique class for each website section.
     list($section, ) = explode('/', $path, 2);
     $arg = explode('/', $_GET['q']);
-    if ($arg[0] == 'node') {
-      if (isset($arg[1]) && $arg[1] == 'add') {
+    if ($arg[0] == 'node' && isset($arg[1])) {
+      if ($arg[1] == 'add') {
         $section = 'node-add';
       }
       elseif (isset($arg[2]) && is_numeric($arg[1]) && ($arg[2] == 'edit' || $arg[2] == 'delete')) {
