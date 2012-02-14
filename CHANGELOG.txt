@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1426260 by gleroux02: Javascript error in html5-respond.js
 - #1389060: Update to v3 of HTML5 shim and remove InnerShiv
 - #1361592: Remove div.content from block.tpl
 - #1348258: Add box-sizing: border-box to the Zen Columns layout method
