@@ -28,4 +28,4 @@
 ?>
 
 <?php print $content; ?>
-<!-- region--no-wrapper.tpl -->
+<!-- region__no_wrapper -->
