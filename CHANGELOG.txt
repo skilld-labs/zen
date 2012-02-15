@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1105868 by maartenverbaarschot, echoz and JohnAlbin: Add needed JavaScript documentation to script.js
 - #1406704 by echoz, 3goose and JohnAlbin: double dash in comments breaks layout in Camino and some other browsers
 - #1426260 by gleroux02: Javascript error in html5-respond.js
 - #1389060: Update to v3 of HTML5 shim and remove InnerShiv
