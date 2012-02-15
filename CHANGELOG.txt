@@ -11,7 +11,7 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 - #1347236: Convert page markup to HTML5
 - #1352308: Add HTML comments for region template suggestions
 - #1352296: Remove "with-navigation" class and make navigation bar display unconditionally
-- #1348032 by JohnAlbin and maartenverbaarschot: Convert breadcrumb markup to HTML5
+- #1348032 by JohnAlbin, maartenverbaarschot and echoz: Convert breadcrumb markup to HTML5
 - #1347934: region--content.tpl doesn't override region--no-wrapper.tpl
 - #1343982: Convert node markup to HTML5
 - #1343896: Convert comment markup to HTML5
