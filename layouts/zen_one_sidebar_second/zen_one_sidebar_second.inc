@@ -8,7 +8,7 @@ $plugin = array(
   'css'         => 'zen-one-sidebar-second.css',
   'admin theme' => 'zen_one_sidebar_second_admin',
   'admin css'   => 'zen-one-sidebar-second-admin.css',
-  'regions'     => array(
+  'panels'     => array(
     'content'       => t('Content'),
     'sidebar_first' => t('Sidebar'),
   ),
