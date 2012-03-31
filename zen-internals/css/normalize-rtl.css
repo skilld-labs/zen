@@ -1,5 +1,9 @@
 /* normalize-rtl.css - RTL language extension of normalize.scss. */
 
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
 /*
  * Addresses margins set differently in IE6/7
  */
@@ -14,7 +18,8 @@ dd {
 
 menu,
 ol,
-ul {
+ul,
+.item-list ul /* Drupal override */ {
   padding: 0 40px 0 0;
 }
 
@@ -29,4 +34,12 @@ ul {
 legend {
   *margin-left: 0;
   *margin-right: -7px; /* 3 */
+}
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+th {
+  text-align: right;
 }

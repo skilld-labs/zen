@@ -20,7 +20,7 @@ function _zen_preprocess_html(&$variables, $hook) {
   // want the stylesheets to be inherited from Zen since it becomes impossible
   // to re-order the stylesheets in the sub-theme.
   $stylesheets = array(
-    'html-reset.css',
+    'normalize.css',
     'wireframes.css',
     'layouts/fixed-width.css',
     'page-backgrounds.css',
