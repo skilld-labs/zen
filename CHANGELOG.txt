@@ -43,6 +43,10 @@ Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 
 Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1239784: Make zen logo's alpha channel be IE6 compatible
+- #1478244: Weight needed for conditional stylesheets added via drupal_add_css()
+- #469f073: Fix font sizing of monospace fonts
+- #1249842: Deprecate liquid layout CSS
 - #1279838 by JohnAlbin and Bevan: Deleted regions cause PHP notices in maintenance-page.tpl.php
 - #1354356: Fix broken #skip-link styling in stylesheets
 - #1110650: Remove work-around for missing anonymous class on comments (fixed by Drupal 7.9)
@@ -53,7 +57,6 @@ Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
 - #1174290 by naxoc: Fix code error in js/README.txt
 - #1154358 by mverbaar, barraponto and JohnAlbin: Add theme setting for skip link text
 - #1245222: Field styling bleeds into node edit forms
-- #1134622: Add Sass versions of CSS files
 - #1138744: Port panels layouts to Drupal 7
 
 Zen 7.x-3.1, 2011-04-26
