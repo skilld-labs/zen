@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1468104: Conditional classes on html tag cause IE compatibility mode button to show
 - #1440230: Update IE html classes to match new names from HTML5 boilerplate v3
 - #1105868 by maartenverbaarschot, echoz and JohnAlbin: Add needed JavaScript documentation to script.js
 - #1406704 by echoz, 3goose and JohnAlbin: double dash in comments breaks layout in Camino and some other browsers
