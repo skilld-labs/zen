@@ -84,7 +84,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
   <?php endif; ?>
   <meta http-equiv="cleartype" content="on">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
