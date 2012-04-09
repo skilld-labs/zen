@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1181622: Add responsive layouts to Zen
 - #1403052 by jensimmons: Add if statement around <header> in node.tpl
 - Remove clearfix classes from page.tpl
 - #1468104: Conditional classes on html tag cause IE compatibility mode button to show
