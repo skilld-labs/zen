@@ -22,7 +22,7 @@ function _zen_preprocess_html(&$variables, $hook) {
   $stylesheets = array(
     'normalize.css',
     'wireframes.css',
-    'layouts/fixed-width.css',
+    'layouts/responsive-sidebars.css',
     'page-backgrounds.css',
     'tabs.css',
     'pages.css',
@@ -35,9 +35,9 @@ function _zen_preprocess_html(&$variables, $hook) {
     'fields.css',
     'print.css',
   );
-  if (theme_get_setting('zen_layout') == 'zen-columns-liquid') {
+  if (theme_get_setting('zen_layout') == 'zen-fixed-width') {
     // Replace the fixed-width.css file.
-    $stylesheets[2] = 'layout-liquid.css';
+    $stylesheets[2] = 'layouts/fixed-width.css';
   }
   foreach ($stylesheets as $stylesheet) {
     drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));

@@ -74,16 +74,18 @@ function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NU
     '#type'          => 'fieldset',
     '#title'         => t('Accessibility and support settings'),
   );
-  /*
-  $form['support']['zen_layout'] = array(
-    '#type'          => 'radios',
-    '#title'         => t('Layout method'),
-    '#options'       => array(
-                          'zen-columns-fixed' => t('Fixed layout') . ' <small>(layouts/fixed-width.css)</small>',
-                        ),
-    '#default_value' => theme_get_setting('zen_layout'),
-  );
-  */
+  // Only toggle the layout for the main Zen theme.
+  if ($form['var']['#value'] == 'theme_zen_settings') {
+    $form['support']['zen_layout'] = array(
+      '#type'          => 'radios',
+      '#title'         => t('Layout'),
+      '#options'       => array(
+        'zen-responsive-sidebars' => t('Responsive sidebar layout') . ' <small>(layouts/responsive-sidebars.css)</small>',
+        'zen-fixed-width' => t('Fixed width layout') . ' <small>(layouts/fixed-width.css)</small>',
+      ),
+      '#default_value' => theme_get_setting('zen_layout'),
+    );
+  }
   $form['support']['zen_skip_link_anchor'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Anchor ID for the “skip link”'),
