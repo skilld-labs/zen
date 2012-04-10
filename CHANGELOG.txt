@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1524228: Turn off IE6/7 support by default
 - #1181622: Add responsive layouts to Zen
 - #1403052 by jensimmons: Add if statement around <header> in node.tpl
 - Remove clearfix classes from page.tpl
