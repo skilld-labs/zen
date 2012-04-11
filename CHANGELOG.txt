@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1144240: Make menu block styling the same as theme's menu links in navigation region
 - #1527126: Inline link styling is broken
 - #1524228: Turn off IE6/7 support by default
 - #1181622: Add responsive layouts to Zen
