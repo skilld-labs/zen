@@ -27,6 +27,8 @@
  *   - slogan: The slogan of the site, if any, and if there is no title.
  * - $head: Markup for the HEAD section (including meta tags, keyword tags, and
  *   so on).
+ * - $default_mobile_metatags: TRUE if default mobile metatags for responsive
+ *   design should be displayed.
  * - $styles: Style tags necessary to import all CSS files for the page.
  * - $scripts: Script tags necessary to load the JavaScript files and settings
  *   for the page.
@@ -77,11 +79,10 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
 
-  <?php if ($add_responsive_meta): ?>
-    <meta name="viewport" content="width=device-width, target-densityDpi=160dpi, initial-scale=1">
+  <?php if ($default_mobile_metatags): ?>
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width">
   <?php endif; ?>
   <meta http-equiv="cleartype" content="on">
 
