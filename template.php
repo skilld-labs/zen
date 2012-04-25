@@ -132,9 +132,17 @@ function zen_preprocess_html(&$variables, $hook) {
     drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
   }
 
+  $variables['skip_link_anchor'] = theme_get_setting('zen_skip_link_anchor');
+  $variables['skip_link_text'] = theme_get_setting('zen_skip_link_text');
+
+  // Return early, so the maintenance page does not call any of the code below.
+  if ($hook != 'html') {
+    return;
+  }
+
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
-  if (!$variables['is_front'] && $hook == 'html') {
+  if (!$variables['is_front']) {
     // Add unique class for each page.
     $path = drupal_get_path_alias($_GET['q']);
     // Add unique class for each website section.
@@ -154,25 +162,21 @@ function zen_preprocess_html(&$variables, $hook) {
     $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
   // Store the menu item since it has some useful information.
-  if ($hook == 'html') {
-    $variables['menu_item'] = menu_get_item();
-    if ($variables['menu_item']) {
-      switch ($variables['menu_item']['page_callback']) {
-        case 'views_page':
-          // Is this a Views page?
-          $variables['classes_array'][] = 'page-views';
-          break;
-        case 'page_manager_page_execute':
-        case 'page_manager_node_view':
-        case 'page_manager_contact_site':
-          // Is this a Panels page?
-          $variables['classes_array'][] = 'page-panels';
-          break;
-      }
+  $variables['menu_item'] = menu_get_item();
+  if ($variables['menu_item']) {
+    switch ($variables['menu_item']['page_callback']) {
+      case 'views_page':
+        // Is this a Views page?
+        $variables['classes_array'][] = 'page-views';
+        break;
+      case 'page_manager_page_execute':
+      case 'page_manager_node_view':
+      case 'page_manager_contact_site':
+        // Is this a Panels page?
+        $variables['classes_array'][] = 'page-panels';
+        break;
     }
   }
-  $variables['skip_link_anchor'] = theme_get_setting('zen_skip_link_anchor');
-  $variables['skip_link_text'] = theme_get_setting('zen_skip_link_text');
 }
 
 /**
