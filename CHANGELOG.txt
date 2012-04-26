@@ -1,5 +1,5 @@
-Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
----------------------------
+Zen 7.x-5.0, 2012-04-27
+-----------------------
 - #1539166: Remove page-backgrounds.css
 - #1420476 by maartenverbaarschot and JohnAlbin: a.button needs styling
 - #1532268: Allow sub-theme to import a module's Sass files
