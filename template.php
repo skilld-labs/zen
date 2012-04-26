@@ -8,7 +8,7 @@
  * The base Zen theme is designed to be easily extended by its sub-themes. You
  * shouldn't modify this or any of the CSS or PHP files in the root zen/ folder.
  * See the online documentation for more information:
- *   http://drupal.org/node/193318
+ *   http://drupal.org/documentation/theme/zen
  */
 
 // Auto-rebuild the theme registry during theme development.

@@ -64,7 +64,7 @@ ONLINE READING
 --------------
 
 Full documentation on the Zen theme can be found in Drupal's Handbook:
-  http://drupal.org/node/193318
+  http://drupal.org/documentation/theme/zen
 
 Excellent documentation on Drupal theming can be found in the Theme Guide:
   http://drupal.org/theme-guide
