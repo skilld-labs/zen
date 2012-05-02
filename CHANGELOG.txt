@@ -1,6 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
--
+- #1557828: PHP warnings due to maintenance-page.tpl being out-of-sync from html.tpl and page.tpl
 
 Zen 7.x-5.0, 2012-04-27
 -----------------------
