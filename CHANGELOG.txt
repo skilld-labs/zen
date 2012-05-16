@@ -1,7 +1,9 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1567606: #content in fixed width layout, with no sidebars, overflows parent container
 - #1571832: PHP Notice: Undefined index: content in template.php's zen_html_head_alter()
 - #1577934 by n8tron: Use of add_import_path in config.rb causes compass watch to fail
+- Update to Zen Grids 1.2
 - #1554848 by bluehat: Vertical positioning of navigation is wrong/too high
 - #1557828: PHP warnings due to maintenance-page.tpl being out-of-sync from html.tpl and page.tpl
 
