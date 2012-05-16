@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1577934 by n8tron: Use of add_import_path in config.rb causes compass watch to fail
 - #1554848 by bluehat: Vertical positioning of navigation is wrong/too high
 - #1557828: PHP warnings due to maintenance-page.tpl being out-of-sync from html.tpl and page.tpl
 
