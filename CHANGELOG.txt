@@ -1,6 +1,7 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
-- #1567606 by bluehat: #content in fixed width layout, with no sidebars, overflows parent container
+- #1558952 by oeroek: #navigation overflows parent container in fixed width layout
+- #1567606 by bluehat: #content overflows parent container in fixed width layout, with no sidebars
 - #1571832: PHP Notice: Undefined index: content in template.php's zen_html_head_alter()
 - #1577934 by n8tron: Use of add_import_path in config.rb causes compass watch to fail
 - Update to Zen Grids 1.2
