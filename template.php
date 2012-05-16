@@ -249,7 +249,7 @@ function zen_preprocess_page(&$variables, $hook) {
  */
 function zen_preprocess_maintenance_page(&$variables, $hook) {
   zen_preprocess_html($variables, $hook);
-  // Nothing maintenance-related in zen_preprocess_page(), yet.
+  // There's nothing maintenance-related in zen_preprocess_page(). Yet.
   //zen_preprocess_page($variables, $hook);
 }
 
