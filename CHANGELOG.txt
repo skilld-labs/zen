@@ -1,5 +1,5 @@
-Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
----------------------------
+Zen 7.x-5.1, 2012-05-18
+-----------------------
 - #1558952 by oeroek: #navigation overflows parent container in fixed width layout
 - #1567606 by bluehat: #content overflows parent container in fixed width layout, with no sidebars
 - #1571832: PHP Notice: Undefined index: content in template.php's zen_html_head_alter()
