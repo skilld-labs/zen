@@ -76,18 +76,9 @@ INSTALLATION
  1. Download Zen from http://drupal.org/project/zen
 
  2. Unpack the downloaded file, take the entire zen folder and place it in your
-    Drupal installation under one of the following locations:
-      sites/all/themes
-        making it available to the default Drupal site and to all Drupal sites
-        in a multi-site configuration
-      sites/default/themes
-        making it available to only the default Drupal site
-      sites/example.com/themes
-        making it available to only the example.com site if there is a
-        sites/example.com/settings.php configuration file
-
-    Please note: you will need to manually create the "themes" folder under
-    "sites/default/".
+    Drupal installation under sites/all/themes. (Additional installation folders
+    can be used; see http://drupal.org/getting-started/install-contrib/themes
+    for more information.)
 
     For more information about acceptable theme installation directories, read
     the sites/default/default.settings.php file in your Drupal installation.
