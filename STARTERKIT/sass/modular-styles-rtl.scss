@@ -1,0 +1,107 @@
+/**
+ * @file
+ * RTL companion for the modules.css file.
+ */
+
+@import "base";
+
+
+/* =============================================================================
+   Branding header
+   ========================================================================== */
+
+#logo { /* Wrapping link for logo */
+  float: right;
+}
+
+#secondary-menu {
+  float: left;
+}
+
+
+/* =============================================================================
+   Navigation bar
+   ========================================================================== */
+
+#navigation {
+  ul.links, /* Main menu and secondary menu links */
+  ul.menu { /* Menu block links */
+    text-align: right;
+
+    li { /* A simple method to get navigation links to appear in one line. */
+      float: right;
+      padding: 0 0 0 10px;
+    }
+  }
+}
+
+
+/* =============================================================================
+   Tabs
+   ========================================================================== */
+
+ul.primary,
+ul.secondary {
+  li {
+    float: right;
+  }
+}
+
+ul.primary {
+  li {
+    margin: 0.5em 3px 0 0;
+  }
+}
+
+
+/* =============================================================================
+   Inline styles
+   ========================================================================== */
+
+ul.inline li { /* List of links */
+  display: inline-block; /* Bug in Safari causes display: inline to fail. */
+  padding: 0 0 0 1em;
+}
+
+span.field-label { /* The inline field label used by the Fences.module */
+  padding: 0 0 0 1em;
+}
+
+
+/* =============================================================================
+   Menus
+   ========================================================================== */
+
+ul li.collapsed {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *list-style-image: url(../images/menu-collapsed-rtl.png);
+  }
+  list-style-image: inline-image("menu-collapsed-rtl.png");
+}
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+#user-login-form { /* Drupal's default login form block */
+  text-align: right;
+
+  html.js & li.openid-link,
+  li.openid-link { /* The "Log in using OpenID" link. */
+    margin-left: 0;
+    margin-right: -20px; /* Un-do some of the padding on the ul list. */
+  }
+}
+
+/*
+ * Drupal admin tables
+ */
+
+form {
+  th {
+    text-align: right;
+    padding-left: 1em;
+    padding-right: 0;
+  }
+}

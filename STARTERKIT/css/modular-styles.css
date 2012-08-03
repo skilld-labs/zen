@@ -1,0 +1,610 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ *
+ * Additional useful selectors can be found in Zen's online documentation.
+ * http://drupal.org/node/1707736
+ */
+
+
+/* =============================================================================
+   Wireframes
+   ========================================================================== */
+
+.with-wireframes #header,
+.with-wireframes #main,
+.with-wireframes #content,
+.with-wireframes #navigation,
+.with-wireframes .region-sidebar-first,
+.with-wireframes .region-sidebar-second,
+.with-wireframes #footer,
+.with-wireframes .region-bottom {
+  outline: 1px solid #ccc;
+}
+
+.lt-ie8 .with-wireframes #header,
+.lt-ie8 .with-wireframes #main,
+.lt-ie8 .with-wireframes #content,
+.lt-ie8 .with-wireframes #navigation,
+.lt-ie8 .with-wireframes .region-sidebar-first,
+.lt-ie8 .with-wireframes .region-sidebar-second,
+.lt-ie8 .with-wireframes #footer,
+.lt-ie8 .with-wireframes .region-bottom {
+  border: 1px solid #ccc; /* IE6/7 do not support the outline property. */
+}
+
+
+/* =============================================================================
+   Skip link
+
+   The skip-link link will be completely hidden until a user tabs to the link.
+   See the element-focusable rule in system.base.css.
+   ========================================================================== */
+
+#skip-link {
+  margin: 0;
+}
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+
+/* =============================================================================
+   Branding header
+   ========================================================================== */
+
+#logo { /* Wrapping link for logo */
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+#logo img {
+  vertical-align: bottom;
+}
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+  float: left;
+}
+
+#site-name { /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+#site-slogan { /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+#secondary-menu {
+  float: right; /* LTR */
+}
+
+.region-header { /* Wrapper for any blocks placed in the header region */
+  clear: both; /* Clear the logo */
+}
+
+
+/* =============================================================================
+   Navigation bar
+   ========================================================================== */
+
+#navigation {
+  /* overflow: hidden; */ /* Sometimes you want to prevent overlapping with main div. */
+}
+
+#navigation .block {
+  margin-bottom: 0;
+}
+
+#navigation .block-menu .block-title,
+#navigation .block-menu-block .block-title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+#navigation ul.links, /* Main menu and secondary menu links */
+#navigation ul.menu { /* Menu block links */
+  margin: 0;
+  padding: 0;
+  text-align: left; /* LTR */
+}
+
+#navigation ul.links li,
+#navigation ul.menu li { /* A simple method to get navigation links to appear in one line. */
+  float: left; /* LTR */
+  padding: 0 10px 0 0; /* LTR */
+  list-style-type: none;
+  list-style-image: none;
+}
+
+
+/* =============================================================================
+   Breadcrumb navigation
+   ========================================================================== */
+
+.breadcrumb ol { /* The path to the current page in the form of a list of links */
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =============================================================================
+   Titles
+   ========================================================================== */
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title { /* Comment title */
+  margin: 0;
+}
+
+
+/* =============================================================================
+   Messages
+   ========================================================================== */
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* =============================================================================
+   Tabs
+   ========================================================================== */
+
+/*
+ * Basic positioning styles shared by primary and secondary tabs.
+ */
+
+ul.primary,
+ul.secondary {
+  overflow: hidden;
+  *zoom: 1;
+  border-bottom: 1px solid #bbbbbb;
+  list-style: none;
+  margin: 1em 0 1.5em;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+ul.primary li,
+ul.secondary li {
+  float: left; /* LTR */
+  margin: 0.5em 3px 0;
+}
+
+ul.primary a,
+ul.secondary a {
+  border: 1px solid #e9e9e9;
+  border-right: 0;
+  border-bottom: 0;
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+/*
+ * Primary tabs
+ */
+
+ul.primary li {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  text-shadow: 1px 1px 0 white;
+  border: 1px solid #bbbbbb;
+  border-bottom: 0;
+  margin: 0.5em 0 0 3px; /* LTR */
+}
+
+ul.primary li.active {
+  border-bottom: 1px solid white;
+  margin-bottom: -1px; /* Overlap the ul's border. */
+}
+
+ul.primary a:link,
+ul.primary a:visited {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  color: #333;
+  background-color: #dedede;
+  letter-spacing: 1px;
+  padding: 0 1em;
+  text-align: center;
+}
+
+ul.primary a:hover,
+ul.primary a:focus {
+  background-color: #e9e9e9;
+  border-color: #f2f2f2;
+}
+
+ul.primary a.active {
+  background-color: transparent;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
+  background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: -o-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+  border-color: #fff;
+}
+
+/*
+ * Secondary tabs
+ */
+
+ul.secondary {
+  font-size: .9em;
+  margin-top: -1.5em; /* Collapse bottom margin of ul.primary. */
+  padding-bottom: .5em;
+}
+
+ul.secondary a:link,
+ul.secondary a:visited {
+  -webkit-border-radius: 0.75em;
+  -moz-border-radius: 0.75em;
+  -ms-border-radius: 0.75em;
+  -o-border-radius: 0.75em;
+  border-radius: 0.75em;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  text-shadow: 1px 1px 0 white;
+  background-color: #f2f2f2;
+  color: #666;
+  padding: 0 .5em;
+}
+
+ul.secondary a:hover,
+ul.secondary a:focus {
+  background-color: #dedede;
+  border-color: #999;
+  color: #333;
+}
+
+ul.secondary a.active,
+ul.secondary a:active {
+  text-shadow: 1px 1px 0 #333333;
+  background-color: #666;
+  border-color: #000;
+  color: #fff;
+}
+
+
+/* =============================================================================
+   Inline styles
+   ========================================================================== */
+
+ul.inline { /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0; /* LTR */
+}
+
+span.field-label { /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0; /* LTR */
+}
+
+
+/* =============================================================================
+   Pager
+   ========================================================================== */
+
+.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+.item-list .pager li { /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+
+/* =============================================================================
+   Blocks
+   ========================================================================== */
+
+.block { /* Block wrapper */
+  margin-bottom: 1.5em;
+}
+
+
+/* =============================================================================
+   Menus
+   ========================================================================== */
+
+ul li.expanded {
+  *list-style-image: url(../images/menu-expanded.png);
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
+  list-style-type: circle;
+}
+ul li.collapsed {
+  *list-style-image: url(../images/menu-collapsed.png); /* LTR */
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC'); /* LTR */
+  list-style-type: disc;
+}
+ul li.leaf {
+  *list-style-image: url(../images/menu-leaf.png);
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHBAMAAAA2fErgAAAAD1BMVEX///+/v7+Li4sAAADAwMBFvsw8AAAAAXRSTlMAQObYZgAAAB1JREFUCFtjYAADYwMGBmYVZSDhKAwkFJWhYiAAAB2+Aa/9ugeaAAAAAElFTkSuQmCC');
+  list-style-type: square;
+}
+li a.active { /* The active item in a Drupal menu */
+  color: #000;
+}
+
+
+/* =============================================================================
+   Views admin tabs
+
+   The views admin tabs use the same classes as the secondary tabs. We prevent
+   some of our tab styling from bleeding into (and breaking) the Views admin
+   pages. If your sub-theme isn't used for admin pages, you can remove this
+   entire section.
+   ========================================================================== */
+
+.views-displays .secondary li {
+  float: none;
+  margin: 0 6px 0;
+}
+
+.views-displays .secondary a:link,
+.views-displays .secondary a:visited {
+  text-shadow: none;
+  padding: 2px 7px 3px;
+}
+
+.views-displays .secondary .open > a {
+  -webkit-border-radius: 7px 7px 0 0;
+  -moz-border-radius: 7px 7px 0 0;
+  -ms-border-radius: 7px 7px 0 0;
+  -o-border-radius: 7px 7px 0 0;
+  border-radius: 7px 7px 0 0;
+}
+
+.views-displays .secondary .open > a:hover {
+  color: #333;
+}
+
+.views-displays .secondary .action-list li {
+  margin: 0;
+}
+
+.views-displays .secondary .action-list li:first-child {
+  -webkit-border-radius: 0 7px 0 0;
+  -moz-border-radius: 0 7px 0 0;
+  -ms-border-radius: 0 7px 0 0;
+  -o-border-radius: 0 7px 0 0;
+  border-radius: 0 7px 0 0;
+}
+
+.views-displays .secondary .action-list li:last-child {
+  -webkit-border-radius: 0 0 7px 7px;
+  -moz-border-radius: 0 0 7px 7px;
+  -ms-border-radius: 0 0 7px 7px;
+  -o-border-radius: 0 0 7px 7px;
+  border-radius: 0 0 7px 7px;
+}
+
+
+/* =============================================================================
+   Unpublished note
+   ========================================================================== */
+
+p.unpublished { /* The word "Unpublished" displayed underneath the content. */
+  height: 0;
+  overflow: visible;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word; /* A very nice CSS3 property */
+}
+
+.lt-ie8 .node-unpublished > *,
+.lt-ie8 .comment-unpublished > * {
+  position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
+}
+
+
+/* =============================================================================
+   Comments
+   ========================================================================== */
+
+.comments { /* Wrapper for the list of comments and its title */
+  margin: 1.5em 0;
+}
+
+.comment-preview { /* Preview of the comment before submitting new or updated comment */
+  background-color: #ffffea; /* Drupal core will use a #ffffea background. See #1110842 */
+}
+
+.comment .new { /* "New" marker for comments that are new for the current user */
+  color: #c00;
+}
+
+.comment .permalink { /* Comment's permalink wrapper */
+  text-transform: uppercase;
+  font-size: 75%;
+}
+
+.indented { /* Nested comments are indented */
+  margin-left: 30px; /* Drupal core uses a 25px left margin */
+}
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+.form-item { /* Wrapper for a form element (or group of form elements) and its label */
+  margin: 1.5em 0;
+}
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error { /* Highlight the form elements that caused a form submission error */
+  border: 1px solid #c00;
+}
+
+.form-item label { /* The label for a form element */
+  display: block;
+  font-weight: bold;
+}
+
+.form-item label.option { /* The label for a radio button or checkbox */
+  display: inline;
+  font-weight: normal;
+}
+
+.form-required { /* The part of the label that indicates a required field */
+  color: #c00;
+}
+
+.form-item .description { /* The descriptive help text (separate from the label) */
+  font-size: 0.85em;
+}
+
+.form-checkboxes .form-item,
+.form-radios .form-item { /* Pack groups of checkboxes and radio buttons closer together */
+  margin: 0; /* Drupal core uses "0.4em 0" */
+}
+
+.container-inline div,
+.container-inline label { /* Inline labels and form divs */
+  display: inline;
+}
+
+a.button { /* Buttons used by contrib modules like Media */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+.password-parent,
+.confirm-parent { /* Password confirmation */
+  margin: 0;
+}
+
+#user-login-form { /* Drupal's default login form block */
+  text-align: left; /* LTR */
+}
+
+/*
+ * OpenID
+ *
+ * The default styling for the OpenID login link seems to assume Garland's
+ * styling of list items.
+ */
+
+#user-login-form ul { /* OpenID creates a new ul above the login form's links. */
+  margin-bottom: 0; /* Position OpenID's ul next to the rest of the links. */
+}
+
+html.js #user-login-form li.openid-link,
+#user-login-form li.openid-link { /* The "Log in using OpenID" link. */
+  margin-top: 1.5em;
+  margin-left: -20px; /* LTR */ /* Un-do some of the padding on the ul list. */
+}
+
+#user-login-form li.user-link { /* The "Cancel OpenID login" link. */
+  margin-top: 1.5em;
+}
+
+#user-login ul {
+  margin: 1.5em 0;
+}
+
+/*
+ * Drupal admin tables
+ *
+ * We overrode these styles in normalize.css, but restore them for the admin
+ * section of the site.
+ */
+
+form th {
+  text-align: left; /* LTR */
+  padding-right: 1em; /* LTR */
+  border-bottom: 3px solid #ccc;
+}
+
+form tbody {
+  border-top: 1px solid #ccc;
+}
+
+form tr.even {
+  background-color: #fff;
+}
+
+form table .item-list ul {
+  margin: 0;
+}
+
+.lt-ie8 tr.even th,
+.lt-ie8 tr.even td,
+.lt-ie8 tr.odd th,
+.lt-ie8 tr.odd td {
+  border-bottom: 1px solid #ccc; /* IE doesn't display borders on table rows */
+}
+
+/*
+ * Drupal core wrongly puts this in system.menus.css. Since we override that, add it back.
+ */
+
+td.menu-disabled {
+  background: #ccc;
+}
