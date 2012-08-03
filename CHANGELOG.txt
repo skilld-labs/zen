@@ -1,6 +1,7 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
--
+- #1595090: Update list of callbacks used by page manager
+- #998526 by JohnAlbin: Simplify stylesheet organization using SMACSS technique
 
 Zen 7.x-5.1, 2012-05-18
 -----------------------
