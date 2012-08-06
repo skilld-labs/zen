@@ -21,23 +21,13 @@ function _zen_preprocess_html(&$variables, $hook) {
   // to re-order the stylesheets in the sub-theme.
   $stylesheets = array(
     'normalize.css',
-    'wireframes.css',
     'layouts/responsive-sidebars.css',
-    'page-backgrounds.css',
-    'tabs.css',
-    'pages.css',
-    'blocks.css',
-    'navigation.css',
-    'views-styles.css',
-    'nodes.css',
-    'comments.css',
-    'forms.css',
-    'fields.css',
+    'modular-styles.css',
     'print.css',
   );
   if (theme_get_setting('zen_layout') == 'zen-fixed-width') {
     // Replace the fixed-width.css file.
-    $stylesheets[2] = 'layouts/fixed-width.css';
+    $stylesheets[1] = 'layouts/fixed-width.css';
   }
   foreach ($stylesheets as $stylesheet) {
     drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));

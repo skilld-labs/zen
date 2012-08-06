@@ -19,3 +19,6 @@ rm ../images/*;
 for FILENAME in ../../STARTERKIT/images/*; do
   cp $FILENAME ../images/;
 done
+
+# Don't need the styles.css files from STARTERKIT.
+rm styles.css styles-rtl.css;
