@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1686634 by greg.1.anderson: drush_locate_root is not the best way to find the Drupal root
 - #1539166 by jtwalters and Cottser: Remove page-backgrounds.css
 - #1696602 by Tor Arne Thune: @font-face in normalize.css appears twice
 - #1601000 by Cottser and fearlsgroove: zen_html5_respond_meta settings not respected
