@@ -6,7 +6,7 @@ they download the Zen theme is that there are A LOT of files -- way more than
 other themes.
 
 Don't worry! You don't need to learn everything all at once in order to make a
-drupal theme. Zen will do the bits you haven't learned and patiently wait for
+Drupal theme. Zen will do the bits you haven't learned and patiently wait for
 you to discover the documentation and inline comments about them.
 
 
