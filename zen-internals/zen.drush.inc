@@ -57,7 +57,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   $machine_name = preg_replace($search, '', $machine_name);
 
   // Determine the path to the new subtheme by finding the path to Zen.
-  $zen_path = drush_locate_root() . '/' . drupal_get_path('theme', 'zen');
+  $zen_path = drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen');
   $subtheme_path = explode('/', $zen_path);
   array_pop($subtheme_path);
   $subtheme_path = implode('/', $subtheme_path) . '/' . str_replace('_', '-', $machine_name);
