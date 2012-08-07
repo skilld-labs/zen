@@ -376,6 +376,10 @@ function zen_preprocess_region(&$variables, $hook) {
     // Allow a region-specific template to override Zen's region--no-wrapper.
     array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
   }
+  // Add a SMACSS-style class for header region.
+  elseif ($variables['region'] == 'header') {
+    array_unshift($variables['classes_array'], 'header--region');
+  }
 }
 
 /**
