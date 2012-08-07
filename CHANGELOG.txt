@@ -1,5 +1,7 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1713122: Add SMACSS-style classes to markup
+  - #1713168: Add SMACSS-style classes to header
 - #1651634 by Fugazi: Missing ID in comment wrapper breaks node link
 - #1674246 by scor and JohnAlbin: Adapt html.tpl.php output to RDFa 1.1 / HTML5
 - #1686634 by greg.1.anderson: drush_locate_root is not the best way to find the Drupal root
