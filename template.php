@@ -584,8 +584,9 @@ function zen_menu_local_task($variables) {
       $link['title'] = check_plain($link['title']);
     }
     $link['localized_options']['html'] = TRUE;
-    $link['localized_options']['attributes']['class'][] = $type . '--tab-link-active';
     $link_text = t('!local-task-title!active', array('!local-task-title' => $link['title'], '!active' => $active));
+    // Add SMACSS-style class name.
+    $link['localized_options']['attributes']['class'][] = $type . '--tab-link-active';
   }
   else {
     $link['localized_options']['attributes']['class'][] = $type . '--tab-link';
