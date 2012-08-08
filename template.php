@@ -594,3 +594,23 @@ function zen_menu_local_task($variables) {
 
   return '<li class="' . (!empty($variables['element']['#active']) ? $type . '--tab-active active' : $type . '--tab') . '">' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
 }
+
+/**
+ * Implements hook_preprocess_menu_link().
+ */
+function zen_preprocess_menu_link(&$variables, $hook) {
+  foreach ($variables['element']['#attributes']['class'] as $key => $class) {
+    switch ($class) {
+      // Menu module classes.
+      case 'expanded':
+      case 'collapsed':
+      case 'leaf':
+      case 'active':
+      // Menu block module classes.
+      case 'has-children':
+      case 'active-trail':
+        array_unshift($variables['element']['#attributes']['class'], 'menu--' . $class);
+        break;
+    }
+  }
+}
