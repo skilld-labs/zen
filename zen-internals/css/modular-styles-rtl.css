@@ -8,11 +8,11 @@
    Branding header
    ========================================================================== */
 
-#logo { /* Wrapping link for logo */
+.header--logo { /* Wrapping link for logo */
   float: right;
 }
 
-#secondary-menu {
+.header--secondary-menu {
   float: left;
 }
 
@@ -21,15 +21,28 @@
    Navigation bar
    ========================================================================== */
 
-#navigation ul.links, /* Main menu and secondary menu links */
-#navigation ul.menu { /* Menu block links */
+#navigation .links, /* Main menu and secondary menu links */
+#navigation .menu { /* Menu block links */
   text-align: right;
 }
 
-#navigation ul.links li,
-#navigation ul.menu li { /* A simple method to get navigation links to appear in one line. */
+#navigation .links li,
+#navigation .menu li { /* A simple method to get navigation links to appear in one line. */
   float: right;
   padding: 0 0 0 10px;
+}
+
+
+/* =============================================================================
+   Messages
+   ========================================================================== */
+
+.messages,
+.messages-status,
+.messages-warning,
+.messages-error {
+  padding: 10px 50px 10px 10px;
+  background-position: 99% 8px;
 }
 
 
@@ -37,13 +50,12 @@
    Tabs
    ========================================================================== */
 
-ul.primary li,
-ul.secondary li {
+.tabs--tab,
+.tabs-primary--tab,
+.tabs-primary--tab-active,
+.tabs-secondary--tab,
+.tabs-secondary--tab-active {
   float: right;
-}
-
-ul.primary li {
-  margin: 0.5em 3px 0 0;
 }
 
 
@@ -51,10 +63,11 @@ ul.primary li {
    Inline styles
    ========================================================================== */
 
-ul.inline li { /* List of links */
+.inline li { /* List of links */
   display: inline-block; /* Bug in Safari causes display: inline to fail. */
   padding: 0 0 0 1em;
 }
+
 span.field-label { /* The inline field label used by the Fences.module */
   padding: 0 0 0 1em;
 }
@@ -64,9 +77,9 @@ span.field-label { /* The inline field label used by the Fences.module */
    Menus
    ========================================================================== */
 
-ul li.collapsed {
-  *list-style-image: url(../images/menu-collapsed-rtl.png);
+.menu--collapsed {
   list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABNJREFUCB1j4GASYFJgcmD+A4IADUIDfIUMT4wAAAAASUVORK5CYII=');
+  *list-style-image: url(../images/menu-collapsed-rtl.png);
 }
 
 
