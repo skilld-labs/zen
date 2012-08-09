@@ -1,6 +1,7 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
 - #1713122: Add SMACSS-style classes to markup
+  - #1713320: Add SMACSS-style classes to messages
   - #1719726: Simplify various selectors to use SMACSS-style classes
   - #1713170: Add SMACSS-style classes to menus
   - #1713172: Add SMACSS-style classes to tabs
