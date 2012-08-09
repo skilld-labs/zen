@@ -570,9 +570,15 @@ function zen_menu_local_tasks(&$variables) {
  * @ingroup themeable
  */
 function zen_menu_local_task($variables) {
+  $type = $class = FALSE;
+
   $link = $variables['element']['#link'];
   $link_text = $link['title'];
-  $type = in_array('menu_local_task__primary', $variables['element']['#theme']) ? 'tabs-primary' : 'tabs-secondary';
+
+  // Check for tab type set in zen_menu_local_tasks().
+  if (is_array($variables['element']['#theme'])) {
+    $type = in_array('menu_local_task__secondary', $variables['element']['#theme']) ? 'tabs-secondary' : 'tabs-primary';
+  }
 
   if (!empty($variables['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
@@ -585,14 +591,24 @@ function zen_menu_local_task($variables) {
     }
     $link['localized_options']['html'] = TRUE;
     $link_text = t('!local-task-title!active', array('!local-task-title' => $link['title'], '!active' => $active));
-    // Add SMACSS-style class name.
-    $link['localized_options']['attributes']['class'][] = $type . '--tab-link-active';
+
+    if (!$type) {
+      $class = 'active';
+    }
+    // Add SMACSS-style class names.
+    else {
+      $link['localized_options']['attributes']['class'][] = $type . '--tab-link-active';
+      $class = $type . '--tab-active active';
+    }
   }
   else {
-    $link['localized_options']['attributes']['class'][] = $type . '--tab-link';
+    if ($type) {
+      $link['localized_options']['attributes']['class'][] = $type . '--tab-link';
+      $class = $type . '--tab';
+    }
   }
 
-  return '<li class="' . (!empty($variables['element']['#active']) ? $type . '--tab-active active' : $type . '--tab') . '">' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
+  return '<li' . ($class ? ' class="' . $class . '"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
 }
 
 /**
