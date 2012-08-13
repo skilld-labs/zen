@@ -24,6 +24,7 @@ function _zen_preprocess_html(&$variables, $hook) {
     'layouts/responsive-sidebars.css',
     'modular-styles.css',
     'print.css',
+    'global-states.css',
   );
   if (theme_get_setting('zen_layout') == 'zen-fixed-width') {
     // Replace the fixed-width.css file.

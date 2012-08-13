@@ -50,7 +50,6 @@
    Tabs
    ========================================================================== */
 
-.tabs--tab,
 .tabs-primary--tab,
 .tabs-primary--tab-active,
 .tabs-secondary--tab,
@@ -74,6 +73,24 @@ span.field-label { /* The inline field label used by the Fences.module */
 
 
 /* =============================================================================
+   "More" links
+   ========================================================================== */
+
+.more-link {
+  text-align: left;
+}
+
+.more-help-link {
+  text-align: left;
+}
+
+.more-help-link a {
+  background-position: 100% 50%;
+  padding: 1px 20px 1px 0;
+}
+
+
+/* =============================================================================
    Menus
    ========================================================================== */
 
@@ -92,7 +109,7 @@ span.field-label { /* The inline field label used by the Fences.module */
 }
 
 html.js #user-login-form li.openid-link,
-#user-login-form li.openid-link { /* The "Log in using OpenID" link. */
+#user-login-form li.openid-link {
   margin-left: 0;
   margin-right: -20px; /* Un-do some of the padding on the ul list. */
 }
