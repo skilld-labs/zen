@@ -89,7 +89,7 @@
         <?php if ($site_slogan): ?>
           <h2 class="header--site-slogan" id="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>
-      </hgroup><!-- /#name-and-slogan -->
+      </hgroup>
     <?php endif; ?>
 
     <?php if ($secondary_menu): ?>
@@ -131,7 +131,7 @@
       <?php endif; ?>
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
-    </div><!-- /#content -->
+    </div>
 
     <div id="navigation">
 
@@ -158,7 +158,7 @@
 
       <?php print render($page['navigation']); ?>
 
-    </div><!-- /#navigation -->
+    </div>
 
     <?php
       // Render the sidebars to see if there's anything in them.
@@ -170,13 +170,13 @@
       <aside class="sidebars">
         <?php print $sidebar_first; ?>
         <?php print $sidebar_second; ?>
-      </aside><!-- /.sidebars -->
+      </aside>
     <?php endif; ?>
 
-  </div><!-- /#main -->
+  </div>
 
   <?php print render($page['footer']); ?>
 
-</div><!-- /#page -->
+</div>
 
 <?php print render($page['bottom']); ?>

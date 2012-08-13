@@ -103,4 +103,4 @@
   <?php endif; ?>
 
   <?php print render($content['links']) ?>
-</article><!-- /.comment -->
+</article>

@@ -57,4 +57,4 @@
 
   <?php print $content; ?>
 
-</div><!-- /.block -->
+</div>

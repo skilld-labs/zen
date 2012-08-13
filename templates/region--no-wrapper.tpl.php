@@ -28,4 +28,3 @@
 ?>
 
 <?php print $content; ?>
-<!-- region__no_wrapper -->

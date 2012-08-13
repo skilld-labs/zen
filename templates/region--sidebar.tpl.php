@@ -29,5 +29,5 @@
 <?php if ($content): ?>
   <section class="<?php print $classes; ?>">
     <?php print $content; ?>
-  </section><!-- region__sidebar -->
+  </section>
 <?php endif; ?>
