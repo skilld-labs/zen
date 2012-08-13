@@ -101,7 +101,7 @@
       <?php endif; ?>
 
       <?php if ($unpublished): ?>
-        <p class="unpublished"><?php print t('Unpublished'); ?></p>
+        <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
       <?php endif; ?>
     </header>
   <?php endif; ?>

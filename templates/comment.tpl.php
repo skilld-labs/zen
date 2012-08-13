@@ -86,7 +86,7 @@
     <?php print render($title_suffix); ?>
 
     <?php if ($status == 'comment-unpublished'): ?>
-      <p class="unpublished"><?php print t('Unpublished'); ?></p>
+      <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
     <?php endif; ?>
   </header>
 
