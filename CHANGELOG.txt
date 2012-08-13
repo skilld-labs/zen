@@ -1,5 +1,7 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1728004: Convert unpublished text into HTML5 mark element
+- #1727982: Simplify Zen's stylesheets by removing system.theme.css
 - #1713122: Add SMACSS-style classes to markup
   - #1713320: Add SMACSS-style classes to messages
   - #1719726: Simplify various selectors to use SMACSS-style classes
