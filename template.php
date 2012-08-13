@@ -662,3 +662,17 @@ function zen_status_messages($variables) {
   }
   return $output;
 }
+
+/**
+ * Returns HTML for a marker for new or updated content.
+ */
+function zen_mark($variables) {
+  $type = $variables['type'];
+
+  if ($type == MARK_NEW) {
+    return ' <mark class="new">' . t('new') . '</mark>';
+  }
+  elseif ($type == MARK_UPDATED) {
+    return ' <mark class="updated">' . t('updated') . '</mark>';
+  }
+}
