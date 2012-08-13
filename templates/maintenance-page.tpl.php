@@ -1,13 +1,10 @@
 <?php
 /**
  * @file
- * Zen theme's implementation to display a single Drupal page while offline.
+ * Returns the HTML for a single Drupal page while offline.
  *
- * All the available variables are mirrored in html.tpl.php and page.tpl.php.
- * Some may be blank but they are provided for consistency.
- *
- * @see template_preprocess()
- * @see template_preprocess_maintenance_page()
+ * Complete documentation for this file is available online.
+ * @see http://drupal.org/node/1728174
  */
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->
