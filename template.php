@@ -322,6 +322,7 @@ function zen_preprocess_node(&$variables, $hook) {
     $variables['classes_array'][] = 'node-by-viewer';
   }
 
+  $variables['title_attributes_array']['class'][] = 'node--title';
   $variables['title_attributes_array']['class'][] = 'node-title';
 }
 
@@ -352,6 +353,7 @@ function zen_preprocess_comment(&$variables, $hook) {
   }
   $variables['classes_array'][] = $variables['zebra'];
 
+  $variables['title_attributes_array']['class'][] = 'comment--title';
   $variables['title_attributes_array']['class'][] = 'comment-title';
 }
 
@@ -406,6 +408,7 @@ function zen_preprocess_block(&$variables, $hook) {
   }
   $variables['classes_array'][] = $variables['block_zebra'];
 
+  $variables['title_attributes_array']['class'][] = 'block--title';
   $variables['title_attributes_array']['class'][] = 'block-title';
 
   // Add Aria Roles via attributes.
