@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1734124: Convert element-invisible/element-focusable mixins into @extend placeholder selectors
 - #1711768 by JohnAlbin and Zach Harkey: Move tpl documentation to doc pages
 - #1716718 by Cottser: Remove HTML comments for closing elements
 - #1728004: Convert unpublished text into HTML5 mark element
