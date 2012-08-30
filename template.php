@@ -632,6 +632,19 @@ function zen_preprocess_menu_link(&$variables, $hook) {
         break;
     }
   }
+  if (empty($variables['element']['#localized_options']['attributes']['class'])) {
+    $variables['element']['#localized_options']['attributes']['class'][] = 'menu--link';
+  }
+  else {
+    foreach ($variables['element']['#localized_options']['attributes']['class'] as $key => $class) {
+      switch ($class) {
+        case 'active':
+        case 'active-trail':
+          array_unshift($variables['element']['#localized_options']['attributes']['class'], 'menu--link-' . $class);
+          break;
+      }
+    }
+  }
 }
 
 /**
