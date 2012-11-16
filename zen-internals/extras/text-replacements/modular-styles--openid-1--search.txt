@@ -1,0 +1,2 @@
+.openid-link,
+.user-link { /* The "Cancel OpenID login" link. */

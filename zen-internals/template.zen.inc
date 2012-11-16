@@ -14,23 +14,10 @@
  * If the user is silly and enables Zen as the theme, manually add some stylesheets.
  */
 function _zen_preprocess_html(&$variables, $hook) {
-  $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css/';
-
   // Add Zen's stylesheets manually instead of via its .info file. We do not
   // want the stylesheets to be inherited from Zen since it becomes impossible
   // to re-order the stylesheets in the sub-theme.
-  $stylesheets = array(
-    'normalize.css',
-    'layout-responsive.css',
-    'modular-styles.css',
-    'print.css',
-    'global-states.css',
-  );
-  if (theme_get_setting('zen_layout') == 'zen-fixed-width') {
-    // Replace the layout-fixed.css file.
-    $stylesheets[1] = 'layout-fixed.css';
-  }
-  foreach ($stylesheets as $stylesheet) {
-    drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));
-  }
+  $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css/';
+  $stylesheet = (theme_get_setting('zen_layout') == 'zen-fixed-width') ? 'styles-fixed.css' : 'styles.css';
+  drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));
 }

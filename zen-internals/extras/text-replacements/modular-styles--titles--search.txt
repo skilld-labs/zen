@@ -1,0 +1,6 @@
+.page--title,
+.node--title,
+.block--title,
+.comments--title,
+.comments--form-title,
+.comment--title { /* Comment title */
