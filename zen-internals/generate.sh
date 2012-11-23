@@ -112,8 +112,9 @@ for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt; do
   # Halt the script if no replacement has been made.
   if [ -z "`diff -q $CSS_FILE $CSS_FILE.new`" ]; then
     echo "FATAL ERROR: The following file contents were not found: `basename $FIND_FILE`";
-    # Delete all the generated CSS.
-    rm $CSS_FILE.new css/*.css $ORIG/css/*.css;
+    # Delete all the generated CSS, except for the one that generated the error.
+    rm css/*.css $ORIG/css/*.css;
+    mv $CSS_FILE.new $CSS_FILE;
     # Restore the base partial.
     mv $ORIG/_base.scss sass/;
     exit;
