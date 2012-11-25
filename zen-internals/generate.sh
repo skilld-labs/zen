@@ -102,7 +102,7 @@ for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt; do
 
   cat $CSS_FILE |
   # Replace search string with "TEXT-REPLACEMENT" token.
-  sed -n "1h;1!H;\$ {g;s/$FIND/TEXT\-REPLACEMENT/;p;}" |
+  sed -n -e '1h;1!H;$ {g;' -e "s/$FIND/TEXT\-REPLACEMENT/;" -e 'p;}' |
   sed -e 's/TEXT\-REPLACEMENT/TEXT\-REPLACEMENT\
 /' |
   # Replace "TEXT-REPLACEMENT" token with contents of replacement file.
