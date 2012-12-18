@@ -1,8 +1,8 @@
 h1 {
-  /* Sets the font-size and line-height while keeping a proper vertical rhythm. */
+  /* Set the font-size and line-height while keeping a proper vertical rhythm. */
   font-size: 2em;
   line-height: 1.5em; /* 3rem / 2em = 1.5em */
-  /* Sets 1 unit of vertical rhythm on the top and bottom margins. */
+  /* Set 1 unit of vertical rhythm on the top and bottom margins. */
   margin-top: 0.75em; /* 1.5rem / 2em = .75em */
   margin-bottom: 0.75em;
 }
@@ -36,8 +36,8 @@ h5 {
 }
 
 h6 {
-  font-size: 0.75em;
-  line-height: 2em; /* 1.5rem / .75em = 2em */
-  margin-top: 2em;
-  margin-bottom: 2em;
+  font-size: 0.67em;
+  line-height: 2.23881em; /* 1.5rem / 0.67em = 2.23881em */
+  margin-top: 2.23881em;
+  margin-bottom: 2.23881em;
 }
