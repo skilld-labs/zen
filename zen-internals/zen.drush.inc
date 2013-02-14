@@ -19,12 +19,14 @@ function zen_drush_command() {
     'options' => array(
       'name'         => 'A name for your theme.',
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
+      'path'         => 'The path where your theme will be created. Defaults to: sites/all/themes',
       'description'  => 'A description of your theme.',
       'without-rtl'  => 'Remove all RTL stylesheets.',
     ),
     'examples' => array(
       'drush zen "My theme name"' => 'Create a sub-theme, using the default options.',
       'drush zen "My theme name" my_theme' => 'Create a sub-theme with a specific machine name.',
+      'drush zen "My theme" --without-rtl --path=sites/default/themes' => 'Create a sub-theme in the specified directory without RTL stylesheets.',
     ),
   );
 
@@ -54,12 +56,16 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   );
   $machine_name = preg_replace($search, '', $machine_name);
 
-  // Determine the path to the new subtheme by finding the path to Zen.
-  $zen_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen'));
-  $subtheme_path = drush_normalize_path(dirname($zen_path) . '/' . str_replace('_', '-', $machine_name));
+  // Determine the path to the new subtheme.
+  $subtheme_path = 'sites/all/themes';
+  if ($path = drush_get_option('path')) {
+    $subtheme_path = drush_trim_path($path);
+  }
+  $subtheme_path .= '/' . str_replace('_', '-', $machine_name);
+  $subtheme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $subtheme_path);
 
   // Make a fresh copy of the original starter kit.
-  $starter_path = drush_normalize_path($zen_path . '/STARTERKIT');
+  $starter_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen') . '/STARTERKIT');
   if (!is_dir(dirname($subtheme_path))) {
     drush_die(dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
   }
