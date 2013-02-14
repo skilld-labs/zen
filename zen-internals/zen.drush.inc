@@ -21,8 +21,6 @@ function zen_drush_command() {
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
       'description'  => 'A description of your theme.',
       'without-rtl'  => 'Remove all RTL stylesheets.',
-      // @TODO: Add these options:
-      // 'layout'       => '[fixed,fluid,960gs] Choose the page layout method.',
     ),
     'examples' => array(
       'drush zen "My theme name"' => 'Create a sub-theme, using the default options.',
