@@ -62,7 +62,9 @@ function drush_zen($name = NULL, $machine_name = NULL) {
 
   // Make a fresh copy of the original starter kit.
   $starter_path = drush_normalize_path($zen_path . '/STARTERKIT');
-  drush_op('drush_mkdir', dirname($subtheme_path));
+  if (!is_dir(dirname($subtheme_path))) {
+    drush_die(dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
+  }
   drush_op('drush_copy_dir', $starter_path, $subtheme_path);
 
   // Rename the .info file.
