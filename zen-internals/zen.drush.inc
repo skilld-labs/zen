@@ -57,17 +57,17 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   $machine_name = preg_replace($search, '', $machine_name);
 
   // Determine the path to the new subtheme by finding the path to Zen.
-  $zen_path = drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen');
-  $subtheme_path = explode('/', $zen_path);
-  array_pop($subtheme_path);
-  $subtheme_path = implode('/', $subtheme_path) . '/' . str_replace('_', '-', $machine_name);
+  $zen_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen'));
+  $subtheme_path = drush_normalize_path(dirname($zen_path) . '/' . str_replace('_', '-', $machine_name));
 
   // Make a fresh copy of the original starter kit.
-  drush_op('zen_copy', $zen_path . '/STARTERKIT', $subtheme_path);
+  $starter_path = drush_normalize_path($zen_path . '/STARTERKIT');
+  drush_op('drush_mkdir', dirname($subtheme_path));
+  drush_op('drush_copy_dir', $starter_path, $subtheme_path);
 
   // Rename the .info file.
   $subtheme_info_file = $subtheme_path . '/' . $machine_name . '.info';
-  drush_op('rename', $subtheme_path . '/STARTERKIT.info.txt', $subtheme_info_file);
+  drush_op('rename', drush_normalize_path($subtheme_path . '/STARTERKIT.info.txt'), drush_normalize_path($subtheme_info_file));
 
   // Alter the contents of the .info file based on the command options.
   $alterations = array(
@@ -87,10 +87,10 @@ function drush_zen($name = NULL, $machine_name = NULL) {
     foreach (array('_global-states', '_layout-fixed', '_layout-responsive', '_modular-styles', '_normalize', 'styles') as $file) {
       // Remove the RTL stylesheet.
       $css_file = ($file[0] == '_') ? substr($file, 1) : $file;
-      drush_op('unlink', $subtheme_path . '/css/' . $css_file . '-rtl.css');
+      drush_op('unlink', drush_normalize_path($subtheme_path . '/css/' . $css_file . '-rtl.css'));
       drush_op('zen_file_str_replace', $subtheme_path . '/css/' . $css_file . '.css', ' /* LTR */', '');
       // Remove the RTL sass file.
-      drush_op('unlink', $subtheme_path . '/sass/' . $file . '-rtl.scss');
+      drush_op('unlink', drush_normalize_path($subtheme_path . '/sass/' . $file . '-rtl.scss'));
       drush_op('zen_file_str_replace', $subtheme_path . '/sass/' . $file . '.scss', ' /* LTR */', '');
     }
   }
@@ -103,31 +103,10 @@ function drush_zen($name = NULL, $machine_name = NULL) {
 }
 
 /**
- * Copy a directory recursively.
- */
-function zen_copy($source_dir, $target_dir, $ignore = '/^(\.(\.)?|CVS|\.svn|\.git|\.DS_Store)$/') {
-  if (!is_dir($source_dir)) {
-    drush_die(dt('The directory "!directory" was not found.', array('!directory' => $source_dir)));
-  }
-  $dir = opendir($source_dir);
-  @mkdir($target_dir);
-  while($file = readdir($dir)) {
-    if (!preg_match($ignore, $file)) {
-      if (is_dir($source_dir . '/' . $file)) {
-        zen_copy($source_dir . '/' . $file, $target_dir . '/' . $file, $ignore);
-      }
-      else {
-        copy($source_dir . '/' . $file, $target_dir . '/' . $file);
-      }
-    }
-  }
-  closedir($dir);
-}
-
-/**
  * Replace strings in a file.
  */
 function zen_file_str_replace($file_path, $find, $replace) {
+  $file_path = drush_normalize_path($file_path);
   $file_contents = file_get_contents($file_path);
   $file_contents = str_replace($find, $replace, $file_contents);
   file_put_contents($file_path, $file_contents);
