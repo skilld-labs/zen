@@ -692,3 +692,10 @@ function zen_mark($variables) {
     return ' <mark class="updated">' . t('updated') . '</mark>';
   }
 }
+
+/**
+ * Alters the default Panels render callback so it removes the panel separator.
+ */
+function zen_panels_default_style_render_region($variables) {
+  return implode('', $variables['panes']);
+}
