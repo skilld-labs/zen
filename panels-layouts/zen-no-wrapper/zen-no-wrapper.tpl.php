@@ -13,7 +13,7 @@
  */
 
 if ($main_classes) {
-  print '<div classes="' . $main_classes . '">';
+  print '<div class="' . $main_classes . '">';
   print $content['main'];
   print '</div>';
 }
