@@ -1,5 +1,6 @@
 Zen 7.x-5.x-dev, xxxx-xx-xx (development release)
 ---------------------------
+- #1931724: Override default panels and panels_everywhere templates
 - #1797878 by gleroux02: Remove panels pane seperator
 - #1734124: Convert element-invisible/element-focusable mixins into @extend placeholder selectors
 - #1711768 by JohnAlbin and Zach Harkey: Move tpl documentation to doc pages
