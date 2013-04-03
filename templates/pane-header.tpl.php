@@ -18,7 +18,7 @@
 <?php endif; ?>
 
 <?php if ($site_name || $site_slogan): ?>
-  <hgroup class="header--name-and-slogan" id="name-and-slogan">
+  <div class="header--name-and-slogan" id="name-and-slogan">
     <?php if ($site_name): ?>
       <h1 class="header--site-name" id="site-name">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header--site-link" rel="home"><span><?php print $site_name; ?></span></a>
@@ -28,5 +28,5 @@
     <?php if ($site_slogan): ?>
       <h2 class="header--site-slogan" id="site-slogan"><?php print $site_slogan; ?></h2>
     <?php endif; ?>
-  </hgroup>
+  </div>
 <?php endif; ?>
