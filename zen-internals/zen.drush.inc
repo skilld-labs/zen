@@ -90,7 +90,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
 
   // Remove all RTL stylesheets.
   if ($without_rtl = drush_get_option('without-rtl')) {
-    foreach (array('_global-states', '_layout-fixed', '_layout-responsive', '_modular-styles', '_normalize', 'styles') as $file) {
+    foreach (array('layouts/_fixed', 'layouts/_responsive', 'components/_misc', '_normalize', 'styles') as $file) {
       // Remove the RTL stylesheet.
       $css_file = ($file[0] == '_') ? substr($file, 1) : $file;
       drush_op('unlink', drush_normalize_path($subtheme_path . '/css/' . $css_file . '-rtl.css'));
