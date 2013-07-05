@@ -25,7 +25,7 @@
         <?php endif; ?>
 
         <?php if ($site_slogan): ?>
-          <h2 class="header--site-slogan" id="site-slogan"><?php print $site_slogan; ?></h2>
+          <div class="header--site-slogan" id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
       </div>
     <?php endif; ?>
