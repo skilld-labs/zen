@@ -1,5 +1,6 @@
 fieldset {
-  margin: 0 2px; /* Apply borders and padding that keep the vertical rhythm. */
+  margin: 0 2px;
+  /* Apply borders and padding that keep the vertical rhythm. */
   border-color: #c0c0c0;
   border-top-style: solid;
   border-top-width: 0.0625em;
