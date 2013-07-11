@@ -10,6 +10,8 @@ STARTERKIT=../STARTERKIT;
 
 # Change directory to the STARTERKIT and run compass with a custom config.
 cd $STARTERKIT;
+cp config.rb config.rb.orig;
+echo "asset_cache_buster :none" >> config.rb;
 compass clean;
 
 # Create our custom init partial, while keeping the original.
@@ -44,11 +46,12 @@ for FILENAME in css/css-*.css css/*/css-*.css; do
   NEWFILE=`echo $FILENAME | sed -e 's/css\-//'`;
 
   cat $FILENAME |
-  # Ensure comment headings have a proceeding blank line.
-  sed -e '/^ \*\/$/ G' |
-  # Ensure section headings have a proceeding blank line.
-  sed -e '/^   ========================================================================== \*\/$/ G' |
   # Ensure each selector is on its own line.
+  sed -e 's/^\(\@media.*\), /\1FIX_THIS_COMMA /' |
+  sed -e 's/^\(\@media.*\), /\1FIX_THIS_COMMA /' |
+  sed -e 's/^\(\@media.*\), /\1FIX_THIS_COMMA /' |
+  sed -e 's/^\(\/\*.*\), /\1FIX_THIS_COMMA /' |
+  sed -e 's/^\(\/\*.*\), /\1FIX_THIS_COMMA /' |
   sed -e 's/^\(\/\*.*\), /\1FIX_THIS_COMMA /' |
   sed -e 's/^\([^ ].*\), /\1,\
 /' |
@@ -59,32 +62,27 @@ for FILENAME in css/css-*.css css/*/css-*.css; do
   sed -e 's/^\([^ ].*\), /\1,\
 /' |
   sed -e 's/FIX_THIS_COMMA/,/' |
+  sed -e 's/FIX_THIS_COMMA/,/' |
+  sed -e 's/FIX_THIS_COMMA/,/' |
   sed -e '/: /! s/^\(  [^ /].*\), /\1,\
   /' |
   # Fix IE wireframes rules.
   sed -n '1h;1!H;$ {g;s/\.lt\-ie8\n/.lt-ie8 /g;p;}' |
-  # Fix site name rules.
-  sed -n '1h;1!H;$ {g;s/  #site-name\n  /  #site-name /g;p;}' |
-  # Ensure each rule has a proceeding blank line.
-  sed -e '/^ *}/ G' |
-  # Move property-level comments back to the previous line with the property.
-  sed -e 's/^ \{2,4\}\(\/\*.*\*\/\)$/  MOVE_UP\1/' |
+  # Move notation comments back to the previous line with the property.
+  sed -e 's/^ \{2,4\}\(\/\* [1-9LTR]* \*\/\)$/  MOVE_UP\1/' |
   sed -n '1h;1!H;$ {g;s/\n  MOVE_UP/ /g;p;}' |
-  # Move commented-out properties to their own line.
-  sed -e 's/ \(\/\* [^:/]*: [^;]*; \*\/ \/\* [^/]* \*\/\) /\
-  \1\
-  /' |
-  sed -e 's/\([^ ]\) \(\/\* [^:/]*: [^;]*; \*\/ \/\* [^/]* \*\/\)$/\1\
-  \2/' |
-  # Remove blank lines before closing curly brackets.
-  sed -n '1h;1!H;$ {g;s/\n*\(\n}\n\)/\1/g;p;}' |
-  # Remove blank lines before block-level end comment tags ( */ ).
-  sed -n '1h;1!H;$ {g;s/\n*\(\n\*\/\n\)/\1/g;p;}' |
-  # Add a blank line between 2 block-level comment tags.
-  sed -n '1h;1!H;$ {g;s/\(\n\*\/\n\)\/\*/\1\
-\/\*/g;p;}' |
-  # Put /* End @media ... */ comments directly after their closing curly brackets.
-  sed -n '1h;1!H;$ {g;s/\}\n\n\(\/\* End @media \)/\} \1/g;p;}' |
+  # Remove blank lines
+  sed -e '/^$/d' |
+  # Add a blank line between a block-level comment and another comment.
+  sed -n '1h;1!H;$ {g;s/\(\n *\*\/\n\)\( *\)\/\*/\1\
+\2\/\*/g;p;}' |
+  # Add a blank line between a ruleset and a comment.
+  sed -n '1h;1!H;$ {g;s/\(\n *\}\n\)\( *\)\/\*/\1\
+\2\/\*/g;p;}' |
+  # Add a blank line between the start of a media query and a comment.
+  #@media all and (min-width: 480px) and (max-width: 959px) {
+  sed -n '1h;1!H;$ {g;s/\(\n\@media .* .\n\)\(  \/\**\)/\1\
+\2/g;p;}' |
   # Remove any blank lines at the end of the file.
   sed -n '$!p;$ {s/^\(..*\)$/\1/p;}' |
   # Remove the second @file comment block in RTL layout files.
@@ -93,6 +91,19 @@ for FILENAME in css/css-*.css css/*/css-*.css; do
   cat -s > $NEWFILE;
 
   rm $FILENAME;
+done
+
+# Update the comments in the layouts/*-rtl.css files.
+for FILENAME in css/layouts/*-rtl.css; do
+  cat $FILENAME |
+  sed -e 's/from left\. \*\/$/FIX_THIS/' |
+  sed -e 's/from right\. \*\/$/from left. *\//' |
+  sed -e 's/FIX_THIS$/from right. *\//' |
+  sed -e 's/ the left one\.$/FIX_THIS/' |
+  sed -e 's/ the right one\.$/ the left one./' |
+  sed -e 's/FIX_THIS$/ the right one./' |
+  cat > $FILENAME.new;
+  mv $FILENAME.new $FILENAME;
 done
 
 for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt $ORIG/extras/text-replacements/*/*--search.txt; do
@@ -129,5 +140,6 @@ for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt $ORIG/extras/text-
 done
 
 # Restore the environment.
+mv config.rb.orig config.rb;
 mv $ORIG/_init.scss sass/;
 cd $ORIG;
