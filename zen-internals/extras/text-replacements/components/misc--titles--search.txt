@@ -3,4 +3,5 @@
 .block--title,
 .comments--title,
 .comments--form-title,
-.comment--title { /* Comment title */
+.comment--title {
+  /* Comment title. */
