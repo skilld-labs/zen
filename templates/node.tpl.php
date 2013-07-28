@@ -25,7 +25,7 @@
       <?php endif; ?>
 
       <?php if ($unpublished): ?>
-        <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
+        <mark class="watermark unpublished"><?php print t('Unpublished'); ?></mark>
       <?php endif; ?>
     </header>
   <?php endif; ?>

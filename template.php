@@ -312,6 +312,11 @@ function zen_preprocess_node(&$variables, $hook) {
     $variables['submitted'] = t('Submitted by !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['pubdate']));
   }
 
+  // If the node is unpublished, add the "unpublished" watermark class.
+  if ($variables['unpublished']) {
+    $variables['classes_array'][] = 'watermark__wrapper';
+  }
+
   // Add a class for the view mode.
   if (!$variables['teaser']) {
     $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
@@ -343,6 +348,11 @@ function zen_preprocess_comment(&$variables, $hook) {
   // Add pubdate to submitted variable.
   $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
   $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
+
+  // If the comment is unpublished, add the "unpublished" watermark class.
+  if ($variables['status'] == 'comment-unpublished') {
+    $variables['classes_array'][] = 'watermark__wrapper';
+  }
 
   // Zebra striping.
   if ($variables['id'] == 1) {

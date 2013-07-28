@@ -1,0 +1,3 @@
+.watermark__wrapper > * {
+  /* Otherwise adjacent elements will appear below the watermark text. */
+  *position: relative;
