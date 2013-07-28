@@ -131,7 +131,8 @@ for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt $ORIG/extras/text-
     # Delete all the generated CSS, except for the one that generated the error.
     rm css/*.css $ORIG/css/*.css;
     mv $CSS_FILE.new $CSS_FILE;
-    # Restore the init partial.
+    # Restore the environment.
+    mv config.rb.orig config.rb;
     mv $ORIG/_init.scss sass/;
     exit;
   fi
