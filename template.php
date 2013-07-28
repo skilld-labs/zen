@@ -482,7 +482,7 @@ function zen_preprocess_block(&$variables, $hook) {
  */
 function zen_process_block(&$variables, $hook) {
   // Drupal 7 should use a $title variable instead of $block->subject.
-  $variables['title'] = $variables['block']->subject;
+  $variables['title'] = isset($variables['block']->subject) ? $variables['block']->subject : '';
 }
 
 /**
