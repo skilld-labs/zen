@@ -544,7 +544,7 @@ function zen_menu_local_tasks(&$variables) {
   foreach (array('primary', 'secondary') as $type) {
     if (!empty($variables[$type])) {
       foreach (array_keys($variables[$type]) as $key) {
-        if (isset($variables[$type][$key]['#theme']) && $variables[$type][$key]['#theme'] == 'menu_local_task' || is_array($variables[$type][$key]['#theme']) && in_array('menu_local_task', $variables[$type][$key]['#theme'])) {
+        if (isset($variables[$type][$key]['#theme']) && ($variables[$type][$key]['#theme'] == 'menu_local_task' || is_array($variables[$type][$key]['#theme']) && in_array('menu_local_task', $variables[$type][$key]['#theme']))) {
           $variables[$type][$key]['#theme'] = array('menu_local_task__' . $type, 'menu_local_task');
         }
       }
