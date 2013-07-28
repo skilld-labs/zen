@@ -74,7 +74,7 @@
     <div id="navigation">
 
       <?php if ($main_menu): ?>
-        <nav id="main-menu" role="navigation">
+        <nav id="main-menu" role="navigation" tabindex="-1">
           <?php
           // This code snippet is hard to modify. We recommend turning off the
           // "Main menu" on your sub-theme's settings form, deleting this PHP

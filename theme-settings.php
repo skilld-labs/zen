@@ -91,7 +91,7 @@ function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NU
     '#title'         => t('Anchor ID for the “skip link”'),
     '#default_value' => theme_get_setting('zen_skip_link_anchor'),
     '#field_prefix'  => '#',
-    '#description'   => t('Specify the HTML ID of the element that the accessible-but-hidden “skip link” should link to. (<a href="!link">Read more about skip links</a>.)', array('!link' => 'http://drupal.org/node/467976')),
+    '#description'   => t('Specify the HTML ID of the element that the accessible-but-hidden “skip link” should link to. Note: that element should have the <code>tabindex="-1"</code> attribute to prevent an accessibility bug in webkit browsers. (<a href="!link">Read more about skip links</a>.)', array('!link' => 'http://drupal.org/node/467976')),
   );
   $form['support']['zen_skip_link_text'] = array(
     '#type'          => 'textfield',
