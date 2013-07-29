@@ -522,7 +522,8 @@ function zen_form_node_form_alter(&$form, &$form_state, $form_id) {
     if (strpos($item, 'field_') === 0) {
       if (!empty($form[$item]['#attributes']['class'])) {
         foreach ($form[$item]['#attributes']['class'] as &$class) {
-          if (strpos($class, 'field-type-') === 0 || strpos($class, 'field-name-') === 0) {
+          // Core bug: the field-type-text-with-summary class is used as a JS hook.
+          if ($class != 'field-type-text-with-summary' && strpos($class, 'field-type-') === 0 || strpos($class, 'field-name-') === 0) {
             // Make the class different from that used in theme_field().
             $class = 'form-' . $class;
           }
