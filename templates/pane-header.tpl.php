@@ -1,16 +1,10 @@
 <?php
 /**
  * @file
- * Overridden template for Panels Everywhere's navigation pane.
+ * Returns the HTML for Panels Everywhere's navigation pane.
  *
- * This utilizes the following variables thata re normally found in
- * page.tpl.php:
- * - $logo
- * - $front_page
- * - $site_name
- * - $site_slogan
- *
- * Additional items can be added via theme_preprocess_pane_header().
+ * Complete documentation for this file is available online.
+ * @see http://drupal.org/node/2052507
  */
 ?>
 <?php if ($logo): ?>

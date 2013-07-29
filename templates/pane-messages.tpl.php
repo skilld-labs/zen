@@ -1,16 +1,10 @@
 <?php
 /**
  * @file
- * Overridden template for Panels Everywhere's messages pane.
+ * Returns the HTML for Panels Everywhere's messages pane.
  *
- * This utilizes the following variables thata re normally found in
- * page.tpl.php:
- * - $tabs
- * - $messages
- * - $help
- * - $action_links
- *
- * Additional items can be added via theme_preprocess_pane_messages().
+ * Complete documentation for this file is available online.
+ * @see http://drupal.org/node/2052511
  */
 ?>
 
