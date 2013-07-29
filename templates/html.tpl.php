@@ -30,7 +30,7 @@
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
     <![endif]-->
-  <?php if ($add_html5_shim and $add_respond_js): ?>
+  <?php elseif ($add_html5_shim and $add_respond_js): ?>
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
     <![endif]-->
