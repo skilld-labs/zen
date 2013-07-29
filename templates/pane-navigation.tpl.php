@@ -8,7 +8,7 @@
  */
 ?>
 <?php if (!empty($main_menu)): ?>
-  <nav id="main-menu" role="navigation">
+  <nav id="main-menu" role="navigation" tabindex="-1">
     <?php print $main_menu; ?>
   </nav>
 <?php endif; ?>
