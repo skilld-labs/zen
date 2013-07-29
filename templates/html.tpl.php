@@ -26,13 +26,17 @@
 
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  <?php if ($add_respond_js): ?>
+  <?php if ($add_html5_shim and !$add_respond_js): ?>
+    <!--[if lt IE 9]>
+    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
+    <![endif]-->
+  <?php if ($add_html5_shim and $add_respond_js): ?>
     <!--[if lt IE 9]>
     <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
     <![endif]-->
-  <?php elseif ($add_html5_shim): ?>
+  <?php elseif ($add_respond_js): ?>
     <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
+    <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script>
     <![endif]-->
   <?php endif; ?>
 </head>
