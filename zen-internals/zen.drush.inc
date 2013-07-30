@@ -61,8 +61,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   if ($path = drush_get_option('path')) {
     $subtheme_path = drush_trim_path($path);
   }
-  $subtheme_path .= '/' . str_replace('_', '-', $machine_name);
-  $subtheme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $subtheme_path);
+  $subtheme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $subtheme_path . '/' . $machine_name);
 
   // Make a fresh copy of the original starter kit.
   $starter_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen') . '/STARTERKIT');
