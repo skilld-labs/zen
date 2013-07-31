@@ -1,8 +1,9 @@
 <?php
-
 /**
- * Implementation of hook_panels_layouts()
+ * @file
+ * Implements a panels layout called zen_no_wrapper.
  */
+
 // Plugin definition
 $plugin = array(
   'title'       => t('No wrapper'),
