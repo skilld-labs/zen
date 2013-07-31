@@ -173,6 +173,18 @@ function zen_preprocess_html(&$variables, $hook) {
   if (theme_get_setting('zen_wireframes')) {
     $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
   }
+
+  // When Panels is used on a site, Drupal's sidebar body classes will be wrong,
+  // so override those with classes from a Panels layout preprocess.
+  // @see zen_preprocess_zen_main().
+  $panels_classes_array = &drupal_static('zen_panels_classes_array', array());
+  if (!empty($panels_classes_array)) {
+    // Remove Drupal's sidebar classes.
+    $variables['classes_array'] = array_diff($variables['classes_array'], array('two-sidebars', 'one-sidebar sidebar-first', 'one-sidebar sidebar-second', 'no-sidebars'));
+    // Merge in the classes from the Panels layout.
+    $variables['classes_array'] = array_merge($variables['classes_array'], $panels_classes_array);
+  }
+
   // Store the menu item since it has some useful information.
   $variables['menu_item'] = menu_get_item();
   if ($variables['menu_item']) {
