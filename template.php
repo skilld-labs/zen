@@ -713,3 +713,16 @@ function zen_mark($variables) {
 function zen_panels_default_style_render_region($variables) {
   return implode('', $variables['panes']);
 }
+
+/**
+ * Override or insert variables into the panels-pane templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+function zen_preprocess_panels_pane(&$variables, $hook) {
+  // Add component-style class name to pane title.
+  $variables['title_attributes_array']['class'][] = 'pane__title';
+}
