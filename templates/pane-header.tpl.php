@@ -4,7 +4,7 @@
  * Returns the HTML for Panels Everywhere's navigation pane.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/2052507
+ * @see https://drupal.org/node/2052507
  */
 ?>
 <?php if ($logo): ?>

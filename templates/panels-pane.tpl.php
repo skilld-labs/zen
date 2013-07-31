@@ -4,7 +4,7 @@
  * Returns the HTML for a Panels pane.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/2052505
+ * @see https://drupal.org/node/2052505
  */
 ?>
 <?php print $pane_prefix; ?>

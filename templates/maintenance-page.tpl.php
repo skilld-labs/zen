@@ -4,7 +4,7 @@
  * Returns the HTML for a single Drupal page while offline.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728174
+ * @see https://drupal.org/node/1728174
  */
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->

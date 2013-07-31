@@ -4,7 +4,7 @@
  * Returns the HTML for comments.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728216
+ * @see https://drupal.org/node/1728216
  */
 ?>
 <article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>

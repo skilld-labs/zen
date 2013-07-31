@@ -4,7 +4,7 @@
  * Returns the HTML for the basic html structure of a single Drupal page.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728208
+ * @see https://drupal.org/node/1728208
  */
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->

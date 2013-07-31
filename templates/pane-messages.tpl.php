@@ -4,7 +4,7 @@
  * Returns the HTML for Panels Everywhere's messages pane.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/2052511
+ * @see https://drupal.org/node/2052511
  */
 ?>
 

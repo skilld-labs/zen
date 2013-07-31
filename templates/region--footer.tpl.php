@@ -4,7 +4,7 @@
  * Returns the HTML for the footer region.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728140
+ * @see https://drupal.org/node/1728140
  */
 ?>
 <?php if ($content): ?>

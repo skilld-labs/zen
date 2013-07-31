@@ -79,7 +79,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
     '= Zen Sub-theme Starter Kit' => '= ' . $name,
   );
   if ($description = drush_get_option('description')) {
-    $alterations['Read the <a href="http://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.'] = $description;
+    $alterations['Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.'] = $description;
   }
   drush_op('zen_file_str_replace', $subtheme_info_file, array_keys($alterations), $alterations);
 

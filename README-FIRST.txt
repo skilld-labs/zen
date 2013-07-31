@@ -64,20 +64,20 @@ ONLINE READING
 --------------
 
 Full documentation on the Zen theme can be found in Drupal's Handbook:
-  http://drupal.org/documentation/theme/zen
+  https://drupal.org/documentation/theme/zen
 
 Excellent documentation on Drupal theming can be found in the Theme Guide:
-  http://drupal.org/theme-guide
+  https://drupal.org/theme-guide
 
 
 INSTALLATION
 ------------
 
- 1. Download Zen from http://drupal.org/project/zen
+ 1. Download Zen from https://drupal.org/project/zen
 
  2. Unpack the downloaded file, take the entire zen folder and place it in your
     Drupal installation under sites/all/themes. (Additional installation folders
-    can be used; see http://drupal.org/getting-started/install-contrib/themes
+    can be used; see https://drupal.org/getting-started/install-contrib/themes
     for more information.)
 
     For more information about acceptable theme installation directories, read

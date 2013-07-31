@@ -4,7 +4,7 @@
  * Returns HTML for a picture configured for the user's account.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728110
+ * @see https://drupal.org/node/1728110
  */
 ?>
 <?php if ($user_picture): ?>

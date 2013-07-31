@@ -4,7 +4,7 @@
  * Returns the HTML for a single Drupal page.
  *
  * Complete documentation for this file is available online.
- * @see http://drupal.org/node/1728148
+ * @see https://drupal.org/node/1728148
  */
 ?>
 
@@ -79,7 +79,7 @@
           // This code snippet is hard to modify. We recommend turning off the
           // "Main menu" on your sub-theme's settings form, deleting this PHP
           // code block, and, instead, using the "Menu block" module.
-          // @see http://drupal.org/project/menu_block
+          // @see https://drupal.org/project/menu_block
           print theme('links__system_main_menu', array(
             'links' => $main_menu,
             'attributes' => array(
