@@ -2,6 +2,6 @@
     /* Span 2 columns, starting in 1st column from left. */
     /* Span 1 column, starting in 3rd column from left. */
   }
-  .sidebar-second #content {
+  .sidebar-second .main-content {
     float: left;
     width: 66.66667%;

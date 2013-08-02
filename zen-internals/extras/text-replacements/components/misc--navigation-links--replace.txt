@@ -1,7 +1,7 @@
 }
-#navigation .block {
+.main-navigation .block {
   margin-bottom: 0;
 }
 
 /* Main menu and secondary menu links and menu block links. */
-#navigation .links,
+.main-navigation .links,

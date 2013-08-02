@@ -1,3 +1,3 @@
 
 /* Span 4 columns, starting in 1st column from right. */
-.sidebar-second #content {
+.sidebar-second .main-content {

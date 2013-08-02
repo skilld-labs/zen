@@ -30,7 +30,7 @@
     <?php print render($title_suffix); ?>
 
     <?php if ($status == 'comment-unpublished'): ?>
-      <mark class="watermark unpublished"><?php print t('Unpublished'); ?></mark>
+      <mark class="watermark"><?php print t('Unpublished'); ?></mark>
     <?php endif; ?>
   </header>
 

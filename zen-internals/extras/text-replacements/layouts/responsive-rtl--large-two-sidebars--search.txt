@@ -3,6 +3,6 @@
     /* Span 1 column, starting in 1st column from right. */
     /* Span 1 column, starting in 5th column from right. */
   }
-  .two-sidebars #content {
+  .two-sidebars .main-content {
     float: right;
     width: 60%;

@@ -1,1 +1,1 @@
-  #content abbr[title]:after {
+  .main-content abbr[title]:after {

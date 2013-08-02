@@ -38,24 +38,24 @@
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 
-<div id="page">
+<div class="page">
 
-  <header id="header" role="banner">
+  <header class="header" role="banner">
 
     <?php if ($logo): ?>
-      <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+      <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
+      <div class="header__name-and-slogan">
         <?php if ($site_name): ?>
-          <h1 id="site-name">
-            <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+          <h1 class="header__site-name">
+            <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><span><?php print $site_name; ?></span></a>
           </h1>
         <?php endif; ?>
 
         <?php if ($site_slogan): ?>
-          <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
+          <div class="header__site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
       </div>
     <?php endif; ?>
@@ -64,19 +64,19 @@
 
   </header>
 
-  <div id="main">
+  <div class="main">
 
-    <div id="content" class="column" role="main">
+    <div class="main-content" role="main">
       <?php print $highlighted; ?>
       <a id="main-content"></a>
       <?php if ($title): ?>
-        <h1 class="title" id="page-title"><?php print $title; ?></h1>
+        <h1 class="page__title"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print $messages; ?>
       <?php print $content; ?>
     </div>
 
-    <div id="navigation">
+    <div class="main-navigation">
       <?php print $navigation; ?>
     </div>
 

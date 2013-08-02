@@ -8,13 +8,13 @@
  */
 ?>
 <?php if (!empty($main_menu)): ?>
-  <nav id="main-menu" role="navigation" tabindex="-1">
+  <nav class="main-menu" role="navigation" id="main-menu" tabindex="-1">
     <?php print $main_menu; ?>
   </nav>
 <?php endif; ?>
 
 <?php if (!empty($secondary_menu)): ?>
-  <nav id="secondary-menu" role="navigation">
+  <nav class="secondary-menu" role="navigation">
     <?php print $secondary_menu; ?>
   </nav>
 <?php endif; ?>
