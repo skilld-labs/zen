@@ -742,7 +742,7 @@ function zen_preprocess_panels_pane(&$variables, $hook) {
     case 'pane_messages':
     case 'pane_navigation':
       // Allow a pane-specific template to override Zen's suggestion.
-      array_unshift($variables['theme_hook_suggestions'], 'panels_pane__no_wrapper';
+      array_unshift($variables['theme_hook_suggestions'], 'panels_pane__no_wrapper');
       break;
   }
   // Add component-style class name to pane title.
