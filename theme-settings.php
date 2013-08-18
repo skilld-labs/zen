@@ -58,9 +58,6 @@ function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NU
       'disabled' => array(
         ':input[name="zen_breadcrumb_title"]' => array('checked' => TRUE),
       ),
-      'unchecked' => array(
-        ':input[name="zen_breadcrumb_title"]' => array('checked' => TRUE),
-      ),
     ),
   );
   $form['breadcrumb']['breadcrumb_options']['zen_breadcrumb_title'] = array(
