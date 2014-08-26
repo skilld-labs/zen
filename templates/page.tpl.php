@@ -40,7 +40,7 @@
           'heading' => array(
             'text' => $secondary_menu_heading,
             'level' => 'h2',
-            'class' => array('element-invisible'),
+            'class' => array('visually-hidden'),
           ),
         )); ?>
       </nav>
@@ -88,7 +88,7 @@
             'heading' => array(
               'text' => t('Main menu'),
               'level' => 'h2',
-              'class' => array('element-invisible'),
+              'class' => array('visually-hidden'),
             ),
           )); ?>
         </nav>

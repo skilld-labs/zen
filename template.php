@@ -79,7 +79,7 @@ function zen_breadcrumb($variables) {
       }
       // Unless overridden by a preprocess function, make the heading invisible.
       if (!isset($variables['title_attributes_array']['class'])) {
-        $variables['title_attributes_array']['class'][] = 'element-invisible';
+        $variables['title_attributes_array']['class'][] = 'visually-hidden';
       }
 
       // Build the breadcrumb trail.
@@ -572,13 +572,13 @@ function zen_menu_local_tasks(&$variables) {
   }
 
   if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $variables['primary']['#prefix'] = '<h2 class="visually-hidden">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="tabs-primary tabs primary">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
+    $variables['secondary']['#prefix'] = '<h2 class="visually-hidden">' . t('Secondary tabs') . '</h2>';
     $variables['secondary']['#prefix'] .= '<ul class="tabs-secondary tabs secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
@@ -611,7 +611,7 @@ function zen_menu_local_task($variables) {
 
   if (!empty($variables['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
-    $active = ' <span class="element-invisible">' . t('(active tab)') . '</span>';
+    $active = ' <span class="visually-hidden">' . t('(active tab)') . '</span>';
 
     // If the link does not contain HTML already, check_plain() it now.
     // After we set 'html'=TRUE the link will not be sanitized by l().
@@ -685,7 +685,7 @@ function zen_status_messages($variables) {
   foreach (drupal_get_messages($display) as $type => $messages) {
     $output .= "<div class=\"messages--$type messages $type\">\n";
     if (!empty($status_heading[$type])) {
-      $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+      $output .= '<h2 class="visually-hidden">' . $status_heading[$type] . "</h2>\n";
     }
     if (count($messages) > 1) {
       $output .= " <ul class=\"messages__list\">\n";
