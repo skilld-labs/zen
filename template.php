@@ -338,8 +338,6 @@ function zen_preprocess_node(&$variables, $hook) {
   if ($variables['uid'] && $variables['uid'] == $GLOBALS['user']->uid) {
     $variables['classes_array'][] = 'node-by-viewer';
   }
-
-  $variables['title_attributes_array']['class'][] = 'node__title';
 }
 
 /**
