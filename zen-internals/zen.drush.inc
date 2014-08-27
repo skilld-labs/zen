@@ -89,7 +89,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
 
   // Remove all RTL stylesheets.
   if ($without_rtl = drush_get_option('without-rtl')) {
-    foreach (array('layouts/_fixed', 'layouts/_responsive', 'components/_misc', '_normalize', 'styles') as $file) {
+    foreach (array('layouts/_fixed', 'layouts/_responsive', 'components/_misc', 'base/_normalize', 'styles') as $file) {
       // Move any sub-directory into a separate variable.
       list($sub_dir, $css_file) = explode('/', $file . '/');
       if (!$css_file) {
