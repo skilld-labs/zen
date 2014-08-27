@@ -29,8 +29,10 @@
     <?php endif; ?>
     <?php print render($title_suffix); ?>
 
-    <?php if ($status == 'comment-unpublished'): ?>
+    <?php if ($unpublished): ?>
       <mark class="watermark"><?php print t('Unpublished'); ?></mark>
+    <?php elseif ($preview): ?>
+      <mark class="watermark"><?php print t('Preview'); ?></mark>
     <?php endif; ?>
   </header>
 

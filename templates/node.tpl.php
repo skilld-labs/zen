@@ -9,7 +9,7 @@
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || $preview || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
       <?php if (!$page && $title): ?>
@@ -26,6 +26,8 @@
 
       <?php if ($unpublished): ?>
         <mark class="watermark"><?php print t('Unpublished'); ?></mark>
+      <?php elseif ($preview): ?>
+        <mark class="watermark"><?php print t('Preview'); ?></mark>
       <?php endif; ?>
     </header>
   <?php endif; ?>

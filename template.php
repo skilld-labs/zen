@@ -325,7 +325,7 @@ function zen_preprocess_node(&$variables, $hook) {
   }
 
   // If the node is unpublished, add the "unpublished" watermark class.
-  if ($variables['unpublished']) {
+  if ($variables['unpublished'] || $variables['preview']) {
     $variables['classes_array'][] = 'watermark__wrapper';
   }
 
@@ -351,6 +351,12 @@ function zen_preprocess_node(&$variables, $hook) {
  *   The name of the template being rendered ("comment" in this case.)
  */
 function zen_preprocess_comment(&$variables, $hook) {
+  // Add $unpublished variable.
+  $variables['unpublished'] = ($variables['status'] == 'comment-unpublished') ? TRUE : FALSE;
+
+  // Add $preview variable.
+  $variables['preview'] = ($variables['status'] == 'comment-preview') ? TRUE : FALSE;
+
   // If comment subjects are disabled, don't display them.
   if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
     $variables['title'] = '';
@@ -360,8 +366,8 @@ function zen_preprocess_comment(&$variables, $hook) {
   $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
   $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
 
-  // If the comment is unpublished, add the "unpublished" watermark class.
-  if ($variables['status'] == 'comment-unpublished') {
+  // If the comment is unpublished/preview, add a "unpublished" watermark class.
+  if ($variables['unpublished'] || $variables['preview']) {
     $variables['classes_array'][] = 'watermark__wrapper';
   }
 
