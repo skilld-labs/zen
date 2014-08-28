@@ -1,15 +1,19 @@
 @import "init";
 
-@import "components/inline-rtl";
+@import "inline-rtl";
 
-@import "components/forms-drupal-rtl";
-@import "components/collapsible-fieldsets-rtl";
-@import "components/form-tables-rtl";
+@import "forms-drupal-rtl";
+@import "autocomplete-rtl";
+@import "collapsible-fieldsets-rtl";
+@import "form-tables-rtl";
+@import "openid-rtl";
+@import "progress-bar-rtl";
+@import "tabledrag-rtl";
 
-@import "components/comments-rtl";
-@import "components/header-rtl";
-@import "components/messages-rtl";
-@import "components/more-link-rtl";
-@import "components/navbar-rtl";
-@import "components/side-menu-rtl";
-@import "components/tabs-rtl";
+@import "comments-rtl";
+@import "header-rtl";
+@import "messages-rtl";
+@import "more-link-rtl";
+@import "navbar-rtl";
+@import "side-menu-rtl";
+@import "tabs-rtl";

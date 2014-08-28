@@ -1,5 +1,13 @@
     clear: left;
   }
+  .two-sidebars .region-sidebar-second:before,
+  .two-sidebars .region-sidebar-second:after {
+    content: "";
+    display: table;
+  }
+  .two-sidebars .region-sidebar-second:after {
+    clear: both;
+  }
 
   /* Apply the shared properties of grid items in a single, efficient ruleset. */
   .two-sidebars .region-sidebar-second .block {

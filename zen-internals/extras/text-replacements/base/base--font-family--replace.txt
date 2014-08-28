@@ -1,7 +1,6 @@
-textarea {
+html {
   /**
-   * The following font family declarations are available on most computers.
-   *
+   * The following font family declarations use widely available fonts.
    * A user's web browser will look at the comma-separated list and will
    * attempt to use each font in turn until it finds one that is available
    * on the user's computer. The final "generic" font (sans-serif, serif or
@@ -19,5 +18,4 @@ textarea {
    *
    * font-family: "Courier New", "DejaVu Sans Mono", monospace;
    */
-  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
-}
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif; /* 1 */

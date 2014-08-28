@@ -1,3 +1,4 @@
-}
 .watermark {
+  height: 0;
+  overflow: visible;
   background-color: transparent;

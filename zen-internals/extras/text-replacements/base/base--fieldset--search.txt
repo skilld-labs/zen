@@ -1,0 +1,25 @@
+fieldset {
+  margin: 0 2px;
+  /* Apply borders and padding that keep the vertical rhythm. */
+  border-color: #c0c0c0;
+  border-top-width: 1px;
+  border-top-width: 0.0625rem;
+  border-top-style: solid;
+  padding-top: 7px;
+  padding-top: 0.4625rem;
+  border-bottom-width: 1px;
+  border-bottom-width: 0.0625rem;
+  border-bottom-style: solid;
+  padding-bottom: 15px;
+  padding-bottom: 0.9125rem;
+  border-left-width: 1px;
+  border-left-width: 0.0625rem;
+  border-left-style: solid;
+  padding-left: 14px;
+  padding-left: 0.875rem;
+  border-right-width: 1px;
+  border-right-width: 0.0625rem;
+  border-right-style: solid;
+  padding-right: 14px;
+  padding-right: 0.875rem;
+}

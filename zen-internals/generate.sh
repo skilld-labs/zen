@@ -36,19 +36,19 @@ cp css/styles* $ORIG/css/;
 cp images/* $ORIG/images/;
 
 # Build the CSS versions of the stylesheets.
-cp $ORIG/extras/sass/css-* sass/;
+cp $ORIG/extras/sass/base/css-* sass/base/;
 cp $ORIG/extras/sass/layouts/css-* sass/layouts/;
 cp $ORIG/extras/sass/components/css-* sass/components/;
 rm css/*.css css/*/*.css;
 bundle exec compass clean;
 bundle exec compass compile --output-style expanded --no-sourcemap;
-rm sass/css-* sass/*/css-*;
+rm sass/*/css-*;
 
 # Don't use the generated styles.css.
 git checkout css/styles.css css/styles-rtl.css;
 
 # Massage the generated css-* files and rename them.
-for FILENAME in css/css-*.css css/*/css-*.css; do
+for FILENAME in css/*/css-*.css; do
   NEWFILE=`echo $FILENAME | sed -e 's/css\-//'`;
 
   cat $FILENAME |
@@ -79,9 +79,12 @@ for FILENAME in css/css-*.css css/*/css-*.css; do
   sed -n '1h;1!H;$ {g;s/\n  MOVE_UP/ /g;p;}' |
   # Remove blank lines
   sed -e '/^$/d' |
-  # Add a blank line between a block-level comment and another comment.
-  sed -n '1h;1!H;$ {g;s/\(\n *\*\/\n\)\( *\)\/\*/\1\
-\2\/\*/g;p;}' |
+  # Add a blank line after normalize's block-level comment.
+  sed -n '1h;1!H;$ {g;s/\(\n *\=* \*\/\n\)/\1\
+/g;p;}' |
+  # Add a blank line after a block-level comment.
+  sed -n '1h;1!H;$ {g;s/\(\n *\*\/\n\)/\1\
+/g;p;}' |
   # Add a blank line between a ruleset and a comment.
   sed -n '1h;1!H;$ {g;s/\(\n *\}\n\)\( *\)\/\*/\1\
 \2\/\*/g;p;}' |
@@ -112,7 +115,7 @@ for FILENAME in css/layouts/*-rtl.css; do
   mv $FILENAME.new $FILENAME;
 done
 
-for FIND_FILE in $ORIG/extras/text-replacements/*--search.txt $ORIG/extras/text-replacements/*/*--search.txt; do
+for FIND_FILE in $ORIG/extras/text-replacements/*/*--search.txt; do
   REPLACE_FILE=`echo "$FIND_FILE" | sed -e 's/\-\-search\.txt/--replace.txt/'`;
   CSS_PATH=`dirname $FIND_FILE`;
   CSS_PATH=css/`basename $CSS_PATH`;

@@ -1,0 +1,2 @@
+html {
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif; /* 1 */
