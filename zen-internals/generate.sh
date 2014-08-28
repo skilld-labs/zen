@@ -19,7 +19,13 @@ mv sass/_init.scss $ORIG/;
 cat $ORIG/_init.scss $ORIG/extras/sass/_init_extras.scss > sass/_init.scss;
 
 # Build the stylesheets for the Zen base theme.
-cp $ORIG/extras/sass/styles-fixed* sass/;
+for FILENAME in sass/styles*.scss; do
+  NEWFILE=`echo $FILENAME | sed -e 's/styles/styles-fixed/'`;
+
+  cat $FILENAME |
+  sed -e 's/layouts\/responsive/layouts\/fixed/' |
+  cat > $NEWFILE;
+done
 bundle exec compass compile --no-sourcemap;
 rm sass/styles-fixed*;
 
