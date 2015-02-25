@@ -573,13 +573,13 @@ function zen_menu_local_tasks(&$variables) {
 
   if (!empty($variables['primary'])) {
     $variables['primary']['#prefix'] = '<h2 class="visually-hidden">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs-primary tabs primary">';
+    $variables['primary']['#prefix'] .= '<ul class="tabs">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="visually-hidden">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs-secondary tabs secondary">';
+    $variables['secondary']['#prefix'] .= '<ul class="tabs--secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
@@ -600,7 +600,7 @@ function zen_menu_local_task($variables) {
 
   // Check for tab type set in zen_menu_local_tasks().
   if (is_array($variables['element']['#theme'])) {
-    $type = in_array('menu_local_task__secondary', $variables['element']['#theme']) ? 'tabs-secondary' : 'tabs-primary';
+    $type = in_array('menu_local_task__secondary', $variables['element']['#theme']) ? 'tabs--secondary' : 'tabs';
   }
 
   // Add SMACSS-style class names.
