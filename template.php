@@ -109,10 +109,9 @@ function zen_preprocess_html(&$variables, $hook) {
   $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
   // Get settings for HTML5 and responsive support. array_filter() removes
   // items from the array that have been disabled.
-  $html5_respond_meta = array_filter((array) theme_get_setting('zen_html5_respond_meta'));
-  $variables['add_respond_js']          = in_array('respond', $html5_respond_meta);
-  $variables['add_html5_shim']          = in_array('html5', $html5_respond_meta);
-  $variables['default_mobile_metatags'] = in_array('meta', $html5_respond_meta);
+  $meta = array_filter((array) theme_get_setting('zen_meta'));
+  $variables['add_html5_shim']          = in_array('html5', $meta);
+  $variables['default_mobile_metatags'] = in_array('meta', $meta);
 
   // If the user is silly and enables Zen as the theme, add some styles.
   if ($GLOBALS['theme'] == 'zen') {

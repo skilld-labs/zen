@@ -96,16 +96,15 @@ function zen_form_system_theme_settings_alter(&$form, $form_state, $form_id = NU
     '#default_value' => theme_get_setting('zen_skip_link_text'),
     '#description'   => t('For example: <em>Jump to navigation</em>, <em>Skip to content</em>'),
   );
-  $form['support']['zen_html5_respond_meta'] = array(
+  $form['support']['zen_meta'] = array(
     '#type'          => 'checkboxes',
     '#title'         => t('Add HTML5 and responsive scripts and meta tags to every page.'),
-    '#default_value' => theme_get_setting('zen_html5_respond_meta'),
+    '#default_value' => theme_get_setting('zen_meta'),
     '#options'       => array(
-                          'respond' => t('Add Respond.js JavaScript to add basic CSS3 media query support to IE 6-8.'),
                           'html5' => t('Add HTML5 shim JavaScript to add support to IE 6-8.'),
                           'meta' => t('Add meta tags to support responsive design on mobile devices.'),
                         ),
-    '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5 and CSS3 media queries. If you prefer to use another polyfill solution, such as <a href="!link">Modernizr</a>, you can disable these options. Respond.js only works if <a href="@url">Aggregate CSS</a> is enabled. Mobile devices require a few meta tags for responsive designs.', array('!link' => 'http://www.modernizr.com/', '@url' => url('admin/config/development/performance'))),
+    '#description'   => t('IE 6-8 require a JavaScript polyfill solution to add basic support of HTML5. Mobile devices require a few meta tags for responsive designs.'),
   );
 
   $form['themedev'] = array(
