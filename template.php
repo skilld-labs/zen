@@ -683,7 +683,7 @@ function zen_status_messages($variables) {
     'warning' => t('Warning message'),
   );
   foreach (drupal_get_messages($display) as $type => $messages) {
-    $output .= "<div class=\"messages--$type messages $type\">\n";
+    $output .= "<div class=\"messages--$type\">\n";
     if (!empty($status_heading[$type])) {
       $output .= '<h2 class="visually-hidden">' . $status_heading[$type] . "</h2>\n";
     }
