@@ -166,9 +166,6 @@ function zen_preprocess_html(&$variables, $hook) {
     }
     $variables['classes_array'][] = drupal_html_class('section-' . $section);
   }
-  if (theme_get_setting('zen_wireframes')) {
-    $variables['classes_array'][] = 'with-wireframes'; // Optionally add the wireframes style.
-  }
 
   // When Panels is used on a site, Drupal's sidebar body classes will be wrong,
   // so override those with classes from a Panels layout preprocess.

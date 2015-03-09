@@ -32,6 +32,5 @@ settings[zen_skip_link_text]       = Jump to navigation
 settings[zen_meta][]               = html5
 settings[zen_meta][]               = meta
 settings[zen_rebuild_registry]     = 0
-settings[zen_wireframes]           = 0
 
 plugins[panels][layouts] = panels-layouts
