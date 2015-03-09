@@ -29,6 +29,27 @@ function zen_theme(&$existing, $type, $theme, $path) {
 }
 
 /**
+ * Override or insert variables for the breadcrumb theme function.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme function.
+ * @param $hook
+ *   The name of the theme hook being called ("breadcrumb" in this case).
+ *
+ * @see zen_breadcrumb()
+ */
+function zen_preprocess_breadcrumb(&$variables, $hook) {
+  // Define variables for the breadcrumb-related theme settings. This is done
+  // here so that sub-themes can dynamically change the settings under
+  // particular conditions in a preprocess function of their own.
+  $variables['breadcrumb_settings']['zen_breadcrumb'] = check_plain(theme_get_setting('zen_breadcrumb'));
+  $variables['breadcrumb_settings']['zen_breadcrumb_home'] = check_plain(theme_get_setting('zen_breadcrumb_home'));
+  $variables['breadcrumb_settings']['zen_breadcrumb_separator'] = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
+  $variables['breadcrumb_settings']['zen_breadcrumb_title'] = check_plain(theme_get_setting('zen_breadcrumb_title'));
+  $variables['breadcrumb_settings']['zen_breadcrumb_trailing'] = check_plain(theme_get_setting('zen_breadcrumb_trailing'));
+}
+
+/**
  * Return a themed breadcrumb trail.
  *
  * @param $variables
@@ -37,6 +58,20 @@ function zen_theme(&$existing, $type, $theme, $path) {
  *   - title_attributes_array: Array of HTML attributes for the title. It is
  *     flattened into a string within the theme function.
  *   - breadcrumb: An array containing the breadcrumb links.
+ *   - breadcrumb_settings: An array containing relevant theme settings for the
+ *     breadcrumb display, including the following elements:
+ *     - zen_breadcrumb: A string indicating whether the breadcrumbs should be
+ *       displayed. Can be 'yes', 'no', or 'admin' (the latter displays the
+ *       breadcrumb only on admin/* paths).
+ *     - zen_breadcrumb_home: A boolean indicating whether the homepage link
+ *       should appear in the breadcrumbs.
+ *     - zen_breadcrumb_separator: A string representing the text to be used as
+ *       the breadcrumb separator.
+ *     - zen_breadcrumb_title: A boolean indicating whether the title of the
+ *       current page should be displayed at the end of the breadcrumbs.
+ *     - zen_breadcrumb_trailing: A boolean indicating whether a trailing
+ *       seperator should be added at the end of the breadcrumbs.
+ *
  * @return
  *   A string containing the breadcrumb output.
  */
@@ -45,20 +80,20 @@ function zen_breadcrumb($variables) {
   $output = '';
 
   // Determine if we are to display the breadcrumb.
-  $show_breadcrumb = theme_get_setting('zen_breadcrumb');
+  $show_breadcrumb = $variables['breadcrumb_settings']['zen_breadcrumb'];
   if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
 
     // Optionally get rid of the homepage link.
-    $show_breadcrumb_home = theme_get_setting('zen_breadcrumb_home');
+    $show_breadcrumb_home = $variables['breadcrumb_settings']['zen_breadcrumb_home'];
     if (!$show_breadcrumb_home) {
       array_shift($breadcrumb);
     }
 
     // Return the breadcrumb with separators.
     if (!empty($breadcrumb)) {
-      $breadcrumb_separator = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
+      $breadcrumb_separator = $variables['breadcrumb_settings']['zen_breadcrumb_separator'];
       $trailing_separator = $title = '';
-      if (theme_get_setting('zen_breadcrumb_title')) {
+      if ($variables['breadcrumb_settings']['zen_breadcrumb_title']) {
         $item = menu_get_item();
         if (!empty($item['tab_parent'])) {
           // If we are on a non-default tab, use the tab's title.
@@ -68,7 +103,7 @@ function zen_breadcrumb($variables) {
           $breadcrumb[] = drupal_get_title();
         }
       }
-      elseif (theme_get_setting('zen_breadcrumb_trailing')) {
+      elseif ($variables['breadcrumb_settings']['zen_breadcrumb_trailing']) {
         $trailing_separator = $breadcrumb_separator;
       }
 
