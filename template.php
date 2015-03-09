@@ -674,7 +674,7 @@ function zen_status_messages($variables) {
     if (count($messages) > 1) {
       $output .= " <ul class=\"messages__list\">\n";
       foreach ($messages as $message) {
-        $output .= '  <li class=\"messages__item\">' . $message . "</li>\n";
+        $output .= '  <li class="messages__item">' . $message . "</li>\n";
       }
       $output .= " </ul>\n";
     }
