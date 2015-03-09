@@ -306,6 +306,9 @@ function zen_preprocess_node(&$variables, $hook) {
   // Add $unpublished variable.
   $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
 
+  // Set preview variable to FALSE if it doesn't exist.
+  $variables['preview'] = isset($variables['preview']) ? $variables['preview'] : FALSE;
+
   // Add pubdate to submitted variable.
   $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['node']->created, 'custom', 'c') . '">' . $variables['date'] . '</time>';
   if ($variables['display_submitted']) {
