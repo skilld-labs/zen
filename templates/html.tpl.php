@@ -28,7 +28,7 @@
   <?php print $scripts; ?>
   <?php if ($add_html5_shim): ?>
     <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
+    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5shiv.min.js"></script>
     <![endif]-->
   <?php endif; ?>
 </head>
