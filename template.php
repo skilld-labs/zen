@@ -42,11 +42,35 @@ function zen_preprocess_breadcrumb(&$variables, $hook) {
   // Define variables for the breadcrumb-related theme settings. This is done
   // here so that sub-themes can dynamically change the settings under
   // particular conditions in a preprocess function of their own.
-  $variables['breadcrumb_settings']['zen_breadcrumb'] = check_plain(theme_get_setting('zen_breadcrumb'));
-  $variables['breadcrumb_settings']['zen_breadcrumb_home'] = check_plain(theme_get_setting('zen_breadcrumb_home'));
-  $variables['breadcrumb_settings']['zen_breadcrumb_separator'] = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
-  $variables['breadcrumb_settings']['zen_breadcrumb_title'] = check_plain(theme_get_setting('zen_breadcrumb_title'));
-  $variables['breadcrumb_settings']['zen_breadcrumb_trailing'] = check_plain(theme_get_setting('zen_breadcrumb_trailing'));
+  $variables['display_breadcrumb'] = check_plain(theme_get_setting('zen_breadcrumb'));
+  $variables['display_breadcrumb'] = ($variables['display_breadcrumb'] == 'yes' || $variables['display_breadcrumb'] == 'admin' && arg(0) == 'admin') ? TRUE : FALSE;
+  $variables['breadcrumb_separator'] = filter_xss_admin(theme_get_setting('zen_breadcrumb_separator'));
+  $variables['display_trailing_separator'] = theme_get_setting('zen_breadcrumb_trailing') ? TRUE : FALSE;
+
+  // Optionally get rid of the homepage link.
+  if (!theme_get_setting('zen_breadcrumb_home')) {
+    array_shift($variables['breadcrumb']);
+  }
+
+  // Add the title of the page to the end of the breadcrumb list.
+  if (!empty($variables['breadcrumb']) && theme_get_setting('zen_breadcrumb_title')) {
+    $item = menu_get_item();
+    if (!empty($item['tab_parent'])) {
+      // If we are on a non-default tab, use the tab's title.
+      $variables['breadcrumb'][] = check_plain($item['title']);
+    }
+    else {
+      $variables['breadcrumb'][] = drupal_get_title();
+    }
+    // Turn off the trailing separator.
+    $variables['display_trailing_separator'] = FALSE;
+  }
+
+  // Provide a navigational heading to give context for breadcrumb links to
+  // screen-reader users.
+  if (empty($variables['title'])) {
+    $variables['title'] = t('You are here');
+  }
 }
 
 /**
@@ -58,68 +82,32 @@ function zen_preprocess_breadcrumb(&$variables, $hook) {
  *   - title_attributes_array: Array of HTML attributes for the title. It is
  *     flattened into a string within the theme function.
  *   - breadcrumb: An array containing the breadcrumb links.
- *   - breadcrumb_settings: An array containing relevant theme settings for the
- *     breadcrumb display, including the following elements:
- *     - zen_breadcrumb: A string indicating whether the breadcrumbs should be
- *       displayed. Can be 'yes', 'no', or 'admin' (the latter displays the
- *       breadcrumb only on admin/* paths).
- *     - zen_breadcrumb_home: A boolean indicating whether the homepage link
- *       should appear in the breadcrumbs.
- *     - zen_breadcrumb_separator: A string representing the text to be used as
- *       the breadcrumb separator.
- *     - zen_breadcrumb_title: A boolean indicating whether the title of the
- *       current page should be displayed at the end of the breadcrumbs.
- *     - zen_breadcrumb_trailing: A boolean indicating whether a trailing
- *       seperator should be added at the end of the breadcrumbs.
+ *   - display_breadcrumb: A boolean indicating whether the breadcrumbs should
+ *     be displayed.
+ *   - breadcrumb_separator: A string representing the text to be used as the
+ *     breadcrumb separator.
+ *   - display_trailing_separator: A boolean indicating whether a trailing
+ *     seperator should be added at the end of the breadcrumbs.
  *
  * @return
  *   A string containing the breadcrumb output.
  */
 function zen_breadcrumb($variables) {
-  $breadcrumb = $variables['breadcrumb'];
   $output = '';
 
   // Determine if we are to display the breadcrumb.
-  $show_breadcrumb = $variables['breadcrumb_settings']['zen_breadcrumb'];
-  if ($show_breadcrumb == 'yes' || $show_breadcrumb == 'admin' && arg(0) == 'admin') {
-
-    // Optionally get rid of the homepage link.
-    $show_breadcrumb_home = $variables['breadcrumb_settings']['zen_breadcrumb_home'];
-    if (!$show_breadcrumb_home) {
-      array_shift($breadcrumb);
+  if ($variables['display_breadcrumb'] && !empty($variables['breadcrumb'])) {
+    $variables['title_attributes_array']['class'][] = 'breadcrumb__title';
+    $separator = '<span class="breadcrumb__separator">' . $variables['breadcrumb_separator'] . '</span>';
+    // Build the breadcrumb trail.
+    $output = '<nav class="breadcrumb" role="navigation">';
+    $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
+    $output .= '<ol class="breadcrumb__list"><li class="breadcrumb__item">';
+    $output .= implode($separator . '</li><li class="breadcrumb__item">', $variables['breadcrumb']);
+    if ($variables['display_trailing_separator']) {
+      $output .= $separator;
     }
-
-    // Return the breadcrumb with separators.
-    if (!empty($breadcrumb)) {
-      $breadcrumb_separator = $variables['breadcrumb_settings']['zen_breadcrumb_separator'];
-      $trailing_separator = $title = '';
-      if ($variables['breadcrumb_settings']['zen_breadcrumb_title']) {
-        $item = menu_get_item();
-        if (!empty($item['tab_parent'])) {
-          // If we are on a non-default tab, use the tab's title.
-          $breadcrumb[] = check_plain($item['title']);
-        }
-        else {
-          $breadcrumb[] = drupal_get_title();
-        }
-      }
-      elseif ($variables['breadcrumb_settings']['zen_breadcrumb_trailing']) {
-        $trailing_separator = $breadcrumb_separator;
-      }
-
-      // Provide a navigational heading to give context for breadcrumb links to
-      // screen-reader users.
-      if (empty($variables['title'])) {
-        $variables['title'] = t('You are here');
-      }
-      $variables['title_attributes_array']['class'][] = 'breadcrumb__title';
-
-      // Build the breadcrumb trail.
-      $output = '<nav class="breadcrumb" role="navigation">';
-      $output .= '<h2' . drupal_attributes($variables['title_attributes_array']) . '>' . $variables['title'] . '</h2>';
-      $output .= '<ol class="breadcrumb__list"><li class="breadcrumb__item">' . implode($breadcrumb_separator . '</li><li class="breadcrumb__item">', $breadcrumb) . $trailing_separator . '</li></ol>';
-      $output .= '</nav>';
-    }
+    $output .= '</li></ol></nav>';
   }
 
   return $output;
