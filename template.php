@@ -621,8 +621,23 @@ function zen_menu_local_task($variables) {
  * Implements hook_preprocess_menu_link().
  */
 function zen_preprocess_menu_link(&$variables, $hook) {
+  // Normalize menu item classes to be an array.
+  if (empty($variables['element']['#attributes']['class'])) {
+    $variables['element']['#attributes']['class'] = array();
+  }
   $menu_item_classes =& $variables['element']['#attributes']['class'];
+  if (!is_array($menu_item_classes)) {
+    $menu_item_classes = array($menu_item_classes);
+  }
+
+  // Normalize menu link classes to be an array.
+  if (empty($variables['element']['#localized_options']['attributes']['class'])) {
+    $variables['element']['#localized_options']['attributes']['class'] = array();
+  }
   $menu_link_classes =& $variables['element']['#localized_options']['attributes']['class'];
+  if (!is_array($menu_link_classes)) {
+    $menu_link_classes = array($menu_link_classes);
+  }
 
   // Add BEM-style classes to the menu item classes.
   $extra_classes = array('menu__item');
