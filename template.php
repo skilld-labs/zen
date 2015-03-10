@@ -221,8 +221,13 @@ function zen_process_html_tag(&$variables) {
   $tag = &$variables['element'];
 
   if ($tag['#tag'] == 'style' || $tag['#tag'] == 'script') {
-    // Remove redundant type attribute and CDATA comments.
-    unset($tag['#attributes']['type'], $tag['#value_prefix'], $tag['#value_suffix']);
+    // Remove redundant CDATA comments.
+    unset($tag['#value_prefix'], $tag['#value_suffix']);
+
+    // Remove redundant type attribute.
+    if (isset($tag['#attributes']['type']) && $tag['#attributes']['type'] !== 'text/ng-template') {
+      unset($tag['#attributes']['type']);
+    }
 
     // Remove media="all" but leave others unaffected.
     if (isset($tag['#attributes']['media']) && $tag['#attributes']['media'] === 'all') {
