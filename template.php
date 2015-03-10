@@ -254,7 +254,7 @@ function zen_preprocess_page(&$variables, $hook) {
   $secondary_links = variable_get('menu_secondary_links_source', 'user-menu');
   if ($secondary_links) {
     $menus = function_exists('menu_get_menus') ? menu_get_menus() : menu_list_system_menus();
-    $variables['secondary_menu_heading'] = $menus[$secondary_links];
+    $variables['secondary_menu_heading'] = isset($menus[$secondary_links]) ? $menus[$secondary_links] : '';
   }
   else {
     $variables['secondary_menu_heading'] = '';
