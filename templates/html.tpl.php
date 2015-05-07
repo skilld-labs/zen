@@ -20,7 +20,7 @@
   <?php if ($default_mobile_metatags): ?>
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
   <?php endif; ?>
 
   <?php print $styles; ?>
@@ -34,7 +34,7 @@
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p class="skip-link__wrapper">
-      <a href="#<?php print $skip_link_anchor; ?>" class="skip-link visually-hidden--focusable"><?php print $skip_link_text; ?></a>
+      <a href="#<?php print $skip_link_anchor; ?>" class="skip-link visually-hidden--focusable" id="skip-link"><?php print $skip_link_text; ?></a>
     </p>
   <?php endif; ?>
   <?php print $page_top; ?>

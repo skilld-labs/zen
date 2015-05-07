@@ -55,7 +55,7 @@
     <div class="main-content" role="main">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
-      <a id="main-content"></a>
+      <a href="#skip-link" class="visually-hidden--focusable" id="main-content">Back to top</a>
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <h1><?php print $title; ?></h1>
@@ -105,7 +105,7 @@
     ?>
 
     <?php if ($sidebar_first || $sidebar_second): ?>
-      <aside class="sidebars">
+      <aside class="sidebars" role="complementary">
         <?php print $sidebar_first; ?>
         <?php print $sidebar_second; ?>
       </aside>
