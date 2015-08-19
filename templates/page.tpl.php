@@ -73,8 +73,10 @@
 
     <div class="main-navigation">
 
+      <a href="#skip-link" class="visually-hidden--focusable" id="main-menu" tabindex="-1">Back to top</a>
+
       <?php if ($main_menu): ?>
-        <nav class="main-menu" role="navigation" id="main-menu" tabindex="-1">
+        <nav class="main-menu" role="navigation">
           <?php
           // This code snippet is hard to modify. We recommend turning off the
           // "Main menu" on your sub-theme's settings form, deleting this PHP
@@ -83,7 +85,7 @@
           print theme('links__system_main_menu', array(
             'links' => $main_menu,
             'attributes' => array(
-              'class' => array('links', 'inline', 'clearfix'),
+              'class' => array('navbar', 'clearfix'),
             ),
             'heading' => array(
               'text' => t('Main menu'),
