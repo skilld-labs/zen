@@ -402,7 +402,15 @@ function zen_preprocess_comment(&$variables, $hook) {
   }
   $variables['classes_array'][] = $variables['zebra'];
 
+  // Add the comment__permalink class.
+  $uri = entity_uri('comment', $variables['comment']);
+  $uri_options = $uri['options'] + array('attributes' => array('class' => array('comment__permalink'), 'rel' => 'bookmark'));
+  $variables['permalink'] = l(t('Permalink'), $uri['path'], $uri_options);
+
+  // Remove core's permalink class and add the comment__title class.
   $variables['title_attributes_array']['class'][] = 'comment__title';
+  $uri_options = $uri['options'] + array('attributes' => array('rel' => 'bookmark'));
+  $variables['title'] = l($variables['comment']->subject, $uri['path'], $uri_options);
 }
 
 /**
