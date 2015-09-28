@@ -146,11 +146,11 @@ function zen_preprocess_html(&$variables, $hook) {
   );
 
   // Send X-UA-Compatible HTTP header to force IE to use the most recent
-  // rendering engine or use Chrome's frame rendering engine if available.
+  // rendering engine.
   // This also prevents the IE compatibility mode button to appear when using
   // conditional classes on the html tag.
   if (is_null(drupal_get_http_header('X-UA-Compatible'))) {
-    drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
+    drupal_add_http_header('X-UA-Compatible', 'IE=edge');
   }
 
   $variables['skip_link_anchor'] = check_plain(theme_get_setting('zen_skip_link_anchor'));
