@@ -804,10 +804,10 @@ function zen_mark($variables) {
   $type = $variables['type'];
 
   if ($type == MARK_NEW) {
-    return ' <mark class="new">' . t('new') . '</mark>';
+    return ' <mark class="highlight-mark">' . t('new') . '</mark>';
   }
   elseif ($type == MARK_UPDATED) {
-    return ' <mark class="updated">' . t('updated') . '</mark>';
+    return ' <mark class="highlight-mark">' . t('updated') . '</mark>';
   }
 }
 
