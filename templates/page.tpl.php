@@ -72,7 +72,7 @@
       endif;
     ?>
 
-    <div class="<?php print $content_class; ?>" role="main">
+    <main class="<?php print $content_class; ?>" role="main">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a href="#skip-link" class="visually-hidden--focusable" id="main-content">Back to top</a>
@@ -89,7 +89,7 @@
       <?php endif; ?>
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
-    </div>
+    </main>
 
     <div class="layout-swap__top layout-3col__full">
 
