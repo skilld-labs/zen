@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="page">
+<div class="layout-center">
 
   <header class="header" role="banner">
 
@@ -50,9 +50,29 @@
 
   </header>
 
-  <div class="main">
+  <div class="layout-3col layout-swap">
 
-    <div class="main-content" role="main">
+    <?php
+      // Render the sidebars to see if there's anything in them.
+      $sidebar_first  = render($page['sidebar_first']);
+      $sidebar_second = render($page['sidebar_second']);
+      // Decide on layout classes by checking if sidebars have content.
+      $content_class = 'layout-3col__full';
+      $sidebar_first_class = $sidebar_second_class = '';
+      if ($sidebar_first && $sidebar_second):
+        $content_class = 'layout-3col__right-content';
+        $sidebar_first_class = 'layout-3col__left-sidebar';
+        $sidebar_second_class = 'layout-3col__left-sidebar';
+      elseif ($sidebar_second):
+        $content_class = 'layout-3col__left-content';
+        $sidebar_second_class = 'layout-3col__right-sidebar';
+      elseif ($sidebar_first):
+        $content_class = 'layout-3col__right-content';
+        $sidebar_first_class = 'layout-3col__left-sidebar';
+      endif;
+    ?>
+
+    <div class="<?php print $content_class; ?>" role="main">
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a href="#skip-link" class="visually-hidden--focusable" id="main-content">Back to top</a>
@@ -71,7 +91,7 @@
       <?php print $feed_icons; ?>
     </div>
 
-    <div class="main-navigation">
+    <div class="layout-swap__top layout-3col__full">
 
       <a href="#skip-link" class="visually-hidden--focusable" id="main-menu" tabindex="-1">Back to top</a>
 
@@ -100,15 +120,14 @@
 
     </div>
 
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      $sidebar_first  = render($page['sidebar_first']);
-      $sidebar_second = render($page['sidebar_second']);
-    ?>
-
-    <?php if ($sidebar_first || $sidebar_second): ?>
-      <aside class="sidebars" role="complementary">
+    <?php if ($sidebar_first): ?>
+      <aside class="<?php print $sidebar_first_class; ?>" role="complementary">
         <?php print $sidebar_first; ?>
+      </aside>
+    <?php endif; ?>
+
+    <?php if ($sidebar_second): ?>
+      <aside class="<?php print $sidebar_second_class; ?>" role="complementary">
         <?php print $sidebar_second; ?>
       </aside>
     <?php endif; ?>
