@@ -422,12 +422,10 @@ function zen_preprocess_comment(&$variables, $hook) {
  *   The name of the template being rendered ("region" in this case.)
  */
 function zen_preprocess_region(&$variables, $hook) {
-  // Sidebar regions get some extra classes and a common template suggestion.
+  // Use a template with no wrapper for the sidebar regions.
   if (strpos($variables['region'], 'sidebar_') === 0) {
-    $variables['classes_array'][] = 'column';
-    $variables['classes_array'][] = 'sidebar';
-    // Allow a region-specific template to override Zen's region--sidebar.
-    array_unshift($variables['theme_hook_suggestions'], 'region__sidebar');
+    // Allow a region-specific template to override Zen's region--no-wrapper.
+    array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
   }
   // Use a template with no wrapper for the content region.
   elseif ($variables['region'] == 'content') {
