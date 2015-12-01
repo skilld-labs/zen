@@ -21,12 +21,11 @@ function zen_drush_command() {
       'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
       'path'         => 'The path where your theme will be created. Defaults to: sites/all/themes',
       'description'  => 'A description of your theme.',
-      'without-rtl'  => 'Remove all RTL stylesheets.',
     ),
     'examples' => array(
       'drush zen "My theme name"' => 'Create a sub-theme, using the default options.',
       'drush zen "My theme name" my_theme' => 'Create a sub-theme with a specific machine name.',
-      'drush zen "My theme" --without-rtl --path=sites/default/themes' => 'Create a sub-theme in the specified directory without RTL stylesheets.',
+      'drush zen "My theme" --path=sites/default/themes --description="So amazing."' => 'Create a sub-theme in the specified directory with a custom description.',
     ),
   );
 
