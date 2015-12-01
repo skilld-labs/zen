@@ -87,28 +87,6 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   drush_op('zen_file_str_replace', $subtheme_path . '/theme-settings.php', 'STARTERKIT', $machine_name);
   drush_op('zen_file_str_replace', $subtheme_path . '/template.php', 'STARTERKIT', $machine_name);
 
-  // Remove all RTL stylesheets.
-  if ($without_rtl = drush_get_option('without-rtl')) {
-    foreach (array('layouts/_fixed', 'layouts/_responsive', 'components/_misc', 'base/_normalize', 'styles') as $file) {
-      // Move any sub-directory into a separate variable.
-      list($sub_dir, $css_file) = explode('/', $file . '/');
-      if (!$css_file) {
-        $css_file = $sub_dir;
-        $sub_dir = '';
-      }
-      else {
-        $sub_dir .= '/';
-      }
-      // Remove the RTL css file.
-      $css_file = $sub_dir . (($css_file[0] == '_') ? substr($css_file, 1) : $css_file);
-      drush_op('unlink', drush_normalize_path($subtheme_path . '/css/' . $css_file . '-rtl.css'));
-      drush_op('zen_file_str_replace', $subtheme_path . '/css/' . $css_file . '.css', ' /* LTR */', '');
-      // Remove the RTL sass file.
-      drush_op('unlink', drush_normalize_path($subtheme_path . '/sass/' . $file . '-rtl.scss'));
-      drush_op('zen_file_str_replace', $subtheme_path . '/sass/' . $file . '.scss', ' /* LTR */', '');
-    }
-  }
-
   // Notify user of the newly created theme.
   drush_print(dt('Starter kit for "!name" created in: !path', array(
     '!name' => $name,
