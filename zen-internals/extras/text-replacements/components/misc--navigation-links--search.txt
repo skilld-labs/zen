@@ -1,6 +1,0 @@
-  /* Main menu and secondary menu links and menu block links. */
-}
-.main-navigation .block {
-  margin-bottom: 0;
-}
-.main-navigation .links,

@@ -1,3 +1,0 @@
-
-  /* Only display useful links. */
-  .main-content a[href^="javascript:"]:after,

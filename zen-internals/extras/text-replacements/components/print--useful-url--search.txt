@@ -1,1 +1,0 @@
-  .main-content a[href^="javascript:"]:after,

@@ -5,9 +5,12 @@ screenshot  = zen-internals/screenshot.png
 core        = 7.x
 engine      = phptemplate
 
+stylesheets[all][] = system.base.css
 stylesheets[all][] = system.menus.css
 stylesheets[all][] = system.messages.css
 stylesheets[all][] = system.theme.css
+stylesheets[all][] = comment.css
+stylesheets[all][] = node.css
 
 regions[header]         = Header
 regions[navigation]     = Navigation bar
@@ -26,7 +29,6 @@ settings[zen_breadcrumb_separator] = ' › '
 settings[zen_breadcrumb_home]      = 1
 settings[zen_breadcrumb_trailing]  = 0
 settings[zen_breadcrumb_title]     = 0
-settings[zen_layout]               = zen-responsive-sidebars
 settings[zen_skip_link_anchor]     = main-menu
 settings[zen_skip_link_text]       = Jump to navigation
 settings[zen_meta][]               = html5

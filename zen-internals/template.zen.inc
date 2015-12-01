@@ -17,7 +17,5 @@ function _zen_preprocess_html(&$variables, $hook) {
   // Add Zen's stylesheets manually instead of via its .info file. We do not
   // want the stylesheets to be inherited from Zen since it becomes impossible
   // to re-order the stylesheets in the sub-theme.
-  $directory = drupal_get_path('theme', 'zen') . '/zen-internals/css/';
-  $stylesheet = (theme_get_setting('zen_layout') == 'zen-fixed-width') ? 'styles-fixed.css' : 'styles.css';
-  drupal_add_css($directory . $stylesheet, array('group' => CSS_THEME, 'every_page' => TRUE));
+  drupal_add_css(drupal_get_path('theme', 'zen') . '/zen-internals/css/styles.css', array('group' => CSS_THEME, 'every_page' => TRUE));
 }

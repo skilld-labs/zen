@@ -1,3 +1,7 @@
+// This script is used by the MAINTAINERS to generate the CSS files from the
+// STARTERKIT's Sass files. It's a copy of STARTERKIT/gulpfile.s with the
+// "default" task overridden and the STARTERKIT path added to includePaths.
+
 'use strict';
 
 var importOnce = require('node-sass-import-once'),
@@ -17,6 +21,7 @@ var options = {};
 options.rootPath = {
   project     : __dirname + '/',
   styleGuide  : __dirname + '/styleguide/',
+  starterkit  : path.resolve('../STARTERKIT') + '/',
   theme       : __dirname + '/'
 };
 
@@ -31,6 +36,7 @@ options.theme = {
 options.sass = {
   importer: importOnce,
   includePaths: [
+    options.rootPath.starterkit + 'sass',
     options.theme.sass,
     options.rootPath.project + 'node_modules/breakpoint-sass/stylesheets',
     options.rootPath.project + 'node_modules/chroma-sass/sass',
@@ -116,7 +122,7 @@ var gulp      = require('gulp'),
   sass     = require('gulp-sass');
 
 // The default task.
-gulp.task('default', ['build']);
+gulp.task('default', ['styles:production']);
 
 // #################
 // Build everything.

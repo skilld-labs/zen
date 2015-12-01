@@ -1,5 +1,0 @@
-.watermark {
-  height: 0;
-  overflow: visible;
-  /* Remove background highlighting from <mark> in normalize. */
-  background-color: transparent;
