@@ -17,6 +17,8 @@ if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
   system_rebuild_theme_data();
   // Rebuild theme registry.
   drupal_theme_rebuild();
+  // Turn on template debugging.
+  $conf['theme_debug'] = TRUE;
 }
 
 
