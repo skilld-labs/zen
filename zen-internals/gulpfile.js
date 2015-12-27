@@ -114,9 +114,9 @@ var gulp      = require('gulp'),
   $           = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create(),
   del         = require('del'),
-  runSequence = require('run-sequence'),
   // gulp-load-plugins will report "undefined" error unless you load gulp-sass manually.
-  sass     = require('gulp-sass');
+  sass        = require('gulp-sass'),
+  kss         = require('kss');
 
 // The default task.
 gulp.task('default', ['styles:production']);
@@ -124,10 +124,7 @@ gulp.task('default', ['styles:production']);
 // #################
 // Build everything.
 // #################
-gulp.task('build', ['styles:production', 'styleguide'], function(cb) {
-  // Run linting last, otherwise its output gets lost.
-  runSequence(['lint'], cb);
-});
+gulp.task('build', ['styles:production', 'styleguide', 'lint']);
 
 // ##########
 // Build CSS.
@@ -154,23 +151,9 @@ gulp.task('styles:production', ['clean:css'], function() {
 // ##################
 // Build style guide.
 // ##################
-var flags = [], values;
-// Construct our command-line flags from the options.styleGuide object.
-for (var flag in options.styleGuide) {
-  if (options.styleGuide.hasOwnProperty(flag)) {
-    values = options.styleGuide[flag];
-    if (!Array.isArray(values)) {
-      values = [values];
-    }
-    for (var i = 0; i < values.length; i++) {
-      flags.push('--' + flag + '=\'' + values[i] + '\'');
-    }
-  }
-}
-gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], $.shell.task(
-  ['kss-node <%= flags %>'],
-  {templateData: {flags: flags.join(' ')}}
-));
+gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function(cb) {
+  kss(options.styleGuide, cb);
+});
 
 gulp.task('styleguide:chroma-kss-markup', function() {
   return gulp.src(options.theme.sass + 'style-guide/chroma-kss-markup.scss')
@@ -182,17 +165,15 @@ gulp.task('styleguide:chroma-kss-markup', function() {
 });
 
 // Debug the generation of the style guide with the --verbose flag.
-gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], $.shell.task(
-  ['kss-node <%= flags %>'],
-  {templateData: {flags: flags.join(' ') + ' --verbose'}}
-));
+gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function(cb) {
+  options.styleGuide.verbose = true;
+  kss(options.styleGuide, cb);
+});
 
 // #########################
 // Lint Sass and JavaScript.
 // #########################
-gulp.task('lint', function(cb) {
-  runSequence(['lint:js', 'lint:sass'], cb);
-});
+gulp.task('lint', ['lint:sass', 'lint:js']);
 
 // Lint JavaScript.
 gulp.task('lint:js', function() {
