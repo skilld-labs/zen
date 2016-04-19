@@ -10,7 +10,7 @@
 // wrapping it with an "anonymous closure". See:
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
-(function ($, Drupal, window, document) {
+(function (Drupal) {
 
   'use strict';
 
@@ -23,4 +23,9 @@
     }
   };
 
-})(jQuery, Drupal, this, this.document);
+  // We pass the parameters of this anonymous function are the global variables
+  // that this script depend on. For example, if the above script requires
+  // jQuery, you should change (Drupal) to (Drupal, jQuery) in the line below
+  // and, in this file's first line of JS, change function (Drupal) to
+  // (Drupal, $)
+})(Drupal);
