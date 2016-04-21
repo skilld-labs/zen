@@ -61,7 +61,7 @@ function drush_zen($machine_name = NULL, $name = NULL) {
         // Allow localize.drupal.org to pick up the string to translate.
         t('The name of the theme was not specified.');
       }
-      return drush_set_error('THEME_NAME_NOT_SPECIFIED', dt('The name of the theme was not specified.'));
+      return drush_set_error('ZEN_SUBTHEME_NAME_NOT_SPECIFIED', dt('The name of the theme was not specified.'));
     }
   }
 
@@ -84,16 +84,27 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   }
   $subtheme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $subtheme_path . '/' . $machine_name);
 
-  // Make a fresh copy of the original starter kit.
-  $starter_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen') . '/STARTERKIT');
+  // Ensure the destination directory exists.
   if (!is_dir(dirname($subtheme_path))) {
     if (FALSE) {
       // Allow localize.drupal.org to pick up the string to translate.
       t('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path)));
     }
-    return drush_set_error('STARTERKIT_NOT_FOUND', dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
+    return drush_set_error('ZEN_DESTINATION_NOT_FOUND', dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
   }
-  drush_op('drush_copy_dir', $starter_path, $subtheme_path);
+
+  // Ensure the STARTERKIT directory exists.
+  $starterkit_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen') . '/STARTERKIT');
+  if (!is_dir($starterkit_path)) {
+    if (FALSE) {
+      // Allow localize.drupal.org to pick up the string to translate.
+      t('The STARTERKIT directory was not found in "!directory"', array('!directory' => dirname($starterkit_path)));
+    }
+    return drush_set_error('ZEN_STARTERKIT_NOT_FOUND', dt('The STARTERKIT directory was not found in "!directory"', array('!directory' => dirname($starterkit_path))));
+  }
+
+  // Make a fresh copy of the original starter kit.
+  drush_op('drush_copy_dir', $starterkit_path, $subtheme_path);
 
   // Rename the .info file.
   $subtheme_info_file = $subtheme_path . '/' . $machine_name . '.info';
