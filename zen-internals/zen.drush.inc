@@ -18,7 +18,7 @@ function zen_drush_command() {
     ),
     'options' => array(
       'name'         => 'A name for your theme.',
-      'machine-name' => '[a-z, 0-9] A machine-readable name for your theme.',
+      'machine-name' => '[a-z, 0-9, _] A machine-readable name for your theme.',
       'path'         => 'The path where your theme will be created. Defaults to: sites/all/themes',
       'description'  => 'A description of your theme.',
     ),
