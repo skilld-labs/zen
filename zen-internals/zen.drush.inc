@@ -69,7 +69,7 @@ function drush_zen($name = NULL, $machine_name = NULL) {
       // Allow localize.drupal.org to pick up the string to translate.
       t('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path)));
     }
-    drush_die(dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
+    return drush_set_error('STARTERKIT_NOT_FOUND', dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
   }
   drush_op('drush_copy_dir', $starter_path, $subtheme_path);
 
