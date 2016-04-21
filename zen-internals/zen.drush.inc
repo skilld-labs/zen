@@ -65,6 +65,10 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   // Make a fresh copy of the original starter kit.
   $starter_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . drupal_get_path('theme', 'zen') . '/STARTERKIT');
   if (!is_dir(dirname($subtheme_path))) {
+    if (FALSE) {
+      // Allow localize.drupal.org to pick up the string to translate.
+      t('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path)));
+    }
     drush_die(dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
   }
   drush_op('drush_copy_dir', $starter_path, $subtheme_path);
@@ -87,6 +91,10 @@ function drush_zen($name = NULL, $machine_name = NULL) {
   drush_op('zen_file_str_replace', $subtheme_path . '/template.php', 'STARTERKIT', $machine_name);
 
   // Notify user of the newly created theme.
+  if (FALSE) {
+    // Allow localize.drupal.org to pick up the string to translate.
+    t('Starter kit for "!name" created in: !path', array('!name' => $name, '!path' => $subtheme_path));
+  }
   drush_print(dt('Starter kit for "!name" created in: !path', array(
     '!name' => $name,
     '!path' => $subtheme_path,
