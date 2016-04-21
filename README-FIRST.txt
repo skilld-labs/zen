@@ -51,10 +51,10 @@ Theme .info file
   Drupal needs to know: its name, description, features, template regions, CSS
   files, and JavaScript. Don't worry about all these lines just yet.
 
-CSS
+Sass
   Once you have created your sub-theme, look at the README.txt in your
-  sub-theme's css folder. Don't freak out about all the files in this directory;
-  just read the README.txt file for an explanation.
+  sub-theme's sass folder. Don't freak out about all the files in this
+  directory; just read the README.txt file for an explanation.
 
 Templates
   Now take a look at the README.txt in your sub-theme's templates folder.
@@ -76,12 +76,9 @@ INSTALLATION
  1. Download Zen from https://drupal.org/project/zen
 
  2. Unpack the downloaded file, take the entire zen folder and place it in your
-    Drupal installation under sites/all/themes. (Additional installation folders
-    can be used; see https://drupal.org/getting-started/install-contrib/themes
-    for more information.)
-
-    For more information about acceptable theme installation directories, read
-    the sites/default/default.settings.php file in your Drupal installation.
+    Drupal installation under sites/all/themes. Alternative installation folders
+    can be used; for more information read the sites/example.sites.php file in
+    your Drupal installation.
 
  3. Log in as an administrator on your Drupal site and go to the Appearance page
     at admin/appearance. You will see the Zen theme listed under the Disabled
