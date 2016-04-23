@@ -7,10 +7,7 @@
  * @see https://drupal.org/node/1728208
  */
 ?><!DOCTYPE html>
-<!--[if lte IE 8]><html class="lt-ie10 lt-ie9" <?php print $html_attributes; ?>><![endif]-->
-<!--[if IE 9]><html class="lt-ie10" <?php print $html_attributes; ?>><![endif]-->
-<!--[if (gt IE 9)|(gt IEMobile 7)]><!--><html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
-
+<html <?php print $html_attributes . $rdf_namespaces; ?>>
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
