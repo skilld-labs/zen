@@ -785,33 +785,3 @@ function zen_mark($variables) {
     return ' <mark class="highlight-mark">' . t('updated') . '</mark>';
   }
 }
-
-/**
- * Alters the default Panels render callback so it removes the panel separator.
- */
-function zen_panels_default_style_render_region($variables) {
-  return implode('', $variables['panes']);
-}
-
-/**
- * Override or insert variables into the panels-pane templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("block" in this case.)
- */
-function zen_preprocess_panels_pane(&$variables, $hook) {
-  // Use no pane wrapper for common page elements.
-  switch ($variables['pane']->subtype) {
-    case 'page_content':
-    case 'pane_header':
-    case 'pane_messages':
-    case 'pane_navigation':
-      // Allow a pane-specific template to override Zen's suggestion.
-      array_unshift($variables['theme_hook_suggestions'], 'panels_pane__no_wrapper');
-      break;
-  }
-  // Add component-style class name to pane title.
-  $variables['title_attributes_array']['class'][] = 'pane__title';
-}
