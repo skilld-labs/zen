@@ -75,6 +75,8 @@ options.styleGuide = {
   ],
   destination: options.rootPath.styleGuide,
 
+  builder: path.resolve(path.dirname(require.resolve('kss')), 'builder/twig'),
+
   // The css and js paths are URLs, like '/misc/jquery.js'.
   // The following paths are relative to the generated style guide.
   css: [
@@ -167,7 +169,7 @@ gulp.task('styleguide:chroma-kss-markup', function() {
   return gulp.src(options.theme.sass + 'style-guide/chroma-kss-markup.scss')
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
-    .pipe($.rename('chroma-kss-markup.hbs'))
+    .pipe($.rename('chroma-kss-markup.twig'))
     .pipe($.size({showFiles: true}))
     .pipe(gulp.dest(options.theme.css + 'style-guide'));
 });
@@ -236,7 +238,7 @@ gulp.task('watch:css', ['styles'], function() {
 gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function() {
   return gulp.watch([
       options.theme.sass + '**/*.scss',
-      options.theme.sass + '**/*.hbs'
+      options.theme.sass + '**/*.twig'
     ], options.gulpWatchOptions, ['styleguide', 'lint:sass']);
 });
 
@@ -255,7 +257,7 @@ gulp.task('clean:styleguide', function() {
   return del([
       options.styleGuide.destination + '*.html',
       options.styleGuide.destination + 'public',
-      options.theme.css + '**/*.hbs'
+      options.theme.css + '**/*.twig'
     ], {force: true});
 });
 
