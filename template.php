@@ -434,7 +434,7 @@ function zen_preprocess_region(&$variables, $hook) {
     // Allow a region-specific template to override Zen's region--no-wrapper.
     array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
   }
-  // Add a SMACSS-style class for header region.
+  // Add a BEM-style class for header region.
   elseif ($variables['region'] == 'header') {
     array_unshift($variables['classes_array'], 'header__region');
   }
@@ -596,17 +596,6 @@ function zen_form_node_form_alter(&$form, &$form_state, $form_id) {
 function zen_menu_local_tasks(&$variables) {
   $output = '';
 
-  // Add theme hook suggestions for tab type.
-  foreach (array('primary', 'secondary') as $type) {
-    if (!empty($variables[$type])) {
-      foreach (array_keys($variables[$type]) as $key) {
-        if (isset($variables[$type][$key]['#theme']) && ($variables[$type][$key]['#theme'] == 'menu_local_task' || is_array($variables[$type][$key]['#theme']) && in_array('menu_local_task', $variables[$type][$key]['#theme']))) {
-          $variables[$type][$key]['#theme'] = array('menu_local_task__' . $type, 'menu_local_task');
-        }
-      }
-    }
-  }
-
   if (!empty($variables['primary'])) {
     $variables['primary']['#prefix'] = '<h2 class="visually-hidden">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="tabs">';
@@ -615,7 +604,7 @@ function zen_menu_local_tasks(&$variables) {
   }
   if (!empty($variables['secondary'])) {
     $variables['secondary']['#prefix'] = '<h2 class="visually-hidden">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs--secondary">';
+    $variables['secondary']['#prefix'] .= '<ul class="tabs tabs--secondary">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
@@ -629,21 +618,12 @@ function zen_menu_local_tasks(&$variables) {
  * @ingroup themeable
  */
 function zen_menu_local_task($variables) {
-  $type = $class = FALSE;
-
   $link = $variables['element']['#link'];
   $link_text = $link['title'];
 
-  // Check for tab type set in zen_menu_local_tasks().
-  if (is_array($variables['element']['#theme'])) {
-    $type = in_array('menu_local_task__secondary', $variables['element']['#theme']) ? 'tabs--secondary' : 'tabs';
-  }
-
-  // Add SMACSS-style class names.
-  if ($type) {
-    $link['localized_options']['attributes']['class'][] = $type . '__tab-link';
-    $class = $type . '__tab';
-  }
+  // Add BEM-style class names.
+  $link['localized_options']['attributes']['class'][] = 'tabs__tab-link';
+  $class = 'tabs__tab';
 
   if (!empty($variables['element']['#active'])) {
     // Add text to indicate active tab for non-visual users.
@@ -657,16 +637,11 @@ function zen_menu_local_task($variables) {
     $link['localized_options']['html'] = TRUE;
     $link_text = t('!local-task-title!active', array('!local-task-title' => $link['title'], '!active' => $active));
 
-    if (!$type) {
-      $class = 'active';
-    }
-    else {
-      $link['localized_options']['attributes']['class'][] = 'is-active';
-      $class .= ' is-active';
-    }
+    $link['localized_options']['attributes']['class'][] = 'is-active';
+    $class .= ' is-active';
   }
 
-  return '<li' . ($class ? ' class="' . $class . '"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
+  return '<li class="' . $class . '">' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
 }
 
 /**
