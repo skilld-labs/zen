@@ -130,8 +130,6 @@ settings[zen_breadcrumb_trailing]  = 0
 settings[zen_breadcrumb_title]     = 0
 settings[zen_skip_link_anchor]     = main-menu
 settings[zen_skip_link_text]       = Jump to navigation
-settings[zen_meta][]               = html5
-settings[zen_meta][]               = meta
 settings[zen_rebuild_registry]     = 1
 
 ; To make this sub-theme an admin theme with shortcut links next to titles,
