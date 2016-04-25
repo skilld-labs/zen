@@ -1,0 +1,10 @@
+# Set the default values of settings on the theme-settings.php form.
+
+zen_breadcrumb: 'yes'
+zen_breadcrumb_separator: ' › '
+zen_breadcrumb_home: 1
+zen_breadcrumb_trailing: 0
+zen_breadcrumb_title: 0
+zen_skip_link_anchor: 'main-menu'
+zen_skip_link_text: 'Jump to navigation'
+zen_rebuild_registry: 0

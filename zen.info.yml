@@ -1,0 +1,32 @@
+name: Zen
+description: 'Zen sub-themes are the ultimate starting themes for Drupal 8. Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README-FIRST.txt on how to create a theme with Zen.'
+screenshot: zen-internals/screenshot.png
+version: 8.x-7.x-dev
+
+core: 8.x
+type: theme
+base theme: classy
+
+stylesheets-remove:
+ - system.base.css
+ - system.menus.css
+ - system.messages.css
+ - system.theme.css
+ - comment.css
+ - node.css
+
+libraries:
+  - zen/styles
+
+regions:
+  header: Header
+  navigation: Navigation bar
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second : Second sidebar
+  footer: Footer
+  bottom: Page bottom
+  page_top: Page top
+  page_bottom: Page bottom
