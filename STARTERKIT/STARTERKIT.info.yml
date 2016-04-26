@@ -13,7 +13,7 @@
 # page at admin/appearance.
 
 name: Zen Sub-theme Starter Kit
-description: Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.
+description: Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.<p>The Zen theme requires the <a href="https://www.drupal.org/project/components">Components Libraries module</a> in order to function properly.</p>
 screenshot: screenshot.png
 
 
@@ -58,6 +58,13 @@ libraries-override:
 # libraries:
 #   - STARTERKIT/base
 
+
+# This section is used by the contrib module, Component Libraries. It allows you
+# to reference .twig files in your sass/ directory by using the Twig namespace:
+# @STARTERKIT-components
+component-libraries:
+  STARTERKIT-components:
+    - sass
 
 
 # This section lists the regions defined in Zen's default page.html.twig and
