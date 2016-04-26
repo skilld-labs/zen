@@ -119,12 +119,6 @@ function zen_preprocess_html(&$variables, $hook) {
   $variables['base_path'] = base_path();
   $variables['path_to_zen'] = drupal_get_path('theme', 'zen');
 
-  // If the user is silly and enables Zen as the theme, add some styles.
-  if ($GLOBALS['theme'] == 'zen') {
-    include_once './' . $variables['path_to_zen'] . '/zen-internals/template.zen.inc';
-    _zen_preprocess_html($variables, $hook);
-  }
-
   // Attributes for html element.
   $variables['html_attributes_array'] = array(
     'lang' => $variables['language']->language,
