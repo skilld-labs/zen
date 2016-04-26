@@ -123,8 +123,33 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   $subtheme_files['libraries'] = $subtheme_path . '/' . $machine_name . '.libraries.yml';
   drush_op('zen_rename', $subtheme_path . '/STARTERKIT.libraries.yml', $subtheme_files['libraries']);
 
-  // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
+  // Add theme-settings.php to the list of files to filter.
   $subtheme_files['theme-settings'] = $subtheme_path . '/theme-settings.php';
+
+  // Add all Twig templates to the list of files to filter.
+  $directoryIterator = new \RecursiveDirectoryIterator($subtheme_path . '/templates');
+  $twigFilter = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current, $key, $iterator) {
+    // Skip hidden files and directories.
+    if ($current->getFilename()[0] === '.') {
+      return FALSE;
+    }
+    else if ($current->getFilename() === 'node_modules') {
+      return FALSE;
+    }
+    if ($current->isDir()) {
+      return TRUE;
+    }
+    else {
+      // Only return Twig templates.
+      return strpos($current->getFilename(), '.html.twig') !== FALSE;
+    }
+  });
+  $iterator = new \RecursiveIteratorIterator($twigFilter);
+  foreach ($iterator as $path => $info) {
+    $subtheme_files[$info->getFilename()] = $path;
+  }
+
+  // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
   foreach ($subtheme_files as $filename) {
     drush_op('zen_file_str_replace', $filename, 'STARTERKIT', $machine_name);
   }

@@ -3,7 +3,7 @@
 // To make the link completely hidden until a user tabs to the link, combine it
 // with the `visually-hidden` component.
 //
-// :focus - Focus styling.
+// .visually-hidden.visually-hidden--focusable - Visually hidden version.
 //
 // Markup: skip-link.twig
 //
@@ -21,11 +21,7 @@
     color: color(skip-link);
   }
 
-  &__wrapper {
-    margin: 0;
-
-    @media print {
-      display: none;
-    }
+  @media print {
+    display: none;
   }
 }

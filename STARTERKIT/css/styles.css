@@ -1520,12 +1520,8 @@ tr .ajax-progress .throbber {
   color: #fff;
 }
 
-.skip-link__wrapper {
-  margin: 0;
-}
-
 @media print {
-  .skip-link__wrapper {
+  .skip-link {
     display: none;
   }
 }

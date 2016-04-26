@@ -1,3 +1,5 @@
-<p class="skip-link__wrapper">
-  <a href="#main-menu" class="skip-link visually-hidden--focusable {{modifier_class}}">{{content}}</a>
-</p>
+{{ attach_library('STARTERKIT/skip-link') }}
+
+<a href="#main-content" class="skip-link {{ modifier_class }}">
+  {{ 'Skip to main content'|t }}
+</a>

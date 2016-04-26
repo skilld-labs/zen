@@ -4,6 +4,11 @@ base:
     base:
       css/styles.css: {}
 
+skip-link:
+  css:
+    component:
+      css/components/skip-link/skip-link.css
+
 # Optionally add some JavaScripts to your theme.
 
 #  scripts:

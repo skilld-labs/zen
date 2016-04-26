@@ -133,9 +133,6 @@ function zen_preprocess_html(&$variables, $hook) {
     drupal_add_http_header('X-UA-Compatible', 'IE=edge');
   }
 
-  $variables['skip_link_anchor'] = check_plain(theme_get_setting('zen_skip_link_anchor'));
-  $variables['skip_link_text']   = check_plain(theme_get_setting('zen_skip_link_text'));
-
   // Return early, so the maintenance page does not call any of the code below.
   if ($hook != 'html') {
     return;

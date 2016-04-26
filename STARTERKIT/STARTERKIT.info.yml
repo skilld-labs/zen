@@ -61,10 +61,12 @@ libraries-override:
 
 # This section is used by the contrib module, Component Libraries. It allows you
 # to reference .twig files in your sass/ directory by using the Twig namespace:
-# @STARTERKIT-components
+# @STARTERKIT
 component-libraries:
-  STARTERKIT-components:
-    - sass
+  STARTERKIT:
+    paths:
+      - sass
+      - templates
 
 
 # This section lists the regions defined in Zen's default page.html.twig and
