@@ -75,8 +75,10 @@ libraries-override:
 
 regions:
   header: Header
-  navigation: Navigation bar
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
   highlighted: Highlighted
+  breadcrumb: Breadcrumb
   help: Help
   content: Content
   sidebar_first: First sidebar
@@ -84,7 +86,7 @@ regions:
   footer: Footer
   bottom: Page bottom
   # The page_top and page_bottom regions are hidden, which means they will not
-  # show up on the blocks administration page. But they are required in order for
-  # the html.tpl.php to work properly, so do not delete them.
+  # show up on the block layout page. But they are required in order for the
+  # html.html.twig to work properly, so do not delete them.
   page_top: 'Page top'
   page_bottom: 'Page bottom'
