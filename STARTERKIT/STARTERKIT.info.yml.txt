@@ -1,19 +1,20 @@
 # Drupal's .info.yml files allow themers to easily specify some of the static
-# properties of your theme. Properties such as its name, stylesheets,
-# javascripts, and block regions.
+# properties of your theme. Properties such as its name, libraries of style
+# sheets and javascripts, and block regions.
 #
 # Drupal 8 stores a cache of the data in this .info.yml files. If you modify any
-# lines in this file, you MUST refresh Drupal 8's cache by simply visiting the
-# Appearance page at admin/appearance.
+# lines in this file, you MUST refresh Drupal 8's cache. You can do this with
+# the "drush cr" command or by simply visiting the Appearance page at
+# admin/appearance.
 
 
 
 # The name, description and screenshot used for this theme on the Appearance
 # page at admin/appearance.
 
-screenshot: screenshot.png
 name: Zen Sub-theme Starter Kit
 description: Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.
+screenshot: screenshot.png
 
 
 
@@ -22,64 +23,55 @@ description: Read the <a href="https://drupal.org/node/873778">online docs</a> o
 core: 8.x
 type: theme
 # Classy vs. Stable as a base theme: https://www.lullabot.com/articles/a-tale-of-two-base-themes-in-drupal-8-core
-#base theme: stable
-#base theme: classy
+# Zen uses classy as its base theme.
 base theme: zen
 
 
 
-# This section controls the CSS files for your theme. There are 3 different
-# things you can do with a "stylesheets" line:
-# - Add a new stylesheet for your theme.
-# - Override a module's stylesheet. If the stylesheet you are adding uses the
-#   same filename as a stylesheet from a Drupal core or contrib module, your CSS
-#   file will be used instead of the module's file.
-# - Remove a module's stylesheet. If you specify the name of a Drupal core or
-#   contrib module's stylesheets, Drupal will remove that stylesheet if you do
-#   NOT include a file with that name with your theme.
-#
-# stylesheets[MEDIA][]: FILE
-#
-# The "FILE" is the name of the stylesheet to add/override/remove.
-# The "MEDIA" in the first set of brackets is a media type or a media query.
-# Typical CSS media types include "all", "screen", "print", and "handheld". A
-# typical media query is "screen and (max-width: 320px)".
-#
-# CSS2.1 media types: http://www.w3.org/TR/CSS21/media.html#media-types
-# CSS3 media queries: http://www.w3.org/TR/css3-mediaqueries/
+# This section controls the libraries for your theme. For full documentation,
+# see https://www.drupal.org/node/2216195
 
-# First we remove any Drupal styling that Zen provides as components.
-#stylesheets-remove:
-#  - core/modules/system/css/system.admin.css
-#  - core/modules/system/css/system.diff.css
-#  - core/modules/system/css/system.maintenance.css
-#  - core/modules/system/css/system.module.css
-#  - core/modules/system/css/system.theme.css
-
+# The "libraries-override:" section will allow you to:
+# - Replace an entire library.
+# - Remove an entire library.
+# - Replace an asset in a library with another asset.
+# - Remove an asset from a library.
 libraries-override:
-  - zen/styles: false
+  system/base:
+    css:
+      component:
+        css/components/clearfix.module.css: false
+  classy/base:
+    css:
+      component:
+        css/components/breadcrumb.css: false
+        css/components/button.css: false
+        css/components/pager.css: false
+        css/components/tabs.css: false
+  zen/styles: false
 
-# Then we add our own base styles
+# The "libraries-extend:" section will allow you to add your own JS or CSS to
+# existing libraries.
+# libraries-extend:
+
+# The "libraries:" section will add a library to _all_ pages.
 # libraries:
 #   - STARTERKIT/base
 
 
 
 # This section lists the regions defined in Zen's default page.html.twig and
-# maintenance-page.html.twig files. The name before the semi-colon is the machine name of
-# the region. The text after the semi-colon is the region's description used on the
-# admin/structure/block page.
+# maintenance-page.html.twig files. The name before the semi-colon is the
+# machine name of the region. The text after the semi-colon is the region's
+# description used on the admin/structure/block page.
 #
 # In the page.html.twig, the contents of the region are output with a
-# {{page.MACHINE_NAME}} variable and, in the maintenance-page.html.twig, the region is
-# output with a {{MACHINE_NAME}} variable. For example, with these lines in the .info.yml
+# {{page.MACHINE_NAME}} variable. For example, with these lines in the .info.yml
 # file:
 #   regions:
 #     header_top: Header top
 # You'll use this variable in page.html.twig:
 #   {{ page.header_top }}
-# And you'll use this variable in maintenance-page.html.twig:
-#   {{ header_top }}
 
 regions:
   header: Header

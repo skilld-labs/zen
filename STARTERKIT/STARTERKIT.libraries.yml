@@ -1,0 +1,10 @@
+# These lines define the STARTERKIT/base library.
+base:
+  css:
+    base:
+      css/styles.css: {}
+
+# Optionally add some JavaScripts to your theme.
+
+#  scripts:
+#    js/script.js: {}
