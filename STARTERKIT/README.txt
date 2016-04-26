@@ -20,8 +20,8 @@ installed in sites/all/themes/, but any valid theme directory is acceptable
 * (.tpl.php) file to your sub-theme, you will need to rebuild the "theme
 * registry." See https://drupal.org/node/173880#theme-registry
 *
-* Drupal 7 also stores a cache of the data in .info files. If you modify any
-* lines in your sub-theme's .info file, you MUST refresh Drupal 7's cache by
+* Drupal 8 also stores a cache of the data in .info.yml files. If you modify any
+* lines in your sub-theme's .info.yml file, you MUST refresh Drupal 8's cache by
 * simply visiting the Appearance page at admin/appearance.
 *
 
@@ -99,21 +99,20 @@ CREATING A SUB-THEME MANUALLY
 
  2. Setup the basic information for your sub-theme.
 
-    In your new sub-theme folder, rename the STARTERKIT.info.txt file to include
-    the name of your new sub-theme and remove the ".txt" extension. Then edit
-    the .info file by editing the name and description field.
+    In your new sub-theme folder, rename the STARTERKIT.info.yml file to include
+    the name of your new sub-theme. Then edit the .info.yml file by editing the
+    name and description field.
 
-    For example, rename the foo/STARTERKIT.info file to foo/foo.info. Edit the
-    foo.info file and change "name = Zen Sub-theme Starter Kit" to "name = Foo"
-    and "description = Read..." to "description = A Zen sub-theme".
+    For example, rename the foo/STARTERKIT.info.yml file to foo/foo.info.yml.
+    Edit the foo.info.yml file and change "name: Zen Sub-theme Starter Kit" to
+    "name: Foo" and "description = Read..." to "description = A Zen sub-theme".
 
-      Why? The .info file describes the basic things about your theme: its
-      name, description, features, template regions, CSS files, and JavaScript
-      files. See the Drupal Theme Guide for more info:
-      https://www.drupal.org/documentation/theme
+      Why? The .info.yml file describes the basic things about your theme: its
+      name, description, template regions, and libraries. See the Drupal Theme
+      Guide for more info: https://www.drupal.org/documentation/theme
 
     Remember to visit your site's Appearance page at admin/appearance to refresh
-    Drupal 7's cache of .info file data.
+    Drupal 8's cache of .info.yml file data.
 
  3. Edit your sub-theme to use the proper function names.
 

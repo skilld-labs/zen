@@ -2,7 +2,7 @@
 
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
-  // Rebuild .info data.
+  // Rebuild .info.yml data.
   system_rebuild_theme_data();
   // Rebuild theme registry.
   drupal_theme_rebuild();

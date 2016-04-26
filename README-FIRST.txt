@@ -46,10 +46,14 @@ Installation
 Building a theme with Zen
   See the STARTERKIT/README.txt file for full instructions.
 
-Theme .info file
-  Your sub-theme's .info file holds the basic information about your theme that
-  Drupal needs to know: its name, description, features, template regions, CSS
-  files, and JavaScript. Don't worry about all these lines just yet.
+Theme .info.yml file
+  Your sub-theme's .info.yml file holds the basic information about your theme
+  that Drupal needs to know: its name, description, template regions, and
+  libraries. Don't worry about all these lines just yet.
+
+Theme .libraries.yml file
+  Your sub-theme's .libraries.yml file describes collections of CSS and JS
+  called libraries. Don't worry about all these lines just yet.
 
 Sass
   Once you have created your sub-theme, look at the README.txt in your

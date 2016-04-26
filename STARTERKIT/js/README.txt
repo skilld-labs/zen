@@ -1,14 +1,13 @@
-Your theme can add JavaScript files in two ways:
+Your theme can add JavaScript files in just two steps:
 
 1. To add a JavaScript file to all pages on your website, edit your sub-theme's
-   .info file and add a line like this one:
+   .libraries.yml file and add it to one of your existing libraries. Or create
+   a new library.
 
-     scripts[] = js/my-jquery-script.js
+2. You can add the library in two easy ways and one hard way with PHP. Here's
+   the two easy ways:
 
-2. To add a JavaScript file depending on a certain condition, you can add it
-   using some PHP code in a preprocess function:
-
-     drupal_add_js(drupal_get_path('theme', 'THEME_NAME') . '/js/my-jquery-script.js', array('group' => JS_THEME));
-
-   For the full documentation of drupal_add_js(), see:
-     http://api.drupal.org/api/function/drupal_add_js
+   - have the JavaScript load on all pages by adding the library that has your
+     JS file to your theme's .info.yml file.
+   - have the JavaScript load when a specific Twig file is used by adding
+     {{ attach_library('my_theme/my-library') }} to that Twig file.

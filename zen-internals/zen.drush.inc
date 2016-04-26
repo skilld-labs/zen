@@ -104,7 +104,7 @@ function drush_zen($machine_name = NULL, $name = NULL) {
 
   // Rename the .info.yml file.
   $subtheme_files['info'] = $subtheme_path . '/' . $machine_name . '.info.yml';
-  drush_op('zen_rename', $subtheme_path . '/STARTERKIT.info.yml.txt', $subtheme_files['info']);
+  drush_op('zen_rename', $subtheme_path . '/STARTERKIT.info.yml', $subtheme_files['info']);
 
   // Alter the contents of the .info.yml file based on the command options.
   $alterations = array(
