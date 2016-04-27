@@ -983,9 +983,6 @@ span.field-label {
 }
 
 .visually-hidden,
-.visually-hidden--focusable,
-.element-focusable,
-.element-invisible,
 .breadcrumb__title,
 .main-navigation .block-menu .block__title,
 .main-navigation .block-menu-block .block__title {
@@ -1000,8 +997,8 @@ span.field-label {
 .visually-hidden--off,
 .visually-hidden--focusable:active,
 .visually-hidden--focusable:focus,
-.element-focusable:active,
-.element-focusable:focus {
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
   position: static !important;
   clip: auto;
   height: auto;
