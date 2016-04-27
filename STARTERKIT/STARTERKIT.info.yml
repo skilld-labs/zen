@@ -65,7 +65,7 @@ libraries-override:
 component-libraries:
   STARTERKIT:
     paths:
-      - sass
+      - components
       - templates
 
 
