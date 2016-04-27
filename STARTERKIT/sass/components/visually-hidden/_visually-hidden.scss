@@ -31,10 +31,6 @@
 // Drupal selectors.
 //
 
-.element-invisible {
-  @extend %visually-hidden;
-}
-
-.element-focusable {
+.visually-hidden.focusable {
   @extend %visually-hidden--focusable;
 }
