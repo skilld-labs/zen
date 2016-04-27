@@ -21,10 +21,11 @@ options.rootPath = {
 };
 
 options.theme = {
-  root  : options.rootPath.theme,
-  css   : options.rootPath.theme + 'css/',
-  sass  : options.rootPath.theme + 'sass/',
-  js    : options.rootPath.theme + 'js/'
+  root       : options.rootPath.theme,
+  components : options.rootPath.theme + 'components/',
+  build      : options.rootPath.theme + 'components/asset-builds/',
+  css        : options.rootPath.theme + 'components/asset-builds/css/',
+  js         : options.rootPath.theme + 'js/'
 };
 
 // Set the URL used to access the Drupal website under development.
@@ -34,7 +35,7 @@ options.drupalURL = 'http://localhost';
 options.sass = {
   importer: importOnce,
   includePaths: [
-    options.theme.sass,
+    options.theme.components,
     options.rootPath.project + 'node_modules/breakpoint-sass/stylesheets',
     options.rootPath.project + 'node_modules/chroma-sass/sass',
     options.rootPath.project + 'node_modules/sassy-maps/sass',
@@ -46,11 +47,11 @@ options.sass = {
 };
 
 options.sassFiles = [
-  options.theme.sass + '**/*.scss',
+  options.theme.components + '**/*.scss',
   // Do not open Sass partials as they will be included as needed.
-  '!' + options.theme.sass + '**/_*.scss',
+  '!' + options.theme.components + '**/_*.scss',
   // Chroma markup has its own gulp task.
-  '!' + options.theme.sass + 'style-guide/chroma-kss-markup.scss'
+  '!' + options.theme.components + 'style-guide/chroma-kss-markup.scss'
 ];
 
 // Define which browsers to add vendor prefixes for.
@@ -64,9 +65,9 @@ options.autoprefixer = {
 // Define the style guide paths and options.
 options.styleGuide = {
   source: [
-    options.theme.sass,
-    options.theme.css + 'style-guide/'
+    options.theme.components
   ],
+  mask: /\.less|\.sass|\.scss|\.styl|\.stylus/,
   destination: options.rootPath.styleGuide,
 
   builder: 'builder/twig',
@@ -95,7 +96,9 @@ options.scssLint = {
 options.eslint = {
   files  : [
     options.theme.js + '**/*.js',
-    '!' + options.theme.js + '**/*.min.js'
+    '!' + options.theme.js + '**/*.min.js',
+    options.theme.components + '**/*.js',
+    '!' + options.theme.build
   ]
 };
 
@@ -139,6 +142,7 @@ gulp.task('styles', ['clean:css'], function() {
     .pipe($.sourcemaps.init())
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
+    .pipe($.rename({dirname: ''}))
     .pipe($.size({showFiles: true}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest(options.theme.css))
@@ -149,6 +153,7 @@ gulp.task('styles:production', ['clean:css'], function() {
   return gulp.src(options.sassFiles)
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
+    .pipe($.rename({dirname: ''}))
     .pipe($.size({showFiles: true}))
     .pipe(gulp.dest(options.theme.css));
 });
@@ -161,12 +166,12 @@ gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], fu
 });
 
 gulp.task('styleguide:chroma-kss-markup', function() {
-  return gulp.src(options.theme.sass + 'style-guide/chroma-kss-markup.scss')
+  return gulp.src(options.theme.components + 'style-guide/chroma-kss-markup.scss')
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
     .pipe($.rename('chroma-kss-markup.twig'))
     .pipe($.size({showFiles: true}))
-    .pipe(gulp.dest(options.theme.css + 'style-guide'));
+    .pipe(gulp.dest(options.theme.build + 'twig'));
 });
 
 // Debug the generation of the style guide with the --verbose flag.
@@ -200,13 +205,13 @@ gulp.task('lint:sass', function() {
   if (options.disableTask.lintSass) {
     return Promise.resolve();
   }
-  return gulp.src(options.theme.sass + '**/*.scss')
+  return gulp.src(options.theme.components + '**/*.scss')
     .pipe($.scssLint({'bundleExec': true, 'config': options.scssLint.yml}));
 });
 
 // Lint Sass and throw an error for a CI to catch.
 gulp.task('lint:sass-with-fail', function() {
-  return gulp.src(options.theme.sass + '**/*.scss')
+  return gulp.src(options.theme.components + '**/*.scss')
     .pipe($.scssLint({'bundleExec': true, 'config': options.scssLint.yml}))
     .pipe($.scssLint.failReporter());
 });
@@ -227,13 +232,13 @@ gulp.task('browser-sync', ['watch:css'], function() {
 });
 
 gulp.task('watch:css', ['styles'], function() {
-  return gulp.watch(options.theme.sass + '**/*.scss', options.gulpWatchOptions, ['styles']);
+  return gulp.watch(options.theme.components + '**/*.scss', options.gulpWatchOptions, ['styles']);
 });
 
 gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function() {
   return gulp.watch([
-      options.theme.sass + '**/*.scss',
-      options.theme.sass + '**/*.twig'
+      options.theme.components + '**/*.scss',
+      options.theme.components + '**/*.twig'
     ], options.gulpWatchOptions, ['styleguide', 'lint:sass']);
 });
 

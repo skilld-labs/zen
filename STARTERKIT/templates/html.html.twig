@@ -40,7 +40,7 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-    {% include "@STARTERKIT/components/skip-link/skip-link.twig" with {modifier_class: 'visually-hidden visually-hidden--focusable'} %}
+    {% include "@STARTERKIT/navigation/skip-link/skip-link.twig" with {modifier_class: 'visually-hidden visually-hidden--focusable'} %}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
