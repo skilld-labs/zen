@@ -21,6 +21,11 @@ layouts:
     layout:
       components/asset-builds/css/layouts.css: {}
 
+footer:
+  css:
+    component:
+      components/asset-builds/css/footer.css: {}
+
 skip-link:
   css:
     component:
