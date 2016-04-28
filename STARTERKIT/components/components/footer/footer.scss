@@ -8,7 +8,7 @@
 
 .footer,
 %footer {
-  @include type-layout(xs, 1);
-  @include margin-top(2, xs);
-  @include margin-bottom(1, xs);
+  @include type-layout(s, 1);
+  @include margin-top(2, s);
+  @include margin-bottom(1, s);
 }
