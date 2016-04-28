@@ -1,24 +1,5 @@
 <?php
 
-// Auto-rebuild the theme registry during theme development.
-if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
-  // Rebuild .info.yml data.
-  system_rebuild_theme_data();
-  // Rebuild theme registry.
-  drupal_theme_rebuild();
-  // Turn on template debugging.
-  $GLOBALS['conf']['theme_debug'] = TRUE;
-}
-
-
-/**
- * Implements HOOK_theme().
- */
-function zen_theme(&$existing, $type, $theme, $path) {
-  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/template.theme-registry.inc';
-  return _zen_theme($existing, $type, $theme, $path);
-}
-
 /**
  * Override or insert variables for the breadcrumb theme function.
  *

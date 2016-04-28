@@ -12,6 +12,31 @@
  */
 
 
+// Auto-rebuild the theme registry during theme development.
+if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
+  // Rebuild .info.yml data and clear Twig cache.
+  $theme_handler = \Drupal::service('theme_handler');
+  $theme_handler->refreshInfo();
+
+  // Rebuild theme registry.
+  // @TODO Clear the theme registry.
+  // $theme_registry = \Drupal::service('theme.registry');
+  // $theme_registry->reset();
+  // $theme_registry->get();
+
+  // @TODO: Turn on Twig debugging. Though its probably impossible from a theme.
+  // $GLOBALS['conf']['theme_debug'] = TRUE;
+}
+
+/**
+ * Implements HOOK_theme().
+ */
+function zen_theme(&$existing, $type, $theme, $path) {
+  include_once './' . drupal_get_path('theme', 'zen') . '/zen-internals/theme-registry.inc';
+  return _zen_theme($existing, $type, $theme, $path);
+}
+
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
