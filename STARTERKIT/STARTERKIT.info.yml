@@ -87,6 +87,7 @@ regions:
   secondary_menu: Secondary menu
   highlighted: Highlighted
   breadcrumb: Breadcrumb
+  title: Title
   help: Help
   content: Content
   sidebar_first: First sidebar

@@ -252,26 +252,6 @@ function zen_html_head_alter(&$head) {
 }
 
 /**
- * Override or insert variables into the page template.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("page" in this case.)
- */
-function zen_preprocess_page(&$variables, $hook) {
-  // Find the title of the menu used by the secondary links.
-  $secondary_links = variable_get('menu_secondary_links_source', 'user-menu');
-  if ($secondary_links) {
-    $menus = function_exists('menu_get_menus') ? menu_get_menus() : menu_list_system_menus();
-    $variables['secondary_menu_heading'] = isset($menus[$secondary_links]) ? $menus[$secondary_links] : '';
-  }
-  else {
-    $variables['secondary_menu_heading'] = '';
-  }
-}
-
-/**
  * Override or insert variables into the maintenance page template.
  *
  * @param $variables
@@ -388,31 +368,6 @@ function zen_preprocess_comment(&$variables, $hook) {
   $variables['title_attributes_array']['class'][] = 'comment__title';
   $uri_options = $uri['options'] + array('attributes' => array('rel' => 'bookmark'));
   $variables['title'] = l($variables['comment']->subject, $uri['path'], $uri_options);
-}
-
-/**
- * Preprocess variables for region.tpl.php
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("region" in this case.)
- */
-function zen_preprocess_region(&$variables, $hook) {
-  // Use a template with no wrapper for the sidebar regions.
-  if (strpos($variables['region'], 'sidebar_') === 0) {
-    // Allow a region-specific template to override Zen's region--no-wrapper.
-    array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
-  }
-  // Use a template with no wrapper for the content region.
-  elseif ($variables['region'] == 'content') {
-    // Allow a region-specific template to override Zen's region--no-wrapper.
-    array_unshift($variables['theme_hook_suggestions'], 'region__no_wrapper');
-  }
-  // Add a BEM-style class for header region.
-  elseif ($variables['region'] == 'header') {
-    array_unshift($variables['classes_array'], 'header__region');
-  }
 }
 
 /**

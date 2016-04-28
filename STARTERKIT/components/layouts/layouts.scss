@@ -2,4 +2,6 @@
 
 @import 'layout-3col/layout-3col';
 @import 'layout-center/layout-center';
+// The layout-swap isn't used in page.html.twig. You may wish to remove it to
+// improve front-end performance.
 @import 'layout-swap/layout-swap';
