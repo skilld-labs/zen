@@ -13,7 +13,7 @@ function _zen_theme(&$existing, $type, $theme, $path) {
   // If we are auto-rebuilding the theme registry, warn about the feature.
   $active_theme = \Drupal::theme()->getActiveTheme()->getName();
   $flood_name = $active_theme . '.rebuild_registry_warning';
-  $is_admin_route = service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject());
+  $is_admin_route = \Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject());
   if (
     // Don't display on update.php or install.php.
     !defined('MAINTENANCE_MODE')
