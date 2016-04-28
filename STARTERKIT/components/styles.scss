@@ -23,10 +23,6 @@
 //
 // Style guide: base
 
-// Ensure fonts get loaded first to minimize front-end performance impact.
-@import 'base/fonts';
-@import 'base/normalize';
-
 // Layouts
 //
 // The layout styling for major parts of the page that are included with the
@@ -34,9 +30,6 @@
 // and are not documented.
 //
 // Style guide: layouts
-@import 'layouts/layout-3col/layout-3col';
-@import 'layouts/layout-center/layout-center';
-@import 'layouts/layout-swap/layout-swap';
 
 // Components
 //

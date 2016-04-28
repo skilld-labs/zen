@@ -54,8 +54,8 @@ libraries-override:
 # libraries-extend:
 
 # The "libraries:" section will add a library to _all_ pages.
-# libraries:
-#   - STARTERKIT/base
+libraries:
+  - STARTERKIT/base
 
 
 # This section is used by the contrib module, Component Libraries. It allows you

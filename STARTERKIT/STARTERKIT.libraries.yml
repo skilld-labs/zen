@@ -1,15 +1,27 @@
 # These lines define the STARTERKIT/base library.
 base:
   css:
+    # The SMACSS category, "base", is loaded before other categories. Drupal 8
+    # loads stylesheets based on the SMACSS ordering of:
+    # base, layout, component, state, theme
     base:
-      css/styles.css: {}
+      # The {} brackets allow you to specify the additional options, weight and
+      # media. For example, you can specify this is a print media stylesheet by
+      # specifying: { media: print } Note: this isn't recommended since
+      # separate print stylesheets is bad for front-end performance.
+      components/asset-builds/css/base.css: {}
+  # If this library had JavaScript you could specify it like this:
+  # js:
+  #   js/script.js: {}
+
+
+layouts:
+  css:
+    # The SMACSS category, "layout", is loaded after "base" styles.
+    layout:
+      components/asset-builds/css/layouts.css: {}
 
 skip-link:
   css:
     component:
-      css/components/skip-link/skip-link.css
-
-# Optionally add some JavaScripts to your theme.
-
-#  scripts:
-#    js/script.js: {}
+      components/asset-builds/css/skip-link.css: {}

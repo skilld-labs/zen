@@ -5,8 +5,8 @@
 }
 
 .skip-link:link, .skip-link:visited {
-  background-color: color(skip-link-bg);
-  color: color(skip-link);
+  background-color: #666666;
+  color: #fff;
 }
 
 @media print {

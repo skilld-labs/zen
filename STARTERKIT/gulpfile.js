@@ -76,6 +76,8 @@ options.styleGuide = {
   // The css and js paths are URLs, like '/misc/jquery.js'.
   // The following paths are relative to the generated style guide.
   css: [
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'base.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'layouts.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'style-guide/chroma-kss-styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'style-guide/kss-only.css')
