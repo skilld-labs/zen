@@ -10,3 +10,21 @@
  * See the online documentation for more information:
  *   https://drupal.org/documentation/theme/zen
  */
+
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function zen_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // If on an individual node page, add the node type to theme suggestions.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $first_suggestion = array_shift($suggestions);
+    array_unshift($suggestions, 'page__node__' . $node->bundle());
+    if ($first_suggestion) {
+      array_unshift($suggestions, $first_suggestion);
+    }
+    if (in_array('page__node__edit', $suggestions)) {
+      $suggestions[] = 'page__node__edit__' . $node->bundle();
+    }
+  }
+}
