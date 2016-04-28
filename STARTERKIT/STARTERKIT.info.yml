@@ -56,6 +56,8 @@ libraries-override:
 # The "libraries:" section will add a library to _all_ pages.
 libraries:
   - STARTERKIT/base
+  # @TODO Remove this library and use attach_library() for all component styles.
+  - STARTERKIT/components
 
 
 # This section is used by the contrib module, Component Libraries. It allows you

@@ -533,23 +533,6 @@ span.field-label {
   font-weight: bold;
 }
 
-.skip-link {
-  display: block;
-  padding: 2px 0 3px;
-  text-align: center;
-}
-
-.skip-link:link, .skip-link:visited {
-  background-color: #666666;
-  color: #fff;
-}
-
-@media print {
-  .skip-link {
-    display: none;
-  }
-}
-
 .tabs {
   margin: 1.125rem 0 0;
   line-height: 1.875rem;
