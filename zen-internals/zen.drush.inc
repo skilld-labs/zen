@@ -110,13 +110,21 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   drush_op('zen_rename', $subtheme_path . '/STARTERKIT.info.yml', $subtheme_files['info']);
 
   // Alter the contents of the .info.yml file based on the command options.
-  $alterations = array(
+  $info_strings = array(
     ': Zen Sub-theme Starter Kit' => ': ' . $name,
+    '# core: 8.x' => 'core: 8.x',
+    "core: '8.x'\n" => '',
+    "project: 'zen'\n" => '',
   );
   if ($description = drush_get_option('description')) {
-    $alterations['Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.'] = $description;
+    $info_strings['Read the <a href="https://drupal.org/node/873778">online docs</a> or the included README.txt on how to create a theme with Zen.'] = $description;
   }
-  drush_op('zen_file_str_replace', $subtheme_files['info'], array_keys($alterations), $alterations);
+  $info_regexs = array(
+    array('pattern' => '/\# Information added by Drupal\.org packaging script on [\d-]+\n/', 'replacement' => ''),
+    array('pattern' => "/version: '[^']+'\n/", 'replacement' => ''),
+    array('pattern' => '/datestamp: \d+\n/', 'replacement' => ''),
+  );
+  drush_op('zen_file_replace', $subtheme_files['info'], $info_strings, $info_regexs);
 
   // Rename the .theme file.
   $subtheme_files['theme'] = $subtheme_path . '/' . $machine_name . '.theme';
@@ -154,7 +162,7 @@ function drush_zen($machine_name = NULL, $name = NULL) {
 
   // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
   foreach ($subtheme_files as $filename) {
-    drush_op('zen_file_str_replace', $filename, 'STARTERKIT', $machine_name);
+    drush_op('zen_file_replace', $filename, array('STARTERKIT' => $machine_name));
   }
 
   // Notify user of the newly created theme.
@@ -176,9 +184,20 @@ function zen_rename($source, $destination) {
 /**
  * Replace strings in a file.
  */
-function zen_file_str_replace($file_path, $find, $replace) {
+function zen_file_replace($file_path, $strings, $regexs = array()) {
   $file_path = drush_normalize_path($file_path);
   $file_contents = file_get_contents($file_path);
+
+  // Find text with strings.
+  $find = array_keys($strings);
+  $replace = $strings;
   $file_contents = str_replace($find, $replace, $file_contents);
+
+  // Find text with regex.
+  foreach ($regexs as $regex) {
+    $file_contents = preg_replace($regex['pattern'], $regex['replacement'], $file_contents);
+  }
+
+  // Write to file.
   file_put_contents($file_path, $file_contents);
 }
