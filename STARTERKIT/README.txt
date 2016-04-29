@@ -14,7 +14,7 @@ installed in sites/all/themes/, but any valid theme directory is acceptable
 
 *** IMPORTANT NOTE ***
 *
-* In Drupal 7, the theme system caches which template files and which theme
+* In Drupal 8, the theme system caches which template files and which theme
 * functions should be called. This means that if you add a new theme,
 * preprocess or process function to your template.php file or add a new template
 * (.tpl.php) file to your sub-theme, you will need to rebuild the "theme
@@ -246,15 +246,16 @@ Optional steps:
     You can find a full list of Drupal templates that you can override in the
     templates/README.txt file or https://drupal.org/node/190815
 
-      Why? In Drupal 7 theming, if you want to modify a template included by a
-      module, you should copy the template file from the module's directory to
-      your sub-theme's template directory and then rebuild the theme registry.
-      See the Drupal 7 Theme Guide for more info: https://drupal.org/node/173880
+      Why? In Drupal 8 theming, if you want to modify a template included by a
+      module, you should copy the template file from the classy theme's
+      directory to your sub-theme's template directory and then rebuild the
+      theme registry. See the Drupal 8 Theme Guide for more info:
+      https://drupal.org/node/173880
 
  11. Further extend your sub-theme.
 
     Discover further ways to extend your sub-theme by reading Zen's
     documentation online at:
       https://drupal.org/documentation/theme/zen
-    and Drupal 7's Theme Guide online at:
-      https://drupal.org/theme-guide
+    and Drupal 8's Theme Guide online at:
+      https://drupal.org/theme-guide/8
