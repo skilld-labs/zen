@@ -36,6 +36,11 @@ function zen_drush_command() {
  * Create a Zen sub-theme using the starter kit.
  */
 function drush_zen($machine_name = NULL, $name = NULL) {
+
+  // ***************************************************
+  // Determine all the command line options given.
+  // ***************************************************
+
   // Determine the theme name and machine name.
   if (!isset($name)) {
     // If only given one argument, it is the $name.
@@ -76,17 +81,21 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   $machine_name = preg_replace($search, '', $machine_name);
 
   // Determine the path to the new sub-theme.
-  $subtheme_path = 'themes';
+  $sub_theme_path = 'themes';
   if ($path = drush_get_option('path')) {
-    $subtheme_path = drush_trim_path($path);
+    $sub_theme_path = drush_trim_path($path);
   }
-  $subtheme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $subtheme_path . '/' . $machine_name);
+  $sub_theme_path = drush_normalize_path(drush_get_context('DRUSH_DRUPAL_ROOT') . '/' . $sub_theme_path . '/' . $machine_name);
+
+  // ***************************************************
+  // Error check directories, then copy STARTERKIT.
+  // ***************************************************
 
   // Ensure the destination directory (not the sub-theme folder) exists.
-  if (!is_dir(dirname($subtheme_path))) {
-    return drush_set_error('ZEN_DESTINATION_NOT_FOUND', dt('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path))));
+  if (!is_dir(dirname($sub_theme_path))) {
+    return drush_set_error('ZEN_DESTINATION_NOT_FOUND', dt('The directory "!directory" was not found.', array('!directory' => dirname($sub_theme_path))));
     // Allow localize.drupal.org to pick up the string to translate.
-    if (FALSE) t('The directory "!directory" was not found.', array('!directory' => dirname($subtheme_path)));
+    if (FALSE) t('The directory "!directory" was not found.', array('!directory' => dirname($sub_theme_path)));
   }
 
   // Ensure the STARTERKIT directory exists.
@@ -97,19 +106,24 @@ function drush_zen($machine_name = NULL, $name = NULL) {
     if (FALSE) t('The STARTERKIT directory was not found in "!directory"', array('!directory' => dirname($starterkit_path)));
   }
 
+  drush_print(dt('Copying files from starter kit…'));
+  // Allow localize.drupal.org to pick up the string to translate.
+  if (FALSE) t('Copying files from starter kit…');
+
   // Make a fresh copy of the original starter kit.
-  if (!drush_op('drush_copy_dir', $starterkit_path, $subtheme_path)) {
+  if (!drush_op('drush_copy_dir', $starterkit_path, $sub_theme_path)) {
     // drush_copy_dir errors are fatal errors for our zen drush command.
     return FALSE;
   }
 
-  $subtheme_files = array();
+  // ***************************************************
+  // Alter the contents of the .info.yml file.
+  // ***************************************************
 
-  // Rename the .info.yml file.
-  $subtheme_files['info'] = $subtheme_path . '/' . $machine_name . '.info.yml';
-  drush_op('zen_rename', $subtheme_path . '/STARTERKIT.info.yml', $subtheme_files['info']);
+  drush_print(dt('Updating .info.yml file…'));
+  // Allow localize.drupal.org to pick up the string to translate.
+  if (FALSE) t('Updating .info.yml file…');
 
-  // Alter the contents of the .info.yml file based on the command options.
   $info_strings = array(
     ': Zen Sub-theme Starter Kit' => ': ' . $name,
     '# core: 8.x' => 'core: 8.x',
@@ -124,62 +138,68 @@ function drush_zen($machine_name = NULL, $name = NULL) {
     array('pattern' => "/version: '[^']+'\n/", 'replacement' => ''),
     array('pattern' => '/datestamp: \d+\n/', 'replacement' => ''),
   );
-  drush_op('zen_file_replace', $subtheme_files['info'], $info_strings, $info_regexs);
+  drush_op('zen_file_replace', $sub_theme_path . '/STARTERKIT.info.yml', $info_strings, $info_regexs);
 
-  // Rename the .theme file.
-  $subtheme_files['theme'] = $subtheme_path . '/' . $machine_name . '.theme';
-  drush_op('zen_rename', $subtheme_path . '/STARTERKIT.theme', $subtheme_files['theme']);
+  // ***************************************************
+  // Replace STARTERKIT in file names and contents.
+  // ***************************************************
 
-  // Rename the .libraries.yml file.
-  $subtheme_files['libraries'] = $subtheme_path . '/' . $machine_name . '.libraries.yml';
-  drush_op('zen_rename', $subtheme_path . '/STARTERKIT.libraries.yml', $subtheme_files['libraries']);
+  drush_print(dt('Replacing "STARTERKIT" in all files…'));
+  // Allow localize.drupal.org to pick up the string to translate.
+  if (FALSE) t('Replacing "STARTERKIT" in all files…');
 
-  // Add theme-settings.php to the list of files to filter.
-  $subtheme_files['theme-settings'] = $subtheme_path . '/theme-settings.php';
-
-  // Add all Twig templates to the list of files to filter.
-  $directoryIterator = new \RecursiveDirectoryIterator($subtheme_path . '/templates');
-  $twigFilter = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current, $key, $iterator) {
+  // Iterate through the sub-theme directory finding files to filter.
+  $directoryIterator = new \RecursiveDirectoryIterator($sub_theme_path);
+  $starterKitFilter = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current, $key, $iterator) {
     // Skip hidden files and directories.
     if ($current->getFilename()[0] === '.') {
       return FALSE;
     }
-    else if ($current->getFilename() === 'node_modules') {
+    // Skip node_modules and the asset-builds folder.
+    else if ($current->getFilename() === 'node_modules' || $current->getFilename() === 'asset-builds') {
       return FALSE;
     }
+    // Recursively go through all folders.
     if ($current->isDir()) {
       return TRUE;
     }
     else {
-      // Only return Twig templates.
-      return strpos($current->getFilename(), '.html.twig') !== FALSE;
+      // Only return Twig templates or files with "STARTERKIT" in their name.
+      return strpos($current->getFilename(), '.twig') !== FALSE || strpos($current->getFilename(), 'STARTERKIT') !== FALSE;
     }
   });
-  $iterator = new \RecursiveIteratorIterator($twigFilter);
+  $iterator = new \RecursiveIteratorIterator($starterKitFilter);
+  $sub_theme_files = array();
   foreach ($iterator as $path => $info) {
-    $subtheme_files[$info->getFilename()] = $path;
+    $sub_theme_files[$info->getFilename()] = $path;
   }
 
-  // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
-  foreach ($subtheme_files as $filename) {
+  // Add theme-settings.php to the list of files to filter.
+  $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/theme-settings.php';
+
+  foreach ($sub_theme_files as $filename) {
+    // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.
     drush_op('zen_file_replace', $filename, array('STARTERKIT' => $machine_name));
+
+    // Rename all files with STARTERKIT in their name.
+    if (strpos($filename, 'STARTERKIT') !== FALSE) {
+      drush_op('rename', $filename, str_replace('STARTERKIT', $machine_name, $filename));
+    }
   }
 
+  // ***************************************************
   // Notify user of the newly created theme.
+  // ***************************************************
+
   drush_print(dt('Starter kit for "!name" created in: !path', array(
     '!name' => $name,
-    '!path' => $subtheme_path,
+    '!path' => $sub_theme_path,
   )));
   // Allow localize.drupal.org to pick up the string to translate.
-  if (FALSE) t('Starter kit for "!name" created in: !path', array('!name' => $name, '!path' => $subtheme_path));
+  if (FALSE) t('Starter kit for "!name" created in: !path', array('!name' => $name, '!path' => $sub_theme_path));
 }
 
-/**
- * Rename a file.
- */
-function zen_rename($source, $destination) {
-  drush_op('rename', drush_normalize_path($source), drush_normalize_path($destination));
-}
+
 
 /**
  * Replace strings in a file.
@@ -188,16 +208,18 @@ function zen_file_replace($file_path, $strings, $regexs = array()) {
   $file_path = drush_normalize_path($file_path);
   $file_contents = file_get_contents($file_path);
 
-  // Find text with strings.
-  $find = array_keys($strings);
-  $replace = $strings;
-  $file_contents = str_replace($find, $replace, $file_contents);
+  if ($file_contents !== FALSE) {
+    // Find text with strings.
+    $find = array_keys($strings);
+    $replace = $strings;
+    $file_contents = str_replace($find, $replace, $file_contents);
 
-  // Find text with regex.
-  foreach ($regexs as $regex) {
-    $file_contents = preg_replace($regex['pattern'], $regex['replacement'], $file_contents);
+    // Find text with regex.
+    foreach ($regexs as $regex) {
+      $file_contents = preg_replace($regex['pattern'], $regex['replacement'], $file_contents);
+    }
+
+    // Write to file.
+    file_put_contents($file_path, $file_contents);
   }
-
-  // Write to file.
-  file_put_contents($file_path, $file_contents);
 }
