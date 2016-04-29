@@ -1,3 +1,7 @@
+/* eslint-env node, es6 */
+/* global Promise */
+/* eslint-disable key-spacing, one-var, no-multi-spaces, max-nested-callbacks, quote-props */
+
 'use strict';
 
 var importOnce = require('node-sass-import-once'),
@@ -100,6 +104,7 @@ options.scssLint = {
 // Define the paths to the JS files to lint.
 options.eslint = {
   files  : [
+    options.rootPath.project + 'gulpfile.js',
     options.theme.js + '**/*.js',
     '!' + options.theme.js + '**/*.min.js',
     options.theme.components + '**/*.js',
@@ -142,7 +147,7 @@ gulp.task('build', ['styles:production', 'styleguide', 'lint']);
 // ##########
 // Build CSS.
 // ##########
-gulp.task('styles', ['clean:css'], function() {
+gulp.task('styles', ['clean:css'], function () {
   return gulp.src(options.sassFiles)
     .pipe($.sourcemaps.init())
     .pipe(sass(options.sass).on('error', sass.logError))
@@ -154,7 +159,7 @@ gulp.task('styles', ['clean:css'], function() {
     .pipe($.if(browserSync.active, browserSync.stream({match: '**/*.css'})));
 });
 
-gulp.task('styles:production', ['clean:css'], function() {
+gulp.task('styles:production', ['clean:css'], function () {
   return gulp.src(options.sassFiles)
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
@@ -166,11 +171,11 @@ gulp.task('styles:production', ['clean:css'], function() {
 // ##################
 // Build style guide.
 // ##################
-gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function() {
+gulp.task('styleguide', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function () {
   return kss(options.styleGuide);
 });
 
-gulp.task('styleguide:chroma-kss-markup', function() {
+gulp.task('styleguide:chroma-kss-markup', function () {
   return gulp.src(options.theme.components + 'style-guide/chroma-kss-markup.scss')
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
@@ -180,7 +185,7 @@ gulp.task('styleguide:chroma-kss-markup', function() {
 });
 
 // Debug the generation of the style guide with the --verbose flag.
-gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function() {
+gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup'], function () {
   options.styleGuide.verbose = true;
   return kss(options.styleGuide);
 });
@@ -191,14 +196,14 @@ gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:chroma-kss-markup
 gulp.task('lint', ['lint:sass', 'lint:js']);
 
 // Lint JavaScript.
-gulp.task('lint:js', function() {
+gulp.task('lint:js', function () {
   return gulp.src(options.eslint.files)
     .pipe($.eslint())
     .pipe($.eslint.format());
 });
 
 // Lint JavaScript and throw an error for a CI to catch.
-gulp.task('lint:js-with-fail', function() {
+gulp.task('lint:js-with-fail', function () {
   return gulp.src(options.eslint.files)
     .pipe($.eslint())
     .pipe($.eslint.format())
@@ -206,7 +211,7 @@ gulp.task('lint:js-with-fail', function() {
 });
 
 // Lint Sass.
-gulp.task('lint:sass', function() {
+gulp.task('lint:sass', function () {
   if (options.disableTask.lintSass) {
     return Promise.resolve();
   }
@@ -215,7 +220,7 @@ gulp.task('lint:sass', function() {
 });
 
 // Lint Sass and throw an error for a CI to catch.
-gulp.task('lint:sass-with-fail', function() {
+gulp.task('lint:sass-with-fail', function () {
   return gulp.src(options.theme.components + '**/*.scss')
     .pipe($.scssLint({'bundleExec': true, 'config': options.scssLint.yml}))
     .pipe($.scssLint.failReporter());
@@ -226,7 +231,7 @@ gulp.task('lint:sass-with-fail', function() {
 // ##############################
 gulp.task('watch', ['browser-sync', 'watch:lint-and-styleguide', 'watch:js']);
 
-gulp.task('browser-sync', ['watch:css'], function() {
+gulp.task('browser-sync', ['watch:css'], function () {
   if (options.disableTask.browserSync) {
     return Promise.resolve();
   }
@@ -236,18 +241,18 @@ gulp.task('browser-sync', ['watch:css'], function() {
   });
 });
 
-gulp.task('watch:css', ['styles'], function() {
+gulp.task('watch:css', ['styles'], function () {
   return gulp.watch(options.theme.components + '**/*.scss', options.gulpWatchOptions, ['styles']);
 });
 
-gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function() {
+gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function () {
   return gulp.watch([
-      options.theme.components + '**/*.scss',
-      options.theme.components + '**/*.twig'
-    ], options.gulpWatchOptions, ['styleguide', 'lint:sass']);
+    options.theme.components + '**/*.scss',
+    options.theme.components + '**/*.twig'
+  ], options.gulpWatchOptions, ['styleguide', 'lint:sass']);
 });
 
-gulp.task('watch:js', ['lint:js'], function() {
+gulp.task('watch:js', ['lint:js'], function () {
   return gulp.watch(options.eslint.files, options.gulpWatchOptions, ['lint:js']);
 });
 
@@ -257,21 +262,21 @@ gulp.task('watch:js', ['lint:js'], function() {
 gulp.task('clean', ['clean:css', 'clean:styleguide']);
 
 // Clean style guide files.
-gulp.task('clean:styleguide', function() {
+gulp.task('clean:styleguide', function () {
   // You can use multiple globbing patterns as you would with `gulp.src`
   return del([
-      options.styleGuide.destination + '*.html',
-      options.styleGuide.destination + 'public',
-      options.theme.css + '**/*.twig'
-    ], {force: true});
+    options.styleGuide.destination + '*.html',
+    options.styleGuide.destination + 'public',
+    options.theme.css + '**/*.twig'
+  ], {force: true});
 });
 
 // Clean CSS files.
-gulp.task('clean:css', function() {
+gulp.task('clean:css', function () {
   return del([
-      options.theme.css + '**/*.css',
-      options.theme.css + '**/*.map'
-    ], {force: true});
+    options.theme.css + '**/*.css',
+    options.theme.css + '**/*.map'
+  ], {force: true});
 });
 
 
