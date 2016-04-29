@@ -80,7 +80,10 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'layouts.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'chroma-kss-styles.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css')
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'components.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'footer.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css')
   ],
   js: [
   ],
