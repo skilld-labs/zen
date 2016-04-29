@@ -98,7 +98,10 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   }
 
   // Make a fresh copy of the original starter kit.
-  drush_op('drush_copy_dir', $starterkit_path, $subtheme_path);
+  if (!drush_op('drush_copy_dir', $starterkit_path, $subtheme_path)) {
+    // drush_copy_dir errors are fatal errors for our zen drush command.
+    return FALSE;
+  }
 
   $subtheme_files = array();
 
