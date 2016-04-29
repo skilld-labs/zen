@@ -79,14 +79,14 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'base.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'layouts.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'styles.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'style-guide/chroma-kss-styles.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'style-guide/kss-only.css')
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'chroma-kss-styles.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css')
   ],
   js: [
   ],
 
   homepage: 'homepage.md',
-  title: 'Zen 7.x-6.x Style Guide'
+  title: 'Zen 8.x-7.x Style Guide'
 };
 
 // Define the path to the project's .scss-lint.yml.
