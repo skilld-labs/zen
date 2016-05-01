@@ -25,7 +25,7 @@ function zen_preprocess_breadcrumb(&$variables, $hook) {
   }
 
   // Add the title of the page to the end of the breadcrumb list.
-  if (!empty($variables['breadcrumb']) && theme_get_setting('zen_breadcrumb_title')) {
+  if (theme_get_setting('zen_breadcrumb_title')) {
     $item = menu_get_item();
     if (!empty($item['tab_parent'])) {
       // If we are on a non-default tab, use the tab's title.
