@@ -266,8 +266,8 @@ gulp.task('clean:styleguide', function () {
   // You can use multiple globbing patterns as you would with `gulp.src`
   return del([
     options.styleGuide.destination + '*.html',
-    options.styleGuide.destination + 'public',
-    options.theme.css + '**/*.twig'
+    options.styleGuide.destination + 'kss-assets',
+    options.theme.build + 'twig/*.twig'
   ], {force: true});
 });
 
