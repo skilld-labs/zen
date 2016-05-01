@@ -31,14 +31,13 @@ $image-url-subdirectory: 'components' !default;
 //
 // which would output `url(../../base/grouping/blockquote.svg)`.
 //
-// $subdirectory   - Optional. The relative path from the root of your Sass
-//                   source to the sub-directory where components usually lie.
-//                   Defaults to `$image-url-subdirectory`.
+// $subdirectory   = $image-url-subdirectory - Optional. The relative path from
+//                   the root of your Sass source to the sub-directory where
+//                   components usually lie.
 // $path           - Required. The path to the image relative to the
 //                   `$subdirectory`.
-// $path-to-source - Optional. The relative path from the css build directory to
-//                   the sass source directory. Defaults to
-//                   `$image-url-path-to-source`.
+// $path-to-source = $image-url-path-to-source - Optional. The relative path
+//                   from the css build directory to the sass source directory.
 //
 // Style guide: sass.mixins.image-url
 @function image-url($path-to-components, $path: null, $path-to-source: $image-url-path-to-source) {
