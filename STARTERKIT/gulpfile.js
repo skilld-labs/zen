@@ -51,14 +51,6 @@ options.sass = {
   outputStyle: 'expanded'
 };
 
-options.sassFiles = [
-  options.theme.components + '**/*.scss',
-  // Do not open Sass partials as they will be included as needed.
-  '!' + options.theme.components + '**/_*.scss',
-  // Chroma markup has its own gulp task.
-  '!' + options.theme.components + 'style-guide/chroma-kss-markup.scss'
-];
-
 // Define which browsers to add vendor prefixes for.
 options.autoprefixer = {
   browsers: [
@@ -137,11 +129,11 @@ gulp.task('build', ['styles:production', 'styleguide', 'lint']);
 // Build CSS.
 // ##########
 var sassFiles = [
-  options.theme.sass + '**/*.scss',
+  options.theme.components + '**/*.scss',
   // Do not open Sass partials as they will be included as needed.
-  '!' + options.theme.sass + '**/_*.scss',
+  '!' + options.theme.components + '**/_*.scss',
   // Chroma markup has its own gulp task.
-  '!' + options.theme.sass + 'style-guide/chroma-kss-markup.scss'
+  '!' + options.theme.components + 'style-guide/chroma-kss-markup.scss'
 ];
 
 gulp.task('styles', ['clean:css'], function () {
