@@ -136,8 +136,16 @@ gulp.task('build', ['styles:production', 'styleguide', 'lint']);
 // ##########
 // Build CSS.
 // ##########
+var sassFiles = [
+  options.theme.sass + '**/*.scss',
+  // Do not open Sass partials as they will be included as needed.
+  '!' + options.theme.sass + '**/_*.scss',
+  // Chroma markup has its own gulp task.
+  '!' + options.theme.sass + 'style-guide/chroma-kss-markup.scss'
+];
+
 gulp.task('styles', ['clean:css'], function () {
-  return gulp.src(options.sassFiles)
+  return gulp.src(sassFiles)
     .pipe($.sourcemaps.init())
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
@@ -149,7 +157,7 @@ gulp.task('styles', ['clean:css'], function () {
 });
 
 gulp.task('styles:production', ['clean:css'], function () {
-  return gulp.src(options.sassFiles)
+  return gulp.src(sassFiles)
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
     .pipe($.rename({dirname: ''}))
