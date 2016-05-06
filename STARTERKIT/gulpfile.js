@@ -25,6 +25,7 @@ options.rootPath = {
 };
 
 options.theme = {
+  name       : 'STARTERKIT',
   root       : options.rootPath.theme,
   components : options.rootPath.theme + 'components/',
   build      : options.rootPath.theme + 'components/asset-builds/',
@@ -68,6 +69,7 @@ options.styleGuide = {
   destination: options.rootPath.styleGuide,
 
   builder: 'builder/twig',
+  namespace: options.theme.name + ':' + options.theme.components,
   'extend-drupal8': true,
 
   // The css and js paths are URLs, like '/misc/jquery.js'.
@@ -80,6 +82,7 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'components.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'footer.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'messages.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css')
   ],
   js: [

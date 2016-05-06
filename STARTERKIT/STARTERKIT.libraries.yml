@@ -26,6 +26,11 @@ footer:
     component:
       components/asset-builds/css/footer.css: {}
 
+messages:
+  css:
+    component:
+      components/asset-builds/css/messages.css: {}
+
 skip-link:
   css:
     component:

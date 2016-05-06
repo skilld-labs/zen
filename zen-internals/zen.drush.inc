@@ -175,6 +175,7 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   }
 
   // Add more to the list of files to filter.
+  $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/gulpfile.js';
   $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/theme-settings.php';
   $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/components/style-guide/homepage.md';
 
