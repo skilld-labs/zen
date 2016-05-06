@@ -175,9 +175,9 @@ function drush_zen($machine_name = NULL, $name = NULL) {
   }
 
   // Add more to the list of files to filter.
-  $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/gulpfile.js';
+  $sub_theme_files['gulpfile.js'] = $sub_theme_path . '/gulpfile.js';
   $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/theme-settings.php';
-  $sub_theme_files['theme-settings.php'] = $sub_theme_path . '/components/style-guide/homepage.md';
+  $sub_theme_files['homepage.md'] = $sub_theme_path . '/components/style-guide/homepage.md';
 
   foreach ($sub_theme_files as $filename) {
     // Replace all occurrences of 'STARTERKIT' with the machine name of our sub theme.

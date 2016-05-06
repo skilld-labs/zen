@@ -89,7 +89,7 @@ options.styleGuide = {
   ],
 
   homepage: 'homepage.md',
-  title: 'Zen 8.x-7.x Style Guide'
+  title: 'STARTERKIT Style Guide'
 };
 
 // Define the paths to the JS files to lint.
