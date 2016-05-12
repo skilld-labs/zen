@@ -25,8 +25,6 @@ type: theme
 # Classy vs. Stable as a base theme: https://www.lullabot.com/articles/a-tale-of-two-base-themes-in-drupal-8-core
 # Zen uses classy as its base theme.
 base theme: zen
-dependencies:
-  - components
 
 
 
