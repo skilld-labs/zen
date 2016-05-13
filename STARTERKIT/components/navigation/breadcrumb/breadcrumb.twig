@@ -1,10 +1,28 @@
-<nav class="breadcrumb {{modifier_class}}" role="navigation">
-  <h2 class="breadcrumb__title">You are here</h2>
-
+{#
+/**
+ * @file
+ * Component for a breadcrumb trail.
+ *
+ * Available variables:
+ * - modifier_class: [string] Classes to modify the default component styling.
+ * - title: [string]
+ * - breadcrumb: [array] The breadcrumb trail items. Each item is an object
+ *   containing:
+ *   - text: text of the item
+ *   - url: URL of the item
+ */
+#}
+<nav class="breadcrumb {{modifier_class}}" role="navigation" aria-labelledby="system-breadcrumb">
+  <h2 id="system-breadcrumb" class="visually-hidden">{{ title|default('You are here') }}</h2>
   <ol class="breadcrumb__list">
-    <li class="breadcrumb__item"><a href="#">Home</a> › </li>
-    <li class="breadcrumb__item"><a href="#">Level 1</a> › </li>
-    <li class="breadcrumb__item"><a href="#">Level 2</a> › </li>
-    <li class="breadcrumb__item">Current item</li>
+    {% for item in breadcrumb %}
+      <li class="breadcrumb__item">
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+      </li>
+    {% endfor %}
   </ol>
 </nav>

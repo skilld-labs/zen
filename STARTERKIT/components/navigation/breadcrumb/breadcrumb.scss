@@ -1,5 +1,4 @@
-// Dependencies.
-@import 'components/visually-hidden/visually-hidden';
+@import 'init';
 
 // Breadcrumb navigation
 //
@@ -13,10 +12,6 @@
 %breadcrumb {
   @media print {
     display: none;
-  }
-
-  &__title {
-    @extend %visually-hidden;
   }
 
   &__list {
