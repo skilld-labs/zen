@@ -8,24 +8,6 @@ function zen_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStat
     return;
   }
 
-  $form['support'] = array(
-    '#type'          => 'fieldset',
-    '#title'         => t('Accessibility and support settings'),
-  );
-  $form['support']['zen_skip_link_anchor'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Anchor ID for the “skip link”'),
-    '#default_value' => theme_get_setting('zen_skip_link_anchor'),
-    '#field_prefix'  => '#',
-    '#description'   => t('Specify the HTML ID of the element that the accessible-but-hidden “skip link” should link to. Note: that element should have the <code>tabindex="-1"</code> attribute to prevent an accessibility bug in webkit browsers. (<a href="!link">Read more about skip links</a>.)', array('!link' => 'https://drupal.org/node/467976')),
-  );
-  $form['support']['zen_skip_link_text'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Text for the “skip link”'),
-    '#default_value' => theme_get_setting('zen_skip_link_text'),
-    '#description'   => t('For example: <em>Jump to navigation</em>, <em>Skip to content</em>'),
-  );
-
   $form['themedev'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Theme development settings'),
