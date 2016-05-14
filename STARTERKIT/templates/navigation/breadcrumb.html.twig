@@ -8,5 +8,11 @@
  */
 #}
 {% if breadcrumb %}
-  {% include "@STARTERKIT/navigation/breadcrumb/breadcrumb.twig" with {title: 'Breadcrumb'|t} %}
+  {%
+    include "@STARTERKIT/navigation/breadcrumb/breadcrumb.twig" with {
+      modifier_class: '',
+      title: 'Breadcrumb'|t,
+      breadcrumb: breadcrumb
+    } only
+  %}
 {% endif %}

@@ -22,8 +22,13 @@
  */
 #}
 {% for type, messages in message_list %}
-  {# Move attributes' class into the modifier_class variable. #}
-  {% set modifier_class = attributes.storage().class|join(' ') ~ ' messages--' ~ type %}
-  {% set attributes = attributes.removeAttribute('class')|without('role', 'aria-label') %}
-  {% include "@STARTERKIT/components/messages/messages.twig" with {heading: status_headings[type]} %}
+  {%
+    include "@STARTERKIT/components/messages/messages.twig" with {
+      type: type,
+      messages: messages,
+      heading: status_headings[type],
+      modifier_class: attributes.addClass('messages--' ~ type).class|safe_join(' '),
+      attributes = attributes|without('class', 'role', 'aria-label')
+    } only
+  %}
 {% endfor %}

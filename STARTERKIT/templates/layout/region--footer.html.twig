@@ -15,5 +15,5 @@
 #}
 
 {# Move attributes' class into the modifier_class variable. #}
-{% set modifier_class = attributes.storage().class|join(' ') %}
+{% set modifier_class = attributes.class|safe_join(' ') %}
 {% set attributes = attributes.removeAttribute('class') %}
