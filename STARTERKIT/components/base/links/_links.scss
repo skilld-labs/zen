@@ -15,11 +15,16 @@
 //
 // Style guide: base.link
 
-:link,
+a,
 %link {
   color: color(link);
+  // Remove gaps in links underline in iOS 8+ and Safari 8+.
+  -webkit-text-decoration-skip: objects;
 }
 
+// Any element can receive focus, but only links can be visited, so we can
+// safely lower this selector's specificity. This also ensures visited links
+// with additional styles won't have their styles overridden.
 :visited {
   color: color(link-visited);
 }
@@ -32,17 +37,17 @@ a:focus {
 a:active {
   color: color(link-active);
 
-  @if support-for(ie, 10) {
-    // Remove the gray background color from active links in IE 10.
+  &:not(.button) {
+    // Remove the gray background on active links in IE 10.
     background-color: transparent;
   }
 }
 
-// Improve readability of focused elements when they are also in an
-// active/hover state.
+// Remove the outline on focused links when they are also active or hovered
+// in all browsers (opinionated).
 a:active,
 a:hover {
-  outline: 0;
+  outline-width: 0;
 }
 
 @media print {

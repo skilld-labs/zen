@@ -12,11 +12,26 @@
 //
 // Style guide: forms.button
 
+// 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+//    controls in Android 4.
+// 2. Correct the inability to style clickable types in iOS and Safari.
 .button,
-%button {
-  // sass-lint:disable no-vendor-prefixes
+%button,
+button,
+// 1
+html [type='button'],
+[type='reset'],
+[type='submit'] {
   -moz-appearance: button;
-  -webkit-appearance: button;
+  -webkit-appearance: button; // 2
+}
+
+.button,
+%button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
   // Some styles don't apply to <a> links since they are inline elements by default.
   display: inline-block;
   padding: 2px 6px;
@@ -28,6 +43,17 @@
   // Improve usability and consistency of cursor style between image-type `input` and others.
   cursor: pointer;
   color: color(button);
+
+  // Remove the inner border and padding in Firefox.
+  &::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  // Restore the focus styles unset by the previous rule.
+  &:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
 
   &:hover,
   &:focus,

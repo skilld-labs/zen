@@ -22,7 +22,7 @@ $image-url-subdirectory: 'components' !default;
 // ```
 //
 // If you want to point at an image that is not in the components sub-directory
-// of your sass directory, you can override the default $path-to-components by
+// of your sass directory, you can override the default $subdirectory by
 // passing it in as the first parameter of `image-url()` like this:
 //
 // ```scss
@@ -40,11 +40,11 @@ $image-url-subdirectory: 'components' !default;
 //                   from the css build directory to the sass source directory.
 //
 // Style guide: sass.mixins.image-url
-@function image-url($path-to-components, $path: null, $path-to-source: $image-url-path-to-source) {
+@function image-url($subdirectory, $path: null, $path-to-source: $image-url-path-to-source) {
   // If only 1 parameter is given, its value is intended for the $path.
   @if type-of($path) == 'null' {
-    $path: $path-to-components;
-    $path-to-components: $image-url-subdirectory;
+    $path: $subdirectory;
+    $subdirectory: $image-url-subdirectory;
   }
-  @return url(unquote($path-to-source + '/' + $path-to-components + '/' + $path));
+  @return url(unquote($path-to-source + '/' + $subdirectory + '/' + $path));
 }
