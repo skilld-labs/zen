@@ -26,7 +26,7 @@
     "sass-lint": "^1.7.0",
     "support-for": "^1.0.6",
     "typey": "^1.0.0",
-    "zen-grids": "^2.0.2"
+    "zen-grids": "^2.0.3"
   },
   "engines": {
     "node": ">=4.0.0"
