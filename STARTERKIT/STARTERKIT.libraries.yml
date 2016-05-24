@@ -13,6 +13,8 @@ base:
   # If this library had JavaScript you could specify it like this:
   # js:
   #   js/script.js: {}
+  dependencies:
+    - STARTERKIT/visually-hidden
 
 
 layouts:
@@ -40,6 +42,11 @@ skip-link:
   css:
     component:
       components/asset-builds/css/skip-link.css: {}
+
+visually-hidden:
+  css:
+    component:
+      components/asset-builds/css/visually-hidden.css: {}
 
 # This is a temporary library that holds all of Zen 7.x-6.x's component styles.
 # @TODO: Finish porting all of these styles to proper Twig components.
