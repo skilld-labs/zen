@@ -263,30 +263,6 @@ span.field-label {
   padding-bottom: 75%;
 }
 
-.visually-hidden,
-.breadcrumb__title,
-.main-navigation .block-menu .block__title,
-.main-navigation .block-menu-block .block__title {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  word-wrap: normal;
-}
-
-.visually-hidden--off,
-.visually-hidden--focusable:active,
-.visually-hidden--focusable:focus,
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  position: static !important;
-  clip: auto;
-  height: auto;
-  width: auto;
-  overflow: visible;
-}
-
 .watermark {
   font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
   font-weight: bold;
@@ -301,49 +277,6 @@ span.field-label {
   text-align: center;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
   word-wrap: break-word;
-}
-
-@media print {
-  .breadcrumb {
-    display: none;
-  }
-}
-
-.breadcrumb__list {
-  margin: 0;
-  padding: 0;
-}
-
-.breadcrumb__item {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.more-link,
-.more-help-link {
-  text-align: right;
-}
-
-[dir="rtl"] .more-link,
-[dir="rtl"] .more-help-link {
-  text-align: left;
-}
-
-.more-link__help-icon,
-.more-help-link a {
-  padding: 1px 0 1px 20px;
-  background-image: url(../..//navigation/more-link/more-link__help-icon.svg);
-  background-position: 0 50%;
-  background-repeat: no-repeat;
-}
-
-[dir="rtl"] .more-link__help-icon,
-[dir="rtl"] .more-help-link a,
-.more-help-link [dir="rtl"] a {
-  padding: 1px 20px 1px 0;
-  background-position: 100% 50%;
 }
 
 .nav-menu__item,
@@ -375,6 +308,29 @@ span.field-label {
 .nav-menu__link.is-active, .nav-menu__link--is-active,
 .menu a.active {
   color: #000;
+}
+
+.visually-hidden,
+.main-navigation .block-menu .block__title,
+.main-navigation .block-menu-block .block__title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal;
+}
+
+.visually-hidden--off,
+.visually-hidden--focusable:active,
+.visually-hidden--focusable:focus,
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: visible;
 }
 
 .navbar,
@@ -597,9 +553,20 @@ span.field-label {
   background-image: url(../..//forms/autocomplete/throbber-active.gif);
 }
 
-.button {
+.button,
+button,
+html [type='button'],
+[type='reset'],
+[type='submit'] {
   -moz-appearance: button;
   -webkit-appearance: button;
+}
+
+.button,
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
   display: inline-block;
   padding: 2px 6px;
   line-height: inherit;
@@ -608,17 +575,62 @@ span.field-label {
   color: #000;
 }
 
-.button:hover, .button:focus, .button:active {
+.button::-moz-focus-inner,
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.button:-moz-focusring,
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.button:hover, .button:focus, .button:active,
+button:hover,
+button:focus,
+button:active,
+[type='button']:hover,
+[type='button']:focus,
+[type='button']:active,
+[type='reset']:hover,
+[type='reset']:focus,
+[type='reset']:active,
+[type='submit']:hover,
+[type='submit']:focus,
+[type='submit']:active {
   text-decoration: none;
   color: #000;
 }
 
-.button[disabled] {
+.button[disabled],
+button[disabled],
+[type='button'][disabled],
+[type='reset'][disabled],
+[type='submit'][disabled] {
   cursor: default;
   color: #999999;
 }
 
-.button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active {
+.button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
+button[disabled]:hover,
+button[disabled]:focus,
+button[disabled]:active,
+[type='button'][disabled]:hover,
+[type='button'][disabled]:focus,
+[type='button'][disabled]:active,
+[type='reset'][disabled]:hover,
+[type='reset'][disabled]:focus,
+[type='reset'][disabled]:active,
+[type='submit'][disabled]:hover,
+[type='submit'][disabled]:focus,
+[type='submit'][disabled]:active {
   color: #999999;
 }
 

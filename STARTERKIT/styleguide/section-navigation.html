@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="../components/asset-builds/css/styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
+<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
 <link rel="stylesheet" href="../components/asset-builds/css/components.css">
 <link rel="stylesheet" href="../components/asset-builds/css/footer.css">
 <link rel="stylesheet" href="../components/asset-builds/css/messages.css">
 <link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
 
 </head>
 <body id="kss-node">
@@ -144,7 +146,7 @@ page navigation.</p>
 
       
               <div class="kss-source kss-style">
-          Source: <code>components.scss</code>, line 58
+          Source: <code>components.scss</code>, line 57
         </div>
           </div>
           <section id="kssref-navigation-breadcrumb" class="kss-section kss-section--depth-2">
@@ -174,36 +176,60 @@ page navigation.</p>
 
           
           <div class="kss-modifier__example">
-            <nav class="breadcrumb " role="navigation">
-  <h2 class="breadcrumb__title">You are here</h2>
+            
 
+<nav class="breadcrumb " role="navigation" aria-labelledby="system-breadcrumb">
+  <h2 id="system-breadcrumb" class="visually-hidden">You are here</h2>
   <ol class="breadcrumb__list">
-    <li class="breadcrumb__item"><a href="#">Home</a> › </li>
-    <li class="breadcrumb__item"><a href="#">Level 1</a> › </li>
-    <li class="breadcrumb__item"><a href="#">Level 2</a> › </li>
-    <li class="breadcrumb__item">Current item</li>
-  </ol>
+          <li class="breadcrumb__item">
+                  <a href="#">Home</a>
+                          ›
+              </li>
+          <li class="breadcrumb__item">
+                  <a href="#">Level 1</a>
+                          ›
+              </li>
+          <li class="breadcrumb__item">
+                  <a href="#">Level 2</a>
+                          ›
+              </li>
+          <li class="breadcrumb__item">
+                  Current item
+                      </li>
+      </ol>
 </nav>
 
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;nav class=&quot;breadcrumb &quot; role=&quot;navigation&quot;&gt;
-  &lt;h2 class=&quot;breadcrumb__title&quot;&gt;You are here&lt;/h2&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
 
+&lt;nav class=&quot;breadcrumb &quot; role=&quot;navigation&quot; aria-labelledby=&quot;system-breadcrumb&quot;&gt;
+  &lt;h2 id=&quot;system-breadcrumb&quot; class=&quot;visually-hidden&quot;&gt;You are here&lt;/h2&gt;
   &lt;ol class=&quot;breadcrumb__list&quot;&gt;
-    &lt;li class=&quot;breadcrumb__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt; › &lt;/li&gt;
-    &lt;li class=&quot;breadcrumb__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Level 1&lt;/a&gt; › &lt;/li&gt;
-    &lt;li class=&quot;breadcrumb__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Level 2&lt;/a&gt; › &lt;/li&gt;
-    &lt;li class=&quot;breadcrumb__item&quot;&gt;Current item&lt;/li&gt;
-  &lt;/ol&gt;
+          &lt;li class=&quot;breadcrumb__item&quot;&gt;
+                  &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+                          ›
+              &lt;/li&gt;
+          &lt;li class=&quot;breadcrumb__item&quot;&gt;
+                  &lt;a href=&quot;#&quot;&gt;Level 1&lt;/a&gt;
+                          ›
+              &lt;/li&gt;
+          &lt;li class=&quot;breadcrumb__item&quot;&gt;
+                  &lt;a href=&quot;#&quot;&gt;Level 2&lt;/a&gt;
+                          ›
+              &lt;/li&gt;
+          &lt;li class=&quot;breadcrumb__item&quot;&gt;
+                  Current item
+                      &lt;/li&gt;
+      &lt;/ol&gt;
 &lt;/nav&gt;
 </code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>navigation/breadcrumb/_breadcrumb.scss</code>, line 4
+          Source: <code>navigation/breadcrumb/breadcrumb.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-navigation-more-link" class="kss-section kss-section--depth-2">
@@ -221,7 +247,7 @@ page navigation.</p>
         </h2>
 
                   <div class="kss-description">
-            <p>Styles the &quot;Read more…&quot; and &quot;Help&quot; links common in Drupal.</p>
+            <p>Styles the &quot;Read more…&quot; links common in Drupal.</p>
 
           </div>
         
@@ -233,30 +259,26 @@ page navigation.</p>
 
           
           <div class="kss-modifier__example">
-            <div class="more-link ">
-  <a href="#">Read more…</a>
-</div>
+            
 
 <div class="more-link ">
-  <a class="more-link__help-icon" href="#">Help</a>
-</div>
+      <a href="#">Read more…</a>
+  </div>
 
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;more-link &quot;&gt;
-  &lt;a href=&quot;#&quot;&gt;Read more…&lt;/a&gt;
-&lt;/div&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
 
 &lt;div class=&quot;more-link &quot;&gt;
-  &lt;a class=&quot;more-link__help-icon&quot; href=&quot;#&quot;&gt;Help&lt;/a&gt;
-&lt;/div&gt;
+      &lt;a href=&quot;#&quot;&gt;Read more…&lt;/a&gt;
+  &lt;/div&gt;
 </code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>navigation/more-link/_more-link.scss</code>, line 1
+          Source: <code>navigation/more-link/more-link.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-navigation-nav-menu" class="kss-section kss-section--depth-2">
@@ -540,8 +562,8 @@ with the <code>visually-hidden</code> component.</p>
             
 
 <a href="#main-content" class="skip-link [modifier class]">
-  Skip to main content
-</a>
+      Skip to main content
+  </a>
 
           </div>
 
@@ -555,8 +577,8 @@ with the <code>visually-hidden</code> component.</p>
               
 
 <a href="#main-content" class="skip-link visually-hidden visually-hidden--focusable">
-  Skip to main content
-</a>
+      Skip to main content
+  </a>
 
             </div>
                   </div>
@@ -564,8 +586,8 @@ with the <code>visually-hidden</code> component.</p>
             <pre class="prettyprint linenums lang-html"><code data-language="html">
 
 &lt;a href=&quot;#main-content&quot; class=&quot;skip-link [modifier class]&quot;&gt;
-  Skip to main content
-&lt;/a&gt;
+      Skip to main content
+  &lt;/a&gt;
 </code></pre>
           </div>
               

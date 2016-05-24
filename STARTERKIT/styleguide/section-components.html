@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="../components/asset-builds/css/styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
+<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
 <link rel="stylesheet" href="../components/asset-builds/css/components.css">
 <link rel="stylesheet" href="../components/asset-builds/css/footer.css">
 <link rel="stylesheet" href="../components/asset-builds/css/messages.css">
 <link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
 
 </head>
 <body id="kss-node">
@@ -538,19 +540,21 @@ elements. See <a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://
 
           
           <div class="kss-modifier__example">
-              
-  <footer class="footer " role="contentinfo">
-    Copyright statement here. Legalize here.
-  </footer>
+            
+
+<footer class="footer " role="contentinfo">
+  Copyright statement here. Legalize here.
+</footer>
 
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">  
-  &lt;footer class=&quot;footer &quot; role=&quot;contentinfo&quot;&gt;
-    Copyright statement here. Legalize here.
-  &lt;/footer&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
+
+&lt;footer class=&quot;footer &quot; role=&quot;contentinfo&quot;&gt;
+  Copyright statement here. Legalize here.
+&lt;/footer&gt;
 </code></pre>
           </div>
               
@@ -863,35 +867,35 @@ should use the <code>.messages--error</code> class.</p>
 
 <div class="messages [modifier class]" role="contentinfo" aria-label="Status message" >
   
-      <h2 class="visually-hidden">Status message</h2>
+            <h2 class="visually-hidden">Status message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M54 8l-30 30-14-14-10 10 24 24 40-40z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M54 8l-30 30-14-14-10 10 24 24 40-40z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      This is how a single message appears.
-  
+            This is how a single message appears.
+      
   </div>
   
 
 <div class="messages [modifier class]" role="contentinfo" aria-label="Status message" >
   
-      <h2 class="visually-hidden">Status message</h2>
+            <h2 class="visually-hidden">Status message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M54 8l-30 30-14-14-10 10 24 24 40-40z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M54 8l-30 30-14-14-10 10 24 24 40-40z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      <ul class="messages__list">
-              <li class="messages__item">This is how multiple messages appear.</li>
-              <li class="messages__item">And this is another message.</li>
-              <li class="messages__item">Message received: Unknown input.</li>
-          </ul>
-  
+            <ul class="messages__list">
+                  <li class="messages__item">This is how multiple messages appear.</li>
+                  <li class="messages__item">And this is another message.</li>
+                  <li class="messages__item">Message received: Unknown input.</li>
+              </ul>
+      
   </div>
 
           </div>
@@ -909,37 +913,37 @@ should use the <code>.messages--error</code> class.</p>
 
 <div class="messages messages--warning" role="contentinfo" aria-label="Warning message" >
   
-      <h2 class="visually-hidden">Warning message</h2>
+            <h2 class="visually-hidden">Warning message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M26,64l12,0c1.105,0 2,-0.895 2,-2l0,-9c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,9c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
+  <path d="M26,46l12,0c1.105,0 2,-0.895 2,-2l0,-42c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,42c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M26,64l12,0c1.105,0 2,-0.895 2,-2l0,-9c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,9c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
-        <path d="M26,46l12,0c1.105,0 2,-0.895 2,-2l0,-42c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,42c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      This is how a single message appears.
-  
+            This is how a single message appears.
+      
   </div>
   
 
 <div class="messages messages--warning" role="contentinfo" aria-label="Warning message" >
   
-      <h2 class="visually-hidden">Warning message</h2>
+            <h2 class="visually-hidden">Warning message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M26,64l12,0c1.105,0 2,-0.895 2,-2l0,-9c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,9c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
+  <path d="M26,46l12,0c1.105,0 2,-0.895 2,-2l0,-42c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,42c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M26,64l12,0c1.105,0 2,-0.895 2,-2l0,-9c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,9c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
-        <path d="M26,46l12,0c1.105,0 2,-0.895 2,-2l0,-42c0,-1.105 -0.895,-2 -2,-2l-12,0c-1.105,0 -2,0.895 -2,2l0,42c0,1.105 0.895,2 2,2Z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      <ul class="messages__list">
-              <li class="messages__item">This is how multiple messages appear.</li>
-              <li class="messages__item">And this is another message.</li>
-              <li class="messages__item">Message received: Unknown input.</li>
-          </ul>
-  
+            <ul class="messages__list">
+                  <li class="messages__item">This is how multiple messages appear.</li>
+                  <li class="messages__item">And this is another message.</li>
+                  <li class="messages__item">Message received: Unknown input.</li>
+              </ul>
+      
   </div>
 
             </div>
@@ -957,16 +961,16 @@ should use the <code>.messages--error</code> class.</p>
 <div class="messages messages--error" role="contentinfo" aria-label="Error message" >
       <div role="alert">
   
-      <h2 class="visually-hidden">Error message</h2>
+            <h2 class="visually-hidden">Error message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M63.416 51.416c-0-0-0.001-0.001-0.001-0.001l-19.415-19.416 19.415-19.416c0-0 0.001-0 0.001-0.001 0.209-0.209 0.36-0.453 0.457-0.713 0.265-0.711 0.114-1.543-0.458-2.114l-9.172-9.172c-0.572-0.572-1.403-0.723-2.114-0.458-0.26 0.097-0.504 0.248-0.714 0.457 0 0-0 0-0.001 0.001l-19.416 19.416-19.416-19.416c-0-0-0-0-0.001-0.001-0.209-0.209-0.453-0.36-0.713-0.457-0.711-0.266-1.543-0.114-2.114 0.457l-9.172 9.172c-0.572 0.572-0.723 1.403-0.458 2.114 0.097 0.26 0.248 0.505 0.457 0.713 0 0 0 0 0.001 0.001l19.416 19.416-19.416 19.416c-0 0-0 0-0 0.001-0.209 0.209-0.36 0.453-0.457 0.713-0.266 0.711-0.114 1.543 0.458 2.114l9.172 9.172c0.572 0.572 1.403 0.723 2.114 0.458 0.26-0.097 0.504-0.248 0.713-0.457 0-0 0-0 0.001-0.001l19.416-19.416 19.416 19.416c0 0 0.001 0 0.001 0.001 0.209 0.209 0.453 0.36 0.713 0.457 0.711 0.265 1.543 0.114 2.114-0.458l9.172-9.172c0.572-0.572 0.723-1.403 0.458-2.114-0.097-0.26-0.248-0.504-0.457-0.713z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M63.416 51.416c-0-0-0.001-0.001-0.001-0.001l-19.415-19.416 19.415-19.416c0-0 0.001-0 0.001-0.001 0.209-0.209 0.36-0.453 0.457-0.713 0.265-0.711 0.114-1.543-0.458-2.114l-9.172-9.172c-0.572-0.572-1.403-0.723-2.114-0.458-0.26 0.097-0.504 0.248-0.714 0.457 0 0-0 0-0.001 0.001l-19.416 19.416-19.416-19.416c-0-0-0-0-0.001-0.001-0.209-0.209-0.453-0.36-0.713-0.457-0.711-0.266-1.543-0.114-2.114 0.457l-9.172 9.172c-0.572 0.572-0.723 1.403-0.458 2.114 0.097 0.26 0.248 0.505 0.457 0.713 0 0 0 0 0.001 0.001l19.416 19.416-19.416 19.416c-0 0-0 0-0 0.001-0.209 0.209-0.36 0.453-0.457 0.713-0.266 0.711-0.114 1.543 0.458 2.114l9.172 9.172c0.572 0.572 1.403 0.723 2.114 0.458 0.26-0.097 0.504-0.248 0.713-0.457 0-0 0-0 0.001-0.001l19.416-19.416 19.416 19.416c0 0 0.001 0 0.001 0.001 0.209 0.209 0.453 0.36 0.713 0.457 0.711 0.265 1.543 0.114 2.114-0.458l9.172-9.172c0.572-0.572 0.723-1.403 0.458-2.114-0.097-0.26-0.248-0.504-0.457-0.713z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      This is how a single message appears.
-  
+            This is how a single message appears.
+      
       </div>
   </div>
   
@@ -974,20 +978,20 @@ should use the <code>.messages--error</code> class.</p>
 <div class="messages messages--error" role="contentinfo" aria-label="Error message" >
       <div role="alert">
   
-      <h2 class="visually-hidden">Error message</h2>
+            <h2 class="visually-hidden">Error message</h2>
+      
+      <div class="messages__icon">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
+  <path d="M63.416 51.416c-0-0-0.001-0.001-0.001-0.001l-19.415-19.416 19.415-19.416c0-0 0.001-0 0.001-0.001 0.209-0.209 0.36-0.453 0.457-0.713 0.265-0.711 0.114-1.543-0.458-2.114l-9.172-9.172c-0.572-0.572-1.403-0.723-2.114-0.458-0.26 0.097-0.504 0.248-0.714 0.457 0 0-0 0-0.001 0.001l-19.416 19.416-19.416-19.416c-0-0-0-0-0.001-0.001-0.209-0.209-0.453-0.36-0.713-0.457-0.711-0.266-1.543-0.114-2.114 0.457l-9.172 9.172c-0.572 0.572-0.723 1.403-0.458 2.114 0.097 0.26 0.248 0.505 0.457 0.713 0 0 0 0 0.001 0.001l19.416 19.416-19.416 19.416c-0 0-0 0-0 0.001-0.209 0.209-0.36 0.453-0.457 0.713-0.266 0.711-0.114 1.543 0.458 2.114l9.172 9.172c0.572 0.572 1.403 0.723 2.114 0.458 0.26-0.097 0.504-0.248 0.713-0.457 0-0 0-0 0.001-0.001l19.416-19.416 19.416 19.416c0 0 0.001 0 0.001 0.001 0.209 0.209 0.453 0.36 0.713 0.457 0.711 0.265 1.543 0.114 2.114-0.458l9.172-9.172c0.572-0.572 0.723-1.403 0.458-2.114-0.097-0.26-0.248-0.504-0.457-0.713z" fill="#000000"></path>
+</svg>
+          </div>
   
-  <div class="messages__icon">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 64 64">
-        <path d="M63.416 51.416c-0-0-0.001-0.001-0.001-0.001l-19.415-19.416 19.415-19.416c0-0 0.001-0 0.001-0.001 0.209-0.209 0.36-0.453 0.457-0.713 0.265-0.711 0.114-1.543-0.458-2.114l-9.172-9.172c-0.572-0.572-1.403-0.723-2.114-0.458-0.26 0.097-0.504 0.248-0.714 0.457 0 0-0 0-0.001 0.001l-19.416 19.416-19.416-19.416c-0-0-0-0-0.001-0.001-0.209-0.209-0.453-0.36-0.713-0.457-0.711-0.266-1.543-0.114-2.114 0.457l-9.172 9.172c-0.572 0.572-0.723 1.403-0.458 2.114 0.097 0.26 0.248 0.505 0.457 0.713 0 0 0 0 0.001 0.001l19.416 19.416-19.416 19.416c-0 0-0 0-0 0.001-0.209 0.209-0.36 0.453-0.457 0.713-0.266 0.711-0.114 1.543 0.458 2.114l9.172 9.172c0.572 0.572 1.403 0.723 2.114 0.458 0.26-0.097 0.504-0.248 0.713-0.457 0-0 0-0 0.001-0.001l19.416-19.416 19.416 19.416c0 0 0.001 0 0.001 0.001 0.209 0.209 0.453 0.36 0.713 0.457 0.711 0.265 1.543 0.114 2.114-0.458l9.172-9.172c0.572-0.572 0.723-1.403 0.458-2.114-0.097-0.26-0.248-0.504-0.457-0.713z" fill="#000000"></path>
-      </svg>
-      </div>
-
-      <ul class="messages__list">
-              <li class="messages__item">This is how multiple messages appear.</li>
-              <li class="messages__item">And this is another message.</li>
-              <li class="messages__item">Message received: Unknown input.</li>
-          </ul>
-  
+            <ul class="messages__list">
+                  <li class="messages__item">This is how multiple messages appear.</li>
+                  <li class="messages__item">And this is another message.</li>
+                  <li class="messages__item">Message received: Unknown input.</li>
+              </ul>
+      
       </div>
   </div>
 
@@ -998,16 +1002,16 @@ should use the <code>.messages--error</code> class.</p>
 
 &lt;div class=&quot;messages [modifier class]&quot; role=&quot;contentinfo&quot; aria-label=&quot;Status message&quot; &gt;
   
-      &lt;h2 class=&quot;visually-hidden&quot;&gt;Status message&lt;/h2&gt;
+            &lt;h2 class=&quot;visually-hidden&quot;&gt;Status message&lt;/h2&gt;
+      
+      &lt;div class=&quot;messages__icon&quot;&gt;
+              &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 64 64&quot;&gt;
+  &lt;path d=&quot;M54 8l-30 30-14-14-10 10 24 24 40-40z&quot; fill=&quot;#000000&quot;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+          &lt;/div&gt;
   
-  &lt;div class=&quot;messages__icon&quot;&gt;
-          &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 64 64&quot;&gt;
-        &lt;path d=&quot;M54 8l-30 30-14-14-10 10 24 24 40-40z&quot; fill=&quot;#000000&quot;&gt;&lt;/path&gt;
-      &lt;/svg&gt;
-      &lt;/div&gt;
-
-      This is how a single message appears.
-  
+            This is how a single message appears.
+      
   &lt;/div&gt;
 </code></pre>
           </div>
@@ -1156,9 +1160,10 @@ intrinsic aspect ratio is preserved at any screen width. The
             </div>
           
           <div class="kss-modifier__example">
-            <div class="visually-hidden [modifier class]">
-  This text will be read by screen readers, but will be visually hidden.
-</div>
+            
+<div class="visually-hidden [modifier class]">
+      This text will be read by screen readers, but will be visually hidden.
+  </div>
 
           </div>
 
@@ -1169,9 +1174,10 @@ intrinsic aspect ratio is preserved at any screen width. The
               Turns off the visually-hidden effect.
             </div>
             <div class="kss-modifier__example">
-              <div class="visually-hidden visually-hidden--off">
-  This text will be read by screen readers, but will be visually hidden.
-</div>
+              
+<div class="visually-hidden visually-hidden--off">
+      This text will be read by screen readers, but will be visually hidden.
+  </div>
 
             </div>
                       <div class="kss-modifier__name kss-style">
@@ -1181,9 +1187,10 @@ intrinsic aspect ratio is preserved at any screen width. The
               Makes an element visually hidden by default, but visible when receiving focus.
             </div>
             <div class="kss-modifier__example">
-              <div class="visually-hidden visually-hidden--focusable">
-  This text will be read by screen readers, but will be visually hidden.
-</div>
+              
+<div class="visually-hidden visually-hidden--focusable">
+      This text will be read by screen readers, but will be visually hidden.
+  </div>
 
             </div>
                       <div class="kss-modifier__name kss-style">
@@ -1193,21 +1200,23 @@ intrinsic aspect ratio is preserved at any screen width. The
               A focused, and visible, element.
             </div>
             <div class="kss-modifier__example">
-              <div class="visually-hidden visually-hidden--focusable pseudo-class-focus">
-  This text will be read by screen readers, but will be visually hidden.
-</div>
+              
+<div class="visually-hidden visually-hidden--focusable pseudo-class-focus">
+      This text will be read by screen readers, but will be visually hidden.
+  </div>
 
             </div>
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;visually-hidden [modifier class]&quot;&gt;
-  This text will be read by screen readers, but will be visually hidden.
-&lt;/div&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
+&lt;div class=&quot;visually-hidden [modifier class]&quot;&gt;
+      This text will be read by screen readers, but will be visually hidden.
+  &lt;/div&gt;
 </code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/visually-hidden/_visually-hidden.scss</code>, line 1
+          Source: <code>components/visually-hidden/visually-hidden.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-watermark" class="kss-section kss-section--depth-2">

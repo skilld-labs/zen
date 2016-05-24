@@ -27,6 +27,7 @@
 }
 
 [dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar, [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__second-left-sidebar, [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-4, [dir="rtl"] .layout-3col__col-x {
+  float: right;
   margin-right: 0%;
   margin-left: -100%;
 }
@@ -60,6 +61,7 @@
     padding-right: 13px;
   }
   [dir="rtl"] .layout-3col__full, [dir="rtl"] .layout-3col__left-content, [dir="rtl"] .layout-3col__right-content, [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__right-sidebar {
+    float: right;
     margin-right: 0%;
     margin-left: -100%;
   }
@@ -76,6 +78,7 @@
     padding-right: 13px;
   }
   [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-x:nth-child(2n + 1) {
+    float: right;
     margin-right: 0%;
     margin-left: -100%;
   }
@@ -93,6 +96,7 @@
     padding-right: 13px;
   }
   [dir="rtl"] .layout-3col__second-left-sidebar, [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-4, [dir="rtl"] .layout-3col__col-x:nth-child(2n) {
+    float: right;
     margin-right: 50%;
     margin-left: -100%;
   }
@@ -110,6 +114,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__full {
+    float: right;
     margin-right: 0%;
     margin-left: -100%;
   }
@@ -120,6 +125,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__left-content {
+    float: right;
     margin-right: 0%;
     margin-left: -100%;
   }
@@ -130,6 +136,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__right-content {
+    float: right;
     margin-right: 33.33333%;
     margin-left: -100%;
   }
@@ -144,6 +151,7 @@
     clear: left;
   }
   [dir="rtl"] .layout-3col__left-sidebar, [dir="rtl"] .layout-3col__first-left-sidebar, [dir="rtl"] .layout-3col__second-left-sidebar {
+    float: left;
     margin-left: 66.66667%;
     margin-right: -100%;
   }
@@ -158,6 +166,7 @@
     clear: left;
   }
   [dir="rtl"] .layout-3col__right-sidebar {
+    float: left;
     margin-left: 0%;
     margin-right: -100%;
   }
@@ -169,6 +178,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__col-1, [dir="rtl"] .layout-3col__col-x:nth-child(3n+1) {
+    float: right;
     margin-right: 0%;
     margin-left: -100%;
   }
@@ -180,6 +190,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__col-2, [dir="rtl"] .layout-3col__col-x:nth-child(3n+2) {
+    float: right;
     margin-right: 33.33333%;
     margin-left: -100%;
   }
@@ -191,6 +202,7 @@
     margin-right: -100%;
   }
   [dir="rtl"] .layout-3col__col-3, [dir="rtl"] .layout-3col__col-x:nth-child(3n) {
+    float: right;
     margin-right: 66.66667%;
     margin-left: -100%;
   }
