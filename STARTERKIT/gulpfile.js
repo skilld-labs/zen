@@ -77,7 +77,6 @@ options.styleGuide = {
   css: [
     path.relative(options.rootPath.styleGuide, options.theme.css + 'base.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'layouts.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'chroma-kss-styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'breadcrumb.css'),
