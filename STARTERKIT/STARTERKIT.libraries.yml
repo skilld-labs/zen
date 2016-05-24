@@ -55,6 +55,14 @@ skip-link:
     component:
       components/asset-builds/css/skip-link.css: {}
 
+tabs:
+  css:
+    component:
+      components/asset-builds/css/tabs.css: {}
+  dependencies:
+    - STARTERKIT/clearfix
+    - STARTERKIT/visually-hidden
+
 visually-hidden:
   css:
     component:

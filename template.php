@@ -93,62 +93,6 @@ function zen_form_node_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Returns HTML for primary and secondary local tasks.
- *
- * @ingroup themeable
- */
-function zen_menu_local_tasks(&$variables) {
-  $output = '';
-
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="visually-hidden">' . t('Primary tabs') . '</h2>';
-    $variables['primary']['#prefix'] .= '<ul class="tabs">';
-    $variables['primary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['primary']);
-  }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<h2 class="visually-hidden">' . t('Secondary tabs') . '</h2>';
-    $variables['secondary']['#prefix'] .= '<ul class="tabs tabs--secondary">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
-  }
-
-  return $output;
-}
-
-/**
- * Returns HTML for a single local task link.
- *
- * @ingroup themeable
- */
-function zen_menu_local_task($variables) {
-  $link = $variables['element']['#link'];
-  $link_text = $link['title'];
-
-  // Add BEM-style class names.
-  $link['localized_options']['attributes']['class'][] = 'tabs__tab-link';
-  $class = 'tabs__tab';
-
-  if (!empty($variables['element']['#active'])) {
-    // Add text to indicate active tab for non-visual users.
-    $active = ' <span class="visually-hidden">' . t('(active tab)') . '</span>';
-
-    // If the link does not contain HTML already, check_plain() it now.
-    // After we set 'html'=TRUE the link will not be sanitized by l().
-    if (empty($link['localized_options']['html'])) {
-      $link['title'] = check_plain($link['title']);
-    }
-    $link['localized_options']['html'] = TRUE;
-    $link_text = t('!local-task-title!active', array('!local-task-title' => $link['title'], '!active' => $active));
-
-    $link['localized_options']['attributes']['class'][] = 'is-active';
-    $class .= ' is-active';
-  }
-
-  return '<li class="' . $class . '">' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
-}
-
-/**
  * Implements hook_preprocess_menu_link().
  */
 function zen_preprocess_menu_link(&$variables, $hook) {
