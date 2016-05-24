@@ -1,4 +1,3 @@
-{% extends "@STARTERKIT/components/footer/footer.twig" %}
 {#
 /**
  * @file
@@ -13,7 +12,12 @@
  * @see template_preprocess_region()
  */
 #}
-
-{# Move attributes' class into the modifier_class variable. #}
-{% set modifier_class = attributes.class|safe_join(' ') %}
-{% set attributes = attributes.removeAttribute('class') %}
+{% if content %}
+  {%
+    include "@STARTERKIT/components/footer/footer.twig" with {
+      modifier_class: attributes.class|safe_join(' '),
+      attributes: attributes.removeAttribute('class'),
+      content: content
+    } only
+  %}
+{% endif %}
