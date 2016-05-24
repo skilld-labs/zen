@@ -23,6 +23,13 @@ layouts:
     layout:
       components/asset-builds/css/layouts.css: {}
 
+breadcrumb:
+  css:
+    component:
+      components/asset-builds/css/breadcrumb.css: {}
+  dependencies:
+    - STARTERKIT/visually-hidden
+
 footer:
   css:
     component:
