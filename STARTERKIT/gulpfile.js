@@ -80,6 +80,7 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'chroma-kss-styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'breadcrumb.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'clearfix.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'components.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'footer.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'messages.css'),

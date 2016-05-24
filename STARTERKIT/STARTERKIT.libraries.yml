@@ -14,8 +14,8 @@ base:
   # js:
   #   js/script.js: {}
   dependencies:
+    - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden
-
 
 layouts:
   css:
@@ -29,6 +29,11 @@ breadcrumb:
       components/asset-builds/css/breadcrumb.css: {}
   dependencies:
     - STARTERKIT/visually-hidden
+
+clearfix:
+  css:
+    component:
+      components/asset-builds/css/clearfix.css: {}
 
 footer:
   css:
