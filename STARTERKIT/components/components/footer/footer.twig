@@ -11,5 +11,7 @@
 #}
 {{ attach_library('STARTERKIT/footer') }}
 <footer class="footer {{ modifier_class }}" role="contentinfo"{{ attributes }}>
-  {{ content }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </footer>
