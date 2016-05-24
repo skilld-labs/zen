@@ -1,7 +1,16 @@
+{#
+/**
+ * @file
+ * Component for a more link.
+ *
+ * Variables:
+ * - modifier_class: [string] Classes to modify the default component styling.
+ * - content: [string] The component contents.
+ */
+#}
+{{ attach_library('STARTERKIT/more-link') }}
 <div class="more-link {{modifier_class}}">
-  <a href="#">Read more…</a>
-</div>
-
-<div class="more-link {{modifier_class}}">
-  <a class="more-link__help-icon" href="#">Help</a>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </div>

@@ -40,6 +40,11 @@ messages:
     component:
       components/asset-builds/css/messages.css: {}
 
+more-link:
+  css:
+    component:
+      components/asset-builds/css/more-link.css: {}
+
 skip-link:
   css:
     component:
