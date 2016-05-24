@@ -11,14 +11,16 @@
   <link rel="stylesheet" href="kss-assets/kss.css">
   <link rel="stylesheet" href="../components/asset-builds/css/base.css">
 <link rel="stylesheet" href="../components/asset-builds/css/layouts.css">
-<link rel="stylesheet" href="../components/asset-builds/css/styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
 <link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
+<link rel="stylesheet" href="../components/asset-builds/css/clearfix.css">
 <link rel="stylesheet" href="../components/asset-builds/css/components.css">
 <link rel="stylesheet" href="../components/asset-builds/css/footer.css">
 <link rel="stylesheet" href="../components/asset-builds/css/messages.css">
+<link rel="stylesheet" href="../components/asset-builds/css/more-link.css">
 <link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/tabs.css">
 <link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
 
 </head>
@@ -146,7 +148,7 @@ page navigation.</p>
 
       
               <div class="kss-source kss-style">
-          Source: <code>components.scss</code>, line 57
+          Source: <code>components.scss</code>, line 56
         </div>
           </div>
           <section id="kssref-navigation-breadcrumb" class="kss-section kss-section--depth-2">
@@ -625,12 +627,9 @@ with the <code>visually-hidden</code> component.</p>
             </div>
           
           <div class="kss-modifier__example">
-            <ul class="tabs [modifier class]">
-  <li class="tabs__tab is-active"><a href="#" class="tabs__tab-link is-active">View <span class="visually-hidden">(active tab)</span></a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Edit</a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Revisions</a></li>
-</ul>
+            
 
+&lt;ul class=&quot;tabs clearfix [modifier class]&quot;&gt;&lt;/ul&gt;
           </div>
 
                       <div class="kss-modifier__name kss-style">
@@ -640,25 +639,19 @@ with the <code>visually-hidden</code> component.</p>
               Secondary tabs
             </div>
             <div class="kss-modifier__example">
-              <ul class="tabs tabs--secondary">
-  <li class="tabs__tab is-active"><a href="#" class="tabs__tab-link is-active">View <span class="visually-hidden">(active tab)</span></a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Edit</a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Revisions</a></li>
-</ul>
+              
 
+&lt;ul class=&quot;tabs clearfix tabs--secondary&quot;&gt;&lt;/ul&gt;
             </div>
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;ul class=&quot;tabs [modifier class]&quot;&gt;
-  &lt;li class=&quot;tabs__tab is-active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;View &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Edit&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Revisions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
+
+&amp;lt;ul class=&amp;quot;tabs clearfix [modifier class]&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;</code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>navigation/tabs/_tabs.scss</code>, line 4
+          Source: <code>navigation/tabs/tabs.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-navigation-tabs-stacked" class="kss-section kss-section--depth-3">
@@ -689,38 +682,26 @@ is slightly different.</p>
 
           
           <div class="kss-modifier__example">
-            <ul class="tabs ">
-  <li class="tabs__tab is-active"><a href="#" class="tabs__tab-link is-active">View <span class="visually-hidden">(active tab)</span></a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Edit</a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Revisions</a></li>
-</ul>
+            
 
-<ul class="tabs tabs--secondary">
-  <li class="tabs__tab is-active"><a href="#" class="tabs__tab-link is-active">View <span class="visually-hidden">(active tab)</span></a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Edit</a></li>
-  <li class="tabs__tab"><a href="#" class="tabs__tab-link">Revisions</a></li>
-</ul>
+&lt;ul class=&quot;tabs clearfix &quot;&gt;&lt;/ul&gt;
 
+
+&lt;ul class=&quot;tabs clearfix tabs--secondary&quot;&gt;&lt;/ul&gt;
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;ul class=&quot;tabs &quot;&gt;
-  &lt;li class=&quot;tabs__tab is-active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;View &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Edit&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Revisions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
 
-&lt;ul class=&quot;tabs tabs--secondary&quot;&gt;
-  &lt;li class=&quot;tabs__tab is-active&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;View &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Edit&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;tabs__tab&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;tabs__tab-link&quot;&gt;Revisions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
+&amp;lt;ul class=&amp;quot;tabs clearfix &amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
+
+
+&amp;lt;ul class=&amp;quot;tabs clearfix tabs--secondary&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;</code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>navigation/tabs/_tabs.scss</code>, line 14
+          Source: <code>navigation/tabs/tabs.scss</code>, line 13
         </div>
           </section>
   </article>
