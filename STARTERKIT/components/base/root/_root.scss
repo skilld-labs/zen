@@ -1,5 +1,17 @@
 // sass-lint:disable no-vendor-prefixes
 
+// Root
+//
+// The HTML root component contains the doctype, HTML element, HEAD element and
+// BODY element. It also contains the CSS for those elements and the `*`
+// universal selector.
+//
+// markup: base-root.twig
+//
+// weight: 2
+//
+// Style guide: base.root
+
 // Use the saner border-box model for all elements.
 * {
   box-sizing: border-box;
