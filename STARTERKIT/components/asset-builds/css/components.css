@@ -46,16 +46,6 @@
   margin-right: 32px;
 }
 
-.divider {
-  margin: 1.5rem 0;
-  border: 0;
-  border-top: 1px solid #cccccc;
-}
-
-.divider > :first-child {
-  margin-top: 1.5rem;
-}
-
 h1,
 .header__site-name {
   font-size: 2rem;
@@ -186,11 +176,22 @@ html.js .js-hide {
   padding: 0 1em 0 0;
 }
 
+.inline-links__item:last-child,
+.inline.links li:last-child {
+  padding-right: 0;
+}
+
 [dir="rtl"] .inline-links__item,
 [dir="rtl"] .inline.links li,
 .inline.links [dir="rtl"] li {
   display: inline-block;
   padding: 0 0 0 1em;
+}
+
+[dir="rtl"] .inline-links__item:last-child,
+[dir="rtl"] .inline.links li:last-child,
+.inline.links [dir="rtl"] li:last-child {
+  padding-left: 0;
 }
 
 .inline-sibling,
@@ -444,87 +445,6 @@ span.field-label {
 .is-throbbing.form-autocomplete,
 .form-autocomplete.throbbing {
   background-image: url(../..//forms/autocomplete/throbber-active.gif);
-}
-
-.button,
-button,
-html [type='button'],
-[type='reset'],
-[type='submit'] {
-  -moz-appearance: button;
-  -webkit-appearance: button;
-}
-
-.button,
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  display: inline-block;
-  padding: 2px 6px;
-  line-height: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  color: #000;
-}
-
-.button::-moz-focus-inner,
-button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-.button:-moz-focusring,
-button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-.button:hover, .button:focus, .button:active,
-button:hover,
-button:focus,
-button:active,
-[type='button']:hover,
-[type='button']:focus,
-[type='button']:active,
-[type='reset']:hover,
-[type='reset']:focus,
-[type='reset']:active,
-[type='submit']:hover,
-[type='submit']:focus,
-[type='submit']:active {
-  text-decoration: none;
-  color: #000;
-}
-
-.button[disabled],
-button[disabled],
-[type='button'][disabled],
-[type='reset'][disabled],
-[type='submit'][disabled] {
-  cursor: default;
-  color: #999999;
-}
-
-.button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
-button[disabled]:hover,
-button[disabled]:focus,
-button[disabled]:active,
-[type='button'][disabled]:hover,
-[type='button'][disabled]:focus,
-[type='button'][disabled]:active,
-[type='reset'][disabled]:hover,
-[type='reset'][disabled]:focus,
-[type='reset'][disabled]:active,
-[type='submit'][disabled]:hover,
-[type='submit'][disabled]:focus,
-[type='submit'][disabled]:active {
-  color: #999999;
 }
 
 .collapsible-fieldset,

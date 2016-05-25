@@ -383,28 +383,28 @@ button:active,
   color: #000;
 }
 
-.button[disabled],
+[disabled].button,
 button[disabled],
-[type='button'][disabled],
-[type='reset'][disabled],
-[type='submit'][disabled] {
+[disabled][type='button'],
+[disabled][type='reset'],
+[disabled][type='submit'] {
   cursor: default;
   color: #999999;
 }
 
-.button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active,
+[disabled].button:hover,
 button[disabled]:hover,
+[disabled][type='button']:hover,
+[disabled][type='reset']:hover,
+[disabled][type='submit']:hover, [disabled].button:focus,
 button[disabled]:focus,
+[disabled][type='button']:focus,
+[disabled][type='reset']:focus,
+[disabled][type='submit']:focus, [disabled].button:active,
 button[disabled]:active,
-[type='button'][disabled]:hover,
-[type='button'][disabled]:focus,
-[type='button'][disabled]:active,
-[type='reset'][disabled]:hover,
-[type='reset'][disabled]:focus,
-[type='reset'][disabled]:active,
-[type='submit'][disabled]:hover,
-[type='submit'][disabled]:focus,
-[type='submit'][disabled]:active {
+[disabled][type='button']:active,
+[disabled][type='reset']:active,
+[disabled][type='submit']:active {
   color: #999999;
 }
 
