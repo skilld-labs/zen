@@ -32,6 +32,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
+  @extend %button--disabled;
   // Some styles don't apply to <a> links since they are inline elements by default.
   display: inline-block;
   padding: 2px 6px;
@@ -62,21 +63,27 @@ button,
     text-decoration: none;
     color: color(button);
   }
+}
 
-  // Add button variations here.
+// Add button variations here.
+.button,
+%button {
+  &--variant-name {
+    // Add styles here.
+  }
+}
 
-  // The disabled variation should always go last, so that it overrides any
-  // other variations.
-  &[disabled] {
-    // Re-set default cursor for disabled elements.
-    cursor: default;
+// The disabled variation should always go last, so that it overrides any
+// other variations.
+%button--disabled[disabled] {
+  // Re-set default cursor for disabled elements.
+  cursor: default;
+  color: color(button-disabled);
+
+  &:hover,
+  &:focus,
+  &:active {
+    // Override any link underlines and color changes.
     color: color(button-disabled);
-
-    &:hover,
-    &:focus,
-    &:active {
-      // Override any link underlines and color changes.
-      color: color(button-disabled);
-    }
   }
 }
