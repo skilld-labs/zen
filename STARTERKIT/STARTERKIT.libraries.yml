@@ -40,6 +40,11 @@ footer:
     component:
       components/asset-builds/css/footer.css: {}
 
+highlight-mark:
+  css:
+    component:
+      components/asset-builds/css/highlight-mark.css: {}
+
 messages:
   css:
     component:

@@ -1,3 +1,5 @@
+@import 'init';
+
 // Highlight mark
 //
 // The "new" or "updated" marker. This is a very thin component. A front-end
@@ -19,7 +21,6 @@
 // Drupal selectors. (In case a module doesn't use theme_mark().)
 //
 
-.new,
-.update {
+.marker {
   @extend %highlight-mark;
 }

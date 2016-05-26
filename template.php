@@ -136,17 +136,3 @@ function zen_preprocess_menu_link(&$variables, $hook) {
   }
   $menu_link_classes = array_merge($extra_classes, $menu_link_classes);
 }
-
-/**
- * Returns HTML for a marker for new or updated content.
- */
-function zen_mark($variables) {
-  $type = $variables['type'];
-
-  if ($type == MARK_NEW) {
-    return ' <mark class="highlight-mark">' . t('new') . '</mark>';
-  }
-  elseif ($type == MARK_UPDATED) {
-    return ' <mark class="highlight-mark">' . t('updated') . '</mark>';
-  }
-}
