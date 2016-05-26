@@ -55,21 +55,6 @@ function zen_preprocess_comment(&$variables, $hook) {
 }
 
 /**
- * Override or insert variables into the block templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("block" in this case.)
- */
-function zen_preprocess_block(&$variables, $hook) {
-  // Use a template with no wrapper for the page's main content.
-  if ($variables['block_html_id'] == 'block-system-main') {
-    $variables['theme_hook_suggestions'][] = 'block__no_wrapper';
-  }
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  *
  * Prevent user-facing field styling from screwing up node edit forms by
