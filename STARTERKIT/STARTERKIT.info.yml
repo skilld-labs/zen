@@ -37,6 +37,7 @@ base theme: zen
 # - Replace an asset in a library with another asset.
 # - Remove an asset from a library.
 libraries-override:
+  core/normalize: false
   system/base:
     css:
       component:
@@ -46,6 +47,7 @@ libraries-override:
       component:
         css/components/breadcrumb.css: false
         css/components/button.css: false
+        css/components/more-link.css: false
         css/components/pager.css: false
         css/components/tabs.css: false
 
