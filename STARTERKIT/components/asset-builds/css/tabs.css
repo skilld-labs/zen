@@ -62,7 +62,8 @@
   background-image: none;
 }
 
-.tabs + .tabs--secondary {
+.tabs + .tabs--secondary,
+.tabs + h2 + .tabs--secondary {
   margin-top: 0;
   background-image: -webkit-linear-gradient(bottom, #cccccc 1px, transparent 1px);
   background-image: linear-gradient(to top, #cccccc 1px, transparent 1px);

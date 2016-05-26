@@ -629,7 +629,26 @@ with the <code>visually-hidden</code> component.</p>
           <div class="kss-modifier__example">
             
 
-&lt;ul class=&quot;tabs clearfix [modifier class]&quot;&gt;&lt;/ul&gt;
+  <h2 class="visually-hidden">Primary tabs</h2>
+<ul class="tabs clearfix [modifier class]">
+          <li class="tabs__tab is-active">
+              <a href="#" class="tabs__tab-link is-active">
+          View
+                      <span class="visually-hidden">(active tab)</span>
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Edit
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Delete
+                  </a>
+          </li>
+  </ul>
+
           </div>
 
                       <div class="kss-modifier__name kss-style">
@@ -641,13 +660,51 @@ with the <code>visually-hidden</code> component.</p>
             <div class="kss-modifier__example">
               
 
-&lt;ul class=&quot;tabs clearfix tabs--secondary&quot;&gt;&lt;/ul&gt;
+  <h2 class="visually-hidden">Primary tabs</h2>
+<ul class="tabs clearfix tabs--secondary">
+          <li class="tabs__tab is-active">
+              <a href="#" class="tabs__tab-link is-active">
+          View
+                      <span class="visually-hidden">(active tab)</span>
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Edit
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Delete
+                  </a>
+          </li>
+  </ul>
+
             </div>
                   </div>
                   <div class="kss-markup kss-style">
             <pre class="prettyprint linenums lang-html"><code data-language="html">
 
-&amp;lt;ul class=&amp;quot;tabs clearfix [modifier class]&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;</code></pre>
+  &lt;h2 class=&quot;visually-hidden&quot;&gt;Primary tabs&lt;/h2&gt;
+&lt;ul class=&quot;tabs clearfix [modifier class]&quot;&gt;
+          &lt;li class=&quot;tabs__tab is-active&quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;
+          View
+                      &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Edit
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Delete
+                  &lt;/a&gt;
+          &lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre>
           </div>
               
               <div class="kss-source kss-style">
@@ -684,20 +741,96 @@ is slightly different.</p>
           <div class="kss-modifier__example">
             
 
-&lt;ul class=&quot;tabs clearfix &quot;&gt;&lt;/ul&gt;
+  <h2 class="visually-hidden">Primary tabs</h2>
+<ul class="tabs clearfix ">
+          <li class="tabs__tab is-active">
+              <a href="#" class="tabs__tab-link is-active">
+          View
+                      <span class="visually-hidden">(active tab)</span>
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Edit
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Delete
+                  </a>
+          </li>
+  </ul>
 
 
-&lt;ul class=&quot;tabs clearfix tabs--secondary&quot;&gt;&lt;/ul&gt;
+
+  <h2 class="visually-hidden">Secondary tabs</h2>
+<ul class="tabs clearfix tabs--secondary">
+          <li class="tabs__tab is-active">
+              <a href="#" class="tabs__tab-link is-active">
+          View
+                      <span class="visually-hidden">(active tab)</span>
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Edit
+                  </a>
+          </li>
+          <li class="tabs__tab ">
+              <a href="#" class="tabs__tab-link ">
+          Delete
+                  </a>
+          </li>
+  </ul>
+
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
             <pre class="prettyprint linenums lang-html"><code data-language="html">
 
-&amp;lt;ul class=&amp;quot;tabs clearfix &amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
+  &lt;h2 class=&quot;visually-hidden&quot;&gt;Primary tabs&lt;/h2&gt;
+&lt;ul class=&quot;tabs clearfix &quot;&gt;
+          &lt;li class=&quot;tabs__tab is-active&quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;
+          View
+                      &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Edit
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Delete
+                  &lt;/a&gt;
+          &lt;/li&gt;
+  &lt;/ul&gt;
 
 
-&amp;lt;ul class=&amp;quot;tabs clearfix tabs--secondary&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;</code></pre>
+
+  &lt;h2 class=&quot;visually-hidden&quot;&gt;Secondary tabs&lt;/h2&gt;
+&lt;ul class=&quot;tabs clearfix tabs--secondary&quot;&gt;
+          &lt;li class=&quot;tabs__tab is-active&quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link is-active&quot;&gt;
+          View
+                      &lt;span class=&quot;visually-hidden&quot;&gt;(active tab)&lt;/span&gt;
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Edit
+                  &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;tabs__tab &quot;&gt;
+              &lt;a href=&quot;#&quot; class=&quot;tabs__tab-link &quot;&gt;
+          Delete
+                  &lt;/a&gt;
+          &lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre>
           </div>
               
               <div class="kss-source kss-style">
