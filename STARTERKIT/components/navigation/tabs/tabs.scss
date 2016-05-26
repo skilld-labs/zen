@@ -96,7 +96,8 @@
   }
 
   // When secondary tabs appear directly after primary tabs.
-  & + &--secondary {
+  & + &--secondary,
+  & + h2 + &--secondary {
     @include margin-top(0);
     background-image: linear-gradient(to top, color(tabs-border) 1px, transparent 1px);
   }
