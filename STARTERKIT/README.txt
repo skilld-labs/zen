@@ -90,8 +90,8 @@ CREATING A SUB-THEME MANUALLY
     alphabetic character and can only contain lowercase letters, numbers and
     underscores.
 
-    For example, copy the sites/all/themes/zen/STARTERKIT folder and rename it
-    as sites/all/themes/foo.
+    For example, copy the themes/zen/STARTERKIT folder and rename it
+    as themes/foo.
 
       Why? Each theme should reside in its own folder. To make it easier to
       upgrade Zen, sub-themes should reside in a folder separate from the base
