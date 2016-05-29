@@ -27,7 +27,6 @@
 
   @include rtl() {
     padding: 10px 44px 10px 10px;
-    background-position: 99% 8px;
   }
 
   &__icon {
@@ -41,7 +40,7 @@
 
     @include rtl() {
       left: auto;
-      right: 0;
+      right: 10px;
     }
 
     // SVG icon fill.
