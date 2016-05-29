@@ -1,24 +1,6 @@
 <?php
 
 /**
- * Override or insert variables into the node templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("node" in this case.)
- */
-function zen_preprocess_node(&$variables, $hook) {
-  // Add $unpublished variable.
-  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
-
-  // If the node is unpublished, add the "unpublished" watermark class.
-  if ($variables['unpublished'] || isset($variables['preview']) && $variables['preview']) {
-    $variables['classes_array'][] = 'watermark__wrapper';
-  }
-}
-
-/**
  * Override or insert variables into the comment templates.
  *
  * @param $variables

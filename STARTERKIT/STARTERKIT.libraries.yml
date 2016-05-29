@@ -73,6 +73,11 @@ visually-hidden:
     component:
       components/asset-builds/css/visually-hidden.css: {}
 
+watermark:
+  css:
+    component:
+      components/asset-builds/css/watermark.css: {}
+
 # This is a temporary library that holds all of Zen 7.x-6.x's component styles.
 # @TODO: Finish porting all of these styles to proper Twig components.
 components:

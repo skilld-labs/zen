@@ -1,3 +1,4 @@
+{% extends "@STARTERKIT/containers/article/article.twig" %}
 {#
 /**
  * @file
@@ -7,11 +8,16 @@
  * - node: The node entity with limited access to object properties and methods.
  *   Only method names starting with "get", "has", or "is" and a few common
  *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.bundle will return the machine name of the content type.
  *   - node.getCreatedTime() will return the node creation timestamp.
  *   - node.hasField('field_example') returns TRUE if the node bundle includes
  *     field_example. (This does not indicate the presence of a value in this
  *     field.)
  *   - node.isPublished() will return whether the node is published or not.
+ *   - node.isPromoted() will return whether the node is promoted to the front
+ *     page or not.
+ *   - node.isSticky() will return whether the node should be sticky to the top
+ *     of the current list.
  *   Calling other methods, such as node.delete(), will result in an exception.
  *   See \Drupal\node\Entity\Node for a full list of public properties and
  *   methods for the node object.
@@ -28,21 +34,7 @@
  * - url: Direct URL of the current node.
  * - display_submitted: Whether submission information should be displayed.
  * - attributes: HTML attributes for the containing element.
- *   The attributes.class element may contain one or more of the following
- *   classes:
- *   - node: The current template type (also known as a "theming hook").
- *   - node--type-[type]: The current node type. For example, if the node is an
- *     "Article" it would result in "node--type-article". Note that the machine
- *     name will often be in a short form of the human readable label.
- *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
- *     teaser would result in: "node--view-mode-teaser", and
- *     full: "node--view-mode-full".
- *   The following are controlled through the node publishing options.
- *   - node--promoted: Appears on nodes promoted to the front page.
- *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
- *     teaser listings.
- *   - node--unpublished: Appears on unpublished nodes visible only to site
- *     admins.
+ *   The attributes.class element may contain one or more classes.
  * - title_attributes: Same as attributes, except applied to the main title
  *   tag that appears in the template.
  * - content_attributes: Same as attributes, except applied to the main
@@ -64,44 +56,33 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
  */
 #}
-{%
-set classes = [
-'node',
-'node--type-' ~ node.bundle|clean_class,
-node.isPromoted() ? 'node--promoted',
-node.isSticky() ? 'node--sticky',
-not node.isPublished() ? 'node--unpublished',
-view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
-<article{{ attributes.addClass(classes) }}>
+{% set modifier_class = attributes.class %}
+{% set attributes = attributes.removeAttribute('class') %}
 
+{% block heading %}
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
+    {% set heading = label %}
+    {% set headingAttributes = title_attributes %}
+    {{ parent() }}
   {% endif %}
   {{ title_suffix }}
+{% endblock heading %}
 
+{% set footer = display_submitted or node.in_preview or not node.isPublished() %}
+{% block footer %}
   {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
+    {{ author_picture }}
+    {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+    {{ metadata }}
   {% endif %}
-
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
-
-</article>
+  {% if node.in_preview or not node.isPublished() %}
+    {%
+      include "@STARTERKIT/components/watermark/watermark.twig" with {
+        "content": node.in_preview ? "Preview"|t : "Unpublished"|t
+      } only
+    %}
+  {% endif %}
+{% endblock %}

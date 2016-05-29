@@ -88,7 +88,8 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'more-link.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'tabs.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'visually-hidden.css')
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'visually-hidden.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'watermark.css')
   ],
   js: [
   ],
