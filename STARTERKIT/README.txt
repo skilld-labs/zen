@@ -5,8 +5,8 @@ The base Zen theme is designed to be easily extended by its sub-themes. You
 shouldn't modify any of the CSS or PHP files in the zen/ folder; but instead you
 should create a sub-theme of zen which is located in a folder outside of the
 root zen/ folder. The examples below assume zen and your sub-theme will be
-installed in sites/all/themes/, but any valid theme directory is acceptable
-(read the sites/example.sites.php for more info.)
+installed in themes/, but any valid theme directory is acceptable (read
+the sites/example.sites.php for more info.)
 
   Why? To learn why you shouldn't modify any of the files in the zen/ folder,
   see https://drupal.org/node/245802
@@ -16,9 +16,9 @@ installed in sites/all/themes/, but any valid theme directory is acceptable
 *
 * In Drupal 8, the theme system caches which template files and which theme
 * functions should be called. This means that if you add a new theme,
-* preprocess or process function to your template.php file or add a new template
-* (.tpl.php) file to your sub-theme, you will need to rebuild the "theme
-* registry." See https://drupal.org/node/173880#theme-registry
+* preprocess function to your [SUB-THEME].theme file or add a new template
+* (.twig) file to your sub-theme, you will need to rebuild the "theme registry."
+* See https://drupal.org/node/173880#theme-registry
 *
 * Drupal 8 also stores a cache of the data in .info.yml files. If you modify any
 * lines in your sub-theme's .info.yml file, you MUST refresh Drupal 8's cache by
@@ -116,11 +116,11 @@ CREATING A SUB-THEME MANUALLY
 
  3. Edit your sub-theme to use the proper function names.
 
-    Edit the template.php and theme-settings.php files in your sub-theme's
+    Edit the [SUB-THEME].theme and theme-settings.php files in your sub-theme's
     folder; replace ALL occurrences of "STARTERKIT" with the name of your
     sub-theme.
 
-    For example, edit foo/template.php and foo/theme-settings.php and replace
+    For example, edit foo/foo.theme and foo/theme-settings.php and replace
     every occurrence of "STARTERKIT" with "foo".
 
     It is recommended to use a text editing application with search and
