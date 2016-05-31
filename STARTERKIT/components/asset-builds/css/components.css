@@ -157,13 +157,6 @@ html.js .js-hide {
   display: none;
 }
 
-.highlight-mark,
-.new,
-.update {
-  color: #c00;
-  background-color: transparent;
-}
-
 .inline-links,
 .inline.links {
   padding: 0;
@@ -260,22 +253,6 @@ span.field-label {
 
 .responsive-video--4-3 {
   padding-bottom: 75%;
-}
-
-.watermark {
-  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-  height: 0;
-  overflow: visible;
-  background-color: transparent;
-  color: #eeeeee;
-  font-size: 75px;
-  line-height: 1;
-  text-align: center;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-  word-wrap: break-word;
 }
 
 .nav-menu__item,
