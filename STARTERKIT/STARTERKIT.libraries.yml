@@ -45,6 +45,11 @@ highlight-mark:
     component:
       components/asset-builds/css/highlight-mark.css: {}
 
+inline-links:
+  css:
+    component:
+      components/asset-builds/css/inline-links.css: {}
+
 messages:
   css:
     component:

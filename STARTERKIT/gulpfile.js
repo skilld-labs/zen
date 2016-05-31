@@ -84,6 +84,7 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'components.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'footer.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'highlight-mark.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'inline-links.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'messages.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'more-link.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css'),
