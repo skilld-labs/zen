@@ -105,7 +105,7 @@ options.eslint = {
     options.theme.js + '**/*.js',
     '!' + options.theme.js + '**/*.min.js',
     options.theme.components + '**/*.js',
-    '!' + options.theme.build
+    '!' + options.theme.build + '**/*.js'
   ]
 };
 
