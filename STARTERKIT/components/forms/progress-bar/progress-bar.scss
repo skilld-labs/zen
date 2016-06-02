@@ -1,3 +1,8 @@
+@import 'init';
+
+// Change the default sub-directory for the image-url() mixin.
+$image-url-subdirectory: 'forms/progress-bar';
+
 // Progress bar
 //
 // Shows the progress of a task in a simple bar graph.
@@ -22,7 +27,7 @@
   &__fill {
     height: 1.5em;
     width: 5px;
-    background: color(progress-bar) image-url('forms', 'progress-bar/progress-bar.gif') repeat 0 0;
+    background: color(progress-bar) image-url('progress-bar.gif') repeat 0 0;
   }
 
   &__percentage {

@@ -1,3 +1,8 @@
+@import 'init';
+
+// Change the default sub-directory for the image-url() mixin.
+$image-url-subdirectory: 'forms/collapsible-fieldset';
+
 // Collapsible fieldset
 //
 // Fieldsets with optional entry fields can be hidden with collapsed fieldsets.
@@ -15,7 +20,7 @@
   &__legend {
     display: block;
     padding-left: 15px;
-    background-image: image-url('forms', 'collapsible-fieldset/expanded.svg');
+    background-image: image-url('expanded.svg');
     background-position: 4px 50%;
     background-repeat: no-repeat;
 
@@ -47,11 +52,11 @@
 
   &.is-collapsed &__legend,
   &--is-collapsed__legend {
-    background-image: image-url('forms', 'collapsible-fieldset/collapsed.svg');
+    background-image: image-url('collapsed.svg');
     background-position: 4px 50%;
 
     @include rtl() {
-      background-image: image-url('forms', 'collapsible-fieldset/collapsed-rtl.svg');
+      background-image: image-url('collapsed-rtl.svg');
       background-position: right 4px top 50%;
     }
   }

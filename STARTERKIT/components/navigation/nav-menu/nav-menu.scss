@@ -1,3 +1,8 @@
+@import 'init';
+
+// Change the default sub-directory for the image-url() mixin.
+$image-url-subdirectory: 'navigation/nav-menu';
+
 // Nav menu
 //
 // A "nav menu" is secondary, hierarchical navigation which can be displayed to the
@@ -11,22 +16,22 @@
 %nav-menu {
 
   &__item {
-    list-style-image: image-url('navigation', 'nav-menu/leaf.svg');
+    list-style-image: image-url('leaf.svg');
     list-style-type: square;
 
     &.is-expanded,
     &--is-expanded {
-      list-style-image: image-url('navigation', 'nav-menu/expanded.svg');
+      list-style-image: image-url('expanded.svg');
       list-style-type: circle;
     }
 
     &.is-collapsed,
     &--is-collapsed {
-      list-style-image: image-url('navigation', 'nav-menu/collapsed.svg');
+      list-style-image: image-url('collapsed.svg');
       list-style-type: disc;
 
       @include rtl() {
-        list-style-image: image-url('navigation', 'nav-menu/collapsed-rtl.svg');
+        list-style-image: image-url('collapsed-rtl.svg');
       }
     }
   }

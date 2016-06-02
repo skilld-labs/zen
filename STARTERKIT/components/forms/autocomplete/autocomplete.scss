@@ -1,3 +1,8 @@
+@import 'init';
+
+// Change the default sub-directory for the image-url() mixin.
+$image-url-subdirectory: 'forms/autocomplete';
+
 // Autocomplete field
 //
 // As the user starts to type a value, a selection list appears below the form
@@ -13,7 +18,7 @@
 // Animated throbber
 .autocomplete,
 %autocomplete {
-  background-image: image-url('forms', 'autocomplete/throbber-inactive.png');
+  background-image: image-url('throbber-inactive.png');
   background-position: 100% center;
   background-repeat: no-repeat;
 
@@ -51,7 +56,7 @@
 
   &.is-throbbing,
   &--is-throbbing {
-    background-image: image-url('forms', 'autocomplete/throbber-active.gif');
+    background-image: image-url('throbber-active.gif');
   }
 }
 

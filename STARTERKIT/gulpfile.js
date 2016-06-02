@@ -75,22 +75,44 @@ options.styleGuide = {
   // The css and js paths are URLs, like '/misc/jquery.js'.
   // The following paths are relative to the generated style guide.
   css: [
+    // base/special stylesheets
     path.relative(options.rootPath.styleGuide, options.theme.css + 'base.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'layouts.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'chroma-kss-styles.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'kss-only.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'breadcrumb.css'),
+    // component stylesheets
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'box.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'clearfix.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'components.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'comment.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'footer.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'header.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'hidden.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'highlight-mark.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'inline-links.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'inline-sibling.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'messages.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'more-link.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'tabs.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'print-none.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'responsive-video.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'visually-hidden.css'),
-    path.relative(options.rootPath.styleGuide, options.theme.css + 'watermark.css')
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'watermark.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'wireframe.css'),
+    // form stylesheets
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'autocomplete.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'collapsible-fieldset.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'form-item.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'form-table.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'progress-bar.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'progress-throbber.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'resizable-textarea.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'table-drag.css'),
+    // navigation stylesheets
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'breadcrumb.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'more-link.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'nav-menu.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'navbar.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'pager.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'skip-link.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'tabs.css')
   ],
   js: [
   ],

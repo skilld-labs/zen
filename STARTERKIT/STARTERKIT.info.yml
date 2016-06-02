@@ -58,8 +58,27 @@ libraries-override:
 # The "libraries:" section will add a library to _all_ pages.
 libraries:
   - STARTERKIT/base
-  # @TODO Remove this library and use attach_library() for all component styles.
-  - STARTERKIT/components
+  # @TODO Remove these libraries and use attach_library() for all component styles.
+  - STARTERKIT/box
+  - STARTERKIT/comment
+  - STARTERKIT/header
+  - STARTERKIT/hidden
+  - STARTERKIT/inline-links
+  - STARTERKIT/inline-sibling
+  - STARTERKIT/print-none
+  - STARTERKIT/responsive-video
+  - STARTERKIT/wireframe
+  - STARTERKIT/autocomplete
+  - STARTERKIT/collapsible-fieldset
+  - STARTERKIT/form-item
+  - STARTERKIT/form-table
+  - STARTERKIT/progress-bar
+  - STARTERKIT/progress-throbber
+  - STARTERKIT/resizable-textarea
+  - STARTERKIT/table-drag
+  - STARTERKIT/nav-menu
+  - STARTERKIT/navbar
+  - STARTERKIT/pager
 
 
 # This section is used by the contrib module, Component Libraries. It allows you

@@ -1,3 +1,8 @@
+@import 'init';
+
+// Change the default sub-directory for the image-url() mixin.
+$image-url-subdirectory: 'forms/resizable-textarea';
+
 // Resizable textarea
 //
 // A textarea that can be resized with a "grippie" widget.
@@ -12,7 +17,7 @@
   vertical-align: bottom;
 
   &__grippie {
-    background: image-url('forms', 'resizable-textarea/grippie.png') no-repeat center 2px color(resizable-grippie);
+    background: image-url('grippie.png') no-repeat center 2px color(resizable-grippie);
     border: 1px solid color(border);
     border-top-width: 0;
     cursor: s-resize;

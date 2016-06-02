@@ -1,6 +1,4 @@
-// Dependencies.
-@import 'base/headings/headings';
-@import 'components/clearfix/clearfix';
+@import 'init';
 
 // Branding header
 //
@@ -10,8 +8,6 @@
 
 .header,
 %header {
-  @extend %clearfix;
-
   // Wrapping link for logo.
   &__logo {
     float: left;
@@ -36,7 +32,6 @@
 
   // The name of the website.
   &__site-name {
-    @extend %h1;
     margin: 0;
   }
 
