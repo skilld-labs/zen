@@ -13,17 +13,36 @@
 <link rel="stylesheet" href="../components/asset-builds/css/layouts.css">
 <link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
-<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
+<link rel="stylesheet" href="../components/asset-builds/css/box.css">
 <link rel="stylesheet" href="../components/asset-builds/css/clearfix.css">
-<link rel="stylesheet" href="../components/asset-builds/css/components.css">
+<link rel="stylesheet" href="../components/asset-builds/css/comment.css">
 <link rel="stylesheet" href="../components/asset-builds/css/footer.css">
+<link rel="stylesheet" href="../components/asset-builds/css/header.css">
+<link rel="stylesheet" href="../components/asset-builds/css/hidden.css">
 <link rel="stylesheet" href="../components/asset-builds/css/highlight-mark.css">
+<link rel="stylesheet" href="../components/asset-builds/css/inline-links.css">
+<link rel="stylesheet" href="../components/asset-builds/css/inline-sibling.css">
 <link rel="stylesheet" href="../components/asset-builds/css/messages.css">
-<link rel="stylesheet" href="../components/asset-builds/css/more-link.css">
-<link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
-<link rel="stylesheet" href="../components/asset-builds/css/tabs.css">
+<link rel="stylesheet" href="../components/asset-builds/css/print-none.css">
+<link rel="stylesheet" href="../components/asset-builds/css/responsive-video.css">
 <link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
 <link rel="stylesheet" href="../components/asset-builds/css/watermark.css">
+<link rel="stylesheet" href="../components/asset-builds/css/wireframe.css">
+<link rel="stylesheet" href="../components/asset-builds/css/autocomplete.css">
+<link rel="stylesheet" href="../components/asset-builds/css/collapsible-fieldset.css">
+<link rel="stylesheet" href="../components/asset-builds/css/form-item.css">
+<link rel="stylesheet" href="../components/asset-builds/css/form-table.css">
+<link rel="stylesheet" href="../components/asset-builds/css/progress-bar.css">
+<link rel="stylesheet" href="../components/asset-builds/css/progress-throbber.css">
+<link rel="stylesheet" href="../components/asset-builds/css/resizable-textarea.css">
+<link rel="stylesheet" href="../components/asset-builds/css/table-drag.css">
+<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
+<link rel="stylesheet" href="../components/asset-builds/css/more-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/nav-menu.css">
+<link rel="stylesheet" href="../components/asset-builds/css/navbar.css">
+<link rel="stylesheet" href="../components/asset-builds/css/pager.css">
+<link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/tabs.css">
 
 </head>
 <body id="kss-node">
@@ -198,7 +217,7 @@ class names specified in the component.</p>
 
       
               <div class="kss-source kss-style">
-          Source: <code>components.scss</code>, line 34
+          Source: <code>components/_components.scss</code>, line 1
         </div>
           </div>
           <section id="kssref-components-box" class="kss-section kss-section--depth-2">
@@ -291,7 +310,7 @@ building a good component.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/box/_box.scss</code>, line 1
+          Source: <code>components/box/box.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-clearfix" class="kss-section kss-section--depth-2">
@@ -457,7 +476,7 @@ elements. See <a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/comment/_comment.scss</code>, line 1
+          Source: <code>components/comment/comment.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-divider" class="kss-section kss-section--depth-2">
@@ -589,7 +608,7 @@ elements. See <a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://
 
           
           <div class="kss-modifier__example">
-            <header class="header " role="banner">
+            <header class="header  clearfix" role="banner">
   <a href="/" title="Home" rel="home" class="header__logo">
     <img src="kss-assets/sample-inline.png" alt="Home" class="header__logo-image">
   </a>
@@ -618,7 +637,7 @@ elements. See <a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;header class=&quot;header &quot; role=&quot;banner&quot;&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;header class=&quot;header  clearfix&quot; role=&quot;banner&quot;&gt;
   &lt;a href=&quot;/&quot; title=&quot;Home&quot; rel=&quot;home&quot; class=&quot;header__logo&quot;&gt;
     &lt;img src=&quot;kss-assets/sample-inline.png&quot; alt=&quot;Home&quot; class=&quot;header__logo-image&quot;&gt;
   &lt;/a&gt;
@@ -646,7 +665,7 @@ elements. See <a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/header/_header.scss</code>, line 5
+          Source: <code>components/header/header.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-hidden" class="kss-section kss-section--depth-2">
@@ -696,7 +715,7 @@ the <code>.js-hidden</code> class.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/hidden/_hidden.scss</code>, line 1
+          Source: <code>components/hidden/hidden.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-highlight-mark" class="kss-section kss-section--depth-2">
@@ -777,24 +796,20 @@ element directly.</p>
 
           
           <div class="kss-modifier__example">
-            <ul class="inline-links ">
-  <li class="inline-links__item"><a href="#">Read more</a></li>
-  <li class="inline-links__item"><a href="#">Comment</a></li>
-</ul>
+            
+<ul class="inline-links "><li class="inline-links__item"><a href="#">Read more</a></li><li class="inline-links__item"><a href="#">Comment</a></li></ul>
 
           </div>
 
                   </div>
                   <div class="kss-markup kss-style">
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;ul class=&quot;inline-links &quot;&gt;
-  &lt;li class=&quot;inline-links__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Read more&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;inline-links__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Comment&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">
+&lt;ul class=&quot;inline-links &quot;&gt;&lt;li class=&quot;inline-links__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Read more&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;inline-links__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Comment&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </code></pre>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/inline-links/_inline-links.scss</code>, line 1
+          Source: <code>components/inline-links/inline-links.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-inline-sibling" class="kss-section kss-section--depth-2">
@@ -837,7 +852,7 @@ element directly.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/inline-sibling/_inline-sibling.scss</code>, line 1
+          Source: <code>components/inline-sibling/inline-sibling.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-messages" class="kss-section kss-section--depth-2">
@@ -1077,7 +1092,7 @@ performance.</p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/print-none/_print-none.scss</code>, line 1
+          Source: <code>components/print-none/print-none.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-responsive-video" class="kss-section kss-section--depth-2">
@@ -1139,7 +1154,7 @@ intrinsic aspect ratio is preserved at any screen width. The
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/responsive-video/_responsive-video.scss</code>, line 1
+          Source: <code>components/responsive-video/responsive-video.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-components-visually-hidden" class="kss-section kss-section--depth-2">
@@ -1328,7 +1343,7 @@ variable: <code>$with-wireframes: true;</code></p>
           </div>
               
               <div class="kss-source kss-style">
-          Source: <code>components/wireframe/_wireframe.scss</code>, line 3
+          Source: <code>components/wireframe/wireframe.scss</code>, line 5
         </div>
           </section>
   </article>
