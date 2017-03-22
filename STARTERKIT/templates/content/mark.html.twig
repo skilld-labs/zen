@@ -13,8 +13,8 @@
 #}
 {% if logged_in %}
   {% if status is constant('MARK_NEW') %}
-    {% include "@STARTERKIT/components/highlight-mark.twig" with {content: 'New'|t} only %}
+    {% include "@STARTERKIT/components/highlight-mark/highlight-mark.twig" with {content: 'New'|t} only %}
   {% elseif status is constant('MARK_UPDATED') %}
-    {% include "@STARTERKIT/components/highlight-mark.twig" with {content: 'Updated'|t} only %}
+    {% include "@STARTERKIT/components/highlight-mark/highlight-mark.twig" with {content: 'Updated'|t} only %}
   {% endif %}
 {% endif %}
