@@ -63,6 +63,7 @@ libraries:
   - STARTERKIT/comment
   - STARTERKIT/header
   - STARTERKIT/hidden
+  - STARTERKIT/highlight-mark
   - STARTERKIT/inline-links
   - STARTERKIT/inline-sibling
   - STARTERKIT/print-none
