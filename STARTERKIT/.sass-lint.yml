@@ -3,7 +3,7 @@
 
 files:
   ignore:
-    - 'components/init/_sprites.scss'
+    - 'src/sass/abstractions/_sprites.scss'
 
 options:
   formatter: stylish

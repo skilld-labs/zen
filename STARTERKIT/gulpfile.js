@@ -10,13 +10,13 @@
 
 'use strict';
 
-var importOnce = require('node-sass-import-once'),
+let importOnce = require('node-sass-import-once'),
   path = require('path'),
   glob = require('glob'),
   env = process.env.NODE_ENV || 'testing',
   isProduction = (env === 'production');
 
-var options = {};
+let options = {};
 
 // Edit these paths and options.
 // The root paths are used to construct all the other paths in this
@@ -27,19 +27,21 @@ var options = {};
 options.rootPath = {
   project : __dirname + '/',
   styleGuide : __dirname + '/styleguide/',
+  src : __dirname + '/src/',
+  dist : __dirname + '/dist/',
   theme : __dirname + '/'
 };
 
 options.theme = {
   name : 'STARTERKIT',
   root : options.rootPath.theme,
-  components : options.rootPath.theme + 'components/',
-  build : options.rootPath.theme + 'components/asset-builds/',
-  css : options.rootPath.theme + 'components/asset-builds/css/',
-  js : options.rootPath.theme + 'js/',
+  components : options.rootPath.src + 'sass/',
+  build : options.rootPath.dist,
+  css : options.rootPath.dist + 'css/',
+  js : options.rootPath.src + 'js/',
   node : options.rootPath.theme + 'node_modules/',
   images     : options.rootPath.theme + 'images/',
-  sprites    : options.rootPath.theme + 'images-source/*'
+  sprites    : options.rootPath.src + 'sprites/*'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -75,7 +77,7 @@ options.autoprefixer = {
 };
 
 // Help KSS to automatically find new component CSS files.
-var cssFiles = glob.sync('*.css', {cwd: options.theme.css}),
+let cssFiles = glob.sync('*.css', {cwd: options.theme.css}),
   cssStyleguide = [];
 
 cssFiles.forEach(function (file) {
@@ -118,8 +120,8 @@ options.eslint = {
 
 // Define the paths for gulp.spritesmith
 options.sprites = {
-  imgName: options.theme.images + 'sprites/sprites.png',
-  cssName: 'components/init/_sprites.scss',
+  imgName: options.rootPath.dist + 'sprites/sprites.png',
+  cssName: 'src/sass/abstractions/_sprites.scss',
   imgPath: path.relative(options.theme.css, options.theme.images + 'sprites/sprites.png'),
   cssVarMap: function (sprite) {
     sprite.name = 'sprite_' + sprite.name;
@@ -134,29 +136,40 @@ options.gulpWatchOptions = {};
 // Load Gulp and tools we will use.
 // Task gulp-load-plugins will report "undefined" error unless you load
 // gulp-sass manually.
-var gulp = require('gulp'),
+let gulp = require('gulp'),
   $ = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create(),
   del = require('del'),
   sass = require('gulp-sass'),
   kss = require('kss'),
   cache = require('gulp-cached'),
-  spritesmith = require('gulp.spritesmith');
+  spritesmith = require('gulp.spritesmith'),
+  webpack       = require('webpack'),
+  webpackStream = require('webpack-stream');
 
 // The default task.
 gulp.task('default', ['build']);
 
 // Build everything.
-gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
+gulp.task('build', ['sprites', 'scripts', 'styles', 'lint']);
 
 // Build Sprites.
 gulp.task('sprites', function () {
-  var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
+  let spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
   return spriteData.pipe(gulp.dest('.'));
 });
 
+// #################
+// Build Javascript.
+// #################
+gulp.task('scripts', [], function () {
+  return gulp.src(options.theme.js + 'init.js')
+    .pipe(webpackStream(require('./webpack.config.js'), webpack))
+    .pipe(gulp.dest(options.rootPath.dist));
+});
+
 // Build CSS.
-var sassFiles = [
+let sassFiles = [
   options.theme.components + '**/*.scss',
   // Do not open Sass partials as they will be included as needed.
   '!' + options.theme.components + '**/_*.scss',
@@ -188,7 +201,7 @@ gulp.task('styleguide:kss-example-chroma', function () {
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
     .pipe($.rename('kss-example-chroma.twig'))
     .pipe($.size({showFiles: true}))
-    .pipe(gulp.dest(options.theme.build + 'twig'));
+    .pipe(gulp.dest(options.rootPath.dist + 'twig'));
 });
 
 // Debug the generation of the style guide with the --verbose flag.
@@ -245,7 +258,7 @@ gulp.task('watch:js', ['lint:js'], function () {
 });
 
 // Clean all directories.
-gulp.task('clean', ['clean:css', 'clean:styleguide']);
+gulp.task('clean', ['clean:css', 'clean:dist', 'clean:styleguide']);
 
 // Clean style guide files.
 gulp.task('clean:styleguide', function () {
@@ -262,6 +275,13 @@ gulp.task('clean:css', function () {
   return del([
     options.theme.css + '**/*.css',
     options.theme.css + '**/*.map'
+  ], {force: true});
+});
+
+// Clean `dist` folder.
+gulp.task('clean:dist', function () {
+  return del([
+    options.rootPath.dist + '/**/*'
   ], {force: true});
 });
 

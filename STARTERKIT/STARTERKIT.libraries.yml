@@ -11,9 +11,14 @@ base:
       # separate print stylesheets is bad for front-end performance.
       components/asset-builds/css/base.css: {}
   # If this library had JavaScript you could specify it like this:
-  # js:
-  #   js/script.js: {}
+  js:
+    dist/app.js: {}
   dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
     - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden
 
