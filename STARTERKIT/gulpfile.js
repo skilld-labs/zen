@@ -4,9 +4,13 @@
 
 'use strict';
 
+
 var importOnce = require('node-sass-import-once'),
   path = require('path'),
-  glob = require('glob');
+  glob = require('glob'),
+  env = process.env.NODE_ENV || 'development',
+  isProduction = (env === 'production'),
+  isTesting = (env === 'testing');
 
 var options = {};
 
@@ -39,18 +43,24 @@ options.theme = {
 options.drupalURL = '';
 // options.drupalURL = 'http://localhost';
 
+// Converts module names to absolute paths for easy imports
+function sassModuleImporter(url, file, done) {
+  try {
+    let pathResolution = require.resolve(url);
+    return done({
+      file: pathResolution
+    });
+  }
+  catch (e) {
+    return null;
+  }
+}
+
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
-  importer: importOnce,
-  includePaths: [
-    options.theme.components,
-    options.rootPath.project + 'node_modules/breakpoint-sass/stylesheets',
-    options.rootPath.project + 'node_modules/chroma-sass/sass',
-    options.rootPath.project + 'node_modules/support-for/sass',
-    options.rootPath.project + 'node_modules/typey/stylesheets',
-    options.rootPath.project + 'node_modules/zen-grids/sass'
-  ],
-  outputStyle: 'expanded'
+  importer: [sassModuleImporter, importOnce],
+  includePaths: options.theme.components,
+  outputStyle: (isProduction ? 'compresssed' : 'expanded')
 };
 
 // Define which browsers to add vendor prefixes for.
@@ -127,7 +137,7 @@ gulp.task('default', ['build']);
 // #################
 // Build everything.
 // #################
-gulp.task('build', ['styles:production', 'styleguide', 'lint']);
+gulp.task('build', ['styles', 'styleguide', 'lint']);
 
 // ##########
 // Build CSS.
@@ -140,26 +150,17 @@ var sassFiles = [
   '!' + options.theme.components + 'style-guide/kss-example-chroma.scss'
 ];
 
-gulp.task('styles', function () {
+gulp.task('styles', ['clean:css'], function () {
   return gulp.src(sassFiles)
-    .pipe($.sourcemaps.init())
-    .pipe(cache())
+    .pipe($.if(!isProduction, $.sourcemaps.init()))
+    .pipe($.if(!isProduction, cache()))
     .pipe(sass(options.sass).on('error', sass.logError))
     .pipe($.autoprefixer(options.autoprefixer))
     .pipe($.rename({dirname: ''}))
     .pipe($.size({showFiles: true}))
-    .pipe($.sourcemaps.write('./'))
+    .pipe($.if(!isProduction,  $.sourcemaps.write('./')))
     .pipe(gulp.dest(options.theme.css))
     .pipe($.if(browserSync.active, browserSync.stream({match: '**/*.css'})));
-});
-
-gulp.task('styles:production', ['clean:css'], function () {
-  return gulp.src(sassFiles)
-    .pipe(sass(options.sass).on('error', sass.logError))
-    .pipe($.autoprefixer(options.autoprefixer))
-    .pipe($.rename({dirname: ''}))
-    .pipe($.size({showFiles: true}))
-    .pipe(gulp.dest(options.theme.css));
 });
 
 // ##################
@@ -193,30 +194,16 @@ gulp.task('lint', ['lint:sass', 'lint:js']);
 gulp.task('lint:js', function () {
   return gulp.src(options.eslint.files)
     .pipe($.eslint())
-    .pipe($.eslint.format());
-});
-
-// Lint JavaScript and throw an error for a CI to catch.
-gulp.task('lint:js-with-fail', function () {
-  return gulp.src(options.eslint.files)
-    .pipe($.eslint())
     .pipe($.eslint.format())
-    .pipe($.eslint.failOnError());
+    .pipe($.if(isTesting, $.eslint.failOnError()));
 });
 
 // Lint Sass.
 gulp.task('lint:sass', function () {
   return gulp.src(options.theme.components + '**/*.scss')
     .pipe($.sassLint())
-    .pipe($.sassLint.format());
-});
-
-// Lint Sass and throw an error for a CI to catch.
-gulp.task('lint:sass-with-fail', function () {
-  return gulp.src(options.theme.components + '**/*.scss')
-    .pipe($.sassLint())
     .pipe($.sassLint.format())
-    .pipe($.sassLint.failOnError());
+    .pipe($.if(isTesting, $.sassLint.failOnError()));
 });
 
 // ##############################

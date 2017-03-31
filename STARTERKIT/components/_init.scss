@@ -25,8 +25,8 @@
 
 // The following Sass functions/mixins are required to generate some variables'
 // values, so we load them first.
-@import 'breakpoint';
-@import 'chroma/functions';
+@import 'breakpoint-sass';
+@import 'chroma-sass/sass/chroma/_functions.scss';
 
 @import 'init/colors';
 @import 'init/variables';
@@ -46,8 +46,8 @@
 // Style guide: sass.modules
 
 // Add Chroma to manage colors.
-@import 'chroma';
-@import 'chroma/kss';
+@import 'chroma-sass';
+@import 'chroma-sass/sass/chroma/_kss.scss';
 // Add support-for to manage normalize-scss' browser support.
 @import 'support-for';
 // Add typey to manage font sizes and margins.
