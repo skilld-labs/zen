@@ -6,6 +6,7 @@
 
 
 var importOnce = require('node-sass-import-once'),
+  assetFunctions = require('node-sass-asset-functions'),
   path = require('path'),
   glob = require('glob'),
   env = process.env.NODE_ENV || 'development',
@@ -56,11 +57,20 @@ function sassModuleImporter(url, file, done) {
   }
 }
 
+// Sass Asset Functions
+options.functions = {
+  images_path: 'public/images',
+  fonts_path: 'public/fonts',
+  http_images_path: '/images',
+  http_fonts_path: '/fonts'
+};
+
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
   importer: [sassModuleImporter, importOnce],
   includePaths: options.theme.components,
-  outputStyle: (isProduction ? 'compresssed' : 'expanded')
+  outputStyle: (isProduction ? 'compresssed' : 'expanded'),
+  functions: assetFunctions(options.functions)
 };
 
 // Define which browsers to add vendor prefixes for.
