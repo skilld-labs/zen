@@ -36,7 +36,8 @@ options.theme = {
   components : options.rootPath.theme + 'components/',
   build      : options.rootPath.theme + 'components/asset-builds/',
   css        : options.rootPath.theme + 'components/asset-builds/css/',
-  js         : options.rootPath.theme + 'js/'
+  js         : options.rootPath.theme + 'js/',
+  node       : options.rootPath.theme + 'node_modules/'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -68,7 +69,7 @@ options.functions = {
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
   importer: [sassModuleImporter, importOnce],
-  includePaths: options.theme.components,
+  includePaths: [options.theme.components, options.theme.node],
   outputStyle: (isProduction ? 'compresssed' : 'expanded'),
   functions: assetFunctions(options.functions)
 };
