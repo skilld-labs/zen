@@ -185,9 +185,21 @@ Set up your front-end development build tools:
     Development: All hail the robot overlords!"
     https://events.drupal.org/losangeles2015/sessions/style-guide-driven-development-all-hail-robot-overlords
 
+ 6. The environment can be adjusted by using the NODE_ENV variable, the available environments
+    are 'production', 'testing' and 'development'. This last one is the default.
+
+      # production: for minified assets
+      NODE_ENV=production gulp
+
+      # testing: linters will change exit error code if they fail
+      NODE_ENV=testing gulp linters
+
+      # default/development
+      gulp
+
 Optional steps:
 
- 6. Modify the box component styling.
+ 7. Modify the box component styling.
 
     The sass/components/box/_box.scss file describes the styles of the "box"
     component. The code comments in that file reiterate the naming conventions
@@ -203,7 +215,7 @@ Optional steps:
     style guide) to see how the box component is applying to your sidebar
     blocks.
 
- 7. Choose your preferred page layout method or grid system.
+ 8. Choose your preferred page layout method or grid system.
 
     By default your new sub-theme is using a responsive layout using Zen Grids.
 
@@ -211,7 +223,7 @@ Optional steps:
     Foundation, etc., you can replace the "layouts/layout-" lines in your
     styles.scss file with a line pointing at your choice of layout CSS file.
 
- 8. Modify the markup in Zen core's template files.
+ 9. Modify the markup in Zen core's template files.
 
     If you decide you want to modify any of the .tpl.php template files in the
     zen folder, copy them to your sub-theme's folder before making any changes.
@@ -219,7 +231,7 @@ Optional steps:
 
     For example, copy zen/templates/page.tpl.php to foo/templates/page.tpl.php.
 
- 9. Modify the markup in Drupal's search form.
+ 10. Modify the markup in Drupal's search form.
 
     Copy the search-block-form.tpl.php template file from the modules/search/
     folder and place it in your sub-theme's template folder. And then rebuild
@@ -234,7 +246,7 @@ Optional steps:
       theme registry. See the Drupal 8 Theme Guide for more info:
       https://drupal.org/node/173880
 
- 10. Further extend your sub-theme.
+ 11. Further extend your sub-theme.
 
     Discover further ways to extend your sub-theme by reading Zen's
     documentation online at:
