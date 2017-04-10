@@ -118,8 +118,8 @@ options.eslint = {
 
 // Define the paths for gulp.spritesmith
 options.sprites = {
-  imgName: options.theme.images + `/sprites/sprites.png`,
-  cssName: `components/init/_sprites.scss`
+  imgName: options.theme.images + '/sprites/sprites.png',
+  cssName: 'components/init/_sprites.scss'
 };
 
 // If your files are on a network share, you may want to turn on polling for
@@ -153,8 +153,8 @@ gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
 // Build Sprites.
 // #############
 gulp.task('sprites', function () {
-    var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
-    return spriteData.pipe(gulp.dest('.'));
+  var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
+  return spriteData.pipe(gulp.dest('.'));
 });
 
 
