@@ -3,8 +3,6 @@
 
 files:
   ignore:
-    # Here you can add files to be ignored ie:
-    #- 'var/www/example.scss'
     - 'components/init/_sprites.scss'
 
 options:
