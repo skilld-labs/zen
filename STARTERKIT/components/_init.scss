@@ -52,8 +52,8 @@
 @import 'support-for';
 // Add typey to manage font sizes and margins.
 @import 'typey';
-// Add the Zen Grids responsive layout mixins.
-@import 'zen-grids';
+// Add the Gridlex flexbox library http://gridlex.devlint.fr/.
+@import 'gridlex/src/gridlex-vars';
 
 
 // Mixins

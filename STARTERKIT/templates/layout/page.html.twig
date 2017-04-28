@@ -46,54 +46,59 @@
 #}
 
 {{ attach_library('STARTERKIT/layouts') }}
-<div class="layout-center">
+<header class="header" role="banner">
+  <div class="col">
+    <div class="grid">
+      <div class="col-12_md-7_lg-3">
+        {{ page.header }}
+      </div>
+      <div class="col-12_md-5_lg-9">
+        {{ page.secondary_menu }}
+      </div>
+    </div>
+  </div>
+</header>
 
-  <header class="header" role="banner">
-    {{ page.header }}
-    {{ page.secondary_menu }}
-  </header>
+<div class="col">
+  {{ page.primary_menu }}
+</div>
 
-  <div class="layout-3col">
+<div class="col">
+  <div class="grid">
 
     {# Decide on layout classes by checking if sidebars have content. #}
     {% if page.sidebar_first and page.sidebar_second %}
-      {% set content_class        = 'layout-3col__right-content' %}
-      {% set sidebar_first_class  = 'layout-3col__first-left-sidebar' %}
-      {% set sidebar_second_class = 'layout-3col__second-left-sidebar' %}
+      {% set content_class        = 'col-12_md-4_lg-6' %}
+      {% set sidebar_first_class  = 'col-12_md-4_lg-3' %}
+      {% set sidebar_second_class = 'col-12_md-4_lg-3' %}
     {% elseif (page.sidebar_second) %}
-      {% set content_class        = 'layout-3col__left-content' %}
+      {% set content_class        = 'col-12_md-7_lg-9' %}
       {% set sidebar_first_class  = '' %}
-      {% set sidebar_second_class = 'layout-3col__right-sidebar' %}
+      {% set sidebar_second_class = 'col-12_md-7_lg-3' %}
     {% elseif (page.sidebar_first) %}
-      {% set content_class        = 'layout-3col__right-content' %}
-      {% set sidebar_first_class  = 'layout-3col__left-sidebar' %}
+      {% set content_class        = 'col-12_md-7_lg-9' %}
+      {% set sidebar_first_class  = 'col-12_md-5_lg-3' %}
       {% set sidebar_second_class = '' %}
     {% else %}
-      {% set content_class        = 'layout-3col__full' %}
+      {% set content_class        = 'col-12' %}
       {% set sidebar_first_class  = '' %}
       {% set sidebar_second_class = '' %}
     {% endif %}
-
-    <div class="layout-3col__full">
-      {{ page.primary_menu }}
-    </div>
-
-    <main class="{{ content_class }}" role="main">
-
-      {{ page.highlighted }}
-      {{ page.breadcrumb }}
-      <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>{# link target is in html.html.twig #}
-      {{ page.title }}
-      {{ page.help }}
-      {{ page.content }}
-
-    </main>
 
     {% if page.sidebar_first %}
       <aside class="{{ sidebar_first_class }}" role="complementary">
         {{ page.sidebar_first }}
       </aside>
     {% endif %}
+
+    <main class="{{ content_class }}" role="main">
+      {{ page.highlighted }}
+      {{ page.breadcrumb }}
+      <a href="#skip-link" class="visually-hidden visually-hidden--focusable" id="main-content">Back to top</a>{# link target is in html.html.twig #}
+      {{ page.title }}
+      {{ page.help }}
+      {{ page.content }}
+    </main>
 
     {% if page.sidebar_second %}
       <aside class="{{ sidebar_second_class }}" role="complementary">
@@ -102,9 +107,7 @@
     {% endif %}
 
   </div>
+</div>
 
-  {{ page.footer }}
-
-</div>{# /.layout-center #}
-
+{{ page.footer }}
 {{ page.bottom }}

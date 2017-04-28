@@ -7,8 +7,18 @@
 //
 // Style guide: layouts
 
-@import 'layout-3col/layout-3col';
-@import 'layout-center/layout-center';
 // The layout-swap isn't used in page.html.twig. You may wish to remove it to
 // improve front-end performance.
 @import 'layout-swap/layout-swap';
+
+
+// Gridlex layouts
+//
+// Add the Gridlex flexbox library http://gridlex.devlint.fr/.
+// How it works?
+// The concept is simple:
+// you need to wrap your .col in a .grid.
+// That's all.
+//
+// Style guide: layouts.gridlex
+@import 'gridlex/src/gridlex';
