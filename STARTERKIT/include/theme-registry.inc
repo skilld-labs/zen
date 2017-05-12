@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Contains infrequently used theme registry build functions.
@@ -7,7 +8,7 @@
 use Drupal\Core\Url;
 
 /**
- * Implements HOOK_theme().
+ * Implements hook_theme().
  *
  * We are simply using this hook as a convenient time to do some related work.
  */

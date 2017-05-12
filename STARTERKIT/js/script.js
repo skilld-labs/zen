@@ -19,7 +19,6 @@
     attach: function (context, settings) {
 
       // Place your code here.
-
     }
   };
 
