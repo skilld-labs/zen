@@ -15,7 +15,7 @@ var importOnce = require('node-sass-import-once'),
   glob = require('glob'),
   env = process.env.NODE_ENV || 'development',
   isProduction = (env === 'production'),
-  isTesting = true;
+  isTesting = (env === 'testing');
 
 var options = {};
 
