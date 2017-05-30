@@ -15,9 +15,13 @@ var importOnce = require('node-sass-import-once'),
   glob = require('glob'),
   env = process.env.NODE_ENV || 'development',
   isProduction = (env === 'production'),
-  isTesting = (env === 'testing');
+  isTesting = true;
 
 var options = {};
+
+var fatalLevel = 'error';
+
+var ERROR_LEVELS = ['error', 'warning'];
 
 // Edit these paths and options.
 // The root paths are used to construct all the other paths in this
@@ -44,6 +48,28 @@ options.theme = {
 // Set the URL used to access the Drupal website under development. This will
 // allow Browser Sync to serve the website and update CSS changes on the fly.
 options.drupalURL = '';
+
+// Return true if the given level is equal to or more severe than
+// the configured fatality error level.
+function isFatal(level) {
+  return ERROR_LEVELS.indexOf(level) <= ERROR_LEVELS.indexOf(fatalLevel || 'error');
+}
+
+// Convenience handler for error-level errors.
+function onError(error) {
+  handleError.call(this, 'error', error);
+}
+
+// Handle an error based on its severity level.
+// Log all levels, and exit the process for fatal levels.
+function handleError(level, error) {
+  process.stdout.write(error.message);
+  if (isFatal(level)) {
+    /* eslint-disable */
+    process.exit(1);
+    /* eslint-enable */
+  }
+}
 
 // Converts module names to absolute paths for easy imports.
 function sassModuleImporter(url, file, done) {
@@ -150,7 +176,7 @@ gulp.task('styles', ['clean:css'], function () {
   return gulp.src(sassFiles)
     .pipe($.if(!isProduction, $.sourcemaps.init()))
     .pipe($.if(!isProduction, cache()))
-    .pipe(sass(options.sass).on('error', sass.logError))
+    .pipe(sass(options.sass).on('error', onError))
     .pipe($.autoprefixer(options.autoprefixer))
     .pipe($.rename({dirname: ''}))
     .pipe($.size({showFiles: true}))
@@ -166,7 +192,7 @@ gulp.task('styleguide', ['clean:styleguide', 'styleguide:kss-example-chroma'], f
 
 gulp.task('styleguide:kss-example-chroma', function () {
   return gulp.src(options.theme.components + 'style-guide/kss-example-chroma.scss')
-    .pipe(sass(options.sass).on('error', sass.logError))
+    .pipe(sass(options.sass).on('error', onError))
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
     .pipe($.rename('kss-example-chroma.twig'))
     .pipe($.size({showFiles: true}))
