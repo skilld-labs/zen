@@ -61,7 +61,10 @@ CREATING A SUB-THEME WITH DRUSH
     * Use:  drush zen zomg_amazing "Amazing name"
       to create a sub-theme named "Amazing name" with a machine name of
       zomg_amazing, using the default options.
-    * Use:  drush zen "Amazing name" --path=sites/default/themes --description="So amazing."
+    * Use:
+      drush zen "Amazing name" \
+        --path=sites/default/themes \
+        --description="So amazing."
       to create a sub-theme in the specified directory with a custom
       description.
 
@@ -183,10 +186,11 @@ Set up your front-end development build tools:
     To better understand the recommended development process for your Zen
     sub-theme, watch the Drupalcon presentation, "Style Guide Driven
     Development: All hail the robot overlords!"
-    https://events.drupal.org/losangeles2015/sessions/style-guide-driven-development-all-hail-robot-overlords
+    https://youtu.be/y5coJloNutU
 
- 6. The environment can be adjusted by using the NODE_ENV variable, the available environments
-    are 'production', 'testing' and 'development'. This last one is the default.
+ 6. The environment can be adjusted by using the NODE_ENV variable, the
+    available environments are 'production', 'testing' and 'development'.
+    This last one is the default.
 
       # production: for minified assets
       NODE_ENV=production gulp
