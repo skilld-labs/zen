@@ -257,3 +257,28 @@ Optional steps:
       https://drupal.org/documentation/theme/zen
     and Drupal 8's Theme Guide online at:
       https://drupal.org/theme-guide/8
+
+ 12. Sprite Management
+
+    Any image that you place inside `images-source` folder will be parsed by
+    gulp and placed into `components/init/_sprites.scss` for quick use.
+
+    Some examples:
+
+    // The provided mixins are intended to be used with the array-like variables
+    //
+    // .icon-home {
+    //   @include sprite-width($icon-home);
+    // }
+    //
+    // .icon-email {
+    //   @include sprite($icon-email);
+    // }
+    //
+    // Example usage in HTML:
+    //
+    // `display: block` sprite:
+    // <div class="icon-home"></div>
+
+    We are using `gulp.spritesmith` for this.
+    Full documentation: https://github.com/twolfson/gulp.spritesmith#documentation
