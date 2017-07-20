@@ -1,0 +1,21 @@
+{
+  "name": "zen-subtheme",
+  "author": "You!",
+  "description": "The node.js requirements to build this project.",
+  "version": "1.0.0",
+  "repository": {},
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-regex-rename": "^0.1.0",
+    "gulp-replace": "^0.5.4",
+    "yargs": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "test": "gulp"
+  }
+}
