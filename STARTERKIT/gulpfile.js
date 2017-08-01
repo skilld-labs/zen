@@ -52,19 +52,21 @@ options.drupalURL = '';
 // Return true if the given level is equal to or more severe than
 // the configured fatality error level.
 function isFatal(level) {
-  return ERROR_LEVELS.indexOf(level) <= ERROR_LEVELS.indexOf(fatalLevel || 'error');
+  return ERROR_LEVELS.indexOf(level) === ERROR_LEVELS.indexOf(fatalLevel || 'error');
 }
 
 // Convenience handler for error-level errors.
 function onError(error) {
-  handleError.call(this, 'error', error);
-}
+  var messageName = 'clear';
+  if (error.name) {
+    messageName = error.name.toLowerCase();
+    process.stdout.write(error.message);
+  }
+  else if (error.errorCount > 0) {
+    messageName = 'error';
+  }
 
-// Handle an error based on its severity level.
-// Log all levels, and exit the process for fatal levels.
-function handleError(level, error) {
-  process.stdout.write(error.message);
-  if (isFatal(level)) {
+  if (isFatal(messageName)) {
     /* eslint-disable */
     process.exit(1);
     /* eslint-enable */
