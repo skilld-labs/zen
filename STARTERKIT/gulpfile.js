@@ -6,16 +6,15 @@
 /* eslint-env node, es6 */
 /* global Promise */
 /* eslint-disable key-spacing, one-var, no-multi-spaces, max-nested-callbacks, quote-props */
+/* eslint strict: ["error", "global"] */
 
 'use strict';
-
 
 var importOnce = require('node-sass-import-once'),
   path = require('path'),
   glob = require('glob'),
-  env = process.env.NODE_ENV || 'development',
-  isProduction = (env === 'production'),
-  isTesting = (env === 'testing');
+  env = process.env.NODE_ENV || 'testing',
+  isProduction = (env === 'production');
 
 var options = {};
 
@@ -187,7 +186,7 @@ gulp.task('lint:js', function () {
   return gulp.src(options.eslint.files)
     .pipe($.eslint())
     .pipe($.eslint.format())
-    .pipe($.if(isTesting, $.eslint.failOnError()));
+    .pipe($.eslint.failOnError());
 });
 
 // Lint Sass.
@@ -195,7 +194,7 @@ gulp.task('lint:sass', function () {
   return gulp.src(options.theme.components + '**/*.scss')
     .pipe($.sassLint())
     .pipe($.sassLint.format())
-    .pipe($.if(isTesting, $.sassLint.failOnError()));
+    .pipe($.sassLint.failOnError());
 });
 
 // Watch for changes and rebuild.

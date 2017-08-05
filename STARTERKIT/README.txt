@@ -183,22 +183,21 @@ Set up your front-end development build tools:
 
       gulp watch
 
+    To lint CSS & JS run `gulp lint`
+
     To better understand the recommended development process for your Zen
     sub-theme, watch the Drupalcon presentation, "Style Guide Driven
     Development: All hail the robot overlords!"
     https://youtu.be/y5coJloNutU
 
  6. The environment can be adjusted by using the NODE_ENV variable, the
-    available environments are 'production', 'testing' and 'development'.
+    available environments are 'production' and 'testing'.
     This last one is the default.
 
       # production: for minified assets
       NODE_ENV=production gulp
 
-      # testing: linters will change exit error code if they fail
-      NODE_ENV=testing gulp linters
-
-      # default/development
+      # default/testing
       gulp
 
 Optional steps:
