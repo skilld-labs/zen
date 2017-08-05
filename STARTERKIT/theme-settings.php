@@ -16,14 +16,14 @@ function STARTERKIT_form_system_theme_settings_alter(&$form, FormStateInterface 
     return;
   }
 
-  $form['themedev'] = array(
-    '#type'          => 'fieldset',
-    '#title'         => t('Theme development settings'),
-  );
-  $form['themedev']['zen_rebuild_registry'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('Rebuild theme registry and output template debugging on every page.'),
+  $form['themedev'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Theme development settings'),
+  ];
+  $form['themedev']['zen_rebuild_registry'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Rebuild theme registry and output template debugging on every page.'),
     '#default_value' => theme_get_setting('zen_rebuild_registry'),
-    '#description'   => t('During theme development, it can be very useful to continuously <a href="@link">rebuild the theme registry</a> and to output template debugging HTML comments. WARNING: this is a huge performance penalty and must be turned off on production websites.', array('@link' => 'https://drupal.org/node/173880#theme-registry')),
-  );
+    '#description' => t('During theme development, it can be very useful to continuously <a href="@link">rebuild the theme registry</a> and to output template debugging HTML comments. WARNING: this is a huge performance penalty and must be turned off on production websites.', ['@link' => 'https://drupal.org/node/173880#theme-registry']),
+  ];
 }
