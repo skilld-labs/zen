@@ -43,7 +43,7 @@ function STARTERKIT_theme_suggestions_page_alter(array &$suggestions, array $var
 }
 
 /**
- * Implements hook_pre_render_HOOK() for menu-local-tasks templates.
+ * Implements hook_preprocess_HOOK() for menu-local-tasks templates.
  *
  * Use preprocess hook to convert menu_local_task into variables needed by the
  * tabs component.
