@@ -8,7 +8,7 @@
  * @see https://drupal.org/node/1728096
  */
 
-use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\SortArray;
 
 // Auto-rebuild the theme registry during theme development.
 if (theme_get_setting('zen_rebuild_registry') && !defined('MAINTENANCE_MODE')) {
@@ -49,19 +49,19 @@ function STARTERKIT_theme_suggestions_page_alter(array &$suggestions, array $var
  * tabs component.
  */
 function STARTERKIT_preprocess_menu_local_tasks(&$variables) {
-  foreach (array('primary', 'secondary') as $type) {
-    $tabs = array();
+  foreach (['primary', 'secondary'] as $type) {
+    $tabs = [];
 
     // Sort the tabs by #weight.
-    uasort($variables[$type], array('Drupal\Component\Utility\SortArray', 'sortByWeightProperty'));
+    uasort($variables[$type], [SortArray::class, 'sortByWeightProperty']);
 
     foreach (array_keys($variables[$type]) as $key) {
       // Add the tab to a new array.
-      $tabs[$key] = array(
+      $tabs[$key] = [
         'active' => $variables[$type][$key]['#active'],
         'url' => $variables[$type][$key]['#link']['url']->toString(),
-        'text' => Html::escape($variables[$type][$key]['#link']['title']),
-      );
+        'text' => $variables[$type][$key]['#link']['title'],
+      ];
 
       // Check if the tab should be shown by rendering the original.
       $link = drupal_render($variables[$type][$key]);

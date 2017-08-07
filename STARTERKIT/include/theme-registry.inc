@@ -16,7 +16,8 @@ function _zen_theme(&$existing, $type, $theme, $path) {
   // If we are auto-rebuilding the theme registry, warn about the feature.
   $active_theme = \Drupal::theme()->getActiveTheme()->getName();
   $flood_name = $active_theme . '.rebuild_registry_warning';
-  $is_admin_route = \Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject());
+  $is_admin_route = \Drupal::service('router.admin_context')
+    ->isAdminRoute(\Drupal::routeMatch()->getRouteObject());
   if (
     // Don't display on update.php or install.php.
     !defined('MAINTENANCE_MODE')
@@ -28,10 +29,11 @@ function _zen_theme(&$existing, $type, $theme, $path) {
   ) {
     \Drupal::flood()->register($flood_name);
     drupal_set_message(t('For easier theme development, the theme registry is being rebuilt on every page request. It is <em>extremely</em> important to <a href="@link">turn off this feature</a> on production websites.', [
-      '@link' => Url::fromRoute('system.theme_settings_theme', ['theme' => $active_theme])->toString(),
+      '@link' => Url::fromRoute('system.theme_settings_theme', ['theme' => $active_theme])
+        ->toString(),
     ]), 'warning', FALSE);
   }
 
   // hook_theme() expects an array, so return an empty one.
-  return array();
+  return [];
 }
