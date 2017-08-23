@@ -2,14 +2,6 @@
 $layout-swap-height: 2 * $base-line-height;
 
 // Layout swap
-//
-// Uses absolute positioning and selective padding to make 2 elements appear to
-// swap places in the visual order while maintaining their original HTML source
-// order.
-//
-// Markup: layout-swap.twig
-//
-// Style guide: layouts.layout-swap
 
 .layout-swap,
 %layout-swap {
