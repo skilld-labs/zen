@@ -28,6 +28,9 @@
 @import 'breakpoint-sass';
 @import 'chroma-sass/sass/chroma/functions';
 
+// Add the Font Awesome variables.
+@import '../node_modules/components-font-awesome/scss/variables';
+
 @import 'init/colors';
 @import 'init/variables';
 
@@ -75,3 +78,6 @@
 //
 // Style guide: sass.functions
 @import 'init/image-url/image-url';
+
+// Add the Font Awesome mixins.
+@import '../node_modules/components-font-awesome/scss/mixins';

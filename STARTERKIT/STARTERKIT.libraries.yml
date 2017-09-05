@@ -11,11 +11,16 @@ base:
       # separate print stylesheets is bad for front-end performance.
       components/asset-builds/css/base.css: {}
   # If this library had JavaScript you could specify it like this:
-  # js:
-  #   js/script.js: {}
+  js:
+    js/script.js: {}
   dependencies:
+    - core/drupal
+    - core/drupal.debounce
+    - core/jquery
+    - core/jquery.once
     - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden
+    - STARTERKIT/slider
 
 layouts:
   css:
@@ -149,6 +154,19 @@ responsive-video:
   css:
     component:
       components/asset-builds/css/responsive-video.css: {}
+
+slick-carousel:
+  js:
+    node_modules/slick-carousel/slick/slick.min.js: {}
+  css:
+    component:
+      node_modules/slick-carousel/slick/slick.css: {}
+
+slider:
+  js:
+    components/components/slider/slider.js: {}
+  dependencies:
+    - STARTERKIT/slick-carousel
 
 skip-link:
   css:
