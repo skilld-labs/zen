@@ -42,7 +42,7 @@ options.theme = {
 
 // Set the URL used to access the Drupal website under development. This will
 // allow Browser Sync to serve the website and update CSS changes on the fly.
-options.drupalURL = '';
+options.drupalURL = 'd8.loc';
 
 // Converts module names to absolute paths for easy imports.
 function sassModuleImporter(url, file, done) {
@@ -134,7 +134,7 @@ var gulp = require('gulp'),
 gulp.task('default', ['build']);
 
 // Build everything.
-gulp.task('build', ['styles', 'styleguide', 'lint']);
+gulp.task('build', ['clean:css', 'styles', 'styleguide', 'lint']);
 
 // Build CSS.
 var sassFiles = [
@@ -145,7 +145,7 @@ var sassFiles = [
   '!' + options.theme.components + 'style-guide/kss-example-chroma.scss'
 ];
 
-gulp.task('styles', ['clean:css'], function () {
+gulp.task('styles', function () {
   return gulp.src(sassFiles)
     .pipe($.if(!isProduction, $.sourcemaps.init()))
     .pipe($.if(!isProduction, cache()))
@@ -205,13 +205,14 @@ gulp.task('browser-sync', ['watch:css'], function () {
     return Promise.resolve();
   }
   return browserSync.init({
-    proxy: options.drupalURL,
-    noOpen: false
+    proxy: options.drupalURL
   });
 });
 
-gulp.task('watch:css', ['clean:css', 'styles'], function () {
-  return gulp.watch(options.theme.components + '**/*.scss', options.gulpWatchOptions, ['styles']);
+var watchCss = gulp.watch(sassFiles, options.gulpWatchOptions, ['styles']);
+gulp.task('watch:css', function () {
+  gulp.watch(options.theme.css + '**/*.css').on('change', browserSync.reload);
+  return watchCss
 });
 
 gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function () {
