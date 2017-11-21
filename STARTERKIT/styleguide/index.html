@@ -9,43 +9,43 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="kss-assets/kss.css">
-  <link rel="stylesheet" href="../components/asset-builds/css/base.css">
-<link rel="stylesheet" href="../components/asset-builds/css/layouts.css">
-<link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
-<link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
+  <link rel="stylesheet" href="../components/asset-builds/css/autocomplete.css">
+<link rel="stylesheet" href="../components/asset-builds/css/base.css">
 <link rel="stylesheet" href="../components/asset-builds/css/box.css">
+<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
+<link rel="stylesheet" href="../components/asset-builds/css/chroma-kss-styles.css">
 <link rel="stylesheet" href="../components/asset-builds/css/clearfix.css">
+<link rel="stylesheet" href="../components/asset-builds/css/collapsible-fieldset.css">
 <link rel="stylesheet" href="../components/asset-builds/css/comment.css">
 <link rel="stylesheet" href="../components/asset-builds/css/footer.css">
+<link rel="stylesheet" href="../components/asset-builds/css/form-item.css">
+<link rel="stylesheet" href="../components/asset-builds/css/form-table.css">
 <link rel="stylesheet" href="../components/asset-builds/css/header.css">
 <link rel="stylesheet" href="../components/asset-builds/css/hidden.css">
 <link rel="stylesheet" href="../components/asset-builds/css/highlight-mark.css">
 <link rel="stylesheet" href="../components/asset-builds/css/inline-links.css">
 <link rel="stylesheet" href="../components/asset-builds/css/inline-sibling.css">
+<link rel="stylesheet" href="../components/asset-builds/css/kss-only.css">
+<link rel="stylesheet" href="../components/asset-builds/css/layouts.css">
 <link rel="stylesheet" href="../components/asset-builds/css/messages.css">
-<link rel="stylesheet" href="../components/asset-builds/css/print-none.css">
-<link rel="stylesheet" href="../components/asset-builds/css/responsive-video.css">
-<link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
-<link rel="stylesheet" href="../components/asset-builds/css/watermark.css">
-<link rel="stylesheet" href="../components/asset-builds/css/wireframe.css">
-<link rel="stylesheet" href="../components/asset-builds/css/autocomplete.css">
-<link rel="stylesheet" href="../components/asset-builds/css/collapsible-fieldset.css">
-<link rel="stylesheet" href="../components/asset-builds/css/form-item.css">
-<link rel="stylesheet" href="../components/asset-builds/css/form-table.css">
-<link rel="stylesheet" href="../components/asset-builds/css/progress-bar.css">
-<link rel="stylesheet" href="../components/asset-builds/css/progress-throbber.css">
-<link rel="stylesheet" href="../components/asset-builds/css/resizable-textarea.css">
-<link rel="stylesheet" href="../components/asset-builds/css/table-drag.css">
-<link rel="stylesheet" href="../components/asset-builds/css/breadcrumb.css">
 <link rel="stylesheet" href="../components/asset-builds/css/more-link.css">
 <link rel="stylesheet" href="../components/asset-builds/css/nav-menu.css">
 <link rel="stylesheet" href="../components/asset-builds/css/navbar.css">
 <link rel="stylesheet" href="../components/asset-builds/css/pager.css">
+<link rel="stylesheet" href="../components/asset-builds/css/print-none.css">
+<link rel="stylesheet" href="../components/asset-builds/css/progress-bar.css">
+<link rel="stylesheet" href="../components/asset-builds/css/progress-throbber.css">
+<link rel="stylesheet" href="../components/asset-builds/css/resizable-textarea.css">
+<link rel="stylesheet" href="../components/asset-builds/css/responsive-video.css">
 <link rel="stylesheet" href="../components/asset-builds/css/skip-link.css">
+<link rel="stylesheet" href="../components/asset-builds/css/table-drag.css">
 <link rel="stylesheet" href="../components/asset-builds/css/tabs.css">
+<link rel="stylesheet" href="../components/asset-builds/css/visually-hidden.css">
+<link rel="stylesheet" href="../components/asset-builds/css/watermark.css">
+<link rel="stylesheet" href="../components/asset-builds/css/wireframe.css">
 
 </head>
-<body id="kss-node">
+<body id="kss-node" >
 
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
@@ -93,46 +93,79 @@
   </nav>
 </div>
 <article role="main" class="kss-main">
-  <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-    <h1 id="style-guide-for-the-starterkit-theme">Style Guide for the <code>STARTERKIT</code> Theme</h1>
-<p>This style guide documents the designs of this website which are built with component-based styles and Sass variables, functions and mixins. To ensure it is always up-to-date, this style guide is automatically generated from comments in the Sass files.</p>
+      <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
+      <h1 id="style-guide-for-the-starterkit-theme">Style Guide for the <code>STARTERKIT</code> Theme</h1>
+<p>This style guide documents the designs of this website which are built
+with component-based styles and Sass variables, functions and mixins.
+To ensure it is always up-to-date, this style guide is automatically
+generated from comments in the Sass files.</p>
 <h2 id="organization">Organization</h2>
-<p>Design components are reusable designs that can be applied using just the CSS class names specified in the component. We categorize our components to make them easy to find.</p>
+<p>Design components are reusable designs that can be applied using just
+the CSS class names specified in the component. We categorize our
+components to make them easy to find.</p>
 <dl>
 <dt><strong>Defaults</strong></dt>
-<dd><code>components/base</code> — The default “base” components apply to HTML elements. Since all of the rulesets in this class of styles are HTML elements, the styles apply automatically.</dd>
+<dd><code>components/base</code> — The default “base” components apply to HTML
+elements. Since all of the rulesets in this class of styles are HTML
+elements, the styles apply automatically.</dd>
 <dt><strong>Layouts</strong></dt>
-<dd><code>components/layouts</code> — Layout components position major chunks of the page. They just apply positioning, no other styles.</dd>
+<dd><code>components/layouts</code> — Layout components position major chunks of
+the page. They just apply positioning, no other styles.</dd>
 <dt><strong>Components</strong></dt>
-<dd><code>components/components</code> — Miscellaneous components are grouped together, but feel free to further categorize these.</dd>
+<dd><code>components/components</code> — Miscellaneous components are grouped
+together, but feel free to further categorize these.</dd>
 <dt><strong>Navigation</strong></dt>
-<dd><code>components/navigation</code> — Navigation components are specialized design components that are applied to website navigation.</dd>
+<dd><code>components/navigation</code> — Navigation components are specialized
+design components that are applied to website navigation.</dd>
 <dt><strong>Forms</strong></dt>
-<dd><code>components/forms</code> — Form components are specialized design components that are applied to forms or form elements.</dd>
+<dd><code>components/forms</code> — Form components are specialized design
+components that are applied to forms or form elements.</dd>
 </dl>
 
-<p>In addition to the components, our component library also contains these folders:</p>
+<p>In addition to the components, our component library also contains
+these folders:</p>
 <dl>
 <dt><strong>Colors and Sass</strong></dt>
-<dd><code>components/init</code> — This Sass documents the colors used throughout the site and various Sass variables, functions and mixins. It also initializes everything we need for all other Sass files: variables, 3rd-party libraries, custom mixins and custom functions.</dd>
+<dd><code>components/init</code> — This Sass documents the colors used throughout
+the site and various Sass variables, functions and mixins. It also
+initializes everything we need for all other Sass files: variables,
+3rd-party libraries, custom mixins and custom functions.</dd>
 <dt><strong>Style guide helper files</strong></dt>
-<dd><code>components/style-guide</code> — files needed to build this automated style guide; includes some CSS overrides for the default KSS style guide</dd>
+<dd><code>components/style-guide</code> — files needed to build this automated
+style guide; includes some CSS overrides for the default KSS style
+guide</dd>
 <dt><strong>Generated files</strong></dt>
-<dd><code>components/asset-builds</code> — location of the generated CSS; don&#39;t alter these files</dd>
+<dd><code>components/asset-builds</code> — location of the generated CSS; don&#39;t
+alter these files</dd>
 </dl>
 
-  </div>
-</article>
+    </div>
+  </article>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
 <script src="kss-assets/prettify.js"></script>
+<script src="kss-assets/kss-fullscreen.js"></script>
+<script src="kss-assets/kss-guides.js"></script>
+<script src="kss-assets/kss-markup.js"></script>
 <script>
   prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
+  });
+  var kssFullScreen = new KssFullScreen({
+    idPrefix: 'kss-fullscreen-',
+    bodyClass: 'kss-fullscreen-mode',
+    elementClass: 'is-fullscreen'
+  });
+  var kssGuides = new KssGuides({
+    bodyClass: 'kss-guides-mode'
+  });
+  var kssMarkup = new KssMarkup({
+    bodyClass: 'kss-markup-mode',
+    detailsClass: 'kss-markup'
   });
 </script>
 

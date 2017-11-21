@@ -28,6 +28,12 @@
 @import 'breakpoint-sass';
 @import 'chroma-sass/sass/chroma/functions';
 
+// Add susy grid system.
+@import 'susy';
+// @import 'susy/sass/plugins/svg-grid';
+@import 'susy/sass/plugins/svg-grid/prefix';
+
+
 @import 'init/colors';
 @import 'init/variables';
 
@@ -39,7 +45,7 @@
 // - [Chroma](https://github.com/JohnAlbin/chroma)
 // - [Support-for](https://github.com/JohnAlbin/support-for)
 // - [Typey](https://github.com/jptaranto/typey)
-// - [Zen Grids](http://zengrids.com/help/)
+// - [Susy](http://oddbird.net/susy/)
 //
 // Additional pre-built libraries can be found on the [Sache website](http://www.sache.in/).
 //
@@ -52,8 +58,6 @@
 @import 'support-for';
 // Add typey to manage font sizes and margins.
 @import 'typey';
-// Add the Zen Grids responsive layout mixins.
-@import 'zen-grids';
 
 
 // Mixins
