@@ -40,7 +40,7 @@ options.theme = {
   js : options.rootPath.theme + 'js/',
   node : options.rootPath.theme + 'node_modules/',
   images     : options.rootPath.theme + 'images/',
-  sprites    : 'images-source/*'
+  sprites    : options.rootPath.theme + 'images-source/*'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -119,8 +119,12 @@ options.eslint = {
 
 // Define the paths for gulp.spritesmith
 options.sprites = {
-  imgName: options.theme.images + '/sprites/sprites.png',
-  cssName: 'components/init/_sprites.scss'
+  imgName: options.theme.images + 'sprites/sprites.png',
+  cssName: 'components/init/_sprites.scss',
+  imgPath: path.relative(options.theme.css, options.theme.images + 'sprites/sprites.png'),
+  cssVarMap: function (sprite) {
+    sprite.name = 'sprite_' + sprite.name;
+  }
 };
 
 // If your files are on a network share, you may want to turn on polling for
@@ -144,12 +148,9 @@ var gulp = require('gulp'),
 gulp.task('default', ['build']);
 
 // Build everything.
-// #################
 gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
 
-// #############
 // Build Sprites.
-// #############
 gulp.task('sprites', function () {
   var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
   return spriteData.pipe(gulp.dest('.'));
