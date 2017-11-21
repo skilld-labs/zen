@@ -37,7 +37,9 @@ options.theme = {
   build : options.rootPath.theme + 'components/asset-builds/',
   css : options.rootPath.theme + 'components/asset-builds/css/',
   js : options.rootPath.theme + 'js/',
-  node : options.rootPath.theme + 'node_modules/'
+  node : options.rootPath.theme + 'node_modules/',
+  images     : options.rootPath.theme + 'images/',
+  sprites    : 'images-source/*'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -114,6 +116,12 @@ options.eslint = {
   ]
 };
 
+// Define the paths for gulp.spritesmith
+options.sprites = {
+  imgName: options.theme.images + '/sprites/sprites.png',
+  cssName: 'components/init/_sprites.scss'
+};
+
 // If your files are on a network share, you may want to turn on polling for
 // Gulp watch. Since polling is less efficient, we disable polling by default.
 // Use `options.gulpWatchOptions = {interval: 1000, mode: 'poll'};` as example.
@@ -128,13 +136,23 @@ var gulp = require('gulp'),
   del = require('del'),
   sass = require('gulp-sass'),
   kss = require('kss'),
-  cache = require('gulp-cached');
+  cache = require('gulp-cached'),
+  spritesmith = require('gulp.spritesmith');
 
 // The default task.
 gulp.task('default', ['build']);
 
 // Build everything.
-gulp.task('build', ['styles', 'styleguide', 'lint']);
+// #################
+gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
+
+// #############
+// Build Sprites.
+// #############
+gulp.task('sprites', function () {
+  var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
+  return spriteData.pipe(gulp.dest('.'));
+});
 
 // Build CSS.
 var sassFiles = [
@@ -145,7 +163,7 @@ var sassFiles = [
   '!' + options.theme.components + 'style-guide/kss-example-chroma.scss'
 ];
 
-gulp.task('styles', ['clean:css'], function () {
+gulp.task('styles', ['sprites', 'clean:css'], function () {
   return gulp.src(sassFiles)
     .pipe($.if(!isProduction, $.sourcemaps.init()))
     .pipe($.if(!isProduction, cache()))
