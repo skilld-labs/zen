@@ -1,0 +1,35 @@
+{
+    "name": "drupal/skilld-zen",
+    "description": "Skilld Zen theme fork.",
+    "type": "drupal-theme",
+    "license": "GPL-2.0",
+    "require": {
+        "oomphinc/composer-installers-extender": "^1.1",
+        "fxp/composer-asset-plugin": "~1.3",
+        "npm-asset/slick-carousel": "^1.7"
+    },
+    "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "libraries/{$name}": [
+              "type:bower-asset",
+              "type:npm-asset"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "authors": [
+        {
+            "name": "HOG",
+            "email": "hogseruj1@gmail.com"
+        }
+    ]
+}
