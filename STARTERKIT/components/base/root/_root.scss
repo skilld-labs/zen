@@ -27,6 +27,7 @@ html {
   // On short pages, we want any background gradients to fill the entire height
   // of the browser.
   min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -38,4 +39,24 @@ body {
   padding: 0;
   color: color(text);
   background-color: color(text-bg);
+  position: relative;
+  min-height: 100%;
+
+  .body-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+
+  &.no-overflow {
+    &,
+    .body-content {
+      overflow: hidden;
+      height: auto;
+    }
+  }
 }
