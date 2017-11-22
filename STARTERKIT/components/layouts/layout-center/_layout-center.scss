@@ -1,6 +1,14 @@
+// Container layout
+//
+// Markup:
+// <div class="layout-center">
+//   Block content
+// </div>
+//
+// Style guide: layouts.layout-center
+
 .layout-center,
 %layout-center {
-  background: susy-svg-grid() no-repeat scroll;
   max-width: $mobile;
   margin: 0 auto;
   width: 100%;

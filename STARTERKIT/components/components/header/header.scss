@@ -8,6 +8,8 @@
 
 .header,
 %header {
+  padding: 0 gutter()/2;
+
   // Wrapping link for logo.
   &__logo {
     float: left;

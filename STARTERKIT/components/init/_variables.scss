@@ -133,13 +133,18 @@ $desktop: 1200px;
 // Output media queries where the above px are converted to ems.
 // @include breakpoint-set('to ems', true);
 
-// Susy settings.
+// Susy settings
+//
+// Susy grid settings. Documentation on:
+// [Susy website](http://oddbird.net/susy/).
+//
+// Style guide: sass.variables.susy
 $susy: (
   'columns': susy-repeat(12),
   'gutters': 15px,
   'spread': 'narrow',
-  'container-spread': 'narrow',
-  'svg-grid-colors': hsl(334, 65%, 52%),
+  'container-spread': 'wide',
+  'svg-grid-colors': hsla(334, 65%, 52%, .7) hsla(334, 65%, 52%, .3),
 );
 
 // See $include-rtl below.
