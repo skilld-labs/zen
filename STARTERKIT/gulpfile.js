@@ -45,7 +45,9 @@ options.theme = {
   build : options.rootPath.theme + 'components/asset-builds/',
   css : options.rootPath.theme + 'components/asset-builds/css/',
   js : options.rootPath.theme + 'js/',
-  node : options.rootPath.theme + 'node_modules/'
+  node : options.rootPath.theme + 'node_modules/',
+  images     : options.rootPath.theme + 'images/',
+  sprites    : options.rootPath.theme + 'images-source/*'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -100,6 +102,16 @@ options.eslint = {
   ]
 };
 
+// Define the paths for gulp.spritesmith
+options.sprites = {
+  imgName: options.theme.images + 'sprites/sprites.png',
+  cssName: 'components/init/_sprites.scss',
+  imgPath: $.path.relative(options.theme.css, options.theme.images + 'sprites/sprites.png'),
+  cssVarMap: function (sprite) {
+    sprite.name = 'sprite_' + sprite.name;
+  }
+};
+
 // If your files are on a network share, you may want to turn on polling for
 // Gulp watch. Since polling is less efficient, we disable polling by default.
 // Use `options.gulpWatchOptions = {interval: 1000, mode: 'poll'};` as example.
@@ -117,7 +129,7 @@ options.browserSync = {
 gulp.task('default', ['build']);
 
 // Build everything.
-gulp.task('build', ['clean', 'lint', 'styleguide']);
+gulp.task('build', ['clean', 'sprites', 'lint', 'styleguide']);
 
 // Styles, sourcemaps, autoprefixer
 gulp.task('styles', function () {
@@ -236,6 +248,12 @@ gulp.task('clean:css', function () {
     options.theme.css + '**/*.css',
     options.theme.css + '**/*.map'
   ], {force: true});
+});
+
+// Build Sprites.
+gulp.task('sprites', function () {
+  var spriteData = gulp.src(options.theme.sprites).pipe($.spritesmith(options.sprites));
+  return spriteData.pipe(gulp.dest('.'));
 });
 
 // Converts module names to absolute paths for easy imports.

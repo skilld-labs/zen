@@ -1,6 +1,10 @@
 # Documentation for the sass-lint Linters is available at:
 # https://github.com/sasstools/sass-lint/tree/master/docs/rules
 
+files:
+  ignore:
+    - 'components/init/_sprites.scss'
+
 options:
   formatter: stylish
   merge-default-rules: true
