@@ -7,7 +7,11 @@ $layout-swap-height: 2 * $base-line-height;
 // swap places in the visual order while maintaining their original HTML source
 // order.
 //
-// Markup: layout-swap.twig
+// Markup:
+// <div class="layout-swap">
+//   <div>This element comes <strong>first</strong> in the HTML source order.</div>
+//   <div class="layout-swap__top">This element comes <strong>second</strong> in the HTML source order.</div>
+// </div>
 //
 // Style guide: layouts.layout-swap
 
@@ -15,13 +19,13 @@ $layout-swap-height: 2 * $base-line-height;
 %layout-swap {
   position: relative;
 
-  @include respond-to(xs) {
+  @include respond-to(tablet) {
     // Move all the children down to make room for the "top" element.
     padding-top: $layout-swap-height;
   }
 
   &__top {
-    @include respond-to(xs) {
+    @include respond-to(tablet) {
       position: absolute;
       top: 0;
       height: $layout-swap-height;
