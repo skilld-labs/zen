@@ -54,6 +54,19 @@ options.theme = {
 // allow Browser Sync to serve the website and update CSS changes on the fly.
 options.drupalURL = '';
 
+// Converts module names to absolute paths for easy imports.
+function sassModuleImporter(url, file, done) {
+  try {
+    let pathResolution = require.resolve(url);
+    return done({
+      file: pathResolution
+    });
+  }
+  catch (e) {
+    return null;
+  }
+}
+
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
   importer: [sassModuleImporter, $.nodeSassImportOnce],
@@ -255,19 +268,6 @@ gulp.task('sprites', function () {
   var spriteData = gulp.src(options.theme.sprites).pipe($.spritesmith(options.sprites));
   return spriteData.pipe(gulp.dest('.'));
 });
-
-// Converts module names to absolute paths for easy imports.
-function sassModuleImporter(url, file, done) {
-  try {
-    let pathResolution = require.resolve(url);
-    return done({
-      file: pathResolution
-    });
-  }
-  catch (e) {
-    return null;
-  }
-}
 
 // Get new css files for kss-node.
 function getCss() {
