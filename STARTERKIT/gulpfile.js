@@ -10,9 +10,17 @@
 
 'use strict';
 
-var importOnce = require('node-sass-import-once'),
-  path = require('path'),
-  glob = require('glob'),
+// Load Gulp and tools we will use.
+// Task gulp-load-plugins will report "undefined" error unless you load
+// gulp-sass manually.
+// Pattern allows to lazy-load modules on demand.
+var $ = require('gulp-load-plugins')({
+    overridePattern: false,
+    pattern: '*'
+  }),
+  browserSync = $.browserSync.create(),
+  gulp = require('gulp'),
+
   env = process.env.NODE_ENV || 'testing',
   isProduction = (env === 'production');
 
@@ -61,9 +69,10 @@ function sassModuleImporter(url, file, done) {
 
 // Define the node-sass configuration. The includePaths is critical!
 options.sass = {
-  importer: [sassModuleImporter, importOnce],
+  importer: [sassModuleImporter, $.nodeSassImportOnce],
   includePaths: [options.theme.components, options.theme.node],
-  outputStyle: (isProduction ? 'compresssed' : 'expanded')
+  outputStyle: (isProduction ? 'compresssed' : 'expanded'),
+  errLogToConsole: true
 };
 
 // Define which browsers to add vendor prefixes for.
@@ -73,15 +82,6 @@ options.autoprefixer = {
     'ie 9'
   ]
 };
-
-// Help KSS to automatically find new component CSS files.
-var cssFiles = glob.sync('*.css', {cwd: options.theme.css}),
-  cssStyleguide = [];
-
-cssFiles.forEach(function (file) {
-  file = path.relative(options.rootPath.styleGuide, options.theme.css) + '/' + file;
-  cssStyleguide.push(file);
-});
 
 // Define the style guide paths and options.
 options.styleGuide = {
@@ -97,9 +97,8 @@ options.styleGuide = {
 
   // The css and js paths are URLs, like '/misc/jquery.js'.
   // The following paths are relative to the generated style guide.
-  css: cssStyleguide,
-  js: [
-  ],
+  css: [],
+  js: [],
 
   homepage: 'homepage.md',
   title: 'STARTERKIT Style Guide'
@@ -120,7 +119,7 @@ options.eslint = {
 options.sprites = {
   imgName: options.theme.images + 'sprites/sprites.png',
   cssName: 'components/init/_sprites.scss',
-  imgPath: path.relative(options.theme.css, options.theme.images + 'sprites/sprites.png'),
+  imgPath: $.path.relative(options.theme.css, options.theme.images + 'sprites/sprites.png'),
   cssVarMap: function (sprite) {
     sprite.name = 'sprite_' + sprite.name;
   }
@@ -131,60 +130,42 @@ options.sprites = {
 // Use `options.gulpWatchOptions = {interval: 1000, mode: 'poll'};` as example.
 options.gulpWatchOptions = {};
 
-// Load Gulp and tools we will use.
-// Task gulp-load-plugins will report "undefined" error unless you load
-// gulp-sass manually.
-var gulp = require('gulp'),
-  $ = require('gulp-load-plugins')(),
-  browserSync = require('browser-sync').create(),
-  del = require('del'),
-  sass = require('gulp-sass'),
-  kss = require('kss'),
-  cache = require('gulp-cached'),
-  spritesmith = require('gulp.spritesmith');
+// Browsersync options
+options.browserSync = {
+  proxy: {
+    target: options.drupalURL
+  },
+  xip: true
+};
 
 // The default task.
 gulp.task('default', ['build']);
 
 // Build everything.
-gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
+gulp.task('build', ['clean', 'sprites', 'lint', 'styleguide']);
 
-// Build Sprites.
-gulp.task('sprites', function () {
-  var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
-  return spriteData.pipe(gulp.dest('.'));
-});
-
-// Build CSS.
-var sassFiles = [
-  options.theme.components + '**/*.scss',
-  // Do not open Sass partials as they will be included as needed.
-  '!' + options.theme.components + '**/_*.scss',
-  // Chroma markup has its own gulp task.
-  '!' + options.theme.components + 'style-guide/kss-example-chroma.scss'
-];
-
-gulp.task('styles', ['sprites', 'clean:css'], function () {
-  return gulp.src(sassFiles)
+// Styles, sourcemaps, autoprefixer
+gulp.task('styles', function () {
+  return gulp.src(options.theme.components + '**/*.scss')
+    .pipe($.sassGlob())
     .pipe($.if(!isProduction, $.sourcemaps.init()))
-    .pipe($.if(!isProduction, cache()))
-    .pipe(sass(options.sass).on('error', sass.logError))
-    .pipe($.autoprefixer(options.autoprefixer))
+    .pipe($.sass(options.sass)).on('error', $.sass.logError)
     .pipe($.rename({dirname: ''}))
-    .pipe($.size({showFiles: true}))
+    .pipe($.autoprefixer(options.autoprefixer))
     .pipe($.if(!isProduction,  $.sourcemaps.write('./')))
     .pipe(gulp.dest(options.theme.css))
-    .pipe($.if(browserSync.active, browserSync.stream({match: '**/*.css'})));
+    .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 // Build style guide.
-gulp.task('styleguide', ['clean:styleguide', 'styleguide:kss-example-chroma'], function () {
-  return kss(options.styleGuide);
+gulp.task('styleguide', ['styles', 'styleguide:kss-example-chroma'], function () {
+  options.styleGuide.css = getCss();
+  return $.kss(options.styleGuide);
 });
 
 gulp.task('styleguide:kss-example-chroma', function () {
   return gulp.src(options.theme.components + 'style-guide/kss-example-chroma.scss')
-    .pipe(sass(options.sass).on('error', sass.logError))
+    .pipe($.sass(options.sass).on('error', $.sass.logError))
     .pipe($.replace(/(\/\*|\*\/)\n/g, ''))
     .pipe($.rename('kss-example-chroma.twig'))
     .pipe($.size({showFiles: true}))
@@ -194,7 +175,7 @@ gulp.task('styleguide:kss-example-chroma', function () {
 // Debug the generation of the style guide with the --verbose flag.
 gulp.task('styleguide:debug', ['clean:styleguide', 'styleguide:kss-example-chroma'], function () {
   options.styleGuide.verbose = true;
-  return kss(options.styleGuide);
+  return $.kss(options.styleGuide);
 });
 
 // Lint Sass and JavaScript.
@@ -217,32 +198,49 @@ gulp.task('lint:sass', function () {
 });
 
 // Watch for changes and rebuild.
-gulp.task('watch', ['browser-sync', 'watch:lint-and-styleguide', 'watch:js']);
+gulp.task('watch', ['watch:sass', 'watch:js']);
 
-gulp.task('browser-sync', ['watch:css'], function () {
-  if (!options.drupalURL) {
-    return Promise.resolve();
-  }
-  return browserSync.init({
-    proxy: options.drupalURL,
-    noOpen: false
+gulp.task('watch:sass', function () {
+  return gulp.watch(options.theme.components + '**/*.scss', options.gulpWatchOptions, function () {
+    $.runSequence(
+      'styles',
+      'lint:sass',
+      'browser-sync:reload'
+    );
   });
 });
 
-gulp.task('watch:css', ['clean:css', 'styles'], function () {
-  return gulp.watch(options.theme.components + '**/*.scss', options.gulpWatchOptions, ['styles']);
-});
-
-gulp.task('watch:lint-and-styleguide', ['styleguide', 'lint:sass'], function () {
+gulp.task('watch:styleguide', function () {
   return gulp.watch([
-    options.theme.components + '**/*.scss',
     options.theme.components + '**/*.twig'
-  ], options.gulpWatchOptions, ['styleguide', 'lint:sass']);
+  ],
+    options.gulpWatchOptions,
+    function () {
+      $.runSequence(
+        'styleguide'
+      );
+    }
+  );
 });
 
-gulp.task('watch:js', ['lint:js'], function () {
-  return gulp.watch(options.eslint.files, options.gulpWatchOptions, ['lint:js']);
+gulp.task('watch:js', function () {
+  return gulp.watch(options.eslint.files, options.gulpWatchOptions, function () {
+    $.runSequence(
+      'lint:js'
+      // Minify and concat/webpack
+    );
+  });
 });
+
+gulp.task('browser-sync', function () {
+  browserSync.init(options.browserSync);
+});
+
+gulp.task('browser-sync:reload', function () {
+  browserSync.reload();
+});
+
+gulp.task('serve', ['build', 'browser-sync', 'watch']);
 
 // Clean all directories.
 gulp.task('clean', ['clean:css', 'clean:styleguide']);
@@ -250,7 +248,7 @@ gulp.task('clean', ['clean:css', 'clean:styleguide']);
 // Clean style guide files.
 gulp.task('clean:styleguide', function () {
   // You can use multiple globbing patterns as you would with `gulp.src`.
-  return del([
+  return $.del([
     options.styleGuide.destination + '*.html',
     options.styleGuide.destination + 'kss-assets',
     options.theme.build + 'twig/*.twig'
@@ -259,12 +257,30 @@ gulp.task('clean:styleguide', function () {
 
 // Clean CSS files.
 gulp.task('clean:css', function () {
-  return del([
+  return $.del([
     options.theme.css + '**/*.css',
     options.theme.css + '**/*.map'
   ], {force: true});
 });
 
+// Build Sprites.
+gulp.task('sprites', function () {
+  var spriteData = gulp.src(options.theme.sprites).pipe($.spritesmith(options.sprites));
+  return spriteData.pipe(gulp.dest('.'));
+});
+
+// Get new css files for kss-node.
+function getCss() {
+  // Help KSS to automatically find new component CSS files.
+  var cssFiles = $.glob.sync('*.css', {cwd: options.theme.css}),
+    cssStyleguide = [];
+
+  cssFiles.forEach(function (file) {
+    file = $.path.relative(options.rootPath.styleGuide, options.theme.css) + '/' + file;
+    cssStyleguide.push(file);
+  });
+  return cssStyleguide;
+}
 
 // Resources used to create this gulpfile.js:
 // - https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js

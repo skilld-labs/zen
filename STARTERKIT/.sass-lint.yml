@@ -40,7 +40,7 @@ rules:
   # no-css-comments: 2
   no-debug: 2
   # no-duplicate-properties: 2
-  no-empty-rulesets: 2
+  no-empty-rulesets: 1
   no-extends: 0
   # no-ids: 2
   # no-important: 2
