@@ -1,0 +1,7 @@
+slider:
+  label: Slider
+  category: STARTERKIT
+  template: components/layouts/slider/slider
+  regions:
+    content:
+      label: Content

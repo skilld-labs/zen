@@ -58,27 +58,28 @@ libraries-override:
 libraries:
   - STARTERKIT/base
   # @TODO Remove these libraries and use attach_library() for all component styles.
+  - STARTERKIT/autocomplete
   - STARTERKIT/box
+  - STARTERKIT/collapsible-fieldset
   - STARTERKIT/comment
+  - STARTERKIT/form-item
+  - STARTERKIT/form-table
   - STARTERKIT/header
   - STARTERKIT/hidden
   - STARTERKIT/highlight-mark
   - STARTERKIT/inline-links
   - STARTERKIT/inline-sibling
-  - STARTERKIT/print-none
-  - STARTERKIT/responsive-video
-  - STARTERKIT/wireframe
-  - STARTERKIT/autocomplete
-  - STARTERKIT/collapsible-fieldset
-  - STARTERKIT/form-item
-  - STARTERKIT/form-table
-  - STARTERKIT/progress-bar
-  - STARTERKIT/progress-throbber
-  - STARTERKIT/resizable-textarea
-  - STARTERKIT/table-drag
   - STARTERKIT/nav-menu
   - STARTERKIT/navbar
   - STARTERKIT/pager
+  - STARTERKIT/print-none
+  - STARTERKIT/progress-bar
+  - STARTERKIT/progress-throbber
+  - STARTERKIT/resizable-textarea
+  - STARTERKIT/responsive-video
+  - STARTERKIT/slider
+  - STARTERKIT/table-drag
+  - STARTERKIT/wireframe
 
 
 # This section is used by the contrib module, Component Libraries. It allows you

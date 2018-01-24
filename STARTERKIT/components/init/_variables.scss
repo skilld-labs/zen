@@ -82,6 +82,11 @@ $impact:          Impact, 'Arial Narrow', Helvetica, sans-serif;
 // http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
 $menlo:           Menlo, 'DejaVu Sans Mono', 'Ubuntu Mono', Courier, 'Courier New', monospace, sans-serif;
 
+
+// Font awesome.
+$fa-font-size-base:   $base-font-size;
+$fa-font-path: '../../../node_modules/components-font-awesome/fonts';
+
 // The font faces you specify in the $typefaces map can be used in the
 // typeface() mixin.
 $typefaces: (
