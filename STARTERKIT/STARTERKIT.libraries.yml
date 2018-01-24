@@ -11,8 +11,8 @@ base:
       # separate print stylesheets is bad for front-end performance.
       components/asset-builds/css/base.css: {}
   # If this library had JavaScript you could specify it like this:
-  # js:
-  #   js/script.js: {}
+  js:
+    js/app.js: {}
   dependencies:
     - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden

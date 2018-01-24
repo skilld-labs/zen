@@ -39,7 +39,8 @@ options.theme = {
   js : options.rootPath.theme + 'js/',
   node : options.rootPath.theme + 'node_modules/',
   images     : options.rootPath.theme + 'images/',
-  sprites    : options.rootPath.theme + 'images-source/*'
+  sprites    : options.rootPath.theme + 'images-source/*',
+  dist       : options.rootPath.theme + 'dist/'
 };
 
 // Set the URL used to access the Drupal website under development. This will
@@ -137,11 +138,14 @@ options.gulpWatchOptions = {};
 var gulp = require('gulp'),
   $ = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create(),
+
   del = require('del'),
   sass = require('gulp-sass'),
   kss = require('kss'),
   cache = require('gulp-cached'),
-  spritesmith = require('gulp.spritesmith');
+  spritesmith = require('gulp.spritesmith'),
+  webpack       = require('webpack'),
+  webpackStream = require('webpack-stream');
 
 // The default task.
 gulp.task('default', ['build']);
@@ -153,6 +157,15 @@ gulp.task('build', ['sprites', 'styles', 'styleguide', 'lint']);
 gulp.task('sprites', function () {
   var spriteData = gulp.src(options.theme.sprites).pipe(spritesmith(options.sprites));
   return spriteData.pipe(gulp.dest('.'));
+});
+
+// #################
+// Build Javascript.
+// #################
+gulp.task('scripts', [], function () {
+  return gulp.src(options.theme.js + 'init.js')
+    .pipe(webpackStream(require('./webpack.config.js'), webpack))
+    .pipe(gulp.dest(options.theme.dist));
 });
 
 // Build CSS.
@@ -245,7 +258,7 @@ gulp.task('watch:js', ['lint:js'], function () {
 });
 
 // Clean all directories.
-gulp.task('clean', ['clean:css', 'clean:styleguide']);
+gulp.task('clean', ['clean:css', 'clean:js', 'clean:styleguide']);
 
 // Clean style guide files.
 gulp.task('clean:styleguide', function () {
@@ -262,6 +275,14 @@ gulp.task('clean:css', function () {
   return del([
     options.theme.css + '**/*.css',
     options.theme.css + '**/*.map'
+  ], {force: true});
+});
+
+// Clean JS files.
+gulp.task('clean:js', function () {
+  return del([
+    options.theme.dist + '/*.js',
+    options.theme.dist + '/*.map'
   ], {force: true});
 });
 

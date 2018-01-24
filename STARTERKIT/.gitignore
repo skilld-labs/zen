@@ -7,3 +7,4 @@ libraries
 *.map
 images/sprites
 components/init/_sprites.scss
+dist
