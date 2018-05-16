@@ -133,40 +133,22 @@ $rem-fallback:      false;
 // @include breakpoint-set('to ems', true);
 
 
-// Zen grids
+// Gridlex grids
 //
-// The default grid system is built using the Zen Grids sass module. Full
-// documentation is available on the [Zen Grids website](http://zengrids.com/).
+// http://gridlex.devlint.fr/
 //
-// Note: if you are more comfortable using another grid system, you can easily
-// remove Zen Grids and its layouts.
+// Other variables here: node_modules/gridlex/src/gridlex-vars.scss
 //
-// Style guide: sass.variables.zen-grids
+// Style guide: sass.variables.gridlex
 
-// These are needed for all breakpoints on all layouts.
-$zen-auto-include-grid-item-base: false;
-$zen-box-sizing: universal-border-box;
+$gl-gutter: 1rem;
 
-// First we set the values we need for the mobile version of our layouts (the
-// version that does _not_ appear inside any @media queries.)
-$zen-columns: 1;
-$zen-gutters: 40px;
+$gl-xs:     'screen and (max-width: 640px)';
+$gl-sm:     'screen and (min-width: 641px) and (max-width: 992px)';
+$gl-md:     'screen and (min-width: 993px) and (max-width: 1200px)';
+$gl-lg:     'screen and (min-width: 1200px)';
+// TODO: add theme.breakpoints.yml file and dependency here
 
-// Then we set the values we need for each of the layouts at larger media query
-// sizes. Note how the names of the layouts match the names of our breakpoints
-// above. That allows a single zen-respond-to() to both use the proper item
-// from $zen-layouts and from $breakpoints.
-$zen-layouts: (
-  m: (
-    columns: 2,
-    // The gutters in the layouts are larger on mobile.
-    gutters: 25px,
-  ),
-  xl: (
-    columns: 3,
-    gutters: 25px,
-  ),
-);
 
 // See $include-rtl below.
 $zen-rtl-selector: '[dir="rtl"]';
