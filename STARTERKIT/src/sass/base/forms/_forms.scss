@@ -125,18 +125,6 @@ input {
   @extend %text-form-element !optional;
 }
 
-//[type='range'] {
-//  // Add your styles.
-//}
-//
-//[type='color'] {
-//  // Add your styles.
-//}
-//
-//[type='file'] {
-//  // Add your styles.
-//}
-
 // Checkboxes
 //
 // If an `<input>` element has the `type='checkbox'` attribute set, the form
@@ -226,10 +214,6 @@ label {
 // Markup: forms-select.twig
 //
 // Style guide: forms.base.select
-
-//select {
-//  // Add your styles.
-//}
 
 optgroup {
   // Restore the font weight unset by a previous rule.

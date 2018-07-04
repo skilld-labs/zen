@@ -1,4 +1,5 @@
-# Style Guide for the `ff` Theme
+
+# Style Guide for the `STARTERKIT` Theme
 
 This style guide documents the designs of this website which are built
 with component-based styles and Sass variables, functions and mixins.
