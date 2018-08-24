@@ -10,7 +10,7 @@
     "babel-preset-env": "^1.7.0",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.18.3",
-    "chroma-sass": "^1.2.6",
+    "chroma-sass": "skilld-labs/chroma",
     "del": "^3.0.0",
     "eslint": "^4.12.0",
     "gulp": "^3.9.1",
