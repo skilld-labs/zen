@@ -87,7 +87,6 @@ libraries:
 component-libraries:
   STARTERKIT:
     paths:
-      - components
       - src/sass
       - templates
 

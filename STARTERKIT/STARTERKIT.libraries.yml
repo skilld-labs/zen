@@ -9,7 +9,7 @@ base:
       # media. For example, you can specify this is a print media stylesheet by
       # specifying: { media: print } Note: this isn't recommended since
       # separate print stylesheets is bad for front-end performance.
-      components/asset-builds/css/base.css: {}
+      dist/css/base.css: {}
   # If this library had JavaScript you could specify it like this:
   js:
     dist/app.js: {}
@@ -26,101 +26,101 @@ layouts:
   css:
     # The SMACSS category, "layout", is loaded after "base" styles.
     layout:
-      components/asset-builds/css/layouts.css: {}
+      dist/css/layouts.css: {}
 
 autocomplete:
   css:
     component:
-      components/asset-builds/css/autocomplete.css: {}
+      dist/css/autocomplete.css: {}
 
 breadcrumb:
   css:
     component:
-      components/asset-builds/css/breadcrumb.css: {}
+      dist/css/breadcrumb.css: {}
   dependencies:
     - STARTERKIT/visually-hidden
 
 box:
   css:
     component:
-      components/asset-builds/css/box.css: {}
+      dist/css/box.css: {}
 
 clearfix:
   css:
     component:
-      components/asset-builds/css/clearfix.css: {}
+      dist/css/clearfix.css: {}
 
 collapsible-fieldset:
   css:
     component:
-      components/asset-builds/css/collapsible-fieldset.css: {}
+      dist/css/collapsible-fieldset.css: {}
 
 comment:
   css:
     component:
-      components/asset-builds/css/comment.css: {}
+      dist/css/comment.css: {}
 
 footer:
   css:
     component:
-      components/asset-builds/css/footer.css: {}
+      dist/css/footer.css: {}
 
 form-item:
   css:
     component:
-      components/asset-builds/css/form-item.css: {}
+      dist/css/form-item.css: {}
 
 form-table:
   css:
     component:
-      components/asset-builds/css/form-table.css: {}
+      dist/css/form-table.css: {}
 
 header:
   css:
     component:
-      components/asset-builds/css/header.css: {}
+      dist/css/header.css: {}
   dependencies:
     - STARTERKIT/clearfix
 
 hidden:
   css:
     component:
-      components/asset-builds/css/hidden.css: {}
+      dist/css/hidden.css: {}
 
 highlight-mark:
   css:
     component:
-      components/asset-builds/css/highlight-mark.css: {}
+      dist/css/highlight-mark.css: {}
 
 inline-links:
   css:
     component:
-      components/asset-builds/css/inline-links.css: {}
+      dist/css/inline-links.css: {}
 
 inline-sibling:
   css:
     component:
-      components/asset-builds/css/inline-sibling.css: {}
+      dist/css/inline-sibling.css: {}
 
 messages:
   css:
     component:
-      components/asset-builds/css/messages.css: {}
+      dist/css/messages.css: {}
 
 more-link:
   css:
     component:
-      components/asset-builds/css/more-link.css: {}
+      dist/css/more-link.css: {}
 
 nav-menu:
   css:
     component:
-      components/asset-builds/css/nav-menu.css: {}
+      dist/css/nav-menu.css: {}
 
 navbar:
   css:
     component:
-      components/asset-builds/css/navbar.css: {}
+      dist/css/navbar.css: {}
   dependencies:
     - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden
@@ -128,47 +128,47 @@ navbar:
 pager:
   css:
     component:
-      components/asset-builds/css/pager.css: {}
+      dist/css/pager.css: {}
 
 print-none:
   css:
     component:
-      components/asset-builds/css/print-none.css: {}
+      dist/css/print-none.css: {}
 
 progress-bar:
   css:
     component:
-      components/asset-builds/css/progress-bar.css: {}
+      dist/css/progress-bar.css: {}
 
 progress-throbber:
   css:
     component:
-      components/asset-builds/css/progress-throbber.css: {}
+      dist/css/progress-throbber.css: {}
 
 resizable-textarea:
   css:
     component:
-      components/asset-builds/css/resizable-textarea.css: {}
+      dist/css/resizable-textarea.css: {}
 
 responsive-video:
   css:
     component:
-      components/asset-builds/css/responsive-video.css: {}
+      dist/css/responsive-video.css: {}
 
 skip-link:
   css:
     component:
-      components/asset-builds/css/skip-link.css: {}
+      dist/css/skip-link.css: {}
 
 table-drag:
   css:
     component:
-      components/asset-builds/css/table-drag.css: {}
+      dist/css/table-drag.css: {}
 
 tabs:
   css:
     component:
-      components/asset-builds/css/tabs.css: {}
+      dist/css/tabs.css: {}
   dependencies:
     - STARTERKIT/clearfix
     - STARTERKIT/visually-hidden
@@ -176,14 +176,14 @@ tabs:
 visually-hidden:
   css:
     component:
-      components/asset-builds/css/visually-hidden.css: {}
+      dist/css/visually-hidden.css: {}
 
 watermark:
   css:
     component:
-      components/asset-builds/css/watermark.css: {}
+      dist/css/watermark.css: {}
 
 wireframe:
   css:
     component:
-      components/asset-builds/css/wireframe.css: {}
+      dist/css/wireframe.css: {}

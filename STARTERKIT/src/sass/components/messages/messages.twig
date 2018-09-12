@@ -26,11 +26,11 @@
   {% block icon %}
     <div class="messages__icon">
       {% if type == 'error' %}
-        {% include "@STARTERKIT/components/messages/messages-icon-error.svg" %}
+        {% include "messages-icon-error.svg" %}
       {% elseif type == 'warning' %}
-        {% include "@STARTERKIT/components/messages/messages-icon-warning.svg" %}
+        {% include "messages-icon-warning.svg" %}
       {% else %}
-        {% include "@STARTERKIT/components/messages/messages-icon-status.svg" %}
+        {% include "messages-icon-status.svg" %}
       {% endif %}
     </div>
   {% endblock icon %}
