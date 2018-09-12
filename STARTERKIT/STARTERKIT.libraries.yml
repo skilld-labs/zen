@@ -28,6 +28,11 @@ layouts:
     layout:
       dist/css/layouts.css: {}
 
+layout_onecolumn:
+  css:
+    layout:
+      dist/css/layout--onecolumn.css: {}
+
 autocomplete:
   css:
     component:

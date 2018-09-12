@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a one-column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+ #}
+ {%
+ set classes = [
+ 'layout',
+ 'layout__onecolumn',
+ ]
+ %}
+ {% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="layout__onecolumn--container container">
+      {% if content.first %}
+      <div {{ region_attributes.first.addClass('layout__region', 'layout__region--first') }}>
+        {{ content.first }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
