@@ -1,9 +1,5 @@
 node_modules
-components/asset-builds/css
-components/asset-builds/twig
-components/asset-builds/sprites
 styleguide
 libraries
 *.map
-images/sprites
-components/init/_sprites.scss
+dist

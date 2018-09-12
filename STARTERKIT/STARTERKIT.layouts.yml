@@ -1,0 +1,13 @@
+layout_onecolumn:
+  label: 'My One column'
+  class: '\Drupal\Starterkit\Plugin\Layout\DefaultConfigLayout'
+  path: starterkit/layouts/
+  template: onecolumn/layout--onecolumn
+  library: STARTERKIT/layout_onecolumn
+  category: 'STARTERKIT'
+  default_region: first
+  icon_map:
+    - [first]
+  regions:
+    first:
+      label: First
