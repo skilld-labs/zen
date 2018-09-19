@@ -42,6 +42,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production gulp",
-    "dev": "NODE_ENV=dev gulp"
+    "dev": "NODE_ENV=dev gulp",
+    "clean": "gulp clean"
   }
 }

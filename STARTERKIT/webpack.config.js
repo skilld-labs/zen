@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 var webpack = require('webpack');
 
 var config = {
@@ -15,7 +19,7 @@ var config = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['env']
         }
       }
     ]

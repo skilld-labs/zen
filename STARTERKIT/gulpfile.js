@@ -118,7 +118,7 @@ options.eslint = {
   ]
 };
 
-// Define the paths for gulp.spritesmith
+// Define the paths for gulp.spritesmith.
 options.sprites = {
   imgName: options.rootPath.dist + 'sprites/sprites.png',
   cssName: 'src/sass/abstractions/_sprites.scss',
@@ -136,14 +136,14 @@ options.gulpWatchOptions = {};
 // Load Gulp and tools we will use.
 // Task gulp-load-plugins will report "undefined" error unless you load
 // gulp-sass manually.
-let gulp = require('gulp'),
-  $ = require('gulp-load-plugins')(),
-  browserSync = require('browser-sync').create(),
-  del = require('del'),
-  sass = require('gulp-sass'),
-  kss = require('kss'),
-  cache = require('gulp-cached'),
-  spritesmith = require('gulp.spritesmith'),
+let gulp        = require('gulp'),
+  $             = require('gulp-load-plugins')(),
+  browserSync   = require('browser-sync').create(),
+  del           = require('del'),
+  sass          = require('gulp-sass'),
+  kss           = require('kss'),
+  cache         = require('gulp-cached'),
+  spritesmith   = require('gulp.spritesmith'),
   webpack       = require('webpack'),
   webpackStream = require('webpack-stream');
 
@@ -161,7 +161,7 @@ gulp.task('sprites', function () {
 
 // #################
 // Build Javascript.
-// #################
+// #################.
 gulp.task('scripts', [], function () {
   return gulp.src(options.theme.js + 'init.js')
     .pipe(webpackStream(require('./webpack.config.js'), webpack))

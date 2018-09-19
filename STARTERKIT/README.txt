@@ -280,4 +280,5 @@ Optional steps:
     // <div class="icon-home"></div>
 
     We are using `gulp.spritesmith` for this.
-    Full documentation: https://github.com/twolfson/gulp.spritesmith#documentation
+    Full documentation:
+    https://github.com/twolfson/gulp.spritesmith#documentation
