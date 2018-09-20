@@ -20,5 +20,6 @@ cp -rf $SOURCES $THEME
 
 find $THEME \
   -type f \
-  -exec sed -i 's/$REPLACE/$THEME/g' {} + \
-  -exec rename $REPLACE $THEME {} +
+  -exec sed -i "s/${REPLACE}/${THEME}/g" {} +
+
+node rename.js $THEME $REPLACE $THEME
